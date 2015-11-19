@@ -26,6 +26,7 @@
 		5D15835A1BFDD235003A8AD7 /* RMMatrix2x2.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1583591BFDD235003A8AD7 /* RMMatrix2x2.m */; };
 		5D15835D1BFDD451003A8AD7 /* RMMatrix3x3.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15835C1BFDD451003A8AD7 /* RMMatrix3x3.m */; };
 		5D1583651BFDFE2F003A8AD7 /* RMMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1583641BFDFE2F003A8AD7 /* RMMath.m */; };
+		5D1583671BFDFF5D003A8AD7 /* RMTestMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1583661BFDFF5D003A8AD7 /* RMTestMath.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		5D15835C1BFDD451003A8AD7 /* RMMatrix3x3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMatrix3x3.m; sourceTree = "<group>"; };
 		5D1583631BFDFE2F003A8AD7 /* RMMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMath.h; sourceTree = "<group>"; };
 		5D1583641BFDFE2F003A8AD7 /* RMMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMath.m; sourceTree = "<group>"; };
+		5D1583661BFDFF5D003A8AD7 /* RMTestMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTestMath.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 			children = (
 				5D1583301BFDB7D4003A8AD7 /* ShaderViewTests.m */,
 				5D1583321BFDB7D4003A8AD7 /* Info.plist */,
+				5D1583661BFDFF5D003A8AD7 /* RMTestMath.m */,
 			);
 			path = ShaderViewTests;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D1583671BFDFF5D003A8AD7 /* RMTestMath.m in Sources */,
 				5D1583311BFDB7D4003A8AD7 /* ShaderViewTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
