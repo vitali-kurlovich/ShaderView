@@ -20,6 +20,14 @@ extern _RMMatrix4x4 const kRMIdentityMatrix4x4;
 _RMMatrix4x4 RMMulMatrix4x4(_RMMatrix4x4 const a, _RMMatrix4x4 const b);
 _RMMatrix4x4 RMMulMatrix4x4ToScalar(_RMMatrix4x4 const a, float scalar);
 
+_RMMatrix4x4 RMTranslateMatrix4x4(float x, float y, float z);
+_RMMatrix4x4 RMScaleMatrix4x4(float sx, float sy, float sz);
+
+_RMMatrix4x4 RMTransposeMatrix4x4(_RMMatrix4x4 const a);
+
+float RMDetMatrix4x4(_RMMatrix4x4 const a);
+
+
 BOOL isRMMatrix4x4Equal(_RMMatrix4x4 const a, _RMMatrix4x4 const b);
 
 

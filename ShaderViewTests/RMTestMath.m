@@ -128,4 +128,70 @@
      XCTAssertTrue(isRMMatrix4x4Equal(b, c));
     
 }
+
+- (void)testTranslateMatrix
+{
+    _RMMatrix4x4 t = RMTranslateMatrix4x4(1,2,3);
+    
+    _RMMatrix4x4 c =
+    {
+        1, 0, 0, 0,
+        0, 1, 0, 0,
+        0, 0, 1, 0,
+        1, 2, 3, 1
+    };
+    
+    XCTAssertTrue(isRMMatrix4x4Equal(t, c));
+}
+
+- (void)testScaleMatrix
+{
+    _RMMatrix4x4 t = RMScaleMatrix4x4(1,2,3);
+    
+    _RMMatrix4x4 c =
+    {
+        1, 0, 0, 0,
+        0, 2, 0, 0,
+        0, 0, 3, 0,
+        0, 0, 0, 1
+    };
+    
+    XCTAssertTrue(isRMMatrix4x4Equal(t, c));
+}
+
+- (void)testTransposeMatrix4x4
+{
+    _RMMatrix4x4 a = {
+        1,  2,  3,  4,
+        5,  6,  7,  8,
+        9,  10, 11, 12,
+        13, 14, 15, 16
+    };
+    
+    _RMMatrix4x4 b = RMTransposeMatrix4x4(a);
+    
+    _RMMatrix4x4 t = {
+        1, 5, 9, 13,
+        2, 6, 10, 14,
+        3, 7, 11, 15,
+        4, 8, 12, 16
+    };
+    XCTAssertTrue(isRMMatrix4x4Equal(b, t));
+}
+// float RMDetMatrix4x4(_RMMatrix4x4 const a);
+
+- (void)testDetMatrix4x4
+{
+    _RMMatrix4x4 a = {
+        1,  2,  3,  4,
+        5,  6,  7,  8,
+        9,  10, 11, 12,
+        13, 14, 15, 16
+    };
+    
+    float det = RMDetMatrix4x4(a);
+    XCTAssertEqual(det, 0);
+    
+}
+
 @end

@@ -80,6 +80,73 @@ BOOL isRMMatrix4x4Equal(_RMMatrix4x4 const a, _RMMatrix4x4 const b)
     
 }
 
+_RMMatrix4x4 RMTranslateMatrix4x4(float x, float y, float z)
+{
+    _RMMatrix4x4 result = kRMIdentityMatrix4x4;
+    result.m30 = x;
+    result.m31 = y;
+    result.m32 = z;
+    return result;
+}
+
+_RMMatrix4x4 RMScaleMatrix4x4(float sx, float sy, float sz)
+{
+    _RMMatrix4x4 result = kRMIdentityMatrix4x4;
+    result.m00 = sx;
+    result.m11 = sy;
+    result.m22 = sz;
+    return result;
+}
+
+_RMMatrix4x4 RMTransposeMatrix4x4(_RMMatrix4x4 const a)
+{
+    _RMMatrix4x4 result = {
+        a.m00, a.m10, a.m20, a.m30,
+        a.m01, a.m11, a.m21, a.m31,
+        a.m02, a.m12, a.m22, a.m32,
+        a.m03, a.m13, a.m23, a.m33
+    };
+
+    return result;
+}
+
+float RMDetMatrix4x4(_RMMatrix4x4 const a)
+{
+    float det =
+    a.m01*a.m13*a.m22*a.m30 -
+    a.m01*a.m12*a.m23*a.m30 -
+    a.m00*a.m13*a.m22*a.m31 +
+    a.m00*a.m12*a.m23*a.m31 -
+    a.m01*a.m13*a.m20*a.m32 +
+    a.m00*a.m13*a.m21*a.m32 +
+    a.m01*a.m10*a.m23*a.m32 -
+    a.m00*a.m11*a.m23*a.m32 +
+    
+    a.m03*  (
+             a.m12*a.m21*a.m30 -
+             a.m11*a.m22*a.m30 -
+             a.m12*a.m20*a.m31 +
+             a.m10*a.m22*a.m31 +
+             a.m11*a.m20*a.m32 -
+             a.m10*a.m21*a.m32
+             ) +
+    
+    a.m01*a.m12*a.m20*a.m33 -
+    a.m00*a.m12*a.m21*a.m33 -
+    a.m01*a.m10*a.m22*a.m33 +
+    a.m00*a.m11*a.m22*a.m33 +
+    a.m02*  (
+             -a.m13*a.m21*a.m30 +
+             a.m11*a.m23*a.m30 +
+             a.m13*a.m20*a.m31 - 
+             a.m10*a.m23*a.m31 - 
+             a.m11*a.m20*a.m33 + 
+             a.m10*a.m21*a.m33
+             );
+    
+    return det;
+}
+
 @implementation RMMath
 
 @end
