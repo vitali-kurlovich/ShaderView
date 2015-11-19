@@ -90,7 +90,7 @@
         400, 358, 316, 274,
         560, 502, 444, 386
     };
-
+    
     
     XCTAssertTrue(isRMMatrix4x4Equal(c, d));
     
@@ -107,5 +107,25 @@
     XCTAssertTrue(isRMMatrix4x4Equal(c, e));
 }
 
-
+- (void)testRMMulMatrix4x4_Scalar
+{
+    _RMMatrix4x4 a = {
+        1,  2,  3,  4,
+        5,  6,  7,  8,
+        9,  10, 11, 12,
+        13, 14, 15, 16
+    };
+    
+    _RMMatrix4x4 b = RMMulMatrix4x4ToScalar(a, 2);
+    
+    _RMMatrix4x4 c = {
+        2, 4, 6, 8,
+        10, 12, 14, 16,
+        18, 20, 22, 24,
+        26, 28, 30, 32
+    };
+    
+     XCTAssertTrue(isRMMatrix4x4Equal(b, c));
+    
+}
 @end

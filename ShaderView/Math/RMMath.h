@@ -18,7 +18,11 @@ typedef struct {
 extern _RMMatrix4x4 const kRMIdentityMatrix4x4;
 
 _RMMatrix4x4 RMMulMatrix4x4(_RMMatrix4x4 const a, _RMMatrix4x4 const b);
+_RMMatrix4x4 RMMulMatrix4x4ToScalar(_RMMatrix4x4 const a, float scalar);
+
 BOOL isRMMatrix4x4Equal(_RMMatrix4x4 const a, _RMMatrix4x4 const b);
+
+
 
 @interface RMMath : NSObject
 

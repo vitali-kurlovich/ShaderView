@@ -43,6 +43,32 @@ _RMMatrix4x4 RMMulMatrix4x4(_RMMatrix4x4 const a, _RMMatrix4x4 const b)
     return c;
 }
 
+_RMMatrix4x4 RMMulMatrix4x4ToScalar(_RMMatrix4x4 const a, float scalar)
+{
+    _RMMatrix4x4 c = a;
+    
+    c.m00 *= scalar;
+    c.m01 *= scalar;
+    c.m02 *= scalar;
+    c.m03 *= scalar;
+    
+    c.m10 *= scalar;
+    c.m11 *= scalar;
+    c.m12 *= scalar;
+    c.m13 *= scalar;
+    
+    c.m20 *= scalar;
+    c.m21 *= scalar;
+    c.m22 *= scalar;
+    c.m23 *= scalar;
+    
+    c.m30 *= scalar;
+    c.m31 *= scalar;
+    c.m32 *= scalar;
+    c.m33 *= scalar;
+    
+    return c;
+}
 
 BOOL isRMMatrix4x4Equal(_RMMatrix4x4 const a, _RMMatrix4x4 const b)
 {
