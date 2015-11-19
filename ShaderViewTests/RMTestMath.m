@@ -107,7 +107,7 @@
     XCTAssertTrue(isRMMatrix4x4Equal(c, e));
 }
 
-- (void)testRMMulMatrix4x4_Scalar
+- (void)testMulMatrix4x4_Scalar
 {
     _RMMatrix4x4 a = {
         1,  2,  3,  4,
@@ -159,6 +159,23 @@
     XCTAssertTrue(isRMMatrix4x4Equal(t, c));
 }
 
+// _RMMatrix4x4 RMRotateMatrix4x4( float alpha, float x, float y, float z)
+
+- (void)testRotateMatrix
+{
+    _RMMatrix4x4 r = RMRotateMatrix4x4( 0, 0, 0, 1);
+    
+    _RMMatrix4x4 t = {
+        1, 0, 0, 0,
+        0, 1, 0, 0,
+        0, 0, 1, 0,
+        0, 0, 0, 1
+    };
+
+    XCTAssertTrue(isRMMatrix4x4Equal(r, t));
+}
+
+
 - (void)testTransposeMatrix4x4
 {
     _RMMatrix4x4 a = {
@@ -192,6 +209,26 @@
     float det = RMDetMatrix4x4(a);
     XCTAssertEqual(det, 0);
     
+}
+
+- (void)testInverseMatrix4x4
+{
+    BOOL sucess;
+    
+     _RMMatrix4x4 r = RMInverseMatrix4x4(kRMIdentityMatrix4x4, &sucess);
+    
+    XCTAssertTrue(sucess);
+    XCTAssertTrue(isRMMatrix4x4Equal(r, kRMIdentityMatrix4x4));
+    
+    _RMMatrix4x4 a = {
+        1,  2,  3,  4,
+        5,  6,  7,  8,
+        9,  10, 11, 12,
+        13, 14, 15, 16
+    };
+    
+    r = RMInverseMatrix4x4(a, &sucess);
+    XCTAssertFalse(sucess);
 }
 
 @end

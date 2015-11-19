@@ -112,11 +112,14 @@ _RMMatrix4x4 RMTransposeMatrix4x4(_RMMatrix4x4 const a)
 
 float RMDetMatrix4x4(_RMMatrix4x4 const a)
 {
+    float m00m31 = a.m00*a.m31;
+    float m01m30 = a.m01*a.m30;
+    
     float det =
-    a.m01*a.m13*a.m22*a.m30 -
-    a.m01*a.m12*a.m23*a.m30 -
-    a.m00*a.m13*a.m22*a.m31 +
-    a.m00*a.m12*a.m23*a.m31 -
+    m01m30*a.m13*a.m22 -
+    m01m30*a.m12*a.m23 -
+    m00m31*a.m13*a.m22 +
+    m00m31*a.m12*a.m23 -
     a.m01*a.m13*a.m20*a.m32 +
     a.m00*a.m13*a.m21*a.m32 +
     a.m01*a.m10*a.m23*a.m32 -
@@ -145,6 +148,40 @@ float RMDetMatrix4x4(_RMMatrix4x4 const a)
              );
     
     return det;
+}
+
+_RMMatrix4x4 RMInverseMatrix4x4(_RMMatrix4x4 const a, BOOL *sucess)
+{
+    _RMMatrix4x4 r = a;
+    
+    float det = RMDetMatrix4x4(a);
+    if (det != 0)
+    {
+        *sucess = YES;
+        _RMMatrix4x4 t = RMTransposeMatrix4x4(a);
+        r = RMMulMatrix4x4ToScalar(t, 1/det);
+        
+    } else {
+        *sucess = NO;
+    }
+    
+    return r;
+}
+
+_RMMatrix4x4 RMRotateMatrix4x4( float alpha, float x, float y, float z)
+{
+    float cos = cosf(alpha);
+    float sin = sinf(alpha);
+    _RMMatrix4x4 r =
+    {
+        x*x*(1-cos)+cos,   x*y*(1-cos)-z*sin, x*z*(1-cos)+y*sin, 0,
+        x*y*(1-cos)+z*sin, y*y*(1-cos)+cos,   y*z*(1-cos)-x*sin, 0,
+        x*z*(1-cos)-y*sin, y*z*(1-cos)+x*sin, z*z*(1-cos)+cos,   0,
+        0,                 0,                   0,                1
+    };
+    
+    
+    return r;
 }
 
 @implementation RMMath
