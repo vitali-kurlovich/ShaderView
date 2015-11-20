@@ -28,6 +28,7 @@
 		5D1583651BFDFE2F003A8AD7 /* RMMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1583641BFDFE2F003A8AD7 /* RMMath.m */; };
 		5D1583671BFDFF5D003A8AD7 /* RMTestMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1583661BFDFF5D003A8AD7 /* RMTestMath.m */; };
 		5D1583701BFE508A003A8AD7 /* RMCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15836F1BFE508A003A8AD7 /* RMCamera.m */; };
+		5D368C3E1BFF17AD00FE2A83 /* RMRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D368C3D1BFF17AD00FE2A83 /* RMRender.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		5D1583661BFDFF5D003A8AD7 /* RMTestMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTestMath.m; sourceTree = "<group>"; };
 		5D15836E1BFE508A003A8AD7 /* RMCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMCamera.h; sourceTree = "<group>"; };
 		5D15836F1BFE508A003A8AD7 /* RMCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMCamera.m; sourceTree = "<group>"; };
+		5D368C3C1BFF17AD00FE2A83 /* RMRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRender.h; sourceTree = "<group>"; };
+		5D368C3D1BFF17AD00FE2A83 /* RMRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRender.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +191,8 @@
 				5D1583591BFDD235003A8AD7 /* RMMatrix2x2.m */,
 				5D15835B1BFDD451003A8AD7 /* RMMatrix3x3.h */,
 				5D15835C1BFDD451003A8AD7 /* RMMatrix3x3.m */,
+				5D368C3C1BFF17AD00FE2A83 /* RMRender.h */,
+				5D368C3D1BFF17AD00FE2A83 /* RMRender.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -310,6 +315,7 @@
 				5D1583571BFDB865003A8AD7 /* RMShaderView.m in Sources */,
 				5D1583531BFDB845003A8AD7 /* RMVBO.m in Sources */,
 				5D15835D1BFDD451003A8AD7 /* RMMatrix3x3.m in Sources */,
+				5D368C3E1BFF17AD00FE2A83 /* RMRender.m in Sources */,
 				5D15834E1BFDB845003A8AD7 /* RMGLTexture.m in Sources */,
 				5D1583521BFDB845003A8AD7 /* RMTexture.m in Sources */,
 				5D1583511BFDB845003A8AD7 /* RMShader.m in Sources */,
@@ -510,6 +516,7 @@
 				5D1583371BFDB7D4003A8AD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5D1583381BFDB7D4003A8AD7 /* Build configuration list for PBXNativeTarget "ShaderViewTests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +525,7 @@
 				5D15833A1BFDB7D4003A8AD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
