@@ -8,28 +8,22 @@
 
 #import "RMShaderView.h"
 
+#import "RMRender.h"
+
 @import OpenGLES;
 
 @interface RMShaderView ()
-@property (nonatomic, readonly) CAEAGLLayer* eaglLayer;
-@property (nonatomic, readonly) EAGLContext* context;
+
 @end
 
 @implementation RMShaderView
-@synthesize eaglLayer = _eaglLayer;
-@synthesize context = _context;
-
-+ (Class)layerClass {
-    return [CAEAGLLayer class];
-}
-
-
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self configureDisplayLink];
+        [self _configureDisplayLink];
+        self.render.delegate = self;
        
     }
     return self;
@@ -40,58 +34,42 @@
     self = [super initWithCoder:aDecoder];
     if (self)
     {
-        [self configureDisplayLink];
+        [self _configureDisplayLink];
+        self.render.delegate = self;
     }
     return self;
 }
 
-- (void)render
-{
-    
-}
 
+- (void)setFrame:(CGRect)frame
+{
+    if (!CGRectEqualToRect(self.frame, frame))
+    {
+        super.frame = frame;
+        float scale = [UIScreen mainScreen].scale;
+        [self.render prepareRenderBuffersWithWidth:CGRectGetWidth(frame)*scale height:CGRectGetHeight(frame)*scale];
+    }
+}
 
 
 - (void)_render:(CADisplayLink*)displayLink
 {
-    [self render];
+    float scale = [UIScreen mainScreen].scale;
+    [self.render configureViewportWithX:CGRectGetMinX(self.bounds)*scale
+                                      y:CGRectGetMinY(self.bounds)*scale
+                                  width:CGRectGetWidth(self.bounds)*scale
+                                 height:CGRectGetHeight(self.bounds)*scale];
+    
+    [self.render preRender:displayLink.duration];
+    
+    [self.render render:displayLink.duration];
+    [self.render postRender:displayLink.duration];
 }
 
-- (void)configureDisplayLink {
+- (void)_configureDisplayLink {
     CADisplayLink* displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(_render:)];
     [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
-
-- (CAEAGLLayer*)eaglLayer
-{
-    if (_eaglLayer == nil)
-    {
-        _eaglLayer = (CAEAGLLayer*) self.layer;
-        _eaglLayer.drawableProperties = @{kEAGLDrawablePropertyRetainedBacking:@NO,
-                                          kEAGLDrawablePropertyColorFormat:kEAGLColorFormatRGBA8};
-        self.contentScaleFactor = [UIScreen mainScreen].scale;
-    }
-    return _eaglLayer;
-}
-
-- (EAGLContext*)context
-{
-    if (_context == nil)
-    {
-        EAGLRenderingAPI api = kEAGLRenderingAPIOpenGLES3;
-        _context = [[EAGLContext alloc] initWithAPI:api];
-        if (!_context) {
-            NSLog(@"Failed to initialize OpenGLES 3.0 context");
-            exit(1);
-        }
-        
-        if (![EAGLContext setCurrentContext:_context]) {
-            NSLog(@"Failed to set current OpenGL context");
-            exit(1);
-        }
-    }
-    return _context;
-}
 
 @end

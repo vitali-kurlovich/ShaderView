@@ -18,8 +18,8 @@
 @interface RMProgram : NSObject
 @property (nullable, nonatomic, copy) NSString* name;
 
-@property (nonatomic, getter=isCompiled) BOOL compiled;
 
+@property (nonatomic, getter=isCompiled) BOOL compiled;
 
 @property (nonnull, nonatomic, readonly) RMVertexShader* vertexShader;
 @property (nonnull, nonatomic, readonly) RMFragmentShader* fragmentShader;

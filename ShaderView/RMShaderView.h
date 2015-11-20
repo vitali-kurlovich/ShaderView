@@ -8,11 +8,15 @@
 
 @import UIKit;
 
+#import "RMRender.h"
+
 @class RMGLSLProgram;
 
-@interface RMShaderView : UIView
-@property (nullable, readonly) RMGLSLProgram* program;
+@class RMRender;
 
-- (void)render;
+@interface RMShaderView : UIView<RMRenderDelegate>
+@property (nullable, nonatomic, readonly) RMGLSLProgram* program;
+@property (nullable, nonatomic, readonly) RMRender* render;
+
 
 @end
