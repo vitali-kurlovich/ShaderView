@@ -33,36 +33,51 @@
     return nil;
 }
 
-+ (nullable instancetype)vertexShader:(nonnull NSString*)source
+- (nullable instancetype)initWithSource:(nonnull NSString*)source
 {
-    return [[[self class] alloc] initWithType:RMShaderTypeVertex source:source];
+    return  [self initWithType:RMShaderTypeNone source:source];
 }
 
-+ (nullable instancetype)fragmentShader:(nonnull NSString*)source
-{
-    return [[[self class] alloc] initWithType:RMShaderTypeFragment source:source];
-}
 
 + (nullable instancetype)shader:(nonnull NSString*)source
 {
-    return [[[self class] alloc] initWithType:RMShaderTypeNone source:source];
+    return [[[self class] alloc] initWithSource:source];
 }
 
 @end
 
+
+
 @implementation RMVertexShader : RMShader
 
-+ (nullable instancetype)shader:(nonnull NSString*)source
+- (nullable instancetype)initWithSource:(nonnull NSString*)source attributes:( nullable NSArray<RMVertexAttribute*>*)attributes
 {
-    return [[[self class] alloc] initWithType:RMShaderTypeVertex source:source];
+    self = [super initWithType:RMShaderTypeVertex source:source];
+    
+    if (self)
+    {
+        _attributes = [attributes copy];
+    }
+    return self;
+}
+
+- (nullable instancetype)initWithSource:(nonnull NSString*)source
+{
+    return [self initWithSource:source attributes:nil];
+}
+
++ (nullable instancetype)shader:(nonnull NSString*)source attributes:(nullable NSArray<RMVertexAttribute*>*)attributes
+{
+    return [[[self class] alloc] initWithSource:source attributes:attributes];
 }
 
 @end
 
 @implementation RMFragmentShader : RMShader
 
-+ (nullable instancetype)shader:(nonnull NSString*)source
+- (nullable instancetype)initWithSource:(nonnull NSString*)source
 {
-    return [[[self class] alloc] initWithType:RMShaderTypeFragment source:source];
+    self = [super initWithType:RMShaderTypeFragment source:source];
+    return self;
 }
 @end

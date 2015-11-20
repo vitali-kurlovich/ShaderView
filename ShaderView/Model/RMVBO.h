@@ -98,8 +98,9 @@ typedef NS_ENUM(NSInteger, RMVBODataType) {
 
 @end
 
+
 @interface RMVBO : NSObject
-@property (nonatomic, readonly) RMVBOFormat format;
+//@property (nonatomic, readonly) RMVBOFormat format;
 
 
 
