@@ -27,6 +27,7 @@
 		5D15835D1BFDD451003A8AD7 /* RMMatrix3x3.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15835C1BFDD451003A8AD7 /* RMMatrix3x3.m */; };
 		5D1583651BFDFE2F003A8AD7 /* RMMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1583641BFDFE2F003A8AD7 /* RMMath.m */; };
 		5D1583671BFDFF5D003A8AD7 /* RMTestMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1583661BFDFF5D003A8AD7 /* RMTestMath.m */; };
+		5D1583701BFE508A003A8AD7 /* RMCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15836F1BFE508A003A8AD7 /* RMCamera.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,8 @@
 		5D1583631BFDFE2F003A8AD7 /* RMMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMath.h; sourceTree = "<group>"; };
 		5D1583641BFDFE2F003A8AD7 /* RMMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMath.m; sourceTree = "<group>"; };
 		5D1583661BFDFF5D003A8AD7 /* RMTestMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTestMath.m; sourceTree = "<group>"; };
+		5D15836E1BFE508A003A8AD7 /* RMCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMCamera.h; sourceTree = "<group>"; };
+		5D15836F1BFE508A003A8AD7 /* RMCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMCamera.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +197,8 @@
 			children = (
 				5D1583631BFDFE2F003A8AD7 /* RMMath.h */,
 				5D1583641BFDFE2F003A8AD7 /* RMMath.m */,
+				5D15836E1BFE508A003A8AD7 /* RMCamera.h */,
+				5D15836F1BFE508A003A8AD7 /* RMCamera.m */,
 			);
 			path = Math;
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 				5D1583501BFDB845003A8AD7 /* RMProgram.m in Sources */,
 				5D1583181BFDB7D4003A8AD7 /* main.m in Sources */,
 				5D15835A1BFDD235003A8AD7 /* RMMatrix2x2.m in Sources */,
+				5D1583701BFE508A003A8AD7 /* RMCamera.m in Sources */,
 				5D15834D1BFDB845003A8AD7 /* RMGLSLProgram.m in Sources */,
 				5D1583651BFDFE2F003A8AD7 /* RMMath.m in Sources */,
 			);
