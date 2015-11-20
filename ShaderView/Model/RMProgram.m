@@ -57,6 +57,7 @@
         _martix2x2Params = [NSMutableDictionary dictionary];
         _martix3x3Params = [NSMutableDictionary dictionary];
         _martix3x3Params = [NSMutableDictionary dictionary];
+        _martix4x4Params = [NSMutableDictionary dictionary];
         
         _colorParams = [NSMutableDictionary dictionary];
         

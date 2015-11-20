@@ -1,34 +1,25 @@
 //
-//  RMVertex.h
-//  HelloOpenGL
+//  RMVector.h
+//  ShaderView
 //
-//  Created by Vitali Kurlovich on 11/18/15.
+//  Created by Vitali Kurlovich on 11/20/15.
+//  Copyright © 2015 Vitali Kurlovich. All rights reserved.
 //
-//
 
-@import Foundation;
-
-
-typedef struct  {
-    float x;
-} RMVector1;
-
-typedef struct  {
-    float x;
-    float y;
-} RMVector2;
+#import <Foundation/Foundation.h>
 
 
-typedef struct  {
-    float x;
-    float y;
-    float z;
-} RMVector3;
+typedef NS_ENUM(NSInteger, RMVectorType) {
+    RMVectorTypeNone = 0,
+    RMVectorType2,
+    RMVectorType3,
+    RMVectorType4
+};
 
-typedef struct  {
-    float x;
-    float y;
-    float z;
-    float w;
-} RMVector4;
+@interface RMVector : NSObject
+@property (nonatomic, readonly) RMVectorType type;
 
+- (nullable instancetype)initWithType:(RMVectorType)type NS_DESIGNATED_INITIALIZER;
++ (nullable instancetype)vector;
+
+@end

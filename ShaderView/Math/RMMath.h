@@ -15,6 +15,17 @@ typedef struct {
     float m30, m31, m32, m33;
 } _RMMatrix4x4;
 
+typedef struct {
+    float x,y,z;
+} _RMVector3;
+
+
+typedef struct {
+    float x,y,z,w;
+} _RMVector4;
+
+
+
 extern _RMMatrix4x4 const kRMIdentityMatrix4x4;
 
 _RMMatrix4x4 RMMulMatrix4x4(_RMMatrix4x4 const a, _RMMatrix4x4 const b);

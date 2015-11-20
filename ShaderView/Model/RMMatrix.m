@@ -39,12 +39,43 @@
     return nil;
 }
 
-
-
-- (const float*)matrix
++ (nullable instancetype)translateMatrixWithX:(float)x y:(float)y
 {
-    return NULL;
+    return nil;
 }
+
++ (nullable instancetype)translateMatrixWithX:(float)x y:(float)y z:(float)z
+{
+    return nil;
+}
+
+
++ (nullable instancetype)scaleMatrixWithX:(float)x y:(float)y
+{
+    return nil;
+}
+
++ (nullable instancetype)scaleMatrixWithX:(float)x y:(float)y z:(float)z
+{
+    return nil;
+}
+
++ (nullable instancetype)rotateMatrixWithAngle:(float)angle
+{
+    return nil;
+}
+
++ (nullable instancetype)rotateMatrixWithAngle:(float)angle x:(float)x y:(float)y z:(float)z
+{
+    return nil;
+}
+
+
+- (nullable instancetype)mul:(nullable RMMatrix*)matrix
+{
+    return nil;
+}
+
 
 #pragma mark - NSCopying
 
@@ -53,53 +84,7 @@
     return self;
 }
 
-#pragma mark - NSMutableCopying
-- (id)mutableCopyWithZone:(nullable NSZone *)zone
-{
-    return [[RMMatrix alloc] initWithType:self.type];
-}
-
-@end
-
-
-
-
-
-@interface RMMatrix4x4 ()
-{
-    float _matrix[4*4];
-}
-
-@end
-
-@implementation RMMatrix4x4
-
-- (const float*)matrix
-{
-    return _matrix;
-}
-
-- (instancetype)initWithType:(RMMatrixType)type
-{
-    if (RMMatrixType4x4 != type)
-    {
-        return nil;
-    }
-    self = [super initWithType:type];
-    if (self)
-    {
-        _matrix[0] = 1;
-        _matrix[5] = 1;
-        _matrix[10] = 1;
-        _matrix[15] = 1;
-    }
-    return self;
-}
-
-+ (nullable instancetype)matrix
-{
-    return [[RMMatrix4x4 alloc] initWithType:RMMatrixType4x4];
-}
 
 
 @end
+

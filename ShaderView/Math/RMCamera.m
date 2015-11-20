@@ -8,6 +8,7 @@
 
 #import "RMCamera.h"
 
+#import "RMMatrix4x4.h"
 
 _RMMatrix4x4 RMPerspectiveFrustumMatrix4x4(float left, float right, float top, float bottom, float near, float far)
 {
@@ -25,5 +26,42 @@ _RMMatrix4x4 RMPerspectiveFrustumMatrix4x4(float left, float right, float top, f
 
 
 @implementation RMCamera
+- (RMMatrix*)matrix
+{
+    return nil;
+}
+@end
+
+
+@implementation RMCamera3D
+
+- (RMMatrix4x4*)matrix
+{
+    return [[RMMatrix4x4 alloc] initWithMatrix:RMPerspectiveFrustumMatrix4x4(self.left, self.right, self.top, self.bottom, self.near, self.far)];
+}
+
+
+- (nonnull instancetype)initWithLeft:(float)left right:(float)right top:(float)top bottom:(float)bottom near:(float)near far:(float)far
+{
+    self = [super init];
+    if (self)
+    {
+        _left = left;
+        _right = right;
+        _top = top;
+        _bottom = bottom;
+        
+        _near = near;
+        _far = far;
+    }
+    
+    return self;
+}
+
+
++ (nonnull instancetype)cameraWithLeft:(float)left right:(float)right top:(float)top bottom:(float)bottom near:(float)near far:(float)far
+{
+    return [[[self class] alloc] initWithLeft:left right:right top:top bottom:bottom near:near far:far];
+}
 
 @end

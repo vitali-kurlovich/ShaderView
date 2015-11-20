@@ -14,6 +14,9 @@
 #import "RMShader.h"
 #import "RMTexture.h"
 
+#import "RMMatrix+_RMOpenGL_.h"
+#import "RMMatrix4x4.h"
+
 @interface RMGLSLProgram ()
 {
     struct {
@@ -67,7 +70,9 @@
 
 - (void)applyMatrix4x4:(RMMatrix4x4*)matrix name:(NSString*)name
 {
+    int m4x4Uniform = glGetUniformLocation(_handle.program, [name UTF8String]);
     
+     glUniformMatrix4fv(m4x4Uniform, 1, 0, [matrix glMatrix]);
 }
 
 - (void)applyTexture:(RMTexture*)texture name:(NSString*)name index:(NSInteger)index
