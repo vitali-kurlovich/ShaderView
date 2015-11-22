@@ -42,5 +42,4 @@ typedef struct{
 - (BOOL)prepareBuffer;
 - (void)bindBuffer;
 
-
 @end

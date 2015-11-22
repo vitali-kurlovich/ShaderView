@@ -9,6 +9,8 @@
 #import "RMGLVBOObject.h"
 #import "RMVBODataBuffer.h"
 
+#import "RMVBOObject+RMDrawable.h"
+
 @import OpenGLES;
 
 @interface RMGLVBOObject ()
@@ -73,6 +75,29 @@
     {
         glDeleteBuffers(1, &_vbo.indexBuffer);
     }
+}
+
+@end
+
+
+@implementation RMGLVBOObject (RMDrawable)
+
+- (void)draw
+{
+    int bytes = self.indexData.dataSize/self.indexData.count;
+    GLenum type;
+    
+    if (bytes == 1)
+    {
+        type = GL_UNSIGNED_BYTE;
+    } else if (bytes == 2)
+    {
+        type = GL_UNSIGNED_SHORT;
+    } else {
+        type = GL_UNSIGNED_INT;
+    }
+    
+    glDrawElements(GL_TRIANGLES, self.indexData.count, type, 0);
 }
 
 @end

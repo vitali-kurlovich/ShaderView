@@ -44,6 +44,8 @@
 		5DFC46BC1C0239660085852B /* RMGLVBOObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC46BB1C0239660085852B /* RMGLVBOObject.m */; };
 		5DFC46BF1C0251350085852B /* RMVertexAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC46BE1C0251350085852B /* RMVertexAttribute.m */; };
 		5DFC46C21C025E9C0085852B /* RMVBODataField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC46C11C025E9C0085852B /* RMVBODataField.m */; };
+		5DFC47651C0278520085852B /* RMDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC47641C0278520085852B /* RMDrawable.m */; };
+		5DFC47681C0278BA0085852B /* RMVBOObject+RMDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC47671C0278BA0085852B /* RMVBOObject+RMDrawable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +131,10 @@
 		5DFC46BE1C0251350085852B /* RMVertexAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMVertexAttribute.m; sourceTree = "<group>"; };
 		5DFC46C01C025E9C0085852B /* RMVBODataField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMVBODataField.h; sourceTree = "<group>"; };
 		5DFC46C11C025E9C0085852B /* RMVBODataField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMVBODataField.m; sourceTree = "<group>"; };
+		5DFC47631C0278520085852B /* RMDrawable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMDrawable.h; sourceTree = "<group>"; };
+		5DFC47641C0278520085852B /* RMDrawable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMDrawable.m; sourceTree = "<group>"; };
+		5DFC47661C0278BA0085852B /* RMVBOObject+RMDrawable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RMVBOObject+RMDrawable.h"; sourceTree = "<group>"; };
+		5DFC47671C0278BA0085852B /* RMVBOObject+RMDrawable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RMVBOObject+RMDrawable.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +300,10 @@
 			isa = PBXGroup;
 			children = (
 				5DFC46AD1C02389D0085852B /* Shader */,
+				5DFC47631C0278520085852B /* RMDrawable.h */,
+				5DFC47641C0278520085852B /* RMDrawable.m */,
+				5DFC47661C0278BA0085852B /* RMVBOObject+RMDrawable.h */,
+				5DFC47671C0278BA0085852B /* RMVBOObject+RMDrawable.m */,
 			);
 			path = Graphics;
 			sourceTree = "<group>";
@@ -419,6 +429,7 @@
 			files = (
 				5D96E70E1C00AD7600D8AE60 /* RMSourceCodeLineNumberView.m in Sources */,
 				5D17B5B41BFFE49400676BE7 /* TextEditorViewController.m in Sources */,
+				5DFC47681C0278BA0085852B /* RMVBOObject+RMDrawable.m in Sources */,
 				5D17B5B11BFFBB4400676BE7 /* RMGLShaderView.m in Sources */,
 				5DFC46B71C02389D0085852B /* RMProgram.m in Sources */,
 				5D17B5AE1BFFB94600676BE7 /* RMGLRender.m in Sources */,
@@ -438,6 +449,7 @@
 				5D15834E1BFDB845003A8AD7 /* RMGLTexture.m in Sources */,
 				5DFC464D1C020F280085852B /* RMMaterial.m in Sources */,
 				5DFC468F1C02361D0085852B /* RMVBOObject.m in Sources */,
+				5DFC47651C0278520085852B /* RMDrawable.m in Sources */,
 				5D96E7071C0072D800D8AE60 /* RMSourceCodeTextView.m in Sources */,
 				5D1583521BFDB845003A8AD7 /* RMTexture.m in Sources */,
 				5D15831B1BFDB7D4003A8AD7 /* AppDelegate.m in Sources */,
