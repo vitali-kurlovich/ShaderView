@@ -14,7 +14,7 @@
 
 @interface RMGLShaderView()
 @property (nonatomic, readonly) CAEAGLLayer* eaglLayer;
-@property (nonatomic, readonly) RMGLRender* glRender;
+
 
 @property (nonatomic, readonly) EAGLContext* context;
 

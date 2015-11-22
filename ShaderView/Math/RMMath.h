@@ -16,9 +16,12 @@ typedef struct {
 } _RMMatrix4x4;
 
 typedef struct {
+    float x,y;
+} _RMVector2;
+
+typedef struct {
     float x,y,z;
 } _RMVector3;
-
 
 typedef struct {
     float x,y,z,w;
@@ -27,6 +30,7 @@ typedef struct {
 
 
 extern _RMMatrix4x4 const kRMIdentityMatrix4x4;
+
 
 _RMMatrix4x4 RMMulMatrix4x4(_RMMatrix4x4 const a, _RMMatrix4x4 const b);
 _RMMatrix4x4 RMMulMatrix4x4ToScalar(_RMMatrix4x4 const a, float scalar);

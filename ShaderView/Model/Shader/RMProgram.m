@@ -8,7 +8,10 @@
 
 #import "RMProgram.h"
 
-#import "RMShader.h"
+
+#import "RMVertexShader.h"
+#import "RMFragmentShader.h"
+
 #import "RMMatrix.h"
 
 @interface _RMTextureParam : NSObject
@@ -25,6 +28,7 @@
 @property (nonatomic, readonly) NSMutableDictionary<NSString*, RMMatrix4x4*> *martix4x4Params;
 
 @property (nonatomic, readonly) NSMutableDictionary<NSString*, UIColor*> *colorParams;
+@property (nonatomic, readonly) NSMutableDictionary<NSString*, NSNumber*> *numberParams;
 
 @property (nonatomic, readonly) NSMutableArray<_RMTextureParam*> *textureParams;
 @end
@@ -60,6 +64,7 @@
         _martix4x4Params = [NSMutableDictionary dictionary];
         
         _colorParams = [NSMutableDictionary dictionary];
+        _numberParams = [NSMutableDictionary dictionary];
         
         _textureParams = [NSMutableArray arrayWithCapacity:4];
     }
@@ -144,32 +149,10 @@
     [self.colorParams enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, UIColor * _Nonnull obj, BOOL * _Nonnull stop) {
         [self applyColor:obj name:key];
     }];
-}
-
-
-- (void)applyMatrix2x2:(RMMatrix2x2*)matrix name:(NSString*)name
-{
     
-}
-
-- (void)applyMatrix3x3:(RMMatrix3x3*)matrix name:(NSString*)name
-{
-    
-}
-
-- (void)applyMatrix4x4:(RMMatrix4x4*)matrix name:(NSString*)name
-{
-    
-}
-
-- (void)applyTexture:(RMTexture*)texture name:(NSString*)name index:(NSInteger)index
-{
-    
-}
-
-- (void)applyColor:(UIColor*)color name:(NSString*)name
-{
-    
+    [self.numberParams enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSNumber * _Nonnull obj, BOOL * _Nonnull stop) {
+        [self applyNumber:obj name:key];
+    }];
 }
 
 
@@ -184,7 +167,17 @@
     self.colorParams[name] = color;
 }
 
-
+- (void)setParam:(NSString*)name number:(NSNumber*)number
+{
+    
+    if (number == nil)
+    {
+        [self.numberParams removeObjectForKey:name];
+        return;
+    }
+    
+    self.numberParams[name] = number;
+}
 
 - (void)setParam:(NSString*)name texture:(RMTexture*)texture
 {
@@ -234,6 +227,38 @@
         default:
             break;
     }
+}
+
+
+
+- (void)applyMatrix2x2:(RMMatrix2x2*)matrix name:(NSString*)name
+{
+    
+}
+
+- (void)applyMatrix3x3:(RMMatrix3x3*)matrix name:(NSString*)name
+{
+    
+}
+
+- (void)applyMatrix4x4:(RMMatrix4x4*)matrix name:(NSString*)name
+{
+    
+}
+
+- (void)applyTexture:(RMTexture*)texture name:(NSString*)name index:(NSInteger)index
+{
+    
+}
+
+- (void)applyColor:(UIColor*)color name:(NSString*)name
+{
+    
+}
+
+- (void)applyNumber:(nonnull NSNumber*)number name:(nonnull NSString*)name
+{
+    
 }
 
 @end

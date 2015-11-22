@@ -15,7 +15,7 @@ typedef  NS_ENUM(NSInteger, RMShaderType)
     RMShaderTypeFragment
 };
 
-@class RMVertexAttribute;
+
 
 @interface RMShader : NSObject
 
@@ -31,23 +31,7 @@ typedef  NS_ENUM(NSInteger, RMShaderType)
 @end
 
 
-@interface RMVertexShader : RMShader
-
-@property (nullable, nonatomic, copy, readonly) NSArray<RMVertexAttribute*>* attributes;
-
-- (nullable instancetype)initWithSource:(nonnull NSString*)source attributes:( nullable NSArray<RMVertexAttribute*>*)attributes;
-
-+ (nullable instancetype)shader:(nonnull NSString*)source attributes:(nullable NSArray<RMVertexAttribute*>*)attributes;
-
-@end
-
-@interface RMFragmentShader : RMShader
-
-@end
 
 
-@interface RMVertexAttribute:NSObject
-@property (nonnull, nonatomic, copy, readonly) NSString* name;
 
 
-@end

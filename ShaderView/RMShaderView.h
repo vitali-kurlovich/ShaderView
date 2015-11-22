@@ -14,6 +14,7 @@
 
 @class RMRender;
 
+
 @interface RMShaderView : UIView<RMRenderDelegate>
 @property (nullable, nonatomic, readonly) RMGLSLProgram* program;
 @property (nullable, nonatomic, readonly) RMRender* render;

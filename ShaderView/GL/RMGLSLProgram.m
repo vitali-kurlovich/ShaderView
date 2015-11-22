@@ -11,7 +11,8 @@
 @import UIKit;
 @import OpenGLES;
 
-#import "RMShader.h"
+#import "RMVertexShader.h"
+#import "RMFragmentShader.h"
 #import "RMTexture.h"
 
 #import "RMMatrix+_RMOpenGL_.h"
@@ -94,6 +95,11 @@
     glUniform4f(colorUniform, r, g, b, a);
 }
 
+- (void)applyNumber:(nonnull NSNumber*)number name:(nonnull NSString*)name
+{
+    int numberUniform = glGetUniformLocation(_handle.program, [name UTF8String]);
+    glUniform1f(numberUniform, [number floatValue]);
+}
 
 - (BOOL)compile
 {
