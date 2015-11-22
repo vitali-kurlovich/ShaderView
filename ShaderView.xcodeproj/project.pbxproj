@@ -301,14 +301,14 @@
 		5DFC46AD1C02389D0085852B /* Shader */ = {
 			isa = PBXGroup;
 			children = (
-				5DFC46AE1C02389D0085852B /* RMFragmentShader.h */,
-				5DFC46AF1C02389D0085852B /* RMFragmentShader.m */,
 				5DFC46B01C02389D0085852B /* RMProgram.h */,
 				5DFC46B11C02389D0085852B /* RMProgram.m */,
 				5DFC46B21C02389D0085852B /* RMShader.h */,
 				5DFC46B31C02389D0085852B /* RMShader.m */,
 				5DFC46B41C02389D0085852B /* RMVertexShader.h */,
 				5DFC46B51C02389D0085852B /* RMVertexShader.m */,
+				5DFC46AE1C02389D0085852B /* RMFragmentShader.h */,
+				5DFC46AF1C02389D0085852B /* RMFragmentShader.m */,
 				5DFC46BD1C0251350085852B /* RMVertexAttribute.h */,
 				5DFC46BE1C0251350085852B /* RMVertexAttribute.m */,
 			);

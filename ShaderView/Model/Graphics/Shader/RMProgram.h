@@ -20,15 +20,21 @@
 
 
 @property (nonatomic, getter=isCompiled) BOOL compiled;
-
+@property (nonnull, nonatomic, copy, readonly) NSArray<RMVertexAttribute*>* attributes;
 @property (nonnull, nonatomic, readonly) RMVertexShader* vertexShader;
 @property (nonnull, nonatomic, readonly) RMFragmentShader* fragmentShader;
 
-- (nullable instancetype)initWithVertexShader:(nonnull RMVertexShader*)vertexShader fragmentShader:(nonnull RMFragmentShader*)fragmentShader ;
-- (nullable instancetype)initWithName:(nullable NSString*)name vertexShader:(nonnull RMVertexShader*)vertexShader fragmentShader:(nonnull RMFragmentShader*)fragmentShader NS_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithVertexShader:(nonnull RMVertexShader*)vertexShader
+                               fragmentShader:(nonnull RMFragmentShader*)fragmentShader
+                                   attributes:(nonnull NSArray<RMVertexAttribute*>*)attributes;
+
+- (nullable instancetype)initWithName:(nullable NSString*)name
+                         vertexShader:(nonnull RMVertexShader*)vertexShader
+                       fragmentShader:(nonnull RMFragmentShader*)fragmentShader
+                           attributes:(nonnull NSArray<RMVertexAttribute*>*)attributes NS_DESIGNATED_INITIALIZER;
 
 
-+ (nullable instancetype)programNamed:(nonnull NSString*)name;
++ (nullable instancetype)programNamed:(nonnull NSString*)name attributes:(nonnull NSArray<RMVertexAttribute*>*)attributes;
 
 - (BOOL)compile;
 - (BOOL)useProgram;
