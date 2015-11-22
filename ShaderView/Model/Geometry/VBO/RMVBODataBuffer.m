@@ -82,7 +82,7 @@
 
 @end
 
-@implementation RMVBOIndexData
+@implementation RMVBOIndexDataBuffer
 
 - (nullable instancetype)initWithBuffer:(nullable const void*)buffer count:(NSInteger)count dataLenght:(NSInteger)dataLenght fields:(nullable NSArray<RMVBODataField *> *)fields
 {
