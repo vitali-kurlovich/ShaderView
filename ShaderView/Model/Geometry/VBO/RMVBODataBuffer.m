@@ -42,7 +42,7 @@
             _type = type;
             _count = count;
             _dataSize = dataSize;
-            _fields = [fields copy];
+            
             _buffer = malloc(_dataSize);
             memcpy(_buffer, buffer, _dataSize);
         }
@@ -77,7 +77,12 @@
 
 - (nullable instancetype)initWithBuffer:(nullable const void*)buffer count:(NSInteger)count dataSize:(NSInteger)dataSize fields:(NSArray<RMVBODataField *> *)fields
 {
-    return [self initWithDataType:RMVBODataBufferTypeVertex buffer:buffer count:count dataSize:dataSize fields:fields];
+    self = [self initWithDataType:RMVBODataBufferTypeVertex buffer:buffer count:count dataSize:dataSize fields:fields];
+    if (self)
+    {
+        _fields = [fields copy];
+    }
+    return self;
 }
 
 @end
@@ -92,29 +97,3 @@
 @end
 
 
-@implementation RMVBODataField
-
-- (instancetype)init
-{
-    return [self initWithType:RMVBODataItemTypeIndex offset:0 size:sizeof(int)];
-}
-
-- (instancetype)initWithType:(RMVBODataFieldType)type offset:(NSInteger)offset size:(NSInteger)size
-{
-    self = [super init];
-    if (self)
-    {
-        _type = type;
-        _offset = offset;
-        _size = size;
-    }
-    return self;
-}
-
-+ (instancetype)dataFieldWithType:(RMVBODataFieldType)type offset:(NSInteger)offset size:(NSInteger)size
-{
-    return [[[self class] alloc] initWithType:type offset:offset size:size];
-}
-
-
-@end

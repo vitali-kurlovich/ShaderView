@@ -8,7 +8,7 @@
 
 #import "RMShader.h"
 
-#import "RMVBODataBuffer.h"
+
 
 @class RMVertexAttribute;
 
@@ -22,8 +22,3 @@
 
 @end
 
-@interface RMVertexAttribute:NSObject
-@property (nonatomic, readonly) RMVBODataFieldType attribute;
-@property (nonnull, nonatomic, copy, readonly) NSString* name;
-
-@end

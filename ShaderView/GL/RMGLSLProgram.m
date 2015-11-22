@@ -18,6 +18,8 @@
 #import "RMMatrix+_RMOpenGL_.h"
 #import "RMMatrix4x4.h"
 
+#import "RMVertexAttribute.h"
+
 @interface RMGLSLProgram ()
 {
     struct {
@@ -58,6 +60,21 @@
     return NO;
 }
 
+
+- (void)enableVertexAttribute:(nonnull RMVertexAttribute*)attr numberOfComponents:(NSInteger)numberOfComponents stride:(NSInteger)stride offset:(NSInteger)offset
+{
+    GLint attrSlot = glGetAttribLocation(_handle.program, [attr.name UTF8String]);
+    glEnableVertexAttribArray(attrSlot);
+    GLchar* pointer = 0;
+    glVertexAttribPointer(attrSlot, numberOfComponents, GL_FLOAT, GL_FALSE, stride, pointer+offset);
+}
+
+- (void)disableVertexAttribute:(nonnull RMVertexAttribute*)attr
+{
+    GLint attrSlot = glGetAttribLocation(_handle.program, [attr.name UTF8String]);
+    glDisableVertexAttribArray(attrSlot);
+    
+}
 
 - (void)applyMatrix2x2:(RMMatrix2x2*)matrix name:(NSString*)name
 {

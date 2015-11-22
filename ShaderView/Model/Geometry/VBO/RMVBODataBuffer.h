@@ -15,26 +15,10 @@ typedef NS_ENUM(NSInteger, RMVBODataBufferType) {
 };
 
 
-typedef NS_ENUM(NSInteger, RMVBODataFieldType) {
-    RMVBODataItemTypeIndex = 0,
-    RMVBODataItemTypePosition,
-    RMVBODataItemTypeNormal,
-    RMVBODataItemTypeColor,
-    RMVBODataItemTypeUV0,
-    RMVBODataItemTypeUV1
-};
-
-@interface RMVBODataField : NSObject
-@property (nonatomic, readonly) RMVBODataFieldType type;
-@property (nonatomic, readonly) NSInteger offset;
-@property (nonatomic, readonly) NSInteger size;
-- (nonnull instancetype)initWithType:(RMVBODataFieldType)type offset:(NSInteger)offset size:(NSInteger)size NS_DESIGNATED_INITIALIZER;
-+ (nonnull instancetype)dataFieldWithType:(RMVBODataFieldType)type offset:(NSInteger)offset size:(NSInteger)size;
-
-@end
+@class RMVBODataField;
 
 @interface RMVBODataBuffer : NSObject
-@property (nullable, nonatomic, copy, readonly) NSArray<RMVBODataField*>* fields;
+
 @property (nonatomic, readonly) RMVBODataBufferType type;
 @property (nonatomic, readonly) NSInteger count;
 @property (nonatomic, readonly) NSInteger dataSize;
@@ -58,6 +42,6 @@ typedef NS_ENUM(NSInteger, RMVBODataFieldType) {
 @end
 
 @interface RMVBOVertexDataBuffer : RMVBODataBuffer
-
+@property (nullable, nonatomic, copy, readonly) NSArray<RMVBODataField*>* fields;
 @end
 

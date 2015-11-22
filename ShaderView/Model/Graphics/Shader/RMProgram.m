@@ -12,7 +12,12 @@
 #import "RMVertexShader.h"
 #import "RMFragmentShader.h"
 
+#import "RMVertexAttribute.h"
+
 #import "RMMatrix.h"
+
+#import "RMVBODataField.h"
+#import "RMVBODataBuffer.h"
 
 @interface _RMTextureParam : NSObject
 @property (nonnull, nonatomic, readonly) RMTexture* texture;
@@ -156,6 +161,27 @@
 }
 
 
+- (void)prepareForUseVBOBuffer:(RMVBOVertexDataBuffer*)buffer
+{
+    __block NSMutableDictionary<NSNumber*, RMVertexAttribute*>* binding = [NSMutableDictionary dictionary];
+    
+    [self.vertexShader.attributes enumerateObjectsUsingBlock:^(RMVertexAttribute * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        binding[@(obj.attribute)] = obj;
+    }];
+    
+    NSInteger stride = buffer.dataSize/buffer.count;
+    
+    [buffer.fields enumerateObjectsUsingBlock:^(RMVBODataField* _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        RMVertexAttribute* attr = binding[@(obj.type)];
+        if (attr)
+        {
+            [self enableVertexAttribute:attr numberOfComponents:obj.numberOfComponents stride:stride offset:obj.offset];
+        }
+    }];
+}
+
+
 - (void)setParam:(NSString*)name color:(UIColor*)color
 {
     if (color == nil)
@@ -231,6 +257,8 @@
 
 
 
+
+
 - (void)applyMatrix2x2:(RMMatrix2x2*)matrix name:(NSString*)name
 {
     
@@ -257,6 +285,16 @@
 }
 
 - (void)applyNumber:(nonnull NSNumber*)number name:(nonnull NSString*)name
+{
+    
+}
+
+- (void)enableVertexAttribute:(nonnull RMVertexAttribute*)attr numberOfComponents:(NSInteger)numberOfComponents stride:(NSInteger)stride offset:(NSInteger)offset
+{
+    
+}
+
+- (void)disableVertexAttribute:(nonnull RMVertexAttribute*)attr
 {
     
 }
