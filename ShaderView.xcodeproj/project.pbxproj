@@ -41,6 +41,7 @@
 		5DFC46B71C02389D0085852B /* RMProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC46B11C02389D0085852B /* RMProgram.m */; };
 		5DFC46B81C02389D0085852B /* RMShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC46B31C02389D0085852B /* RMShader.m */; };
 		5DFC46B91C02389D0085852B /* RMVertexShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC46B51C02389D0085852B /* RMVertexShader.m */; };
+		5DFC46BC1C0239660085852B /* RMGLVBOObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC46BB1C0239660085852B /* RMGLVBOObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,8 @@
 		5DFC46B31C02389D0085852B /* RMShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMShader.m; sourceTree = "<group>"; };
 		5DFC46B41C02389D0085852B /* RMVertexShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMVertexShader.h; sourceTree = "<group>"; };
 		5DFC46B51C02389D0085852B /* RMVertexShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMVertexShader.m; sourceTree = "<group>"; };
+		5DFC46BA1C0239660085852B /* RMGLVBOObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMGLVBOObject.h; sourceTree = "<group>"; };
+		5DFC46BB1C0239660085852B /* RMGLVBOObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMGLVBOObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +221,8 @@
 				5D17B5AD1BFFB94600676BE7 /* RMGLRender.m */,
 				5D96E70F1C00F0D500D8AE60 /* RMGLPostProcessingRender.h */,
 				5D96E7101C00F0D500D8AE60 /* RMGLPostProcessingRender.m */,
+				5DFC46BA1C0239660085852B /* RMGLVBOObject.h */,
+				5DFC46BB1C0239660085852B /* RMGLVBOObject.m */,
 			);
 			path = GL;
 			sourceTree = "<group>";
@@ -416,6 +421,7 @@
 				5DFC468E1C02361D0085852B /* RMVBODataBuffer.m in Sources */,
 				5DFC46A61C02382A0085852B /* RMMatrix2x2.m in Sources */,
 				5DFC46B61C02389D0085852B /* RMFragmentShader.m in Sources */,
+				5DFC46BC1C0239660085852B /* RMGLVBOObject.m in Sources */,
 				5D368C3E1BFF17AD00FE2A83 /* RMRender.m in Sources */,
 				5D15834E1BFDB845003A8AD7 /* RMGLTexture.m in Sources */,
 				5DFC464D1C020F280085852B /* RMMaterial.m in Sources */,
