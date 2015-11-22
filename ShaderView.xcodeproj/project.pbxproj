@@ -16,11 +16,8 @@
 		5D1583311BFDB7D4003A8AD7 /* ShaderViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1583301BFDB7D4003A8AD7 /* ShaderViewTests.m */; };
 		5D15834D1BFDB845003A8AD7 /* RMGLSLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15833D1BFDB844003A8AD7 /* RMGLSLProgram.m */; };
 		5D15834E1BFDB845003A8AD7 /* RMGLTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15833F1BFDB844003A8AD7 /* RMGLTexture.m */; };
-		5D15834F1BFDB845003A8AD7 /* RMMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1583421BFDB844003A8AD7 /* RMMatrix.m */; };
 		5D1583521BFDB845003A8AD7 /* RMTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1583481BFDB845003A8AD7 /* RMTexture.m */; };
 		5D1583571BFDB865003A8AD7 /* RMShaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1583561BFDB865003A8AD7 /* RMShaderView.m */; };
-		5D15835A1BFDD235003A8AD7 /* RMMatrix2x2.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1583591BFDD235003A8AD7 /* RMMatrix2x2.m */; };
-		5D15835D1BFDD451003A8AD7 /* RMMatrix3x3.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15835C1BFDD451003A8AD7 /* RMMatrix3x3.m */; };
 		5D1583651BFDFE2F003A8AD7 /* RMMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1583641BFDFE2F003A8AD7 /* RMMath.m */; };
 		5D1583671BFDFF5D003A8AD7 /* RMTestMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1583661BFDFF5D003A8AD7 /* RMTestMath.m */; };
 		5D1583701BFE508A003A8AD7 /* RMCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15836F1BFE508A003A8AD7 /* RMCamera.m */; };
@@ -28,8 +25,6 @@
 		5D17B5B11BFFBB4400676BE7 /* RMGLShaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D17B5B01BFFBB4400676BE7 /* RMGLShaderView.m */; };
 		5D17B5B41BFFE49400676BE7 /* TextEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D17B5B31BFFE49400676BE7 /* TextEditorViewController.m */; };
 		5D368C3E1BFF17AD00FE2A83 /* RMRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D368C3D1BFF17AD00FE2A83 /* RMRender.m */; };
-		5D368C411BFF1D5E00FE2A83 /* RMMatrix4x4.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D368C401BFF1D5E00FE2A83 /* RMMatrix4x4.m */; };
-		5D368C441BFF27E100FE2A83 /* RMVector.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D368C431BFF27E100FE2A83 /* RMVector.m */; };
 		5D368C471BFF2D2E00FE2A83 /* RMMatrix+_RMOpenGL_.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D368C461BFF2D2E00FE2A83 /* RMMatrix+_RMOpenGL_.m */; };
 		5D96E7071C0072D800D8AE60 /* RMSourceCodeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D96E7061C0072D800D8AE60 /* RMSourceCodeTextView.m */; };
 		5D96E70E1C00AD7600D8AE60 /* RMSourceCodeLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D96E70D1C00AD7600D8AE60 /* RMSourceCodeLineNumberView.m */; };
@@ -37,10 +32,15 @@
 		5DFC464D1C020F280085852B /* RMMaterial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC464C1C020F280085852B /* RMMaterial.m */; };
 		5DFC468E1C02361D0085852B /* RMVBODataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC468B1C02361D0085852B /* RMVBODataBuffer.m */; };
 		5DFC468F1C02361D0085852B /* RMVBOObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC468D1C02361D0085852B /* RMVBOObject.m */; };
-		5DFC46991C0236570085852B /* RMFragmentShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC46921C0236570085852B /* RMFragmentShader.m */; };
-		5DFC469A1C0236570085852B /* RMProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC46941C0236570085852B /* RMProgram.m */; };
-		5DFC469B1C0236570085852B /* RMShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC46961C0236570085852B /* RMShader.m */; };
-		5DFC469C1C0236570085852B /* RMVertexShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC46981C0236570085852B /* RMVertexShader.m */; };
+		5DFC46A51C02382A0085852B /* RMMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC469E1C02382A0085852B /* RMMatrix.m */; };
+		5DFC46A61C02382A0085852B /* RMMatrix2x2.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC46A01C02382A0085852B /* RMMatrix2x2.m */; };
+		5DFC46A71C02382A0085852B /* RMMatrix3x3.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC46A21C02382A0085852B /* RMMatrix3x3.m */; };
+		5DFC46A81C02382A0085852B /* RMMatrix4x4.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC46A41C02382A0085852B /* RMMatrix4x4.m */; };
+		5DFC46AB1C02384C0085852B /* RMVector.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC46AA1C02384C0085852B /* RMVector.m */; };
+		5DFC46B61C02389D0085852B /* RMFragmentShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC46AF1C02389D0085852B /* RMFragmentShader.m */; };
+		5DFC46B71C02389D0085852B /* RMProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC46B11C02389D0085852B /* RMProgram.m */; };
+		5DFC46B81C02389D0085852B /* RMShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC46B31C02389D0085852B /* RMShader.m */; };
+		5DFC46B91C02389D0085852B /* RMVertexShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC46B51C02389D0085852B /* RMVertexShader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,16 +71,10 @@
 		5D15833D1BFDB844003A8AD7 /* RMGLSLProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMGLSLProgram.m; sourceTree = "<group>"; };
 		5D15833E1BFDB844003A8AD7 /* RMGLTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMGLTexture.h; sourceTree = "<group>"; };
 		5D15833F1BFDB844003A8AD7 /* RMGLTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMGLTexture.m; sourceTree = "<group>"; };
-		5D1583411BFDB844003A8AD7 /* RMMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMatrix.h; sourceTree = "<group>"; };
-		5D1583421BFDB844003A8AD7 /* RMMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMatrix.m; sourceTree = "<group>"; };
 		5D1583471BFDB845003A8AD7 /* RMTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTexture.h; sourceTree = "<group>"; };
 		5D1583481BFDB845003A8AD7 /* RMTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTexture.m; sourceTree = "<group>"; };
 		5D1583551BFDB865003A8AD7 /* RMShaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMShaderView.h; sourceTree = "<group>"; };
 		5D1583561BFDB865003A8AD7 /* RMShaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMShaderView.m; sourceTree = "<group>"; };
-		5D1583581BFDD235003A8AD7 /* RMMatrix2x2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMatrix2x2.h; sourceTree = "<group>"; };
-		5D1583591BFDD235003A8AD7 /* RMMatrix2x2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMatrix2x2.m; sourceTree = "<group>"; };
-		5D15835B1BFDD451003A8AD7 /* RMMatrix3x3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMatrix3x3.h; sourceTree = "<group>"; };
-		5D15835C1BFDD451003A8AD7 /* RMMatrix3x3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMatrix3x3.m; sourceTree = "<group>"; };
 		5D1583631BFDFE2F003A8AD7 /* RMMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMath.h; sourceTree = "<group>"; };
 		5D1583641BFDFE2F003A8AD7 /* RMMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMath.m; sourceTree = "<group>"; };
 		5D1583661BFDFF5D003A8AD7 /* RMTestMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTestMath.m; sourceTree = "<group>"; };
@@ -94,10 +88,6 @@
 		5D17B5B31BFFE49400676BE7 /* TextEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEditorViewController.m; sourceTree = "<group>"; };
 		5D368C3C1BFF17AD00FE2A83 /* RMRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRender.h; sourceTree = "<group>"; };
 		5D368C3D1BFF17AD00FE2A83 /* RMRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRender.m; sourceTree = "<group>"; };
-		5D368C3F1BFF1D5E00FE2A83 /* RMMatrix4x4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMatrix4x4.h; sourceTree = "<group>"; };
-		5D368C401BFF1D5E00FE2A83 /* RMMatrix4x4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMatrix4x4.m; sourceTree = "<group>"; };
-		5D368C421BFF27E100FE2A83 /* RMVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMVector.h; sourceTree = "<group>"; };
-		5D368C431BFF27E100FE2A83 /* RMVector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMVector.m; sourceTree = "<group>"; };
 		5D368C451BFF2D2E00FE2A83 /* RMMatrix+_RMOpenGL_.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RMMatrix+_RMOpenGL_.h"; sourceTree = "<group>"; };
 		5D368C461BFF2D2E00FE2A83 /* RMMatrix+_RMOpenGL_.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RMMatrix+_RMOpenGL_.m"; sourceTree = "<group>"; };
 		5D96E7051C0072D800D8AE60 /* RMSourceCodeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSourceCodeTextView.h; sourceTree = "<group>"; };
@@ -112,14 +102,24 @@
 		5DFC468B1C02361D0085852B /* RMVBODataBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMVBODataBuffer.m; sourceTree = "<group>"; };
 		5DFC468C1C02361D0085852B /* RMVBOObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMVBOObject.h; sourceTree = "<group>"; };
 		5DFC468D1C02361D0085852B /* RMVBOObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMVBOObject.m; sourceTree = "<group>"; };
-		5DFC46911C0236570085852B /* RMFragmentShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMFragmentShader.h; sourceTree = "<group>"; };
-		5DFC46921C0236570085852B /* RMFragmentShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMFragmentShader.m; sourceTree = "<group>"; };
-		5DFC46931C0236570085852B /* RMProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMProgram.h; sourceTree = "<group>"; };
-		5DFC46941C0236570085852B /* RMProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMProgram.m; sourceTree = "<group>"; };
-		5DFC46951C0236570085852B /* RMShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMShader.h; sourceTree = "<group>"; };
-		5DFC46961C0236570085852B /* RMShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMShader.m; sourceTree = "<group>"; };
-		5DFC46971C0236570085852B /* RMVertexShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMVertexShader.h; sourceTree = "<group>"; };
-		5DFC46981C0236570085852B /* RMVertexShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMVertexShader.m; sourceTree = "<group>"; };
+		5DFC469D1C02382A0085852B /* RMMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMatrix.h; sourceTree = "<group>"; };
+		5DFC469E1C02382A0085852B /* RMMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMatrix.m; sourceTree = "<group>"; };
+		5DFC469F1C02382A0085852B /* RMMatrix2x2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMatrix2x2.h; sourceTree = "<group>"; };
+		5DFC46A01C02382A0085852B /* RMMatrix2x2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMatrix2x2.m; sourceTree = "<group>"; };
+		5DFC46A11C02382A0085852B /* RMMatrix3x3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMatrix3x3.h; sourceTree = "<group>"; };
+		5DFC46A21C02382A0085852B /* RMMatrix3x3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMatrix3x3.m; sourceTree = "<group>"; };
+		5DFC46A31C02382A0085852B /* RMMatrix4x4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMatrix4x4.h; sourceTree = "<group>"; };
+		5DFC46A41C02382A0085852B /* RMMatrix4x4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMatrix4x4.m; sourceTree = "<group>"; };
+		5DFC46A91C02384C0085852B /* RMVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMVector.h; sourceTree = "<group>"; };
+		5DFC46AA1C02384C0085852B /* RMVector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMVector.m; sourceTree = "<group>"; };
+		5DFC46AE1C02389D0085852B /* RMFragmentShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMFragmentShader.h; sourceTree = "<group>"; };
+		5DFC46AF1C02389D0085852B /* RMFragmentShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMFragmentShader.m; sourceTree = "<group>"; };
+		5DFC46B01C02389D0085852B /* RMProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMProgram.h; sourceTree = "<group>"; };
+		5DFC46B11C02389D0085852B /* RMProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMProgram.m; sourceTree = "<group>"; };
+		5DFC46B21C02389D0085852B /* RMShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMShader.h; sourceTree = "<group>"; };
+		5DFC46B31C02389D0085852B /* RMShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMShader.m; sourceTree = "<group>"; };
+		5DFC46B41C02389D0085852B /* RMVertexShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMVertexShader.h; sourceTree = "<group>"; };
+		5DFC46B51C02389D0085852B /* RMVertexShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMVertexShader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,18 +225,8 @@
 		5D1583401BFDB844003A8AD7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5DFC46901C0236570085852B /* Shader */,
+				5DFC46AC1C02389D0085852B /* Graphics */,
 				5DFC46881C02361D0085852B /* Geometry */,
-				5D1583411BFDB844003A8AD7 /* RMMatrix.h */,
-				5D1583421BFDB844003A8AD7 /* RMMatrix.m */,
-				5D1583581BFDD235003A8AD7 /* RMMatrix2x2.h */,
-				5D1583591BFDD235003A8AD7 /* RMMatrix2x2.m */,
-				5D15835B1BFDD451003A8AD7 /* RMMatrix3x3.h */,
-				5D15835C1BFDD451003A8AD7 /* RMMatrix3x3.m */,
-				5D368C3F1BFF1D5E00FE2A83 /* RMMatrix4x4.h */,
-				5D368C401BFF1D5E00FE2A83 /* RMMatrix4x4.m */,
-				5D368C421BFF27E100FE2A83 /* RMVector.h */,
-				5D368C431BFF27E100FE2A83 /* RMVector.m */,
 				5D1583471BFDB845003A8AD7 /* RMTexture.h */,
 				5D1583481BFDB845003A8AD7 /* RMTexture.m */,
 				5D368C3C1BFF17AD00FE2A83 /* RMRender.h */,
@@ -254,6 +244,16 @@
 				5D1583641BFDFE2F003A8AD7 /* RMMath.m */,
 				5D15836E1BFE508A003A8AD7 /* RMCamera.h */,
 				5D15836F1BFE508A003A8AD7 /* RMCamera.m */,
+				5DFC469D1C02382A0085852B /* RMMatrix.h */,
+				5DFC469E1C02382A0085852B /* RMMatrix.m */,
+				5DFC469F1C02382A0085852B /* RMMatrix2x2.h */,
+				5DFC46A01C02382A0085852B /* RMMatrix2x2.m */,
+				5DFC46A11C02382A0085852B /* RMMatrix3x3.h */,
+				5DFC46A21C02382A0085852B /* RMMatrix3x3.m */,
+				5DFC46A31C02382A0085852B /* RMMatrix4x4.h */,
+				5DFC46A41C02382A0085852B /* RMMatrix4x4.m */,
+				5DFC46A91C02384C0085852B /* RMVector.h */,
+				5DFC46AA1C02384C0085852B /* RMVector.m */,
 			);
 			path = Math;
 			sourceTree = "<group>";
@@ -277,17 +277,25 @@
 			path = VBO;
 			sourceTree = "<group>";
 		};
-		5DFC46901C0236570085852B /* Shader */ = {
+		5DFC46AC1C02389D0085852B /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
-				5DFC46911C0236570085852B /* RMFragmentShader.h */,
-				5DFC46921C0236570085852B /* RMFragmentShader.m */,
-				5DFC46931C0236570085852B /* RMProgram.h */,
-				5DFC46941C0236570085852B /* RMProgram.m */,
-				5DFC46951C0236570085852B /* RMShader.h */,
-				5DFC46961C0236570085852B /* RMShader.m */,
-				5DFC46971C0236570085852B /* RMVertexShader.h */,
-				5DFC46981C0236570085852B /* RMVertexShader.m */,
+				5DFC46AD1C02389D0085852B /* Shader */,
+			);
+			path = Graphics;
+			sourceTree = "<group>";
+		};
+		5DFC46AD1C02389D0085852B /* Shader */ = {
+			isa = PBXGroup;
+			children = (
+				5DFC46AE1C02389D0085852B /* RMFragmentShader.h */,
+				5DFC46AF1C02389D0085852B /* RMFragmentShader.m */,
+				5DFC46B01C02389D0085852B /* RMProgram.h */,
+				5DFC46B11C02389D0085852B /* RMProgram.m */,
+				5DFC46B21C02389D0085852B /* RMShader.h */,
+				5DFC46B31C02389D0085852B /* RMShader.m */,
+				5DFC46B41C02389D0085852B /* RMVertexShader.h */,
+				5DFC46B51C02389D0085852B /* RMVertexShader.m */,
 			);
 			path = Shader;
 			sourceTree = "<group>";
@@ -396,20 +404,18 @@
 			files = (
 				5D96E70E1C00AD7600D8AE60 /* RMSourceCodeLineNumberView.m in Sources */,
 				5D17B5B41BFFE49400676BE7 /* TextEditorViewController.m in Sources */,
-				5D368C411BFF1D5E00FE2A83 /* RMMatrix4x4.m in Sources */,
 				5D17B5B11BFFBB4400676BE7 /* RMGLShaderView.m in Sources */,
-				5DFC469A1C0236570085852B /* RMProgram.m in Sources */,
+				5DFC46B71C02389D0085852B /* RMProgram.m in Sources */,
 				5D17B5AE1BFFB94600676BE7 /* RMGLRender.m in Sources */,
 				5D368C471BFF2D2E00FE2A83 /* RMMatrix+_RMOpenGL_.m in Sources */,
-				5DFC469C1C0236570085852B /* RMVertexShader.m in Sources */,
+				5DFC46B91C02389D0085852B /* RMVertexShader.m in Sources */,
+				5DFC46A51C02382A0085852B /* RMMatrix.m in Sources */,
 				5D96E7111C00F0D500D8AE60 /* RMGLPostProcessingRender.m in Sources */,
 				5D15831E1BFDB7D4003A8AD7 /* ViewController.m in Sources */,
-				5D15834F1BFDB845003A8AD7 /* RMMatrix.m in Sources */,
-				5D368C441BFF27E100FE2A83 /* RMVector.m in Sources */,
 				5D1583571BFDB865003A8AD7 /* RMShaderView.m in Sources */,
-				5D15835D1BFDD451003A8AD7 /* RMMatrix3x3.m in Sources */,
 				5DFC468E1C02361D0085852B /* RMVBODataBuffer.m in Sources */,
-				5DFC46991C0236570085852B /* RMFragmentShader.m in Sources */,
+				5DFC46A61C02382A0085852B /* RMMatrix2x2.m in Sources */,
+				5DFC46B61C02389D0085852B /* RMFragmentShader.m in Sources */,
 				5D368C3E1BFF17AD00FE2A83 /* RMRender.m in Sources */,
 				5D15834E1BFDB845003A8AD7 /* RMGLTexture.m in Sources */,
 				5DFC464D1C020F280085852B /* RMMaterial.m in Sources */,
@@ -418,9 +424,11 @@
 				5D1583521BFDB845003A8AD7 /* RMTexture.m in Sources */,
 				5D15831B1BFDB7D4003A8AD7 /* AppDelegate.m in Sources */,
 				5D1583181BFDB7D4003A8AD7 /* main.m in Sources */,
-				5DFC469B1C0236570085852B /* RMShader.m in Sources */,
-				5D15835A1BFDD235003A8AD7 /* RMMatrix2x2.m in Sources */,
+				5DFC46A71C02382A0085852B /* RMMatrix3x3.m in Sources */,
+				5DFC46A81C02382A0085852B /* RMMatrix4x4.m in Sources */,
+				5DFC46B81C02389D0085852B /* RMShader.m in Sources */,
 				5D1583701BFE508A003A8AD7 /* RMCamera.m in Sources */,
+				5DFC46AB1C02384C0085852B /* RMVector.m in Sources */,
 				5D15834D1BFDB845003A8AD7 /* RMGLSLProgram.m in Sources */,
 				5D1583651BFDFE2F003A8AD7 /* RMMath.m in Sources */,
 			);
