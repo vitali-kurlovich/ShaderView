@@ -24,6 +24,8 @@
 @property (nonnull, nonatomic, readonly) RMVertexShader* vertexShader;
 @property (nonnull, nonatomic, readonly) RMFragmentShader* fragmentShader;
 
+@property (nonatomic, readonly, getter=isActive) BOOL active;
+
 - (nullable instancetype)initWithVertexShader:(nonnull NSString*)vertexShaderSocreCode
                                fragmentShader:(nonnull NSString*)fragmentShaderSocreCode
                                    attributes:(nonnull NSArray<RMVertexAttribute*>*)attributes;
@@ -37,7 +39,8 @@
 + (nullable instancetype)programNamed:(nonnull NSString*)name attributes:(nonnull NSArray<RMVertexAttribute*>*)attributes;
 
 - (BOOL)compile;
-- (BOOL)useProgram;
+- (BOOL)useProgramBegin;
+- (void)useProgramEnd;
 
 - (nullable RMVertexShader*)createVertexShader:(nonnull NSString*)src;
 - (nullable RMFragmentShader*)creatFragmentShader:(nonnull NSString*)src;
@@ -59,7 +62,7 @@
 - (void)applyMatrix3x3:(nonnull RMMatrix3x3*)matrix name:(nonnull NSString*)name;
 - (void)applyMatrix4x4:(nonnull RMMatrix4x4*)matrix name:(nonnull NSString*)name;
 
-- (void)applyTexture:(nonnull RMTexture*)texture name:(nonnull NSString*)name index:(NSInteger)index;
+- (void)applyTexture:(nonnull RMTexture*)texture name:(nonnull NSString*)name textureUnit:(NSUInteger)unit;
 - (void)applyColor:(nonnull UIColor*)color name:(nonnull NSString*)name;
 - (void)applyNumber:(nonnull NSNumber*)number name:(nonnull NSString*)name;
 
