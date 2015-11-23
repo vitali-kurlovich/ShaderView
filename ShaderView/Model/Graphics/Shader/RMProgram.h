@@ -24,13 +24,13 @@
 @property (nonnull, nonatomic, readonly) RMVertexShader* vertexShader;
 @property (nonnull, nonatomic, readonly) RMFragmentShader* fragmentShader;
 
-- (nullable instancetype)initWithVertexShader:(nonnull RMVertexShader*)vertexShader
-                               fragmentShader:(nonnull RMFragmentShader*)fragmentShader
+- (nullable instancetype)initWithVertexShader:(nonnull NSString*)vertexShaderSocreCode
+                               fragmentShader:(nonnull NSString*)fragmentShaderSocreCode
                                    attributes:(nonnull NSArray<RMVertexAttribute*>*)attributes;
 
 - (nullable instancetype)initWithName:(nullable NSString*)name
-                         vertexShader:(nonnull RMVertexShader*)vertexShader
-                       fragmentShader:(nonnull RMFragmentShader*)fragmentShader
+                         vertexShader:(nonnull NSString*)vertexShaderSocreCode
+                       fragmentShader:(nonnull NSString*)fragmentShaderSocreCode
                            attributes:(nonnull NSArray<RMVertexAttribute*>*)attributes NS_DESIGNATED_INITIALIZER;
 
 
@@ -38,6 +38,9 @@
 
 - (BOOL)compile;
 - (BOOL)useProgram;
+
+- (nullable RMVertexShader*)createVertexShader:(nonnull NSString*)src;
+- (nullable RMFragmentShader*)creatFragmentShader:(nonnull NSString*)src;
 
 - (void)prepareForUseVBOBuffer:(nonnull RMVBOVertexDataBuffer*)buffer;
 

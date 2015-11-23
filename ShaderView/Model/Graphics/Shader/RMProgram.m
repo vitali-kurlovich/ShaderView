@@ -36,25 +36,33 @@
 @property (nonatomic, readonly) NSMutableDictionary<NSString*, NSNumber*> *numberParams;
 
 @property (nonatomic, readonly) NSMutableArray<_RMTextureParam*> *textureParams;
+
+
+@property (nonatomic, copy, readonly) NSString* vertexShaderSrc;
+@property (nonatomic, copy, readonly) NSString* fragmentShaderSrc;
+
 @end
 
 
 @implementation RMProgram
 
+@synthesize vertexShader = _vertexShader;
+@synthesize fragmentShader = _fragmentShader;
+
 - (instancetype)init
 {
-    RMVertexShader* vs = nil;
-    RMFragmentShader* fs = nil;
-    return [self initWithVertexShader:vs fragmentShader:fs attributes:@[]];
+    return [self initWithVertexShader:@"" fragmentShader:@"" attributes:@[]];
 }
 
 
-- (nullable instancetype)initWithName:(NSString*)name
-                         vertexShader:(RMVertexShader*)vertexShader
-                       fragmentShader:(RMFragmentShader*)fragmentShader
-                           attributes:(NSArray<RMVertexAttribute*>*)attributes
+
+
+- (nullable instancetype)initWithName:(nullable NSString*)name
+                         vertexShader:(nonnull NSString*)vertexShader
+                       fragmentShader:(nonnull NSString*)fragmentShader
+                           attributes:(nonnull NSArray<RMVertexAttribute*>*)attributes
 {
-    if (vertexShader == nil || fragmentShader == nil || attributes == nil)
+    if (vertexShader== nil || fragmentShader == nil || attributes == nil)
     {
         return nil;
     }
@@ -62,11 +70,12 @@
     self = [super init];
     if (self)
     {
-        _vertexShader = vertexShader;
-        _fragmentShader = fragmentShader;
         _attributes = [attributes copy];
         
         _name = [name copy];
+        
+        _vertexShaderSrc = [vertexShader copy];
+        _fragmentShaderSrc = [fragmentShader copy];
         
         _martix2x2Params = [NSMutableDictionary dictionary];
         _martix3x3Params = [NSMutableDictionary dictionary];
@@ -81,9 +90,9 @@
     return self;
 }
 
-- (nullable instancetype)initWithVertexShader:(RMVertexShader*)vertexShader
-                               fragmentShader:(RMFragmentShader*)fragmentShader
-                                   attributes:(NSArray<RMVertexAttribute*>*)attributes
+- (nullable instancetype)initWithVertexShader:(nonnull NSString*)vertexShader
+                               fragmentShader:(nonnull NSString*)fragmentShader
+                                   attributes:(nonnull NSArray<RMVertexAttribute*>*)attributes
 
 {
     return [self initWithName:nil vertexShader:vertexShader fragmentShader:fragmentShader attributes:attributes];
@@ -120,11 +129,49 @@
     }
     
     return [[[self class] alloc] initWithName:name
-                                 vertexShader:[RMVertexShader shader:vsShaderString]
-                               fragmentShader:[RMFragmentShader shader:fsShaderString]
+                                 vertexShader:vsShaderString
+                               fragmentShader:fsShaderString
                                    attributes:attributes
             ];
 }
+
+
+- (nullable RMVertexShader*)createVertexShader:(nonnull NSString*)src
+{
+    return nil;
+}
+
+- (nullable RMFragmentShader*)creatFragmentShader:(nonnull NSString*)src
+{
+    return nil;
+}
+
+
+- (RMVertexShader*)vertexShader
+{
+   if (_vertexShader == nil)
+   {
+       _vertexShader = [self createVertexShader:_vertexShaderSrc];
+       if (_vertexShader)
+       {
+           _vertexShaderSrc = nil;
+       }
+   }
+    return _vertexShader;
+}
+
+- (RMFragmentShader*)fragmentShader
+{
+    if (_fragmentShader == nil)
+    {
+        _fragmentShader = [self creatFragmentShader:_fragmentShaderSrc];
+        if (_fragmentShader) {
+            _fragmentShaderSrc = nil;
+        }
+    }
+    return _fragmentShader;
+}
+
 
 - (BOOL)isCompiled
 {

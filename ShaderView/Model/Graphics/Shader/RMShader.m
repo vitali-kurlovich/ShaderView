@@ -44,4 +44,9 @@
     return [[[self class] alloc] initWithSource:source];
 }
 
+- (BOOL)compile
+{
+    return NO;
+}
+
 @end
