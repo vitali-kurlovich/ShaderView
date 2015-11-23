@@ -8,6 +8,8 @@
 
 #import "RMVBOObject.h"
 
-@interface RMVBOObject (RMDrawable)
+#import "RMDrawable.h"
+
+@interface RMVBOObject (RMDrawable)<RMDrawable>
 
 @end
