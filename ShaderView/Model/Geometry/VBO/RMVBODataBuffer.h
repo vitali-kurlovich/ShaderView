@@ -15,7 +15,7 @@ typedef NS_ENUM(NSInteger, RMVBODataBufferType) {
 };
 
 
-@class RMVBOVertexAttributes;
+@class RMVBOVertexAttribute;
 
 @interface RMVBODataBuffer : NSObject
 
@@ -38,16 +38,17 @@ typedef NS_ENUM(NSInteger, RMVBODataBufferType) {
 @end
 
 @interface RMVBOVertexDataBuffer : RMVBODataBuffer
-@property (nullable, nonatomic, copy, readonly) NSArray<RMVBOVertexAttributes*>* attributes;
 
-- (nonnull instancetype)initWithBuffer:(nonnull void*)buffer type:(RMVBODataBufferType)type count:(NSInteger)count dataSize:(NSInteger)dataSize attributes:(nullable NSArray<RMVBOVertexAttributes*>*)attributes NS_DESIGNATED_INITIALIZER;
+@property (nullable, nonatomic, copy, readonly) NSArray<RMVBOVertexAttribute*>* attributes;
 
-- (nonnull instancetype)initWithBuffer:(nonnull void*)buffer count:(NSInteger)count dataSize:(NSInteger)dataSize attributes:(nullable NSArray<RMVBOVertexAttributes*>*)attributes;
+- (nonnull instancetype)initWithBuffer:(nonnull void*)buffer type:(RMVBODataBufferType)type count:(NSInteger)count dataSize:(NSInteger)dataSize attributes:(nullable NSArray<RMVBOVertexAttribute*>*)attributes NS_DESIGNATED_INITIALIZER;
+
+- (nonnull instancetype)initWithBuffer:(nonnull void*)buffer count:(NSInteger)count dataSize:(NSInteger)dataSize attributes:(nullable NSArray<RMVBOVertexAttribute*>*)attributes;
 
 
-+ (nonnull instancetype)buffer:(nonnull void*)buffer type:(RMVBODataBufferType)type count:(NSInteger)count dataSize:(NSInteger)dataSize attributes:(nullable NSArray<RMVBOVertexAttributes*>*)attributes;
++ (nonnull instancetype)buffer:(nonnull void*)buffer type:(RMVBODataBufferType)type count:(NSInteger)count dataSize:(NSInteger)dataSize attributes:(nullable NSArray<RMVBOVertexAttribute*>*)attributes;
 
-+ (nonnull instancetype)buffer:(nonnull void*)buffer count:(NSInteger)count dataSize:(NSInteger)dataSize attributes:(nullable NSArray<RMVBOVertexAttributes*>*)attributes;
++ (nonnull instancetype)buffer:(nonnull void*)buffer count:(NSInteger)count dataSize:(NSInteger)dataSize attributes:(nullable NSArray<RMVBOVertexAttribute*>*)attributes;
 
 
 @end

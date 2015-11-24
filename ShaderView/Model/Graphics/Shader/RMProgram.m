@@ -16,7 +16,7 @@
 
 #import "RMMatrix.h"
 
-#import "RMVBOVertexAttributes.h"
+#import "RMVBOVertexAttribute.h"
 #import "RMVBODataBuffer.h"
 
 
@@ -185,12 +185,12 @@
     
     NSInteger stride = buffer.dataSize/buffer.count;
     
-    [buffer.attributes enumerateObjectsUsingBlock:^(RMVBOVertexAttributes* _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [buffer.attributes enumerateObjectsUsingBlock:^(RMVBOVertexAttribute* _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         RMVertexAttribute* attr = binding[@(obj.type)];
         if (attr)
         {
-            [self enableVertexAttribute:attr numberOfComponents:obj.numberOfComponents stride:stride offset:obj.offset];
+            [self enableVertexAttribute:attr numberOfComponents:obj.size stride:stride offset:obj.offset];
         }
     }];
 }

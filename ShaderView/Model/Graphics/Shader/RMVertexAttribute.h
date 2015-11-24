@@ -6,12 +6,12 @@
 //  Copyright © 2015 Vitali Kurlovich. All rights reserved.
 //
 
-#import "RMVBOVertexAttributes.h"
+#import "RMVBOVertexAttribute.h"
 
 @interface RMVertexAttribute : NSObject
-@property (nonatomic, readonly) RMVBOVertexAttributesType attribute;
+@property (nonatomic, readonly) RMVBOVertexAttributeType attribute;
 @property (nonnull, nonatomic, copy, readonly) NSString* name;
 
-- (nonnull instancetype)initWithName:(nonnull NSString*)name attribute:(RMVBOVertexAttributesType)attribute NS_DESIGNATED_INITIALIZER;
-+ (nonnull instancetype)attributeWithName:(nonnull NSString*)name attribute:(RMVBOVertexAttributesType)attribute;
+- (nonnull instancetype)initWithName:(nonnull NSString*)name attribute:(RMVBOVertexAttributeType)attribute NS_DESIGNATED_INITIALIZER;
++ (nonnull instancetype)attributeWithName:(nonnull NSString*)name attribute:(RMVBOVertexAttributeType)attribute;
 @end
