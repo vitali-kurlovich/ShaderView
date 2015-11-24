@@ -14,7 +14,7 @@
 @property (nonatomic) IBOutlet RMSourceCodeTextView* textView;
 @end
 
-@implementation TextEditorViewController
+@implementation RMSourceCodeViewController
 
 - (void)viewDidLoad
 {
@@ -26,8 +26,6 @@
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    
-
 }
 
 
