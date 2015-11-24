@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TextEditorViewController : UIViewController
+@interface RMSourceCodeViewController : UIViewController
 
 @end

@@ -6,11 +6,11 @@
 //  Copyright © 2015 Vitali Kurlovich. All rights reserved.
 //
 
-#import "TextEditorViewController.h"
+#import "RMSourceCodeViewController.h"
 
 #import "RMSourceCodeTextView.h"
 
-@interface TextEditorViewController () <UITextViewDelegate, NSTextStorageDelegate>
+@interface RMSourceCodeViewController () <UITextViewDelegate, NSTextStorageDelegate>
 @property (nonatomic) IBOutlet RMSourceCodeTextView* textView;
 @end
 

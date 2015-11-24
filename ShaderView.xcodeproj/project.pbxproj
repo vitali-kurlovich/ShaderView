@@ -20,7 +20,7 @@
 		5D1583671BFDFF5D003A8AD7 /* RMTestMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1583661BFDFF5D003A8AD7 /* RMTestMath.m */; };
 		5D1583701BFE508A003A8AD7 /* RMCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15836F1BFE508A003A8AD7 /* RMCamera.m */; };
 		5D17B5B11BFFBB4400676BE7 /* RMGLShaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D17B5B01BFFBB4400676BE7 /* RMGLShaderView.m */; };
-		5D17B5B41BFFE49400676BE7 /* TextEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D17B5B31BFFE49400676BE7 /* TextEditorViewController.m */; };
+		5D17B5B41BFFE49400676BE7 /* RMSourceCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D17B5B31BFFE49400676BE7 /* RMSourceCodeViewController.m */; };
 		5D1C6DA81C031D5F00E19C87 /* RMGLVBOObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1C6D971C031D5F00E19C87 /* RMGLVBOObject.m */; };
 		5D1C6DA91C031D5F00E19C87 /* RMGLFragmentShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1C6D9B1C031D5F00E19C87 /* RMGLFragmentShader.m */; };
 		5D1C6DAA1C031D5F00E19C87 /* RMGLSLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1C6D9D1C031D5F00E19C87 /* RMGLSLProgram.m */; };
@@ -89,8 +89,8 @@
 		5D15836F1BFE508A003A8AD7 /* RMCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMCamera.m; sourceTree = "<group>"; };
 		5D17B5AF1BFFBB4400676BE7 /* RMGLShaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMGLShaderView.h; sourceTree = "<group>"; };
 		5D17B5B01BFFBB4400676BE7 /* RMGLShaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMGLShaderView.m; sourceTree = "<group>"; };
-		5D17B5B21BFFE49400676BE7 /* TextEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEditorViewController.h; sourceTree = "<group>"; };
-		5D17B5B31BFFE49400676BE7 /* TextEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEditorViewController.m; sourceTree = "<group>"; };
+		5D17B5B21BFFE49400676BE7 /* RMSourceCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSourceCodeViewController.h; sourceTree = "<group>"; };
+		5D17B5B31BFFE49400676BE7 /* RMSourceCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSourceCodeViewController.m; sourceTree = "<group>"; };
 		5D1C6D961C031D5F00E19C87 /* RMGLVBOObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMGLVBOObject.h; sourceTree = "<group>"; };
 		5D1C6D971C031D5F00E19C87 /* RMGLVBOObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMGLVBOObject.m; sourceTree = "<group>"; };
 		5D1C6D9A1C031D5F00E19C87 /* RMGLFragmentShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMGLFragmentShader.h; sourceTree = "<group>"; };
@@ -210,8 +210,8 @@
 				5D1583561BFDB865003A8AD7 /* RMShaderView.m */,
 				5D17B5AF1BFFBB4400676BE7 /* RMGLShaderView.h */,
 				5D17B5B01BFFBB4400676BE7 /* RMGLShaderView.m */,
-				5D17B5B21BFFE49400676BE7 /* TextEditorViewController.h */,
-				5D17B5B31BFFE49400676BE7 /* TextEditorViewController.m */,
+				5D17B5B21BFFE49400676BE7 /* RMSourceCodeViewController.h */,
+				5D17B5B31BFFE49400676BE7 /* RMSourceCodeViewController.m */,
 				5D96E7051C0072D800D8AE60 /* RMSourceCodeTextView.h */,
 				5D96E7061C0072D800D8AE60 /* RMSourceCodeTextView.m */,
 				5D96E70C1C00AD7600D8AE60 /* RMSourceCodeLineNumberView.h */,
@@ -490,7 +490,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D96E70E1C00AD7600D8AE60 /* RMSourceCodeLineNumberView.m in Sources */,
-				5D17B5B41BFFE49400676BE7 /* TextEditorViewController.m in Sources */,
+				5D17B5B41BFFE49400676BE7 /* RMSourceCodeViewController.m in Sources */,
 				5D1C6DA91C031D5F00E19C87 /* RMGLFragmentShader.m in Sources */,
 				5DFC47681C0278BA0085852B /* RMVBOObject+RMDrawable.m in Sources */,
 				5D17B5B11BFFBB4400676BE7 /* RMGLShaderView.m in Sources */,
