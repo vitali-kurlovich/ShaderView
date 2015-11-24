@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef double rmtime;
+#import "RMCommon.h"
 
 @protocol RMRenderDelegate;
 

@@ -36,18 +36,37 @@
 
 - (BOOL)prepareBuffer
 {
+ 
+    GLenum glFlag;
+    // Posible this code must be in RMVBOBuffer
+    switch (self.drawType) {
+        case RMVBOObjectDrawTypeStream:
+            glFlag = GL_STREAM_DRAW;
+            break;
+            
+        case RMVBOObjectDrawTypeDynamic:
+            glFlag = GL_DYNAMIC_DRAW;
+            break;
+            
+        case RMVBOObjectDrawTypeStatic:
+        default:
+            
+            glFlag = GL_STATIC_DRAW;
+            break;
+    }
+    
     if (!_vbo.vertexBufferDidPrepare) {
         glGenBuffers(1, &_vbo.vertexBuffer);
         glBindBuffer(GL_ARRAY_BUFFER, _vbo.vertexBuffer);
         
-        glBufferData(GL_ARRAY_BUFFER, self.vertexData.dataSize, self.vertexData.buffer, GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, self.vertexData.dataSize, self.vertexData.buffer, glFlag);
         _vbo.vertexBufferDidPrepare = 1;
     }
     
     if (!_vbo.indexBufferDidPrepare) {
         glGenBuffers(1, &_vbo.indexBuffer);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _vbo.indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, self.indexData.dataSize, self.indexData.buffer, GL_STATIC_DRAW);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, self.indexData.dataSize, self.indexData.buffer, glFlag);
         _vbo.indexBufferDidPrepare = 1;
     }
     

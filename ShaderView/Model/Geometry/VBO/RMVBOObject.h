@@ -28,14 +28,28 @@ typedef struct{
 
 
 
+
+typedef NS_ENUM(NSInteger, RMVBOObjectDrawType) {
+    RMVBOObjectDrawTypeStatic = 0,
+    RMVBOObjectDrawTypeDynamic,
+    RMVBOObjectDrawTypeStream
+};
+
 @class RMVBOVertexDataBuffer, RMVBOIndexDataBuffer;
 
 @interface RMVBOObject : NSObject
 @property (nonatomic, readonly, getter=isPrepared) BOOL prepared;
+@property (nonatomic, readonly) RMVBOObjectDrawType drawType; // // Posible this property must be in RMVBODataBuffer
+
 @property (nullable,  nonatomic, readonly) RMVBOVertexDataBuffer* vertexData;
 @property (nullable,  nonatomic, readonly) RMVBOIndexDataBuffer* indexData;
 
-- (nonnull instancetype)initWithVertexData:(nullable RMVBOVertexDataBuffer*)vertexData indexData:(nullable RMVBOIndexDataBuffer*)indexData NS_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithVertexData:(nullable RMVBOVertexDataBuffer*)vertexData indexData:(nullable RMVBOIndexDataBuffer*)indexData drawType:(RMVBOObjectDrawType)drawType NS_DESIGNATED_INITIALIZER;
+
+- (nonnull instancetype)initWithVertexData:(nullable RMVBOVertexDataBuffer*)vertexData indexData:(nullable RMVBOIndexDataBuffer*)indexData;
+
+
++ (nonnull instancetype)objectWithVertexData:(nullable RMVBOVertexDataBuffer*)vertexData indexData:(nullable RMVBOIndexDataBuffer*)indexData drawType:(RMVBOObjectDrawType)drawType;
 
 + (nonnull instancetype)objectWithVertexData:(nullable RMVBOVertexDataBuffer*)vertexData indexData:(nullable RMVBOIndexDataBuffer*)indexData;
 

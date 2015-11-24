@@ -25,24 +25,17 @@
     BOOL _programCompiled;
 }
 
-
 @property (nonatomic, readonly) RMGLVertexShader* glVertexShader;
 @property (nonatomic, readonly) RMGLFragmentShader* glFragmentShader;
-
-
-
 
 @end
 
 @implementation RMGLSLProgram
 
-
-
 - (BOOL)isCompiled
 {
     return  _programCompiled;
 }
-
 
 - (BOOL)useProgramBegin
 {
@@ -98,7 +91,6 @@
 {
     GLint attrSlot = glGetAttribLocation(_program, [attr.name UTF8String]);
     glDisableVertexAttribArray(attrSlot);
-    
 }
 
 - (void)applyMatrix2x2:(RMMatrix2x2*)matrix name:(NSString*)name
