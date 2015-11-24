@@ -22,6 +22,8 @@
         GLuint vertexBuffer;
         GLuint indexBuffer;
     } _vbo;
+    
+    BOOL _needsToRefrashBuffer;
 }
 @end
 
@@ -64,6 +66,30 @@
         glBindBuffer(GL_ARRAY_BUFFER, _vbo.vertexBuffer);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _vbo.indexBuffer);
     }
+}
+
+
+- (void)setNeedsToRefrashBuffer
+{
+    _needsToRefrashBuffer = YES;
+}
+
+
+- (void)refrashBuffers
+{
+    if (![self isPrepared] || !_needsToRefrashBuffer) return;
+    
+    if (_vbo.vertexBufferDidPrepare && self.vertexData.type != RMVBODataBufferTypeStatic) {
+        glBindBuffer(GL_ARRAY_BUFFER, _vbo.vertexBuffer);
+        glBufferSubData(GL_ARRAY_BUFFER, 0, self.vertexData.dataSize, self.vertexData.buffer);
+    }
+    
+    if (_vbo.indexBufferDidPrepare && self.indexData.type != RMVBODataBufferTypeStatic) {
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _vbo.indexBuffer);
+        glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, 0, self.indexData.dataSize, self.indexData.buffer);
+    }
+    
+    _needsToRefrashBuffer = NO;
 }
 
 
@@ -110,6 +136,10 @@
 
 - (void)draw
 {
+    
+    [self refrashBuffers];
+    [self bindBuffer];
+    
     int bytes = self.indexData.dataSize/self.indexData.count;
     GLenum type;
     

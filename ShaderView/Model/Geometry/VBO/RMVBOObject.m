@@ -21,7 +21,6 @@
     self = [super init];
     if (self)
     {
-        
         _vertexData = vertexData;
         _indexData = indexData;
     }
@@ -45,5 +44,13 @@
 {
     
 }
+
+
+- (void)setNeedsToRefrashBuffer
+{
+    
+}
+
+
 
 @end

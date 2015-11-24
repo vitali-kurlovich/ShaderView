@@ -32,8 +32,11 @@ typedef struct{
 @interface RMVBOObject : NSObject
 @property (nonatomic, readonly, getter=isPrepared) BOOL prepared;
 
+
 @property (nullable,  nonatomic, readonly) RMVBOVertexDataBuffer* vertexData;
 @property (nullable,  nonatomic, readonly) RMVBOIndexDataBuffer* indexData;
+
+
 
 - (nonnull instancetype)initWithVertexData:(nullable RMVBOVertexDataBuffer*)vertexData indexData:(nullable RMVBOIndexDataBuffer*)indexData NS_DESIGNATED_INITIALIZER;
 
@@ -41,5 +44,7 @@ typedef struct{
 
 - (BOOL)prepareBuffer;
 - (void)bindBuffer;
+
+- (void)setNeedsToRefrashBuffer;
 
 @end
