@@ -7,7 +7,8 @@
 //
 
 #import "RMGLVBOObject.h"
-#import "RMVBODataBuffer.h"
+#import "RMVBOBuffer.h"
+#import "RMVBOVertexBuffer.h"
 
 #import "RMVBOObject+RMDrawable.h"
 
@@ -33,7 +34,12 @@
 
 - (BOOL)isPrepared
 {
-    return _vbo.vertexBufferDidPrepare && _vbo.indexBufferDidPrepare;
+    if (self.indexBuffer)
+    {
+        return _vbo.vertexBufferDidPrepare &&  _vbo.indexBufferDidPrepare;
+    }
+    
+    return _vbo.vertexBufferDidPrepare;
 }
 
 
@@ -41,18 +47,18 @@
 {
     if ([self isPrepared]) return YES;
     
-    if (!_vbo.vertexBufferDidPrepare) {
+    if (!_vbo.vertexBufferDidPrepare && self.vertexBuffer) {
         glGenBuffers(1, &_vbo.vertexBuffer);
         glBindBuffer(GL_ARRAY_BUFFER, _vbo.vertexBuffer);
         
-        glBufferData(GL_ARRAY_BUFFER, self.vertexData.dataSize, self.vertexData.buffer, [self glEnumForBufferType:self.vertexData.type]);
+        glBufferData(GL_ARRAY_BUFFER, self.vertexBuffer.dataSize, self.vertexBuffer.buffer, [self glEnumForBufferType:self.vertexBuffer.type]);
         _vbo.vertexBufferDidPrepare = 1;
     }
     
-    if (!_vbo.indexBufferDidPrepare) {
+    if (!_vbo.indexBufferDidPrepare && self.indexBuffer) {
         glGenBuffers(1, &_vbo.indexBuffer);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _vbo.indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, self.indexData.dataSize, self.indexData.buffer, [self glEnumForBufferType:self.indexData.type]);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, self.indexBuffer.dataSize, self.indexBuffer.buffer, [self glEnumForBufferType:self.indexBuffer.type]);
         _vbo.indexBufferDidPrepare = 1;
     }
     
@@ -64,12 +70,15 @@
     if ([self isPrepared])
     {
         glBindBuffer(GL_ARRAY_BUFFER, _vbo.vertexBuffer);
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _vbo.indexBuffer);
+        if (self.indexBuffer)
+        {
+            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _vbo.indexBuffer);
+        }
     }
 }
 
 
-- (void)setNeedsToRefrashBuffer
+- (void)setNeedsToRefrashBuffers
 {
     _needsToRefrashBuffer = YES;
 }
@@ -79,14 +88,14 @@
 {
     if (![self isPrepared] || !_needsToRefrashBuffer) return;
     
-    if (_vbo.vertexBufferDidPrepare && self.vertexData.type != RMVBODataBufferTypeStatic) {
+    if (_vbo.vertexBufferDidPrepare && self.vertexBuffer.type != RMVBODataBufferTypeStatic) {
         glBindBuffer(GL_ARRAY_BUFFER, _vbo.vertexBuffer);
-        glBufferSubData(GL_ARRAY_BUFFER, 0, self.vertexData.dataSize, self.vertexData.buffer);
+        glBufferSubData(GL_ARRAY_BUFFER, 0, self.vertexBuffer.dataSize, self.vertexBuffer.buffer);
     }
     
-    if (_vbo.indexBufferDidPrepare && self.indexData.type != RMVBODataBufferTypeStatic) {
+    if (self.indexBuffer && _vbo.indexBufferDidPrepare && self.indexBuffer.type != RMVBODataBufferTypeStatic) {
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _vbo.indexBuffer);
-        glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, 0, self.indexData.dataSize, self.indexData.buffer);
+        glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, 0, self.indexBuffer.dataSize, self.indexBuffer.buffer);
     }
     
     _needsToRefrashBuffer = NO;
@@ -136,24 +145,51 @@
 
 - (void)draw
 {
+    if (![self isPrepared]) return;
     
     [self refrashBuffers];
     [self bindBuffer];
     
-    int bytes = self.indexData.dataSize/self.indexData.count;
-    GLenum type;
+    GLenum prim = [self glPrimitiveForVertexBufferPrimitive:self.vertexBuffer.primitive];
     
-    if (bytes == 1)
-    {
-        type = GL_UNSIGNED_BYTE;
-    } else if (bytes == 2)
-    {
-        type = GL_UNSIGNED_SHORT;
+    if (self.indexBuffer) {
+        int bytes = self.indexBuffer.dataSize/self.indexBuffer.count;
+        GLenum type;
+        
+        if (bytes == 1)
+        {
+            type = GL_UNSIGNED_BYTE;
+        } else if (bytes == 2)
+        {
+            type = GL_UNSIGNED_SHORT;
+        } else {
+            type = GL_UNSIGNED_INT;
+        }
+        
+        glDrawElements(prim, self.indexBuffer.count, type, 0);
     } else {
-        type = GL_UNSIGNED_INT;
+        glDrawArrays(prim, 0, self.vertexBuffer.count);
+    }
+}
+
+- (GLenum)glPrimitiveForVertexBufferPrimitive:(RMVBOVertexBufferPrimitive)primitive
+{
+    GLenum prim;
+    switch (primitive) {
+        case RMVBOVertexBufferPrimitiveTriangleStrip:
+            prim = GL_TRIANGLE_STRIP;
+            break;
+        case RMVBOVertexBufferPrimitiveTriangleFan:
+            prim = GL_TRIANGLE_FAN;
+            break;
+            
+        case RMVBOVertexBufferPrimitiveTriangle:
+        default:
+            prim = GL_TRIANGLES;
+            break;
     }
     
-    glDrawElements(GL_TRIANGLES, self.indexData.count, type, 0);
+    return prim;
 }
 
 @end

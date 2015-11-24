@@ -13,23 +13,24 @@
 
 - (instancetype)init
 {
-    return [self initWithVertexData:nil indexData:nil];
+    RMVBOVertexBuffer* vb = nil;
+    return [self initWithVertexData:vb indexData:nil];
 }
 
-- (nonnull instancetype)initWithVertexData:(nullable RMVBOVertexDataBuffer*)vertexData indexData:(nullable RMVBOIndexDataBuffer*)indexData
+- (nonnull instancetype)initWithVertexData:(RMVBOVertexBuffer*)vertexData indexData:( RMVBOIndexBuffer*)indexData
 {
     self = [super init];
     if (self)
     {
-        _vertexData = vertexData;
-        _indexData = indexData;
+        _vertexBuffer = vertexData;
+        _indexBuffer = indexData;
     }
     
     return self;
 }
 
 
-+ (nonnull instancetype)objectWithVertexData:(nullable RMVBOVertexDataBuffer*)vertexData indexData:(nullable RMVBOIndexDataBuffer*)indexData
++ (nonnull instancetype)objectWithVertexData:(RMVBOVertexBuffer*)vertexData indexData:(RMVBOIndexBuffer*)indexData
 {
     return [[[self class] alloc] initWithVertexData:vertexData indexData:indexData];
 }
@@ -46,7 +47,7 @@
 }
 
 
-- (void)setNeedsToRefrashBuffer
+- (void)setNeedsToRefrashBuffers
 {
     
 }

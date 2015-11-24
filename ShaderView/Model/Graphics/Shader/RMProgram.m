@@ -17,7 +17,7 @@
 #import "RMMatrix.h"
 
 #import "RMVBOVertexAttribute.h"
-#import "RMVBODataBuffer.h"
+#import "RMVBOVertexBuffer.h"
 
 
 
@@ -175,7 +175,7 @@
     return NO;
 }
 
-- (void)prepareForUseVBOBuffer:(RMVBOVertexDataBuffer*)buffer
+- (void)prepareForUseVBOBuffer:(RMVBOVertexBuffer*)buffer
 {
     __block NSMutableDictionary<NSNumber*, RMVertexAttribute*>* binding = [NSMutableDictionary dictionary];
     

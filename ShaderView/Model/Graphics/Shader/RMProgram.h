@@ -10,7 +10,7 @@
 
 #import "RMVector.h"
 
-@class RMVertexShader, RMFragmentShader, RMVertexAttribute, RMVBOVertexDataBuffer;
+@class RMVertexShader, RMFragmentShader, RMVertexAttribute, RMVBOVertexBuffer;
 @class RMMatrix, RMMatrix2x2, RMMatrix3x3,RMMatrix4x4;
 @class RMTexture;
 @class UIColor;
@@ -45,7 +45,7 @@
 - (nullable RMVertexShader*)createVertexShader:(nonnull NSString*)src;
 - (nullable RMFragmentShader*)creatFragmentShader:(nonnull NSString*)src;
 
-- (void)prepareForUseVBOBuffer:(nonnull RMVBOVertexDataBuffer*)buffer;
+- (void)prepareForUseVBOBuffer:(nonnull RMVBOVertexBuffer*)buffer;
 
 - (void)setParam:(nonnull NSString*)name  matrix:(nullable RMMatrix*)matrix;
 - (void)setParam:(nonnull NSString*)name texture:(nullable RMTexture*)texture;

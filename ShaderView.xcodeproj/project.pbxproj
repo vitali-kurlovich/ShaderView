@@ -32,11 +32,12 @@
 		5D1C6F321C034E8400E19C87 /* RMSceneObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1C6F311C034E8400E19C87 /* RMSceneObject.m */; };
 		5D1C6F351C034EBA00E19C87 /* RMCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1C6F341C034EBA00E19C87 /* RMCommon.m */; };
 		5D1C6F381C03539E00E19C87 /* RMTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1C6F371C03539E00E19C87 /* RMTransform.m */; };
+		5D2438121C04C08D00AB90D6 /* RMVBOVertexBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2438111C04C08D00AB90D6 /* RMVBOVertexBuffer.m */; };
 		5D368C3E1BFF17AD00FE2A83 /* RMRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D368C3D1BFF17AD00FE2A83 /* RMRender.m */; };
 		5D96E7071C0072D800D8AE60 /* RMSourceCodeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D96E7061C0072D800D8AE60 /* RMSourceCodeTextView.m */; };
 		5D96E70E1C00AD7600D8AE60 /* RMSourceCodeLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D96E70D1C00AD7600D8AE60 /* RMSourceCodeLineNumberView.m */; };
 		5DFC464D1C020F280085852B /* RMMaterial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC464C1C020F280085852B /* RMMaterial.m */; };
-		5DFC468E1C02361D0085852B /* RMVBODataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC468B1C02361D0085852B /* RMVBODataBuffer.m */; };
+		5DFC468E1C02361D0085852B /* RMVBOBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC468B1C02361D0085852B /* RMVBOBuffer.m */; };
 		5DFC468F1C02361D0085852B /* RMVBOObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC468D1C02361D0085852B /* RMVBOObject.m */; };
 		5DFC46A51C02382A0085852B /* RMMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC469E1C02382A0085852B /* RMMatrix.m */; };
 		5DFC46A61C02382A0085852B /* RMMatrix2x2.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC46A01C02382A0085852B /* RMMatrix2x2.m */; };
@@ -112,6 +113,8 @@
 		5D1C6F341C034EBA00E19C87 /* RMCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMCommon.m; sourceTree = "<group>"; };
 		5D1C6F361C03539E00E19C87 /* RMTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTransform.h; sourceTree = "<group>"; };
 		5D1C6F371C03539E00E19C87 /* RMTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTransform.m; sourceTree = "<group>"; };
+		5D2438101C04C08D00AB90D6 /* RMVBOVertexBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMVBOVertexBuffer.h; sourceTree = "<group>"; };
+		5D2438111C04C08D00AB90D6 /* RMVBOVertexBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMVBOVertexBuffer.m; sourceTree = "<group>"; };
 		5D368C3C1BFF17AD00FE2A83 /* RMRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRender.h; sourceTree = "<group>"; };
 		5D368C3D1BFF17AD00FE2A83 /* RMRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRender.m; sourceTree = "<group>"; };
 		5D96E7051C0072D800D8AE60 /* RMSourceCodeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSourceCodeTextView.h; sourceTree = "<group>"; };
@@ -120,8 +123,8 @@
 		5D96E70D1C00AD7600D8AE60 /* RMSourceCodeLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSourceCodeLineNumberView.m; sourceTree = "<group>"; };
 		5DFC464B1C020F280085852B /* RMMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMaterial.h; sourceTree = "<group>"; };
 		5DFC464C1C020F280085852B /* RMMaterial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMaterial.m; sourceTree = "<group>"; };
-		5DFC468A1C02361D0085852B /* RMVBODataBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMVBODataBuffer.h; sourceTree = "<group>"; };
-		5DFC468B1C02361D0085852B /* RMVBODataBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMVBODataBuffer.m; sourceTree = "<group>"; };
+		5DFC468A1C02361D0085852B /* RMVBOBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMVBOBuffer.h; sourceTree = "<group>"; };
+		5DFC468B1C02361D0085852B /* RMVBOBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMVBOBuffer.m; sourceTree = "<group>"; };
 		5DFC468C1C02361D0085852B /* RMVBOObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMVBOObject.h; sourceTree = "<group>"; };
 		5DFC468D1C02361D0085852B /* RMVBOObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMVBOObject.m; sourceTree = "<group>"; };
 		5DFC469D1C02382A0085852B /* RMMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMatrix.h; sourceTree = "<group>"; };
@@ -343,12 +346,14 @@
 		5DFC46891C02361D0085852B /* VBO */ = {
 			isa = PBXGroup;
 			children = (
-				5DFC468A1C02361D0085852B /* RMVBODataBuffer.h */,
-				5DFC468B1C02361D0085852B /* RMVBODataBuffer.m */,
+				5DFC468A1C02361D0085852B /* RMVBOBuffer.h */,
+				5DFC468B1C02361D0085852B /* RMVBOBuffer.m */,
 				5DFC468C1C02361D0085852B /* RMVBOObject.h */,
 				5DFC468D1C02361D0085852B /* RMVBOObject.m */,
 				5DFC46C01C025E9C0085852B /* RMVBOVertexAttribute.h */,
 				5DFC46C11C025E9C0085852B /* RMVBOVertexAttribute.m */,
+				5D2438101C04C08D00AB90D6 /* RMVBOVertexBuffer.h */,
+				5D2438111C04C08D00AB90D6 /* RMVBOVertexBuffer.m */,
 			);
 			path = VBO;
 			sourceTree = "<group>";
@@ -496,7 +501,7 @@
 				5DFC46A51C02382A0085852B /* RMMatrix.m in Sources */,
 				5D15831E1BFDB7D4003A8AD7 /* ViewController.m in Sources */,
 				5D1583571BFDB865003A8AD7 /* RMShaderView.m in Sources */,
-				5DFC468E1C02361D0085852B /* RMVBODataBuffer.m in Sources */,
+				5DFC468E1C02361D0085852B /* RMVBOBuffer.m in Sources */,
 				5DFC46A61C02382A0085852B /* RMMatrix2x2.m in Sources */,
 				5DFC46B61C02389D0085852B /* RMFragmentShader.m in Sources */,
 				5D1C6F351C034EBA00E19C87 /* RMCommon.m in Sources */,
@@ -512,6 +517,7 @@
 				5D1C6DAB1C031D5F00E19C87 /* RMGLVertexShader.m in Sources */,
 				5D1C6DAA1C031D5F00E19C87 /* RMGLSLProgram.m in Sources */,
 				5D96E7071C0072D800D8AE60 /* RMSourceCodeTextView.m in Sources */,
+				5D2438121C04C08D00AB90D6 /* RMVBOVertexBuffer.m in Sources */,
 				5D1583521BFDB845003A8AD7 /* RMTexture.m in Sources */,
 				5D15831B1BFDB7D4003A8AD7 /* AppDelegate.m in Sources */,
 				5D1C6F381C03539E00E19C87 /* RMTransform.m in Sources */,

@@ -27,24 +27,24 @@ typedef struct{
 } RMVBO_Mesh_P3_UV02_UV12;
 
 
-@class RMVBOVertexDataBuffer, RMVBOIndexDataBuffer;
+@class RMVBOVertexBuffer, RMVBOIndexBuffer;
 
 @interface RMVBOObject : NSObject
 @property (nonatomic, readonly, getter=isPrepared) BOOL prepared;
 
 
-@property (nullable,  nonatomic, readonly) RMVBOVertexDataBuffer* vertexData;
-@property (nullable,  nonatomic, readonly) RMVBOIndexDataBuffer* indexData;
+@property (nullable,  nonatomic, readonly) RMVBOVertexBuffer* vertexBuffer;
+@property (nullable,  nonatomic, readonly) RMVBOIndexBuffer* indexBuffer;
 
 
 
-- (nonnull instancetype)initWithVertexData:(nullable RMVBOVertexDataBuffer*)vertexData indexData:(nullable RMVBOIndexDataBuffer*)indexData NS_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithVertexData:(nonnull RMVBOVertexBuffer*)vertexData indexData:(nullable RMVBOIndexBuffer*)indexData NS_DESIGNATED_INITIALIZER;
 
-+ (nonnull instancetype)objectWithVertexData:(nullable RMVBOVertexDataBuffer*)vertexData indexData:(nullable RMVBOIndexDataBuffer*)indexData;
++ (nonnull instancetype)objectWithVertexData:(nonnull RMVBOVertexBuffer*)vertexData indexData:(nullable RMVBOIndexBuffer*)indexData;
 
 - (BOOL)prepareBuffer;
 - (void)bindBuffer;
 
-- (void)setNeedsToRefrashBuffer;
+- (void)setNeedsToRefrashBuffers;
 
 @end
