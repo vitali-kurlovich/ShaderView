@@ -9,5 +9,5 @@
 #import "RMVBOObject.h"
 
 @interface RMGLVBOObject : RMVBOObject
-@property (nonatomic, readonly, getter=isPrepared) BOOL prepared;
+
 @end

@@ -16,7 +16,7 @@
 
 #import "RMMatrix.h"
 
-#import "RMVBODataField.h"
+#import "RMVBOVertexAttributes.h"
 #import "RMVBODataBuffer.h"
 
 
@@ -185,7 +185,7 @@
     
     NSInteger stride = buffer.dataSize/buffer.count;
     
-    [buffer.fields enumerateObjectsUsingBlock:^(RMVBODataField* _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [buffer.attributes enumerateObjectsUsingBlock:^(RMVBOVertexAttributes* _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         RMVertexAttribute* attr = binding[@(obj.type)];
         if (attr)

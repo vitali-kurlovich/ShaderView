@@ -11,10 +11,10 @@
 @implementation RMVertexAttribute
 - (instancetype)init
 {
-    return [self initWithName:@"" attribute:RMVBODataItemTypePosition];
+    return [self initWithName:@"" attribute:RMVBOVertexAttributesTypePosition];
 }
 
-- (nonnull instancetype)initWithName:(NSString*)name attribute:(RMVBODataFieldType)attribute {
+- (nonnull instancetype)initWithName:(NSString*)name attribute:(RMVBOVertexAttributesType)attribute {
     
     self = [super init];
     if (self)
@@ -24,7 +24,8 @@
     }
     return self;
 }
-+ (nonnull instancetype)attributeWithName:(nonnull NSString*)name attribute:(RMVBODataFieldType)attribute
+
++ (nonnull instancetype)attributeWithName:(nonnull NSString*)name attribute:(RMVBOVertexAttributesType)attribute
 {
     return [[[self class] alloc] initWithName:name attribute:attribute];
 }

@@ -34,39 +34,23 @@
     return _vbo.vertexBufferDidPrepare && _vbo.indexBufferDidPrepare;
 }
 
+
 - (BOOL)prepareBuffer
 {
- 
-    GLenum glFlag;
-    // Posible this code must be in RMVBOBuffer
-    switch (self.drawType) {
-        case RMVBOObjectDrawTypeStream:
-            glFlag = GL_STREAM_DRAW;
-            break;
-            
-        case RMVBOObjectDrawTypeDynamic:
-            glFlag = GL_DYNAMIC_DRAW;
-            break;
-            
-        case RMVBOObjectDrawTypeStatic:
-        default:
-            
-            glFlag = GL_STATIC_DRAW;
-            break;
-    }
+    if ([self isPrepared]) return YES;
     
     if (!_vbo.vertexBufferDidPrepare) {
         glGenBuffers(1, &_vbo.vertexBuffer);
         glBindBuffer(GL_ARRAY_BUFFER, _vbo.vertexBuffer);
         
-        glBufferData(GL_ARRAY_BUFFER, self.vertexData.dataSize, self.vertexData.buffer, glFlag);
+        glBufferData(GL_ARRAY_BUFFER, self.vertexData.dataSize, self.vertexData.buffer, [self glEnumForBufferType:self.vertexData.type]);
         _vbo.vertexBufferDidPrepare = 1;
     }
     
     if (!_vbo.indexBufferDidPrepare) {
         glGenBuffers(1, &_vbo.indexBuffer);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _vbo.indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, self.indexData.dataSize, self.indexData.buffer, glFlag);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, self.indexData.dataSize, self.indexData.buffer, [self glEnumForBufferType:self.indexData.type]);
         _vbo.indexBufferDidPrepare = 1;
     }
     
@@ -94,6 +78,29 @@
     {
         glDeleteBuffers(1, &_vbo.indexBuffer);
     }
+}
+
+- (GLenum)glEnumForBufferType:(RMVBODataBufferType)type
+{
+    GLenum glFlag;
+    switch (type) {
+        case RMVBODataBufferTypeStream:
+            glFlag = GL_STREAM_DRAW;
+            break;
+            
+        case RMVBODataBufferTypeDynamic:
+            glFlag = GL_DYNAMIC_DRAW;
+            break;
+            
+        case RMVBODataBufferTypeStatic:
+        default:
+            
+            glFlag = GL_STATIC_DRAW;
+            break;
+    }
+    
+    return glFlag;
+    
 }
 
 @end

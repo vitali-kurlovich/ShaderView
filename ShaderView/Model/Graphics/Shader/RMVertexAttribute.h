@@ -6,12 +6,12 @@
 //  Copyright © 2015 Vitali Kurlovich. All rights reserved.
 //
 
-#import "RMVBODataField.h"
+#import "RMVBOVertexAttributes.h"
 
 @interface RMVertexAttribute : NSObject
-@property (nonatomic, readonly) RMVBODataFieldType attribute;
+@property (nonatomic, readonly) RMVBOVertexAttributesType attribute;
 @property (nonnull, nonatomic, copy, readonly) NSString* name;
 
-- (nonnull instancetype)initWithName:(nonnull NSString*)name attribute:(RMVBODataFieldType)attribute NS_DESIGNATED_INITIALIZER;
-+ (nonnull instancetype)attributeWithName:(nonnull NSString*)name attribute:(RMVBODataFieldType)attribute;
+- (nonnull instancetype)initWithName:(nonnull NSString*)name attribute:(RMVBOVertexAttributesType)attribute NS_DESIGNATED_INITIALIZER;
++ (nonnull instancetype)attributeWithName:(nonnull NSString*)name attribute:(RMVBOVertexAttributesType)attribute;
 @end

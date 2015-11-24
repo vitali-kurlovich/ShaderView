@@ -12,87 +12,97 @@
 
 - (instancetype)init
 {
-    return [self initWithDataType:RMVBODataBufferTypeNone count:0 dataSize:0];
+    void* null_ptr = NULL;
+    return [self initWithBuffer:null_ptr count:0 dataSize:0];
 }
 
-
-- ( instancetype)initWithDataType:(RMVBODataBufferType)type count:(NSInteger)count dataSize:(NSInteger)dataSize
-{
-    return [self initWithDataType:type buffer:NULL count:count dataSize:dataSize];
-}
-
-
-- (nullable instancetype)initWithBuffer:(nullable const void*)buffer count:(NSInteger)count dataSize:(NSInteger)dataSize fields:(NSArray<RMVBODataField*>*)fields
-{
-    return [self initWithDataType:RMVBODataBufferTypeNone buffer:buffer count:count dataSize:dataSize fields:fields];
-}
-
-- (instancetype)initWithDataType:(RMVBODataBufferType)type buffer:(const void*)buffer count:(NSInteger)count dataSize:(NSInteger)dataSize
-{
-    return [self initWithDataType:type buffer:buffer count:count dataSize:dataSize fields:nil];
-}
-
-- (instancetype)initWithDataType:(RMVBODataBufferType)type buffer:(const void*)buffer count:(NSInteger)count dataSize:(NSInteger)dataSize fields:(nullable NSArray<RMVBODataField*>*)fields {
-    
-    if (type == RMVBODataBufferTypeVertex || type ==RMVBODataBufferTypeIndex)
+- (instancetype)initWithBuffer:(void*)buffer type:(RMVBODataBufferType)type count:(NSInteger)count dataSize:(NSInteger)dataSize {
+    self = [super init];
+    if (self)
     {
-        self = [super init];
-        if (self)
+        _type = type;
+        _count = count;
+        _dataSize = dataSize;
+        if (RMVBODataBufferTypeStatic == type && buffer)
         {
-            _type = type;
-            _count = count;
-            _dataSize = dataSize;
-            
             _buffer = malloc(_dataSize);
             memcpy(_buffer, buffer, _dataSize);
+        } else {
+            _buffer = buffer;
         }
-        
-        return self;
     }
     
-    return nil;
+    return self;
 }
 
-
-+ (nullable instancetype)dataWithBuffer:(nullable const void*)buffer count:(NSInteger)count dataSize:(NSInteger)dataSize fields:(nullable NSArray<RMVBODataField*>*)fields
+- (instancetype)initWithBuffer:(void*)buffer count:(NSInteger)count dataSize:(NSInteger)dataSize
 {
-    return [[[self class] alloc] initWithBuffer:buffer count:count dataSize:dataSize fields:fields];
+    return [self initWithBuffer:buffer type:RMVBODataBufferTypeStatic count:count dataSize:dataSize];
 }
 
-+ (nullable instancetype)dataWithBuffer:(nullable const void*)buffer count:(NSInteger)count dataSize:(NSInteger)dataSize
-{
-    return [[self class]dataWithBuffer:buffer count:count dataSize:dataSize fields:nil];
-}
 
 - (void)dealloc
 {
-    free(_buffer);
+    if (self.type == RMVBODataBufferTypeStatic)
+    {
+        free(_buffer);
+    }
 }
 
+
++ (instancetype)buffer:(void*)buffer type:(RMVBODataBufferType)type count:(NSInteger)count dataSize:(NSInteger)dataSize
+{
+    return [[[self class] alloc] initWithBuffer:buffer type:type count:count dataSize:dataSize];
+}
+
+
++ (nonnull instancetype)buffer:(nonnull void*)buffer count:(NSInteger)count dataSize:(NSInteger)dataSize
+{
+     return [[[self class] alloc] initWithBuffer:buffer count:count dataSize:dataSize];
+}
 
 @end
 
 
 @implementation RMVBOVertexDataBuffer
 
-- (nullable instancetype)initWithBuffer:(nullable const void*)buffer count:(NSInteger)count dataSize:(NSInteger)dataSize fields:(NSArray<RMVBODataField *> *)fields
+- ( instancetype)initWithBuffer:( void*)buffer type:(RMVBODataBufferType)type count:(NSInteger)count dataSize:(NSInteger)dataSize attributes:(nullable NSArray<RMVBOVertexAttributes*>*)attributes
 {
-    self = [self initWithDataType:RMVBODataBufferTypeVertex buffer:buffer count:count dataSize:dataSize fields:fields];
+    self = [super initWithBuffer:buffer type:type count:count dataSize:dataSize];
     if (self)
     {
-        _fields = [fields copy];
+        _attributes = [attributes copy];
     }
     return self;
 }
+
+- ( instancetype)initWithBuffer:(void*)buffer type:(RMVBODataBufferType)type count:(NSInteger)count dataSize:(NSInteger)dataSize
+{
+    return [self initWithBuffer:buffer type:type count:count dataSize:dataSize attributes:nil];
+}
+
+- ( instancetype)initWithBuffer:(void*)buffer count:(NSInteger)count dataSize:(NSInteger)dataSize attributes:(nullable NSArray<RMVBOVertexAttributes*>*)attributes
+{
+    return [self initWithBuffer:buffer type:RMVBODataBufferTypeStatic count:count dataSize:dataSize attributes:attributes];
+}
+
+
++ (nonnull instancetype)buffer:(nonnull void*)buffer type:(RMVBODataBufferType)type count:(NSInteger)count dataSize:(NSInteger)dataSize attributes:(nullable NSArray<RMVBOVertexAttributes*>*)attributes
+{
+    return [[[self class] alloc] initWithBuffer:buffer type:type count:count dataSize:dataSize attributes:attributes];
+}
+
++ (nonnull instancetype)buffer:(nonnull void*)buffer count:(NSInteger)count dataSize:(NSInteger)dataSize attributes:(nullable NSArray<RMVBOVertexAttributes*>*)attributes
+{
+    return [[[self class] alloc] initWithBuffer:buffer count:count dataSize:dataSize attributes:attributes];
+}
+
 
 @end
 
 @implementation RMVBOIndexDataBuffer
 
-- (nullable instancetype)initWithBuffer:(nullable const void*)buffer count:(NSInteger)count dataSize:(NSInteger)dataSize fields:(nullable NSArray<RMVBODataField *> *)fields
-{
-    return [self initWithDataType:RMVBODataBufferTypeIndex buffer:buffer count:count dataSize:dataSize fields:fields];
-}
+
 
 @end
 
