@@ -1,11 +1,96 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9wa-MF-Ibt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="N8l-O2-Kmw">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Fragment Shader-->
+        <scene sceneID="89O-ll-Fs5">
+            <objects>
+                <viewController id="77p-Ir-QUi" customClass="TextEditorViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="suN-EA-mAa"/>
+                        <viewControllerLayoutGuide type="bottom" id="5UF-BG-qH5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="t3E-rG-R52" customClass="RMSourceCodeTextView">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="lineNumberBackgroundColor">
+                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Fragment Shader" id="ZaJ-OZ-FIO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wyC-TX-1SE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1214" y="374"/>
+        </scene>
+        <!--Vertex Shader-->
+        <scene sceneID="qGS-jH-W1f">
+            <objects>
+                <viewController title="Vertex Shader" id="s3U-ub-l27" customClass="TextEditorViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zvj-hv-VXu"/>
+                        <viewControllerLayoutGuide type="bottom" id="FZL-je-zCc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gbu-2e-QzK" customClass="RMSourceCodeTextView">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="lineNumberBackgroundColor">
+                                <color key="value" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Vertex Shader" id="oNp-W0-b5F"/>
+                    <connections>
+                        <outlet property="textView" destination="gbu-2e-QzK" id="jw1-dz-xdg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oxz-Fm-Ehx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1240" y="-408"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Xon-SG-PgK">
+            <objects>
+                <navigationController id="N8l-O2-Kmw" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1iC-x1-Y9Z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="7I0-6b-y3T" kind="relationship" relationship="rootViewController" id="2cl-b0-0Ro"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JWg-PF-p5K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-237" y="-399"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="HjV-Nt-S8T">
+            <objects>
+                <tabBarController id="7I0-6b-y3T" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="i8F-c8-hgb"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="vmU-56-dRm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="s3U-ub-l27" kind="relationship" relationship="viewControllers" id="NOa-ps-yks"/>
+                        <segue destination="77p-Ir-QUi" kind="relationship" relationship="viewControllers" id="lbE-hw-4RM"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vqs-K2-EIT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="499" y="-408"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -22,59 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="364" y="409"/>
-        </scene>
-        <!--Text Editor View Controller-->
-        <scene sceneID="me4-kK-YFh">
-            <objects>
-                <viewController id="9wa-MF-Ibt" customClass="TextEditorViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xvP-ul-Ena"/>
-                        <viewControllerLayoutGuide type="bottom" id="sAN-1E-Hsd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ROl-Cd-rRu">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mFY-C9-LIV" customClass="RMSourceCodeTextView">
-                                <rect key="frame" x="4" y="0.0" width="596" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="sourceCodeLineNumberWidth">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="lineNumberWidth">
-                                        <real key="value" value="18"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="lineNumberBackgroundColor">
-                                        <color key="value" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="lineNumberTextColor">
-                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="mFY-C9-LIV" firstAttribute="leading" secondItem="ROl-Cd-rRu" secondAttribute="leadingMargin" constant="-16" id="EfM-pW-emo"/>
-                            <constraint firstItem="sAN-1E-Hsd" firstAttribute="top" secondItem="mFY-C9-LIV" secondAttribute="bottom" id="fyj-Iw-58t"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mFY-C9-LIV" secondAttribute="trailing" constant="-20" id="qNr-8O-kDK"/>
-                            <constraint firstItem="mFY-C9-LIV" firstAttribute="top" secondItem="ROl-Cd-rRu" secondAttribute="topMargin" id="vPK-ge-3OV"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="textView" destination="mFY-C9-LIV" id="SXr-2F-LW8"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CnV-8f-ceQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="990" y="409"/>
+            <point key="canvasLocation" x="1220" y="1026"/>
         </scene>
     </scenes>
 </document>
