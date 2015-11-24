@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface RMSourceCodeViewController : UIViewController
-
+- (void)loadTextFileWithName:(NSString*)name ofType:(NSString*)type;
 @end

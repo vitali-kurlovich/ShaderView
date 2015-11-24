@@ -16,18 +16,24 @@
 
 @implementation RMSourceCodeViewController
 
-- (void)viewDidLoad
+- (void)loadTextFileWithName:(NSString*)name ofType:(NSString*)type
 {
-    [super viewDidLoad];
+    NSString* path = [[NSBundle mainBundle] pathForResource:name ofType:type];
     
-
+    if (path.length < 1)
+    {
+        return ;
+    }
+    
+    NSError* error;
+    NSString* textString = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
+    if (textString)
+    {
+        self.textView.text = textString;
+    } else {
+        NSLog(@"Error loading file: %@", error.localizedDescription);
+        return;
+    }
 }
-
-- (void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-}
-
-
 
 @end

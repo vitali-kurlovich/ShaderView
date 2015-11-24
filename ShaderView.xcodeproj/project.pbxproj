@@ -33,6 +33,10 @@
 		5D1C6F351C034EBA00E19C87 /* RMCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1C6F341C034EBA00E19C87 /* RMCommon.m */; };
 		5D1C6F381C03539E00E19C87 /* RMTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1C6F371C03539E00E19C87 /* RMTransform.m */; };
 		5D2438121C04C08D00AB90D6 /* RMVBOVertexBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2438111C04C08D00AB90D6 /* RMVBOVertexBuffer.m */; };
+		5D2438811C04E81B00AB90D6 /* RMVertexShaderCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2438801C04E81B00AB90D6 /* RMVertexShaderCodeViewController.m */; };
+		5D2438841C04E83E00AB90D6 /* RMFragmentShaderCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2438831C04E83E00AB90D6 /* RMFragmentShaderCodeViewController.m */; };
+		5D2438871C04E9A600AB90D6 /* Julia.frag in Resources */ = {isa = PBXBuildFile; fileRef = 5D2438851C04E9A600AB90D6 /* Julia.frag */; };
+		5D2438881C04E9A600AB90D6 /* Julia.vert in Resources */ = {isa = PBXBuildFile; fileRef = 5D2438861C04E9A600AB90D6 /* Julia.vert */; };
 		5D368C3E1BFF17AD00FE2A83 /* RMRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D368C3D1BFF17AD00FE2A83 /* RMRender.m */; };
 		5D96E7071C0072D800D8AE60 /* RMSourceCodeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D96E7061C0072D800D8AE60 /* RMSourceCodeTextView.m */; };
 		5D96E70E1C00AD7600D8AE60 /* RMSourceCodeLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D96E70D1C00AD7600D8AE60 /* RMSourceCodeLineNumberView.m */; };
@@ -115,6 +119,12 @@
 		5D1C6F371C03539E00E19C87 /* RMTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTransform.m; sourceTree = "<group>"; };
 		5D2438101C04C08D00AB90D6 /* RMVBOVertexBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMVBOVertexBuffer.h; sourceTree = "<group>"; };
 		5D2438111C04C08D00AB90D6 /* RMVBOVertexBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMVBOVertexBuffer.m; sourceTree = "<group>"; };
+		5D24387F1C04E81B00AB90D6 /* RMVertexShaderCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMVertexShaderCodeViewController.h; sourceTree = "<group>"; };
+		5D2438801C04E81B00AB90D6 /* RMVertexShaderCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMVertexShaderCodeViewController.m; sourceTree = "<group>"; };
+		5D2438821C04E83E00AB90D6 /* RMFragmentShaderCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMFragmentShaderCodeViewController.h; sourceTree = "<group>"; };
+		5D2438831C04E83E00AB90D6 /* RMFragmentShaderCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMFragmentShaderCodeViewController.m; sourceTree = "<group>"; };
+		5D2438851C04E9A600AB90D6 /* Julia.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Julia.frag; sourceTree = "<group>"; };
+		5D2438861C04E9A600AB90D6 /* Julia.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Julia.vert; sourceTree = "<group>"; };
 		5D368C3C1BFF17AD00FE2A83 /* RMRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRender.h; sourceTree = "<group>"; };
 		5D368C3D1BFF17AD00FE2A83 /* RMRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRender.m; sourceTree = "<group>"; };
 		5D96E7051C0072D800D8AE60 /* RMSourceCodeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSourceCodeTextView.h; sourceTree = "<group>"; };
@@ -210,12 +220,18 @@
 				5D1583561BFDB865003A8AD7 /* RMShaderView.m */,
 				5D17B5AF1BFFBB4400676BE7 /* RMGLShaderView.h */,
 				5D17B5B01BFFBB4400676BE7 /* RMGLShaderView.m */,
-				5D17B5B21BFFE49400676BE7 /* RMSourceCodeViewController.h */,
-				5D17B5B31BFFE49400676BE7 /* RMSourceCodeViewController.m */,
 				5D96E7051C0072D800D8AE60 /* RMSourceCodeTextView.h */,
 				5D96E7061C0072D800D8AE60 /* RMSourceCodeTextView.m */,
 				5D96E70C1C00AD7600D8AE60 /* RMSourceCodeLineNumberView.h */,
 				5D96E70D1C00AD7600D8AE60 /* RMSourceCodeLineNumberView.m */,
+				5D17B5B21BFFE49400676BE7 /* RMSourceCodeViewController.h */,
+				5D17B5B31BFFE49400676BE7 /* RMSourceCodeViewController.m */,
+				5D24387F1C04E81B00AB90D6 /* RMVertexShaderCodeViewController.h */,
+				5D2438801C04E81B00AB90D6 /* RMVertexShaderCodeViewController.m */,
+				5D2438821C04E83E00AB90D6 /* RMFragmentShaderCodeViewController.h */,
+				5D2438831C04E83E00AB90D6 /* RMFragmentShaderCodeViewController.m */,
+				5D2438851C04E9A600AB90D6 /* Julia.frag */,
+				5D2438861C04E9A600AB90D6 /* Julia.vert */,
 			);
 			path = ShaderView;
 			sourceTree = "<group>";
@@ -470,7 +486,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D1583261BFDB7D4003A8AD7 /* LaunchScreen.storyboard in Resources */,
+				5D2438871C04E9A600AB90D6 /* Julia.frag in Resources */,
 				5D1583231BFDB7D4003A8AD7 /* Assets.xcassets in Resources */,
+				5D2438881C04E9A600AB90D6 /* Julia.vert in Resources */,
 				5D1583211BFDB7D4003A8AD7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,12 +515,14 @@
 				5D1C6DAD1C031D5F00E19C87 /* RMGLRender.m in Sources */,
 				5DFC46B71C02389D0085852B /* RMProgram.m in Sources */,
 				5DFC46B91C02389D0085852B /* RMVertexShader.m in Sources */,
+				5D2438811C04E81B00AB90D6 /* RMVertexShaderCodeViewController.m in Sources */,
 				5DFC46BF1C0251350085852B /* RMVertexAttribute.m in Sources */,
 				5DFC46A51C02382A0085852B /* RMMatrix.m in Sources */,
 				5D15831E1BFDB7D4003A8AD7 /* ViewController.m in Sources */,
 				5D1583571BFDB865003A8AD7 /* RMShaderView.m in Sources */,
 				5DFC468E1C02361D0085852B /* RMVBOBuffer.m in Sources */,
 				5DFC46A61C02382A0085852B /* RMMatrix2x2.m in Sources */,
+				5D2438841C04E83E00AB90D6 /* RMFragmentShaderCodeViewController.m in Sources */,
 				5DFC46B61C02389D0085852B /* RMFragmentShader.m in Sources */,
 				5D1C6F351C034EBA00E19C87 /* RMCommon.m in Sources */,
 				5DFC46C21C025E9C0085852B /* RMVBOVertexAttribute.m in Sources */,
