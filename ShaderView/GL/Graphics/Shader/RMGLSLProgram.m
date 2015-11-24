@@ -23,6 +23,7 @@
 @interface RMGLSLProgram ()
 {
     BOOL _programCompiled;
+    GLuint _program;
 }
 
 @property (nonatomic, readonly) RMGLVertexShader* glVertexShader;
