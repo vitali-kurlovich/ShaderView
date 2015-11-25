@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="N8l-O2-Kmw">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
@@ -75,10 +74,10 @@
             </objects>
             <point key="canvasLocation" x="-237" y="-399"/>
         </scene>
-        <!--Shader View Controller-->
+        <!--Shader Editor Tab View Controller-->
         <scene sceneID="HjV-Nt-S8T">
             <objects>
-                <tabBarController id="7I0-6b-y3T" customClass="RMShaderViewController" sceneMemberID="viewController">
+                <tabBarController id="7I0-6b-y3T" customClass="RMShaderEditorTabViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="i8F-c8-hgb"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="vmU-56-dRm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>

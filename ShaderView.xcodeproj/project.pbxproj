@@ -39,7 +39,7 @@
 		5D2438881C04E9A600AB90D6 /* Julia.vert in Resources */ = {isa = PBXBuildFile; fileRef = 5D2438861C04E9A600AB90D6 /* Julia.vert */; };
 		5D368C3E1BFF17AD00FE2A83 /* RMRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D368C3D1BFF17AD00FE2A83 /* RMRender.m */; };
 		5D5EBB841C05A3CD00504CAD /* RMTestRenderScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5EBB831C05A3CD00504CAD /* RMTestRenderScene.m */; };
-		5D5EBB871C05AC4600504CAD /* RMShaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5EBB861C05AC4600504CAD /* RMShaderViewController.m */; };
+		5D5EBB871C05AC4600504CAD /* RMShaderEditorTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5EBB861C05AC4600504CAD /* RMShaderEditorTabViewController.m */; };
 		5D96E7071C0072D800D8AE60 /* RMSourceCodeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D96E7061C0072D800D8AE60 /* RMSourceCodeTextView.m */; };
 		5D96E70E1C00AD7600D8AE60 /* RMSourceCodeLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D96E70D1C00AD7600D8AE60 /* RMSourceCodeLineNumberView.m */; };
 		5DFC464D1C020F280085852B /* RMMaterial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC464C1C020F280085852B /* RMMaterial.m */; };
@@ -131,8 +131,8 @@
 		5D368C3D1BFF17AD00FE2A83 /* RMRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRender.m; sourceTree = "<group>"; };
 		5D5EBB821C05A3CD00504CAD /* RMTestRenderScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTestRenderScene.h; sourceTree = "<group>"; };
 		5D5EBB831C05A3CD00504CAD /* RMTestRenderScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTestRenderScene.m; sourceTree = "<group>"; };
-		5D5EBB851C05AC4600504CAD /* RMShaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMShaderViewController.h; sourceTree = "<group>"; };
-		5D5EBB861C05AC4600504CAD /* RMShaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMShaderViewController.m; sourceTree = "<group>"; };
+		5D5EBB851C05AC4600504CAD /* RMShaderEditorTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMShaderEditorTabViewController.h; sourceTree = "<group>"; };
+		5D5EBB861C05AC4600504CAD /* RMShaderEditorTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMShaderEditorTabViewController.m; sourceTree = "<group>"; };
 		5D96E7051C0072D800D8AE60 /* RMSourceCodeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSourceCodeTextView.h; sourceTree = "<group>"; };
 		5D96E7061C0072D800D8AE60 /* RMSourceCodeTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSourceCodeTextView.m; sourceTree = "<group>"; };
 		5D96E70C1C00AD7600D8AE60 /* RMSourceCodeLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSourceCodeLineNumberView.h; sourceTree = "<group>"; };
@@ -240,8 +240,8 @@
 				5D2438861C04E9A600AB90D6 /* Julia.vert */,
 				5D5EBB821C05A3CD00504CAD /* RMTestRenderScene.h */,
 				5D5EBB831C05A3CD00504CAD /* RMTestRenderScene.m */,
-				5D5EBB851C05AC4600504CAD /* RMShaderViewController.h */,
-				5D5EBB861C05AC4600504CAD /* RMShaderViewController.m */,
+				5D5EBB851C05AC4600504CAD /* RMShaderEditorTabViewController.h */,
+				5D5EBB861C05AC4600504CAD /* RMShaderEditorTabViewController.m */,
 			);
 			path = ShaderView;
 			sourceTree = "<group>";
@@ -553,7 +553,7 @@
 				5D15831B1BFDB7D4003A8AD7 /* AppDelegate.m in Sources */,
 				5D1C6F381C03539E00E19C87 /* RMTransform.m in Sources */,
 				5D1583181BFDB7D4003A8AD7 /* main.m in Sources */,
-				5D5EBB871C05AC4600504CAD /* RMShaderViewController.m in Sources */,
+				5D5EBB871C05AC4600504CAD /* RMShaderEditorTabViewController.m in Sources */,
 				5D1C6DAF1C031D5F00E19C87 /* RMMatrix+_RMOpenGL_.m in Sources */,
 				5DFC46A71C02382A0085852B /* RMMatrix3x3.m in Sources */,
 				5DFC46A81C02382A0085852B /* RMMatrix4x4.m in Sources */,

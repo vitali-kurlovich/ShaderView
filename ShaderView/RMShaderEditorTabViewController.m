@@ -6,24 +6,24 @@
 //  Copyright © 2015 Vitali Kurlovich. All rights reserved.
 //
 
-#import "RMShaderViewController.h"
+#import "RMShaderEditorTabViewController.h"
 
 #import "RMSourceCodeViewController.h"
 
-@interface RMShaderViewController ()
+@interface RMShaderEditorTabViewController ()
 @property (nonatomic, readonly)  RMSourceCodeViewController* vertexShaderEditor;
 @property (nonatomic, readonly)  RMSourceCodeViewController* fragmentShaderEditor;
 @end
 
 
-@implementation RMShaderViewController
+@implementation RMShaderEditorTabViewController
 
 - (RMSourceCodeViewController*)vertexShaderEditor
 {
     return self.viewControllers[0];
 }
 
-- (RMShaderViewController*)fragmentShaderEditor
+- (RMShaderEditorTabViewController*)fragmentShaderEditor
 {
     return self.viewControllers[1];
 }

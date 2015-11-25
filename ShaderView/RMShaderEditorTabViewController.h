@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RMShaderViewController : UITabBarController
+@interface RMShaderEditorTabViewController : UITabBarController
 
 @end
