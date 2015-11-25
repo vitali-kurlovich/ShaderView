@@ -60,10 +60,9 @@
                                   width:CGRectGetWidth(self.bounds)*scale
                                  height:CGRectGetHeight(self.bounds)*scale];
     
-    [self.render preRender:displayLink.duration];
-    
-    [self.render render:displayLink.duration];
-    [self.render postRender:displayLink.duration];
+    [self preRender:displayLink.duration];
+    [self render:displayLink.duration];
+    [self postRender:displayLink.duration];
 }
 
 - (void)_configureDisplayLink {
@@ -71,5 +70,20 @@
     [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
+
+- (void)preRender:(rmtime)deltaTime
+{
+    [self.render preRender:deltaTime];
+}
+
+- (void)postRender:(rmtime)deltaTime
+{
+    [self.render render:deltaTime];
+}
+
+- (void)render:(rmtime)deltaTime
+{
+     [self.render postRender:deltaTime];
+}
 
 @end

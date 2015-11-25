@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface RMSourceCodeViewController : UIViewController
-- (void)loadTextFileWithName:(NSString*)name ofType:(NSString*)type;
+@property (nullable, copy, readonly) NSString* sorceCode;
+
+- (void)loadTextFileWithName:(nonnull NSString*)name ofType:(nonnull NSString*)type;
+
+
 @end

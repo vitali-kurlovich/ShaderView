@@ -33,6 +33,8 @@
 - (void)preRender:(nullable RMRender*)render duration:(rmtime)deltaTime;
 - (void)postRender:(nullable RMRender*)render duration:(rmtime)deltaTime;
 
+- (void)render:(nullable RMRender*)render duration:(rmtime)deltaTime;
+
 @end
 
 

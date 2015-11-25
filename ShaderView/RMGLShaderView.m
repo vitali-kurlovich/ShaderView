@@ -85,10 +85,12 @@
     return _glRender;
 }
 
-#pragma mark - RMRenderDelegate <NSObject>
-- (void)postRender:(nullable RMRender*)render duration:(rmtime)deltaTime
+- (void)postRender:(rmtime)deltaTime
 {
+    [super postRender:deltaTime];
+    
     [self.context presentRenderbuffer:GL_RENDERBUFFER];
 }
+
 
 @end

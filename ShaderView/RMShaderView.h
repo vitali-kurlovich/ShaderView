@@ -15,9 +15,15 @@
 @class RMRender;
 
 
-@interface RMShaderView : UIView<RMRenderDelegate>
+@interface RMShaderView : UIView
 
 @property (nullable, nonatomic, readonly) RMRender* render;
+
+
+- (void)preRender:(rmtime)deltaTime;
+- (void)postRender:(rmtime)deltaTime;
+
+- (void)render:(rmtime)deltaTime;
 
 
 @end

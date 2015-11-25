@@ -14,6 +14,7 @@
     struct {
         unsigned int delegatePreRender:1;
         unsigned int delegatePostRender:1;
+        unsigned int delegateRender:1;
     } _renderFlags;
 }
 
@@ -30,6 +31,7 @@
         
         _renderFlags.delegatePreRender = [delegate respondsToSelector:@selector(preRender:duration:)];
         _renderFlags.delegatePostRender= [delegate respondsToSelector:@selector(postRender:duration:)];
+        _renderFlags.delegateRender = [delegate respondsToSelector:@selector(render:duration:)];
     }
 }
 
@@ -62,5 +64,9 @@
 - (void)render:(rmtime)deltaTime
 {
 
+    if (_renderFlags.delegateRender)
+    {
+        [self.delegate render:self duration:deltaTime];
+    }
 }
 @end

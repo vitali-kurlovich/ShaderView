@@ -16,6 +16,11 @@
 
 @implementation RMSourceCodeViewController
 
+- (NSString*)sorceCode
+{
+    return [self.textView.text copy];
+}
+
 - (void)loadTextFileWithName:(NSString*)name ofType:(NSString*)type
 {
     NSString* path = [[NSBundle mainBundle] pathForResource:name ofType:type];

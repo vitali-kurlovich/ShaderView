@@ -75,10 +75,10 @@
             </objects>
             <point key="canvasLocation" x="-237" y="-399"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Shader View Controller-->
         <scene sceneID="HjV-Nt-S8T">
             <objects>
-                <tabBarController id="7I0-6b-y3T" sceneMemberID="viewController">
+                <tabBarController id="7I0-6b-y3T" customClass="RMShaderViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="i8F-c8-hgb"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="vmU-56-dRm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
