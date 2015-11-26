@@ -9,9 +9,7 @@
 #import "RMShaderView.h"
 
 
-@class RMGLRender;
-
 @interface RMGLShaderView : RMShaderView
-@property (nonatomic, readonly) RMGLRender* glRender;
+
 
 @end

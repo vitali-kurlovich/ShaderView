@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5D1583181BFDB7D4003A8AD7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1583171BFDB7D4003A8AD7 /* main.m */; };
 		5D15831B1BFDB7D4003A8AD7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15831A1BFDB7D4003A8AD7 /* AppDelegate.m */; };
-		5D15831E1BFDB7D4003A8AD7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15831D1BFDB7D4003A8AD7 /* ViewController.m */; };
 		5D1583211BFDB7D4003A8AD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D15831F1BFDB7D4003A8AD7 /* Main.storyboard */; };
 		5D1583231BFDB7D4003A8AD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D1583221BFDB7D4003A8AD7 /* Assets.xcassets */; };
 		5D1583261BFDB7D4003A8AD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D1583241BFDB7D4003A8AD7 /* LaunchScreen.storyboard */; };
@@ -25,8 +24,6 @@
 		5D1C6DA91C031D5F00E19C87 /* RMGLFragmentShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1C6D9B1C031D5F00E19C87 /* RMGLFragmentShader.m */; };
 		5D1C6DAA1C031D5F00E19C87 /* RMGLSLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1C6D9D1C031D5F00E19C87 /* RMGLSLProgram.m */; };
 		5D1C6DAB1C031D5F00E19C87 /* RMGLVertexShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1C6D9F1C031D5F00E19C87 /* RMGLVertexShader.m */; };
-		5D1C6DAC1C031D5F00E19C87 /* RMGLPostProcessingRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1C6DA11C031D5F00E19C87 /* RMGLPostProcessingRender.m */; };
-		5D1C6DAD1C031D5F00E19C87 /* RMGLRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1C6DA31C031D5F00E19C87 /* RMGLRender.m */; };
 		5D1C6DAE1C031D5F00E19C87 /* RMGLTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1C6DA51C031D5F00E19C87 /* RMGLTexture.m */; };
 		5D1C6DAF1C031D5F00E19C87 /* RMMatrix+_RMOpenGL_.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1C6DA71C031D5F00E19C87 /* RMMatrix+_RMOpenGL_.m */; };
 		5D1C6F321C034E8400E19C87 /* RMSceneObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1C6F311C034E8400E19C87 /* RMSceneObject.m */; };
@@ -40,6 +37,7 @@
 		5D368C3E1BFF17AD00FE2A83 /* RMRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D368C3D1BFF17AD00FE2A83 /* RMRender.m */; };
 		5D5EBB841C05A3CD00504CAD /* RMTestRenderScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5EBB831C05A3CD00504CAD /* RMTestRenderScene.m */; };
 		5D5EBB871C05AC4600504CAD /* RMShaderEditorTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5EBB861C05AC4600504CAD /* RMShaderEditorTabViewController.m */; };
+		5D5EBB8A1C05B77500504CAD /* RMShaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5EBB891C05B77500504CAD /* RMShaderViewController.m */; };
 		5D96E7071C0072D800D8AE60 /* RMSourceCodeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D96E7061C0072D800D8AE60 /* RMSourceCodeTextView.m */; };
 		5D96E70E1C00AD7600D8AE60 /* RMSourceCodeLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D96E70D1C00AD7600D8AE60 /* RMSourceCodeLineNumberView.m */; };
 		5DFC464D1C020F280085852B /* RMMaterial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC464C1C020F280085852B /* RMMaterial.m */; };
@@ -75,8 +73,6 @@
 		5D1583171BFDB7D4003A8AD7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5D1583191BFDB7D4003A8AD7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5D15831A1BFDB7D4003A8AD7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5D15831C1BFDB7D4003A8AD7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5D15831D1BFDB7D4003A8AD7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5D1583201BFDB7D4003A8AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5D1583221BFDB7D4003A8AD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D1583251BFDB7D4003A8AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -105,10 +101,6 @@
 		5D1C6D9D1C031D5F00E19C87 /* RMGLSLProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMGLSLProgram.m; sourceTree = "<group>"; };
 		5D1C6D9E1C031D5F00E19C87 /* RMGLVertexShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMGLVertexShader.h; sourceTree = "<group>"; };
 		5D1C6D9F1C031D5F00E19C87 /* RMGLVertexShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMGLVertexShader.m; sourceTree = "<group>"; };
-		5D1C6DA01C031D5F00E19C87 /* RMGLPostProcessingRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMGLPostProcessingRender.h; sourceTree = "<group>"; };
-		5D1C6DA11C031D5F00E19C87 /* RMGLPostProcessingRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMGLPostProcessingRender.m; sourceTree = "<group>"; };
-		5D1C6DA21C031D5F00E19C87 /* RMGLRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMGLRender.h; sourceTree = "<group>"; };
-		5D1C6DA31C031D5F00E19C87 /* RMGLRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMGLRender.m; sourceTree = "<group>"; };
 		5D1C6DA41C031D5F00E19C87 /* RMGLTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMGLTexture.h; sourceTree = "<group>"; };
 		5D1C6DA51C031D5F00E19C87 /* RMGLTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMGLTexture.m; sourceTree = "<group>"; };
 		5D1C6DA61C031D5F00E19C87 /* RMMatrix+_RMOpenGL_.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RMMatrix+_RMOpenGL_.h"; sourceTree = "<group>"; };
@@ -133,6 +125,8 @@
 		5D5EBB831C05A3CD00504CAD /* RMTestRenderScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTestRenderScene.m; sourceTree = "<group>"; };
 		5D5EBB851C05AC4600504CAD /* RMShaderEditorTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMShaderEditorTabViewController.h; sourceTree = "<group>"; };
 		5D5EBB861C05AC4600504CAD /* RMShaderEditorTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMShaderEditorTabViewController.m; sourceTree = "<group>"; };
+		5D5EBB881C05B77500504CAD /* RMShaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMShaderViewController.h; sourceTree = "<group>"; };
+		5D5EBB891C05B77500504CAD /* RMShaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMShaderViewController.m; sourceTree = "<group>"; };
 		5D96E7051C0072D800D8AE60 /* RMSourceCodeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSourceCodeTextView.h; sourceTree = "<group>"; };
 		5D96E7061C0072D800D8AE60 /* RMSourceCodeTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSourceCodeTextView.m; sourceTree = "<group>"; };
 		5D96E70C1C00AD7600D8AE60 /* RMSourceCodeLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSourceCodeLineNumberView.h; sourceTree = "<group>"; };
@@ -215,8 +209,6 @@
 				5D1583401BFDB844003A8AD7 /* Model */,
 				5D1583191BFDB7D4003A8AD7 /* AppDelegate.h */,
 				5D15831A1BFDB7D4003A8AD7 /* AppDelegate.m */,
-				5D15831C1BFDB7D4003A8AD7 /* ViewController.h */,
-				5D15831D1BFDB7D4003A8AD7 /* ViewController.m */,
 				5D15831F1BFDB7D4003A8AD7 /* Main.storyboard */,
 				5D1583221BFDB7D4003A8AD7 /* Assets.xcassets */,
 				5D1583241BFDB7D4003A8AD7 /* LaunchScreen.storyboard */,
@@ -242,6 +234,8 @@
 				5D5EBB831C05A3CD00504CAD /* RMTestRenderScene.m */,
 				5D5EBB851C05AC4600504CAD /* RMShaderEditorTabViewController.h */,
 				5D5EBB861C05AC4600504CAD /* RMShaderEditorTabViewController.m */,
+				5D5EBB881C05B77500504CAD /* RMShaderViewController.h */,
+				5D5EBB891C05B77500504CAD /* RMShaderViewController.m */,
 			);
 			path = ShaderView;
 			sourceTree = "<group>";
@@ -269,10 +263,6 @@
 			children = (
 				5D1C6D941C031D5F00E19C87 /* Geometry */,
 				5D1C6D981C031D5F00E19C87 /* Graphics */,
-				5D1C6DA01C031D5F00E19C87 /* RMGLPostProcessingRender.h */,
-				5D1C6DA11C031D5F00E19C87 /* RMGLPostProcessingRender.m */,
-				5D1C6DA21C031D5F00E19C87 /* RMGLRender.h */,
-				5D1C6DA31C031D5F00E19C87 /* RMGLRender.m */,
 				5D1C6DA41C031D5F00E19C87 /* RMGLTexture.h */,
 				5D1C6DA51C031D5F00E19C87 /* RMGLTexture.m */,
 				5D1C6DA61C031D5F00E19C87 /* RMMatrix+_RMOpenGL_.h */,
@@ -522,13 +512,12 @@
 				5D1C6DA91C031D5F00E19C87 /* RMGLFragmentShader.m in Sources */,
 				5DFC47681C0278BA0085852B /* RMVBOObject+RMDrawable.m in Sources */,
 				5D17B5B11BFFBB4400676BE7 /* RMGLShaderView.m in Sources */,
-				5D1C6DAD1C031D5F00E19C87 /* RMGLRender.m in Sources */,
+				5D5EBB8A1C05B77500504CAD /* RMShaderViewController.m in Sources */,
 				5DFC46B71C02389D0085852B /* RMProgram.m in Sources */,
 				5DFC46B91C02389D0085852B /* RMVertexShader.m in Sources */,
 				5D2438811C04E81B00AB90D6 /* RMVertexShaderCodeViewController.m in Sources */,
 				5DFC46BF1C0251350085852B /* RMVertexAttribute.m in Sources */,
 				5DFC46A51C02382A0085852B /* RMMatrix.m in Sources */,
-				5D15831E1BFDB7D4003A8AD7 /* ViewController.m in Sources */,
 				5D1583571BFDB865003A8AD7 /* RMShaderView.m in Sources */,
 				5DFC468E1C02361D0085852B /* RMVBOBuffer.m in Sources */,
 				5DFC46A61C02382A0085852B /* RMMatrix2x2.m in Sources */,
@@ -542,7 +531,6 @@
 				5D368C3E1BFF17AD00FE2A83 /* RMRender.m in Sources */,
 				5DFC464D1C020F280085852B /* RMMaterial.m in Sources */,
 				5DFC468F1C02361D0085852B /* RMVBOObject.m in Sources */,
-				5D1C6DAC1C031D5F00E19C87 /* RMGLPostProcessingRender.m in Sources */,
 				5DFC47651C0278520085852B /* RMDrawable.m in Sources */,
 				5D5EBB841C05A3CD00504CAD /* RMTestRenderScene.m in Sources */,
 				5D1C6DAB1C031D5F00E19C87 /* RMGLVertexShader.m in Sources */,

@@ -17,13 +17,15 @@
 @end
 
 @implementation RMShaderView
+@synthesize render = _render;
+
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         [self _configureDisplayLink];
-        self.render.delegate = self;
+       
        
     }
     return self;
@@ -35,31 +37,23 @@
     if (self)
     {
         [self _configureDisplayLink];
-        self.render.delegate = self;
+       
     }
     return self;
 }
 
-
-- (void)setFrame:(CGRect)frame
+- (RMRender*)render
 {
-    if (!CGRectEqualToRect(self.frame, frame))
+    if (_render == nil)
     {
-        super.frame = frame;
-        float scale = [UIScreen mainScreen].scale;
-        [self.render prepareRenderBuffersWithWidth:CGRectGetWidth(frame)*scale height:CGRectGetHeight(frame)*scale];
+        _render = [[RMRender alloc] init];
     }
+    return _render;
 }
 
 
 - (void)_render:(CADisplayLink*)displayLink
-{
-    float scale = [UIScreen mainScreen].scale;
-    [self.render configureViewportWithX:CGRectGetMinX(self.bounds)*scale
-                                      y:CGRectGetMinY(self.bounds)*scale
-                                  width:CGRectGetWidth(self.bounds)*scale
-                                 height:CGRectGetHeight(self.bounds)*scale];
-    
+{    
     [self preRender:displayLink.duration];
     [self render:displayLink.duration];
     [self postRender:displayLink.duration];
@@ -78,12 +72,12 @@
 
 - (void)postRender:(rmtime)deltaTime
 {
-    [self.render render:deltaTime];
+    [self.render postRender:deltaTime];
 }
 
 - (void)render:(rmtime)deltaTime
 {
-     [self.render postRender:deltaTime];
+     [self.render render:deltaTime];
 }
 
 @end

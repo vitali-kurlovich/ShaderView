@@ -80,8 +80,10 @@ static Vert2D quad[]  = {
 
 - (void)preRender:(nullable RMRender*)render duration:(rmtime)deltaTime
 {
-    glClear(GL_COLOR_BUFFER_BIT );
-    glDisable(GL_DEPTH_TEST);
+    glClearColor(1, 0, 0, 1);
+    
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glEnable(GL_DEPTH_TEST);
     
    
 }

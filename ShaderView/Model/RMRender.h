@@ -20,10 +20,6 @@
 - (void)preRender:(rmtime)deltaTime;
 - (void)postRender:(rmtime)deltaTime;
 
-- (void)configureViewportWithX:(float)x y:(float)y width:(float)width height:(float)height;
-
-- (void)prepareRenderBuffersWithWidth:(float)width height:(float)height;
-
 @end
 
 

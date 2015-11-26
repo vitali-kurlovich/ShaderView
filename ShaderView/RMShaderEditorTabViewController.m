@@ -10,9 +10,15 @@
 
 #import "RMSourceCodeViewController.h"
 
+#import "RMShaderViewController.h"
+
+#import "RMTestRenderScene.h"
+
 @interface RMShaderEditorTabViewController ()
 @property (nonatomic, readonly)  RMSourceCodeViewController* vertexShaderEditor;
 @property (nonatomic, readonly)  RMSourceCodeViewController* fragmentShaderEditor;
+
+@property (nonatomic) id<RMRenderDelegate> renderScene;
 @end
 
 
@@ -40,8 +46,14 @@
     NSString* vs = [self.vertexShaderEditor sorceCode];
     NSString* fs = [self.fragmentShaderEditor sorceCode];
     
+    self.renderScene = [[RMTestRenderScene alloc] initWithVertexShader:vs fragmentShader:fs];
     
     
+    RMShaderViewController* vc = [[RMShaderViewController alloc] init];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    
+     vc.renderDelegate = self.renderScene;
 }
 
 @end
