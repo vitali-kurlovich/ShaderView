@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="N8l-O2-Kmw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7PT-GF-7wm">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Fragment Shader-->
         <scene sceneID="89O-ll-Fs5">
             <objects>
-                <viewController id="77p-Ir-QUi" customClass="RMFragmentShaderCodeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RMFragmentShaderCodeViewController" id="77p-Ir-QUi" customClass="RMFragmentShaderCodeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="suN-EA-mAa"/>
                         <viewControllerLayoutGuide type="bottom" id="5UF-BG-qH5"/>
@@ -24,18 +25,19 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <tabBarItem key="tabBarItem" title="Fragment Shader" id="ZaJ-OZ-FIO"/>
+                    <navigationItem key="navigationItem" id="7PC-Yo-imd"/>
                     <connections>
                         <outlet property="textView" destination="t3E-rG-R52" id="qfp-FQ-sNN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wyC-TX-1SE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1214" y="374"/>
+            <point key="canvasLocation" x="1315" y="344"/>
         </scene>
         <!--Vertex Shader-->
         <scene sceneID="qGS-jH-W1f">
             <objects>
-                <viewController title="Vertex Shader" id="s3U-ub-l27" customClass="RMVertexShaderCodeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RMVertexShaderCodeViewController" title="Vertex Shader" id="s3U-ub-l27" customClass="RMVertexShaderCodeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zvj-hv-VXu"/>
                         <viewControllerLayoutGuide type="bottom" id="FZL-je-zCc"/>
@@ -57,42 +59,64 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oxz-Fm-Ehx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1240" y="-408"/>
+            <point key="canvasLocation" x="1315" y="-362"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="Xon-SG-PgK">
+        <scene sceneID="ef7-Di-rJ6">
             <objects>
-                <navigationController id="N8l-O2-Kmw" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1iC-x1-Y9Z">
+                <navigationController id="7PT-GF-7wm" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Eh1-y2-HRC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="7I0-6b-y3T" kind="relationship" relationship="rootViewController" id="2cl-b0-0Ro"/>
+                        <segue destination="EZC-mQ-gYF" kind="relationship" relationship="rootViewController" id="9xM-37-aTJ"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JWg-PF-p5K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b8B-Jl-Jdg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-237" y="-399"/>
+            <point key="canvasLocation" x="-239" y="162"/>
         </scene>
-        <!--Shader Editor Tab View Controller-->
-        <scene sceneID="HjV-Nt-S8T">
+        <!--Page View Controller-->
+        <scene sceneID="2X0-Gg-3cF">
             <objects>
-                <tabBarController id="7I0-6b-y3T" customClass="RMShaderEditorTabViewController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="i8F-c8-hgb"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="vmU-56-dRm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="s3U-ub-l27" kind="relationship" relationship="viewControllers" id="NOa-ps-yks"/>
-                        <segue destination="77p-Ir-QUi" kind="relationship" relationship="viewControllers" id="lbE-hw-4RM"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vqs-K2-EIT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="lwJ-am-kWh" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rOq-Jt-V3F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="499" y="-408"/>
+            <point key="canvasLocation" x="462" y="-667"/>
+        </scene>
+        <!--Switch Source Code Controller-->
+        <scene sceneID="n8I-Se-aZR">
+            <objects>
+                <viewController id="EZC-mQ-gYF" customClass="RMSwitchSourceCodeController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KxY-mn-UdX"/>
+                        <viewControllerLayoutGuide type="bottom" id="GGe-Gv-NH7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yzn-Zf-eQl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TR2-le-0RE">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <connections>
+                                    <segue destination="lwJ-am-kWh" kind="embed" id="bPj-1x-vA4"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="TR2-le-0RE" secondAttribute="trailing" constant="-16" id="8zk-5w-YbU"/>
+                            <constraint firstItem="GGe-Gv-NH7" firstAttribute="top" secondItem="TR2-le-0RE" secondAttribute="bottom" id="HvH-V5-8Rh"/>
+                            <constraint firstItem="TR2-le-0RE" firstAttribute="top" secondItem="KxY-mn-UdX" secondAttribute="bottom" id="Tb8-6U-6Wx"/>
+                            <constraint firstItem="TR2-le-0RE" firstAttribute="leading" secondItem="yzn-Zf-eQl" secondAttribute="leadingMargin" constant="-16" id="pbf-g2-ySg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="wQd-wr-qDV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZI2-yu-pbE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="455" y="162"/>
         </scene>
         <!--Shader View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -113,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="596" y="849"/>
+            <point key="canvasLocation" x="1214" y="1037"/>
         </scene>
     </scenes>
 </document>

@@ -9,10 +9,10 @@
 #import "RMFragmentShaderCodeViewController.h"
 
 @implementation RMFragmentShaderCodeViewController
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     
     [self loadTextFileWithName:@"Julia" ofType:@"frag"];
 }
