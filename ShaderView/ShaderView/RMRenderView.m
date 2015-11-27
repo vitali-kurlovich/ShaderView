@@ -8,76 +8,54 @@
 
 #import "RMRenderView.h"
 
-#import "RMRender.h"
-
-@import OpenGLES;
 
 @interface RMRenderView ()
-
+{
+    struct {
+        unsigned int delegatePreRender:1;
+        unsigned int delegatePostRender:1;
+        unsigned int delegateRender:1;
+    } _viewFlags;
+}
 @end
 
 @implementation RMRenderView
-@synthesize render = _render;
 
-
-- (instancetype)initWithFrame:(CGRect)frame
+- (void)setDelegate:(id<RMRenderViewDelegate>)delegate
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self _configureDisplayLink];
-       
-       
-    }
-    return self;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    if (self)
+    if (_delegate != delegate)
     {
-        [self _configureDisplayLink];
-       
+        _delegate = delegate;
+        
+        _viewFlags.delegatePostRender = [delegate respondsToSelector:@selector(renderView:postRenderWithDuration:)];
+        _viewFlags.delegatePreRender = [delegate respondsToSelector:@selector(renderView:preRenderWithDuration:)];
+        _viewFlags.delegateRender = [delegate respondsToSelector:@selector(renderView:renderWithDuration:)];
     }
-    return self;
-}
-
-- (RMRender*)render
-{
-    if (_render == nil)
-    {
-        _render = [[RMRender alloc] init];
-    }
-    return _render;
-}
-
-
-- (void)_render:(CADisplayLink*)displayLink
-{    
-    [self preRender:displayLink.duration];
-    [self render:displayLink.duration];
-    [self postRender:displayLink.duration];
-}
-
-- (void)_configureDisplayLink {
-    CADisplayLink* displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(_render:)];
-    [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
 
 - (void)preRender:(rmtime)deltaTime
 {
-    [self.render preRender:deltaTime];
+    if (_viewFlags.delegatePreRender)
+    {
+        [self.delegate renderView:self preRenderWithDuration:deltaTime];
+    }
 }
 
 - (void)postRender:(rmtime)deltaTime
 {
-    [self.render postRender:deltaTime];
+    if (_viewFlags.delegatePostRender)
+    {
+        [self.delegate renderView:self postRenderWithDuration:deltaTime];
+    }
 }
 
 - (void)render:(rmtime)deltaTime
 {
-     [self.render render:deltaTime];
+    if (_viewFlags.delegateRender)
+    {
+        [self.delegate renderView:self renderWithDuration:deltaTime];
+    }
 }
 
 @end

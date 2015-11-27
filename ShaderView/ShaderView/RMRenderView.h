@@ -10,20 +10,25 @@
 
 #import "RMRender.h"
 
-@class RMGLSLProgram;
 
-@class RMRender;
-
-
+@protocol RMRenderViewDelegate;
 @interface RMRenderView : UIView
 
-@property (nullable, nonatomic, readonly) RMRender* render;
-
+@property (nullable, nonatomic, weak) id<RMRenderViewDelegate> delegate;
 
 - (void)preRender:(rmtime)deltaTime;
 - (void)postRender:(rmtime)deltaTime;
 
 - (void)render:(rmtime)deltaTime;
+@end
 
+
+
+@protocol RMRenderViewDelegate <NSObject>
+@optional
+- (void)renderView:(nullable RMRenderView*)render  preRenderWithDuration:(rmtime)deltaTime;
+- (void)renderView:(nullable RMRenderView*)render  postRenderWithDuration:(rmtime)deltaTime;
+
+- (void)renderView:(nullable RMRenderView*)render  renderWithDuration:(rmtime)deltaTime;
 
 @end

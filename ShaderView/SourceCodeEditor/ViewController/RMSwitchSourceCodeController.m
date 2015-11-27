@@ -14,7 +14,7 @@
 #import "RMFragmentShaderCodeViewController.h"
 
 // ------------
-#import "RMShaderViewController.h"
+#import "RMGLTestRenderViewController.h"
 #import "RMTestRenderScene.h"
 // ------------
 
@@ -29,10 +29,6 @@
 @property (nonatomic, readonly) RMFragmentShaderCodeViewController* fragmentShaderCodeViewController;
 
 @property (nonatomic) RDKeyboardObserver* keyboardObserver;
-
-// ------
-@property (nonatomic) id<RMRenderDelegate> renderScene;
-// ------
 
 @end
 
@@ -98,10 +94,8 @@
         fs = [self.fragmentShaderCodeViewController sorceCode];
     }
     
-    self.renderScene = [[RMTestRenderScene alloc] initWithVertexShader:vs fragmentShader:fs];
-    
-    RMShaderViewController* vc =  [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RMShaderViewController"];;
-    vc.renderDelegate = self.renderScene;
+    RMGLTestRenderViewController* vc = [[RMGLTestRenderViewController alloc] init];
+    vc.render = [[RMTestRenderScene alloc] initWithVertexShader:vs fragmentShader:fs];
     
     [self.navigationController pushViewController:vc animated:YES];
 }

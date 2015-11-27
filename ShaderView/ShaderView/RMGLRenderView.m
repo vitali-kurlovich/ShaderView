@@ -8,7 +8,7 @@
 
 #import "RMGLRenderView.h"
 
-#import "RMRender.h"
+
 
 @import OpenGLES;
 
@@ -78,7 +78,6 @@
 }
 
 
-
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -92,8 +91,6 @@
     
     glViewport(0, 0, width, height);
 }
-
-
 
 - (void)prepareRenderBuffersWithWidth:(float)width height:(float)height
 {
@@ -145,10 +142,8 @@
         glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _renderBuffers.depthRenderBuffer);
         
         _renderBuffers.frameBufferWasCreated = 1;
-        
     }
 }
-
 
 
 - (void)postRender:(rmtime)deltaTime
