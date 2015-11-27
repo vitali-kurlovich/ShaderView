@@ -30,8 +30,8 @@
 		5D2438871C04E9A600AB90D6 /* Julia.frag in Resources */ = {isa = PBXBuildFile; fileRef = 5D2438851C04E9A600AB90D6 /* Julia.frag */; };
 		5D2438881C04E9A600AB90D6 /* Julia.vert in Resources */ = {isa = PBXBuildFile; fileRef = 5D2438861C04E9A600AB90D6 /* Julia.vert */; };
 		5D368C3E1BFF17AD00FE2A83 /* RMRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D368C3D1BFF17AD00FE2A83 /* RMRender.m */; };
-		5D4595FB1C078F1C00C30F30 /* RMGLShaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4595F81C078F1B00C30F30 /* RMGLShaderView.m */; };
-		5D4595FC1C078F1C00C30F30 /* RMShaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4595FA1C078F1B00C30F30 /* RMShaderView.m */; };
+		5D4595FB1C078F1C00C30F30 /* RMGLRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4595F81C078F1B00C30F30 /* RMGLRenderView.m */; };
+		5D4595FC1C078F1C00C30F30 /* RMRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4595FA1C078F1B00C30F30 /* RMRenderView.m */; };
 		5D45960A1C078F9C00C30F30 /* RMSourceCodeLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4596001C078F9C00C30F30 /* RMSourceCodeLineNumberView.m */; };
 		5D45960B1C078F9C00C30F30 /* RMSourceCodeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4596021C078F9C00C30F30 /* RMSourceCodeTextView.m */; };
 		5D45960C1C078F9C00C30F30 /* RMFragmentShaderCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4596051C078F9C00C30F30 /* RMFragmentShaderCodeViewController.m */; };
@@ -112,10 +112,10 @@
 		5D2438861C04E9A600AB90D6 /* Julia.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Julia.vert; sourceTree = "<group>"; };
 		5D368C3C1BFF17AD00FE2A83 /* RMRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRender.h; sourceTree = "<group>"; };
 		5D368C3D1BFF17AD00FE2A83 /* RMRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRender.m; sourceTree = "<group>"; };
-		5D4595F71C078F1B00C30F30 /* RMGLShaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMGLShaderView.h; sourceTree = "<group>"; };
-		5D4595F81C078F1B00C30F30 /* RMGLShaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMGLShaderView.m; sourceTree = "<group>"; };
-		5D4595F91C078F1B00C30F30 /* RMShaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMShaderView.h; sourceTree = "<group>"; };
-		5D4595FA1C078F1B00C30F30 /* RMShaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMShaderView.m; sourceTree = "<group>"; };
+		5D4595F71C078F1B00C30F30 /* RMGLRenderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMGLRenderView.h; sourceTree = "<group>"; };
+		5D4595F81C078F1B00C30F30 /* RMGLRenderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMGLRenderView.m; sourceTree = "<group>"; };
+		5D4595F91C078F1B00C30F30 /* RMRenderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRenderView.h; sourceTree = "<group>"; };
+		5D4595FA1C078F1B00C30F30 /* RMRenderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRenderView.m; sourceTree = "<group>"; };
 		5D4595FF1C078F9C00C30F30 /* RMSourceCodeLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSourceCodeLineNumberView.h; sourceTree = "<group>"; };
 		5D4596001C078F9C00C30F30 /* RMSourceCodeLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSourceCodeLineNumberView.m; sourceTree = "<group>"; };
 		5D4596011C078F9C00C30F30 /* RMSourceCodeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSourceCodeTextView.h; sourceTree = "<group>"; };
@@ -345,10 +345,10 @@
 		5D4595F61C078F1B00C30F30 /* ShaderView */ = {
 			isa = PBXGroup;
 			children = (
-				5D4595F71C078F1B00C30F30 /* RMGLShaderView.h */,
-				5D4595F81C078F1B00C30F30 /* RMGLShaderView.m */,
-				5D4595F91C078F1B00C30F30 /* RMShaderView.h */,
-				5D4595FA1C078F1B00C30F30 /* RMShaderView.m */,
+				5D4595F71C078F1B00C30F30 /* RMGLRenderView.h */,
+				5D4595F81C078F1B00C30F30 /* RMGLRenderView.m */,
+				5D4595F91C078F1B00C30F30 /* RMRenderView.h */,
+				5D4595FA1C078F1B00C30F30 /* RMRenderView.m */,
 			);
 			path = ShaderView;
 			sourceTree = "<group>";
@@ -565,7 +565,7 @@
 				5D1C6DA81C031D5F00E19C87 /* RMGLVBOObject.m in Sources */,
 				5D1C6F321C034E8400E19C87 /* RMSceneObject.m in Sources */,
 				5D368C3E1BFF17AD00FE2A83 /* RMRender.m in Sources */,
-				5D4595FC1C078F1C00C30F30 /* RMShaderView.m in Sources */,
+				5D4595FC1C078F1C00C30F30 /* RMRenderView.m in Sources */,
 				5DFC464D1C020F280085852B /* RMMaterial.m in Sources */,
 				5DFC468F1C02361D0085852B /* RMVBOObject.m in Sources */,
 				5DFC47651C0278520085852B /* RMDrawable.m in Sources */,
@@ -585,7 +585,7 @@
 				5DFC46B81C02389D0085852B /* RMShader.m in Sources */,
 				5D1583701BFE508A003A8AD7 /* RMCamera.m in Sources */,
 				5DFC46AB1C02384C0085852B /* RMVector.m in Sources */,
-				5D4595FB1C078F1C00C30F30 /* RMGLShaderView.m in Sources */,
+				5D4595FB1C078F1C00C30F30 /* RMGLRenderView.m in Sources */,
 				5D1583651BFDFE2F003A8AD7 /* RMMath.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-#import "RMShaderView.h"
+#import "RMRenderView.h"
 
 @interface RMShaderViewController : UIViewController
-@property (nullable, readonly) RMShaderView* shaderView;
+@property (nullable, readonly) RMRenderView* shaderView;
 
 @property (nullable, nonatomic, weak) id<RMRenderDelegate> renderDelegate;
 

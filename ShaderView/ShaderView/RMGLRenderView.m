@@ -6,13 +6,13 @@
 //  Copyright © 2015 Vitali Kurlovich. All rights reserved.
 //
 
-#import "RMGLShaderView.h"
+#import "RMGLRenderView.h"
 
 #import "RMRender.h"
 
 @import OpenGLES;
 
-@interface RMGLShaderView()
+@interface RMGLRenderView()
 {
     struct {
         GLuint colorRenderBuffer;
@@ -35,7 +35,7 @@
 
 @end
 
-@implementation RMGLShaderView
+@implementation RMGLRenderView
 @synthesize eaglLayer = _eaglLayer;
 
 

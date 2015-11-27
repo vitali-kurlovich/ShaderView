@@ -15,7 +15,7 @@
 @class RMRender;
 
 
-@interface RMShaderView : UIView
+@interface RMRenderView : UIView
 
 @property (nullable, nonatomic, readonly) RMRender* render;
 

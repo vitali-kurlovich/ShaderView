@@ -6,10 +6,10 @@
 //  Copyright © 2015 Vitali Kurlovich. All rights reserved.
 //
 
-#import "RMShaderView.h"
+#import "RMRenderView.h"
 
 
-@interface RMGLShaderView : RMShaderView
+@interface RMGLRenderView : RMRenderView
 
 
 @end

@@ -10,7 +10,7 @@
 
 
 @interface RMShaderViewController ()
-@property (nonatomic) IBOutlet RMShaderView* shaderView;
+@property (nonatomic) IBOutlet RMRenderView* shaderView;
 @end
 
 @implementation RMShaderViewController

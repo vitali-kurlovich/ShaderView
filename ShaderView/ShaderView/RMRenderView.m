@@ -6,17 +6,17 @@
 //  Copyright © 2015 Vitali Kurlovich. All rights reserved.
 //
 
-#import "RMShaderView.h"
+#import "RMRenderView.h"
 
 #import "RMRender.h"
 
 @import OpenGLES;
 
-@interface RMShaderView ()
+@interface RMRenderView ()
 
 @end
 
-@implementation RMShaderView
+@implementation RMRenderView
 @synthesize render = _render;
 
 
