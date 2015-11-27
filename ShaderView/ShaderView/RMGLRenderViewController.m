@@ -14,7 +14,7 @@
 
 - (void)loadView
 {
-    RMRenderView* renderView = [[RMGLRenderView alloc] init];
+    RMRenderView* renderView = [[RMGLRenderView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     renderView.delegate = self;
     self.view = renderView;
 }

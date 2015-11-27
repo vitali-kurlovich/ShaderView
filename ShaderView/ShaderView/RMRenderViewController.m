@@ -17,32 +17,47 @@
 
 @implementation RMRenderViewController
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidLoad
 {
-    [super viewWillAppear:animated];
-    //[self _render:nil];
+    [super viewDidLoad];
+    
+    [self.view setNeedsLayout];
+    [self.view layoutIfNeeded];
+    [self _render:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-    self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(_render:)];
-    [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    if (self.displayLink)
+    {
+        [self.displayLink setPaused:NO];
+    }
+    else
+    {
+        self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(_render:)];
+        [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     
+    [self.displayLink setPaused:YES];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
     [self.displayLink invalidate];
     self.displayLink = nil;
 }
 
-
 - (void)loadView
 {
-    RMRenderView* renderView = [[RMRenderView alloc] init];
+    RMRenderView* renderView = [[RMRenderView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     renderView.delegate = self;
     self.view = renderView;
 }
@@ -54,7 +69,6 @@
     {
         return (RMRenderView*)self.view;
     }
-    
     return nil;
 }
 
