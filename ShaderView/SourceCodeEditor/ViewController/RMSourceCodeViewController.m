@@ -11,12 +11,14 @@
 #import "RMSourceCodeTextView.h"
 #import "RDKeyboardObserver.h"
 
+
 @interface RMSourceCodeViewController () <UITextViewDelegate, NSTextStorageDelegate, RDKeyboardObserverDelegate>
-@property (nonatomic) IBOutlet RMSourceCodeTextView* textView;
+
 @property (nonatomic) RDKeyboardObserver* keyboardObserver;
 @end
 
 @implementation RMSourceCodeViewController
+@synthesize sorceCode = _sorceCode;
 
 
 - (void)viewDidLoad
@@ -25,6 +27,64 @@
     
     self.keyboardObserver = [[RDKeyboardObserver alloc] init];
     self.keyboardObserver.delegate = self;
+    
+    self.textView.text = _sorceCode;
+    _sorceCode = nil;
+}
+
+- (void)loadView
+{
+    self.view = [[RMSourceCodeTextView alloc] init];
+}
+
+- (RMSourceCodeTextView*)textView
+{
+    if ([self isViewLoaded])
+    {
+        return (RMSourceCodeTextView*)self.view;
+    }
+    return nil;
+}
+
+
+- (void)setSorceCode:(NSString *)sorceCode
+{
+    if ([self isViewLoaded])
+    {
+        self.textView.text = sorceCode;
+        _sorceCode = nil;
+    } else {
+        _sorceCode = [sorceCode copy];
+    }
+}
+
+- (NSString*)sorceCode
+{
+    if ([self isViewLoaded])
+    {
+        return [self.textView.text copy];
+    }
+    return _sorceCode;
+}
+
+- (void)loadTextFileWithName:(NSString*)name ofType:(NSString*)type
+{
+    NSString* path = [[NSBundle mainBundle] pathForResource:name ofType:type];
+    
+    if (path.length < 1)
+    {
+        return;
+    }
+    
+    NSError* error;
+    NSString* textString = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
+    
+    self.sorceCode = textString;
+    
+    if (!textString)
+    {
+        NSLog(@"Error loading file: %@", error.localizedDescription);
+    }
 }
 
 
@@ -43,10 +103,8 @@
     self.textView.scrollIndicatorInsets = scrollInsets;
 }
 
-
 - (void)keyboardObserver:(RDKeyboardObserver*)observer keyboardWillHide:(RDKeyboard*)keyboard
 {
-    
     UIEdgeInsets contentInsets =  self.textView.contentInset;
     
     contentInsets.bottom = 0;
@@ -56,33 +114,6 @@
     UIEdgeInsets scrollInsets = self.textView.scrollIndicatorInsets;
     scrollInsets.bottom = 0;
     self.textView.scrollIndicatorInsets = scrollInsets;
-}
-
-
-- (NSString*)sorceCode
-{
-    return [self.textView.text copy];
-}
-
-
-- (void)loadTextFileWithName:(NSString*)name ofType:(NSString*)type
-{
-    NSString* path = [[NSBundle mainBundle] pathForResource:name ofType:type];
-    
-    if (path.length < 1)
-    {
-        return ;
-    }
-    
-    NSError* error;
-    NSString* textString = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
-    if (textString)
-    {
-        self.textView.text = textString;
-    } else {
-        NSLog(@"Error loading file: %@", error.localizedDescription);
-        return;
-    }
 }
 
 @end

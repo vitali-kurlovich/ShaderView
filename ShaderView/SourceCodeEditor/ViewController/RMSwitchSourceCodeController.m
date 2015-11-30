@@ -10,8 +10,7 @@
 
 #import "RDKeyboardObserver.h"
 
-#import "RMVertexShaderCodeViewController.h"
-#import "RMFragmentShaderCodeViewController.h"
+#import "RMSourceCodeViewController.h"
 
 // ------------
 #import "RMGLTestRenderViewController.h"
@@ -25,8 +24,8 @@
 
 @property (nonatomic) UISegmentedControl* segmentedContorol;
 
-@property (nonatomic, readonly) RMVertexShaderCodeViewController* vertexShaderCodeViewController;
-@property (nonatomic, readonly) RMFragmentShaderCodeViewController* fragmentShaderCodeViewController;
+@property (nonatomic, readonly) RMSourceCodeViewController* vertexShaderCodeViewController;
+@property (nonatomic, readonly) RMSourceCodeViewController* fragmentShaderCodeViewController;
 
 @property (nonatomic, readonly) NSArray<UIViewController*>* viewControllers;
 
@@ -218,20 +217,24 @@
 }
 
 
-- (RMVertexShaderCodeViewController*)vertexShaderCodeViewController
+- (RMSourceCodeViewController*)vertexShaderCodeViewController
 {
     if (_vertexShaderCodeViewController == nil)
     {
-        _vertexShaderCodeViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RMVertexShaderCodeViewController"];
+        _vertexShaderCodeViewController = [[RMSourceCodeViewController alloc] init];
+        _vertexShaderCodeViewController.title = @"Vertex";
+        [_vertexShaderCodeViewController loadTextFileWithName:@"Julia" ofType:@"vert"];
     }
     return _vertexShaderCodeViewController;
 }
 
-- (RMFragmentShaderCodeViewController*)fragmentShaderCodeViewController
+- (RMSourceCodeViewController*)fragmentShaderCodeViewController
 {
     if (_fragmentShaderCodeViewController == nil)
     {
-        _fragmentShaderCodeViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RMFragmentShaderCodeViewController"];
+        _fragmentShaderCodeViewController = [[RMSourceCodeViewController alloc] init];
+        _fragmentShaderCodeViewController.title = @"Fragment";
+        [_fragmentShaderCodeViewController loadTextFileWithName:@"Julia" ofType:@"frag"];
     }
     return _fragmentShaderCodeViewController;
 }

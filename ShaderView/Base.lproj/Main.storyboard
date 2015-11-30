@@ -6,61 +6,6 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Fragment Shader-->
-        <scene sceneID="89O-ll-Fs5">
-            <objects>
-                <viewController storyboardIdentifier="RMFragmentShaderCodeViewController" title="Fragment Shader" id="77p-Ir-QUi" customClass="RMFragmentShaderCodeViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="suN-EA-mAa"/>
-                        <viewControllerLayoutGuide type="bottom" id="5UF-BG-qH5"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="t3E-rG-R52" customClass="RMSourceCodeTextView">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="lineNumberBackgroundColor">
-                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Fragment Shader" id="ZaJ-OZ-FIO"/>
-                    <navigationItem key="navigationItem" id="7PC-Yo-imd"/>
-                    <connections>
-                        <outlet property="textView" destination="t3E-rG-R52" id="qfp-FQ-sNN"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wyC-TX-1SE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1843" y="402"/>
-        </scene>
-        <!--Vertex Shader-->
-        <scene sceneID="qGS-jH-W1f">
-            <objects>
-                <viewController storyboardIdentifier="RMVertexShaderCodeViewController" title="Vertex Shader" id="s3U-ub-l27" customClass="RMVertexShaderCodeViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Zvj-hv-VXu"/>
-                        <viewControllerLayoutGuide type="bottom" id="FZL-je-zCc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gbu-2e-QzK" customClass="RMSourceCodeTextView">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="lineNumberBackgroundColor">
-                                <color key="value" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Vertex Shader" id="oNp-W0-b5F"/>
-                    <connections>
-                        <outlet property="textView" destination="gbu-2e-QzK" id="jw1-dz-xdg"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Oxz-Fm-Ehx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1843" y="-304"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="ef7-Di-rJ6">
             <objects>

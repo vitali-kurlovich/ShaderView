@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class RMSourceCodeTextView;
+
 @interface RMSourceCodeViewController : UIViewController
-@property (nullable, copy, readonly) NSString* sorceCode;
+
+@property (nullable, nonatomic, readonly) RMSourceCodeTextView* textView;
+@property (nullable, copy) NSString* sorceCode;
+
 
 - (void)loadTextFileWithName:(nonnull NSString*)name ofType:(nonnull NSString*)type;
 
