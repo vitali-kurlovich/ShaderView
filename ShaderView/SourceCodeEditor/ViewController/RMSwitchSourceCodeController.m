@@ -28,6 +28,8 @@
 @property (nonatomic, readonly) RMVertexShaderCodeViewController* vertexShaderCodeViewController;
 @property (nonatomic, readonly) RMFragmentShaderCodeViewController* fragmentShaderCodeViewController;
 
+@property (nonatomic, readonly) NSArray<UIViewController*>* viewControllers;
+
 @property (nonatomic) RDKeyboardObserver* keyboardObserver;
 
 @end
@@ -36,6 +38,7 @@
 @synthesize vertexShaderCodeViewController = _vertexShaderCodeViewController;
 @synthesize fragmentShaderCodeViewController = _fragmentShaderCodeViewController;
 
+@synthesize viewControllers = _viewControllers;
 
 - (void)viewDidLoad
 {
@@ -58,14 +61,32 @@
         }
     }
     
+    [self configureNavigationBar];
+   
+}
+
+
+- (void)configureNavigationBar
+{
+    NSMutableArray* titles = [NSMutableArray arrayWithCapacity:self.viewControllers.count];
     
-    self.segmentedContorol = [[UISegmentedControl alloc] initWithItems:@[@"Vertex", @"Fragment"]];
+    for (UIViewController* vc in self.viewControllers)
+    {
+        if (vc.title)
+        {
+            [titles addObject:vc.title];
+        } else {
+            [titles addObject:@""];
+        }
+    }
+    
+    self.segmentedContorol = [[UISegmentedControl alloc] initWithItems:titles];
     [self.segmentedContorol addTarget:self action:@selector(onSegmentedControll:) forControlEvents:UIControlEventValueChanged];
     
     self.navigationItem.titleView = self.segmentedContorol;
     
     
-    [self setActiveController:self.vertexShaderCodeViewController];
+    [self setActiveController:[self.viewControllers firstObject]];
     
     
     UIBarButtonItem* run = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(runShader:)];
@@ -73,10 +94,9 @@
     self.navigationItem.rightBarButtonItem = run;
 }
 
+
 - (IBAction)runShader:(id)sender
 {
-    
-
     
     NSString* vs = [self.vertexShaderCodeViewController sorceCode];
     
@@ -103,32 +123,20 @@
 
 - (IBAction)onSegmentedControll:(UISegmentedControl*)sender
 {
-    switch (sender.selectedSegmentIndex) {
-        case 0:
-            [self setActiveController:self.vertexShaderCodeViewController];
-            break;
-            
-        default:
-            [self setActiveController:self.fragmentShaderCodeViewController];
-            break;
-    }
+     [self setActiveController:self.viewControllers[sender.selectedSegmentIndex]];
 }
 
 - (void)setActiveController:(UIViewController*)viewController
 {
-    
-    if (viewController == self.vertexShaderCodeViewController)
-    {
-        self.segmentedContorol.selectedSegmentIndex = 0;
-    } else if (viewController == self.fragmentShaderCodeViewController)
-    {
-        self.segmentedContorol.selectedSegmentIndex = 1;
-    }
+    self.segmentedContorol.selectedSegmentIndex = [self.viewControllers indexOfObject:viewController];
     
     if ([self.pageViewController.viewControllers lastObject] != viewController)
     {
+        NSInteger currentIdx = [self.viewControllers indexOfObject:[self.pageViewController.viewControllers lastObject]];
+        NSInteger index = [self.viewControllers indexOfObject:viewController];
+        
         UIPageViewControllerNavigationDirection direction;
-        if (viewController == self.fragmentShaderCodeViewController)
+        if (currentIdx < index)
         {
             direction = UIPageViewControllerNavigationDirectionForward;
         } else {
@@ -159,44 +167,59 @@
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed
 {
     
-     [self setActiveController:[self.pageViewController.viewControllers lastObject]];
+    [self setActiveController:[self.pageViewController.viewControllers lastObject]];
 }
 
 #pragma mark -  UIPageViewControllerDataSource <NSObject>
 
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
-    if (viewController == self.fragmentShaderCodeViewController)
+    
+    if (viewController == [self.viewControllers firstObject])
     {
-        return self.vertexShaderCodeViewController;
-        
-    } else if (viewController == self.vertexShaderCodeViewController)
-    {
-        return self.fragmentShaderCodeViewController;
-        
+        return [self.viewControllers lastObject];
     }
     
-    return nil;
+    if (viewController == [self.viewControllers lastObject])
+    {
+        return [self.viewControllers firstObject];
+    }
+    
+    NSInteger index = [self.viewControllers indexOfObject:viewController] + 1;
+    return self.viewControllers[index];
 }
+
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
-    if (viewController == self.fragmentShaderCodeViewController)
+    if (viewController == [self.viewControllers firstObject])
     {
-        return self.vertexShaderCodeViewController;
-        
-    } else if (viewController == self.vertexShaderCodeViewController)
-    {
-        return self.fragmentShaderCodeViewController;
-        
+        return [self.viewControllers lastObject];
     }
     
-    return nil;
+    if (viewController == [self.viewControllers lastObject])
+    {
+        return [self.viewControllers firstObject];
+    }
+    
+    NSInteger index = [self.viewControllers indexOfObject:viewController] - 1;
+    return self.viewControllers[index];
 }
 
 #pragma mark - Protected
+
+- (NSArray<UIViewController*>*)viewControllers
+{
+    if (_viewControllers == nil)
+    {
+        _viewControllers = @[self.vertexShaderCodeViewController, self.fragmentShaderCodeViewController];
+    }
+    
+    return _viewControllers;
+}
+
+
 - (RMVertexShaderCodeViewController*)vertexShaderCodeViewController
 {
-    
     if (_vertexShaderCodeViewController == nil)
     {
         _vertexShaderCodeViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RMVertexShaderCodeViewController"];

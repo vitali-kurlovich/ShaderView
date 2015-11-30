@@ -9,7 +9,7 @@
         <!--Fragment Shader-->
         <scene sceneID="89O-ll-Fs5">
             <objects>
-                <viewController storyboardIdentifier="RMFragmentShaderCodeViewController" id="77p-Ir-QUi" customClass="RMFragmentShaderCodeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RMFragmentShaderCodeViewController" title="Fragment Shader" id="77p-Ir-QUi" customClass="RMFragmentShaderCodeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="suN-EA-mAa"/>
                         <viewControllerLayoutGuide type="bottom" id="5UF-BG-qH5"/>
