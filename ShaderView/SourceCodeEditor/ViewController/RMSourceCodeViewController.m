@@ -29,6 +29,9 @@
     self.keyboardObserver.delegate = self;
     
     self.textView.text = _sorceCode;
+    
+    self.textView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
+    
     _sorceCode = nil;
 }
 
