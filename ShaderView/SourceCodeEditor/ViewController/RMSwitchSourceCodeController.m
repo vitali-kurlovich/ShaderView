@@ -11,7 +11,7 @@
 #import "RDKeyboardObserver.h"
 
 #import "RMSourceCodeViewController.h"
-
+#import "RMSourceCodeStoryboard.h"
 // ------------
 #import "RMGLTestRenderViewController.h"
 #import "RMTestRenderScene.h"
@@ -38,6 +38,12 @@
 @synthesize fragmentShaderCodeViewController = _fragmentShaderCodeViewController;
 
 @synthesize viewControllers = _viewControllers;
+
+- (instancetype)init
+{
+    return [[UIStoryboard storyboardWithName:kRMSourceCodeStoryboardXibName bundle:nil] instantiateViewControllerWithIdentifier:kRMSwitchSourceCodeControllerReuseIdentifier];
+}
+
 
 - (void)viewDidLoad
 {
