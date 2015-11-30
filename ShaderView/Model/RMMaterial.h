@@ -9,10 +9,18 @@
 #import <Foundation/Foundation.h>
 
 @class RMProgram;
+@class RMMaterialParam;
 
 @interface RMMaterial : NSObject
 
-@property (nullable, nonatomic) RMProgram* shader;
+@property (nonnull, nonatomic, readonly) RMProgram* shader;
+@property (nonnull, nonatomic, readonly) NSArray<RMMaterialParam*>* params;
 
+
+@end
+
+@interface RMMaterialParam : NSObject
+
+@property (nonnull, nonatomic, copy, readonly) NSString* title;
 
 @end

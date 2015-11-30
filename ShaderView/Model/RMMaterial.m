@@ -11,3 +11,9 @@
 @implementation RMMaterial
 
 @end
+
+@implementation RMMaterialParam
+
+
+
+@end
