@@ -12,8 +12,9 @@ IB_DESIGNABLE
 
 @interface RMButton : UIControl
 
+@property (nonatomic) IBInspectable BOOL vibrancy;
 
-- (void)setBlurEffect:(nullable UIBlurEffect *)title forState:(UIControlState)state;
+- (void)setBlurEffect:(nullable UIBlurEffect *)effect forState:(UIControlState)state;
 
 
 - (void)setTitle:(nullable NSString *)title forState:(UIControlState)state;                     // default is nil. title is assumed to be single line

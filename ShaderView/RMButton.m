@@ -47,10 +47,25 @@
 @property (nonatomic) UIBlurEffect* backgroundHighlightedBlurEffect;
 @property (nonatomic) UIVibrancyEffect* backgroundHighlightedVibrancyEffect;
 
+
+@property (nonatomic, readonly) NSMutableDictionary<NSNumber*, UIBlurEffect*> *effectForState;
+
 @end
 
 
 @implementation RMButton
+
+@synthesize effectForState = _effectForState;
+
+- (NSMutableDictionary<NSNumber*, UIBlurEffect*>*)effectForState
+{
+    if (_effectForState == nil)
+    {
+        _effectForState = [NSMutableDictionary dictionary];
+    }
+    return _effectForState;
+}
+
 
 #pragma mark - UIView
 
@@ -106,7 +121,7 @@
 }
 
 
-- (void)setBlurEffect:(nullable UIBlurEffect *)title forState:(UIControlState)state
+- (void)setBlurEffect:(nullable UIBlurEffect *)effect forState:(UIControlState)state
 {
     
 }

@@ -111,13 +111,7 @@ static CGFloat const kRMSourceCodeNumberDefaultWidth = 24;
 - (void)setContentOffset:(CGPoint)contentOffset
 {
     super.contentOffset = contentOffset;
-    
-   // NSLog(@"contentOffset: %@ ", NSStringFromCGPoint(contentOffset) );
-    
-    NSInteger lines = [self numberOfLines];
-    
-   // NSLog(@"Line number is:%@", @(lines));
-    
+        
     self.lineNumberView.contentOffset = contentOffset;
     self.lineNumberView.frame = [self frameForSorceCodeLineNumberView];
 }
