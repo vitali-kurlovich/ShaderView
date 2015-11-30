@@ -19,7 +19,7 @@
 
 @implementation RMSourceCodeViewController
 @synthesize sorceCode = _sorceCode;
-
+@synthesize textView = _textView;
 
 - (void)viewDidLoad
 {
@@ -34,18 +34,9 @@
 
 - (void)loadView
 {
-    self.view = [[RMSourceCodeTextView alloc] init];
+    _textView = [[RMSourceCodeTextView alloc] init];
+    self.view = _textView;
 }
-
-- (RMSourceCodeTextView*)textView
-{
-    if ([self isViewLoaded])
-    {
-        return (RMSourceCodeTextView*)self.view;
-    }
-    return nil;
-}
-
 
 - (void)setSorceCode:(NSString *)sorceCode
 {
