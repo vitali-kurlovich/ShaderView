@@ -17,6 +17,8 @@ _RMMatrix4x4 const kRMIdentityMatrix4x4 =
     0, 0, 0, 1
 };
 
+_RMVector2 const kRMVector2Zero = {0,0};
+_RMVector3 const kRMVector3Zero = {0,0,0};
 
 
 _RMMatrix4x4 RMMulMatrix4x4(_RMMatrix4x4 const a, _RMMatrix4x4 const b)

@@ -31,6 +31,21 @@ typedef struct {
 
 extern _RMMatrix4x4 const kRMIdentityMatrix4x4;
 
+extern _RMVector2 const kRMVector2Zero;
+extern _RMVector3 const kRMVector3Zero;
+
+
+inline float RMDotVector2(_RMVector2 a, _RMVector2 b)
+{
+    return a.x*b.x + a.y*b.y;
+}
+
+inline float RMDotVector3(_RMVector3 a, _RMVector3 b)
+{
+    return a.x*b.x + a.y*b.y + a.z*b.z;
+}
+
+
 
 _RMMatrix4x4 RMMulMatrix4x4(_RMMatrix4x4 const a, _RMMatrix4x4 const b);
 _RMMatrix4x4 RMMulMatrix4x4ToScalar(_RMMatrix4x4 const a, float scalar);
