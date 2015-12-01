@@ -9,13 +9,14 @@
 #import "RMSourceCodeTextView.h"
 
 #import "RMSourceCodeLineNumberView.h"
-
+#import "RMSourceCodeTextStorage.h"
 
 static CGFloat const kRMSourceCodeNumberDefaultWidth = 24;
 
 @interface RMSourceCodeTextView () <RMSourceCodeLineNumberViewDataSource>
 
-@property (nonatomic, readonly)  RMSourceCodeLineNumberView* lineNumberView;
+@property (nonatomic, readonly) RMSourceCodeLineNumberView* lineNumberView;
+@property (nonatomic, readonly) RMSourceCodeTextStorage* sourceCodeTextStorage;
 @end
 
 
@@ -30,6 +31,8 @@ static CGFloat const kRMSourceCodeNumberDefaultWidth = 24;
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
+        _sourceCodeTextStorage = [[RMSourceCodeTextStorage alloc] init];
         [self attachLineNumberView];
         [self configureTextView];
     }
@@ -42,10 +45,16 @@ static CGFloat const kRMSourceCodeNumberDefaultWidth = 24;
     
     if (self)
     {
+        _sourceCodeTextStorage = [[RMSourceCodeTextStorage alloc] init];
         [self attachLineNumberView];
         [self configureTextView];
     }
     return self;
+}
+
+- (NSTextStorage*)textStorage
+{
+    return self.sourceCodeTextStorage;
 }
 
 - (void)attachLineNumberView
