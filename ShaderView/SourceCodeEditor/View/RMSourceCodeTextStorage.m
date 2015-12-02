@@ -114,13 +114,16 @@
 - (void)applyTokenAttributesToRange:(NSRange)searchRange
 {
     NSString* text = [_backingStore string];
-    
-    
+    NSDictionary<NSString*, id>* defaultAttrs = @{NSForegroundColorAttributeName : [UIColor blackColor]};
     
     [self.themeProcessor processAttributesForText:text searchRange:searchRange usingBlock:^(NSRange attrRange, NSDictionary<NSString *,NSObject *> *attr) {
         
-        
-        [self addAttributes:attr range:attrRange];
+        if (attr)
+        {
+            [self addAttributes:attr range:attrRange];
+        } else {
+            [self addAttributes:defaultAttrs range:attrRange];
+        }
     }];
 }
 

@@ -81,6 +81,8 @@
                 return ;
             }
         }
+        
+        block(substringRange, nil);
     }];
 }
 

@@ -41,9 +41,22 @@
         } else {
             _attrs = [NSMutableDictionary dictionary];
         }
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(preferredContentSizeChanged:) name:UIContentSizeCategoryDidChangeNotification object:nil];
     }
     return self;
 }
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)preferredContentSizeChanged:(NSNotification *)aNotification
+{
+    
+}
+
 
 - (NSArray<NSString*>*)allKeywordTypes
 {
