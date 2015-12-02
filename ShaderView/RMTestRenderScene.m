@@ -94,7 +94,7 @@ static Vert2D quad[]  = {
 
 - (void)render:(nullable RMRender*)render duration:(rmtime)deltaTime
 {
-     [self.program useProgramBegin];
+    [self.program useProgramBegin];
     [self.program prepareForUseVBOBuffer:self.quadObject.vertexBuffer];
     
     [self.quadObject draw];

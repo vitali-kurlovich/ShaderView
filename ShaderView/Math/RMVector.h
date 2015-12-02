@@ -25,6 +25,18 @@ typedef NS_ENUM(NSInteger, RMVectorType) {
 @end
 
 
+@interface RMVector2 : RMVector
+@property (nonatomic, readonly) _RMVector2 vector;
+
+- (nonnull instancetype)initWithX:(float)x y:(float)y;
+
++ (nonnull instancetype)vectorWithX:(float)x y:(float)y;
++ (nonnull instancetype)vectorWithRMVector:(_RMVector2)vector;
+
+@end
+
+
+
 @interface RMVector3 : RMVector
 @property (nonatomic, readonly) _RMVector3 vector;
 

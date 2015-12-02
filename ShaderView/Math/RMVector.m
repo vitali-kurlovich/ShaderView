@@ -35,6 +35,41 @@
 
 @end
 
+
+@implementation RMVector2
+
+- (instancetype)init
+{
+    return [self initWithX:0 y:0];
+}
+
+- (instancetype)initWithX:(float)x y:(float)y
+{
+    self = [super initWithType:RMVectorType2];
+    if (self)
+    {
+        _vector.x = x;
+        _vector.y = y;
+    }
+    return self;
+}
+
++ (instancetype)vectorWithX:(float)x y:(float)y
+{
+    return [[[self class] alloc] initWithX:x y:y];
+}
+
++ (nonnull instancetype)vectorWithRMVector:(_RMVector2)vector
+{
+    return [[[self class] alloc] initWithX:vector.x y:vector.y];
+}
+
+@end
+
+
+
+
+
 @implementation RMVector3
 
 - (instancetype)init

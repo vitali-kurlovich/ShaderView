@@ -177,7 +177,7 @@
 
 - (void)prepareForUseVBOBuffer:(RMVBOVertexBuffer*)buffer
 {
-    __block NSMutableDictionary<NSNumber*, RMVertexAttribute*>* binding = [NSMutableDictionary dictionary];
+    __block NSMutableDictionary<NSNumber*, RMVertexAttribute*>* binding = [NSMutableDictionary dictionaryWithCapacity:self.attributes.count];
     
     [self.attributes enumerateObjectsUsingBlock:^(RMVertexAttribute * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         binding[@(obj.attribute)] = obj;
