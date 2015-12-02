@@ -20,13 +20,7 @@
 
 - (instancetype)init
 {
-    return [self initWithAttributess: @{
-                                 kSyntaxKeywordType : @{ NSForegroundColorAttributeName : [UIColor redColor] },
-                                 kSyntaxKeywordStatement : @{ NSForegroundColorAttributeName : [UIColor blueColor] },
-                                 kSyntaxKeywordModifier : @{ NSForegroundColorAttributeName : [UIColor magentaColor] },
-                                 
-                                 kSyntaxKeywordGlobalFunc : @{ NSForegroundColorAttributeName : [UIColor orangeColor] },
-                                 }];
+    return [self initWithAttributess:nil];
 }
 
 
@@ -83,3 +77,11 @@
 }
 
 @end
+
+
+
+
+
+
+
+

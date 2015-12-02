@@ -62,6 +62,10 @@
 		5DA781FF1C0DDA16009FD4B8 /* RMSourceCodeTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA781FE1C0DDA16009FD4B8 /* RMSourceCodeTheme.m */; };
 		5DA782021C0DDB8D009FD4B8 /* RMSourceCodeTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA782011C0DDB8D009FD4B8 /* RMSourceCodeTextStorage.m */; };
 		5DA782051C0DEBB4009FD4B8 /* RMSourceCodeThemeProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA782041C0DEBB4009FD4B8 /* RMSourceCodeThemeProcessor.m */; };
+		5DB80ABD1C0F234000598E64 /* default.theme in Resources */ = {isa = PBXBuildFile; fileRef = 5DB80ABC1C0F234000598E64 /* default.theme */; };
+		5DB80AC01C0F274E00598E64 /* UIColor+RMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB80ABF1C0F274E00598E64 /* UIColor+RMUtils.m */; };
+		5DB80AC31C0F30CB00598E64 /* RMSourceCodeTheme+Plist.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB80AC21C0F30CB00598E64 /* RMSourceCodeTheme+Plist.m */; };
+		5DB80AC71C0F38A900598E64 /* RMSourceCodeSyntax+Plist.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB80AC61C0F38A900598E64 /* RMSourceCodeSyntax+Plist.m */; };
 		5DFC464D1C020F280085852B /* RMMaterial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC464C1C020F280085852B /* RMMaterial.m */; };
 		5DFC468E1C02361D0085852B /* RMVBOBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC468B1C02361D0085852B /* RMVBOBuffer.m */; };
 		5DFC468F1C02361D0085852B /* RMVBOObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC468D1C02361D0085852B /* RMVBOObject.m */; };
@@ -182,6 +186,11 @@
 		5DA782011C0DDB8D009FD4B8 /* RMSourceCodeTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSourceCodeTextStorage.m; sourceTree = "<group>"; };
 		5DA782031C0DEBB4009FD4B8 /* RMSourceCodeThemeProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSourceCodeThemeProcessor.h; sourceTree = "<group>"; };
 		5DA782041C0DEBB4009FD4B8 /* RMSourceCodeThemeProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSourceCodeThemeProcessor.m; sourceTree = "<group>"; };
+		5DB80ABC1C0F234000598E64 /* default.theme */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = default.theme; sourceTree = "<group>"; };
+		5DB80ABE1C0F274E00598E64 /* UIColor+RMUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RMUtils.h"; sourceTree = "<group>"; };
+		5DB80ABF1C0F274E00598E64 /* UIColor+RMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RMUtils.m"; sourceTree = "<group>"; };
+		5DB80AC21C0F30CB00598E64 /* RMSourceCodeTheme+Plist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RMSourceCodeTheme+Plist.m"; sourceTree = "<group>"; };
+		5DB80AC61C0F38A900598E64 /* RMSourceCodeSyntax+Plist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RMSourceCodeSyntax+Plist.m"; sourceTree = "<group>"; };
 		5DFC464B1C020F280085852B /* RMMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMaterial.h; sourceTree = "<group>"; };
 		5DFC464C1C020F280085852B /* RMMaterial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMaterial.m; sourceTree = "<group>"; };
 		5DFC468A1C02361D0085852B /* RMVBOBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMVBOBuffer.h; sourceTree = "<group>"; };
@@ -278,6 +287,8 @@
 				5DA32CCF1C08BD60005ED5C5 /* Images.xcassets */,
 				5DA32CD41C08E929005ED5C5 /* RMButton.h */,
 				5DA32CD51C08E929005ED5C5 /* RMButton.m */,
+				5DB80ABE1C0F274E00598E64 /* UIColor+RMUtils.h */,
+				5DB80ABF1C0F274E00598E64 /* UIColor+RMUtils.m */,
 			);
 			path = ShaderView;
 			sourceTree = "<group>";
@@ -427,9 +438,12 @@
 				5DA782011C0DDB8D009FD4B8 /* RMSourceCodeTextStorage.m */,
 				5DA781E81C0DA76A009FD4B8 /* RMSourceCodeSyntax.h */,
 				5DA781E91C0DA76A009FD4B8 /* RMSourceCodeSyntax.m */,
+				5DB80AC61C0F38A900598E64 /* RMSourceCodeSyntax+Plist.m */,
 				5DA781FD1C0DDA16009FD4B8 /* RMSourceCodeTheme.h */,
 				5DA781FE1C0DDA16009FD4B8 /* RMSourceCodeTheme.m */,
+				5DB80AC21C0F30CB00598E64 /* RMSourceCodeTheme+Plist.m */,
 				5DA781EB1C0DBDB1009FD4B8 /* glsl.syntax */,
+				5DB80ABC1C0F234000598E64 /* default.theme */,
 				5DA782031C0DEBB4009FD4B8 /* RMSourceCodeThemeProcessor.h */,
 				5DA782041C0DEBB4009FD4B8 /* RMSourceCodeThemeProcessor.m */,
 			);
@@ -597,6 +611,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DB80ABD1C0F234000598E64 /* default.theme in Resources */,
 				5D1583261BFDB7D4003A8AD7 /* LaunchScreen.storyboard in Resources */,
 				5D2438871C04E9A600AB90D6 /* Julia.frag in Resources */,
 				5DA781EC1C0DBDB1009FD4B8 /* glsl.syntax in Resources */,
@@ -635,6 +650,7 @@
 				5D6617C61C0C800100E3D4BE /* RMShaderInputOutputDataSource.m in Sources */,
 				5D6617BD1C0C7A1600E3D4BE /* RMWizardStoryboard.m in Sources */,
 				5DFC46A51C02382A0085852B /* RMMatrix.m in Sources */,
+				5DB80AC31C0F30CB00598E64 /* RMSourceCodeTheme+Plist.m in Sources */,
 				5DFC468E1C02361D0085852B /* RMVBOBuffer.m in Sources */,
 				5DA781EA1C0DA76A009FD4B8 /* RMSourceCodeSyntax.m in Sources */,
 				5DFC46A61C02382A0085852B /* RMMatrix2x2.m in Sources */,
@@ -651,10 +667,12 @@
 				5D368C3E1BFF17AD00FE2A83 /* RMRender.m in Sources */,
 				5D4595FC1C078F1C00C30F30 /* RMRenderView.m in Sources */,
 				5DFC464D1C020F280085852B /* RMMaterial.m in Sources */,
+				5DB80AC01C0F274E00598E64 /* UIColor+RMUtils.m in Sources */,
 				5DFC468F1C02361D0085852B /* RMVBOObject.m in Sources */,
 				5DFC47651C0278520085852B /* RMDrawable.m in Sources */,
 				5D5EBB841C05A3CD00504CAD /* RMTestRenderScene.m in Sources */,
 				5DA782021C0DDB8D009FD4B8 /* RMSourceCodeTextStorage.m in Sources */,
+				5DB80AC71C0F38A900598E64 /* RMSourceCodeSyntax+Plist.m in Sources */,
 				5D1C6DAB1C031D5F00E19C87 /* RMGLVertexShader.m in Sources */,
 				5D1C6DAA1C031D5F00E19C87 /* RMGLSLProgram.m in Sources */,
 				5D2438121C04C08D00AB90D6 /* RMVBOVertexBuffer.m in Sources */,

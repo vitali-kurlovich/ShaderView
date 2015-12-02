@@ -18,3 +18,10 @@
 - (nonnull instancetype)initWithAttributess:(nullable NSDictionary<NSString*, NSDictionary<NSString*, NSObject*>*>*)attrs NS_DESIGNATED_INITIALIZER;
 
 @end
+
+
+@interface RMSourceCodeTheme (Plist)
+
++ (nullable instancetype)themeNamed:(nonnull NSString*)name;
+
+@end

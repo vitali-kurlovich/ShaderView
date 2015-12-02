@@ -15,6 +15,8 @@
 #import "RMSourceCodeTheme.h"
 #import "RMSourceCodeSyntax.h"
 
+#import "RMSourceCodeTheme.h"
+
 // -------------------
 
 @interface RMSourceCodeTextStorage ()
@@ -37,7 +39,7 @@
         _backingStore = [[NSMutableAttributedString alloc] init];
         _themeProcessor = [[RMSourceCodeThemeProcessor alloc] init];
         
-        _themeProcessor.theme = [[RMSourceCodeTheme alloc] init];
+        _themeProcessor.theme = [RMSourceCodeTheme themeNamed:@"default"];
         _themeProcessor.syntax = [RMSourceCodeSyntax syntaxNamed:@"glsl"];
         
     }

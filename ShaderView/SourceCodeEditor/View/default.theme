@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>highlighting</key>
+	<dict>
+		<key>keyword.type</key>
+		<dict>
+			<key>fontcolor</key>
+			<string>#8b2323</string>
+		</dict>
+		<key>keyword.statement</key>
+		<dict>
+			<key>fontcolor</key>
+			<string>#ee00ee</string>
+		</dict>
+		<key>keyword.modifier</key>
+		<dict>
+			<key>fontcolor</key>
+			<string>#0000ee</string>
+		</dict>
+		<key>keyword.global.vars</key>
+		<dict>
+			<key>fontcolor</key>
+			<string>#483d8b</string>
+		</dict>
+		<key>keyword.global.const</key>
+		<dict>
+			<key>fontcolor</key>
+			<string>#00008b</string>
+		</dict>
+		<key>keyword.global.func</key>
+		<dict>
+			<key>fontcolor</key>
+			<string>#8b0a50</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
