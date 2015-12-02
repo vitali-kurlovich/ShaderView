@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 
 
-@interface RMSourceCodeTheme : NSObject
+@interface RMSourceCodeTheme : NSObject<NSCopying>
 - (nullable NSArray<NSString*>*)allKeywordTypes;
 
 - (void)registerAttributesForType:(nonnull NSString*)type attr:(nonnull NSDictionary<NSString*, NSObject*>*)attr;
-- ( nullable NSDictionary<NSString*, NSObject*>*)attributesKeywordType:(nonnull NSString*)type;
+- (nullable NSDictionary<NSString*, NSObject*>*)attributesKeywordType:(nonnull NSString*)type;
+
+- (nonnull instancetype)initWithAttributess:(nullable NSDictionary<NSString*, NSDictionary<NSString*, NSObject*>*>*)attrs NS_DESIGNATED_INITIALIZER;
 
 @end

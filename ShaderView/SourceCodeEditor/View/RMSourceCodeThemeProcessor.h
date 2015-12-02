@@ -12,10 +12,13 @@
 @class RMSourceCodeSyntax;
 
 @interface RMSourceCodeThemeProcessor : NSObject
-@property (nonatomic) RMSourceCodeTheme* theme;
-@property (nonatomic) RMSourceCodeSyntax* syntax;
+
+@property (nullable, nonatomic, copy) RMSourceCodeTheme* theme;
+@property (nullable, nonatomic, copy) RMSourceCodeSyntax* syntax;
 
 
-- (void)processAttributesForText:(NSString*)text searchRange:(NSRange)searchRange usingBlock:(void (^)(NSRange attrRange, NSDictionary<NSString*, NSObject*>* attr))block;
+- (void)processAttributesForText:(nullable NSString*)text
+                     searchRange:(NSRange)searchRange
+                      usingBlock:(void (^ __nullable)(NSRange attrRange, NSDictionary<NSString*, NSObject*> * __nullable attr))block;
 
 @end

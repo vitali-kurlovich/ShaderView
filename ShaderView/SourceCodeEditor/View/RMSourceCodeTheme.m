@@ -20,17 +20,27 @@
 
 - (instancetype)init
 {
+    return [self initWithAttributess: @{
+                                 kSyntaxKeywordType : @{ NSForegroundColorAttributeName : [UIColor redColor] },
+                                 kSyntaxKeywordStatement : @{ NSForegroundColorAttributeName : [UIColor blueColor] },
+                                 kSyntaxKeywordModifier : @{ NSForegroundColorAttributeName : [UIColor magentaColor] },
+                                 
+                                 kSyntaxKeywordGlobalFunc : @{ NSForegroundColorAttributeName : [UIColor orangeColor] },
+                                 }];
+}
+
+
+- (instancetype)initWithAttributess:( NSDictionary<NSString*, NSDictionary<NSString*, NSObject*>*>*)attrs
+{
     self = [super init];
     if (self)
     {
-        _attrs = [
-                  @{
-                    kSyntaxKeywordType : @{ NSForegroundColorAttributeName : [UIColor redColor] },
-                    kSyntaxKeywordStatement : @{ NSForegroundColorAttributeName : [UIColor blueColor] },
-                    kSyntaxKeywordModifier : @{ NSForegroundColorAttributeName : [UIColor magentaColor] },
-                    
-                    kSyntaxKeywordGlobalFunc : @{ NSForegroundColorAttributeName : [UIColor orangeColor] },
-                    } mutableCopy];
+        if (attrs)
+        {
+            _attrs = [attrs mutableCopy];
+        } else {
+            _attrs = [NSMutableDictionary dictionary];
+        }
     }
     return self;
 }
@@ -50,4 +60,13 @@
 {
     return self.attrs[type];
 }
+
+
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(nullable NSZone *)zone;
+{
+    return [[RMSourceCodeTheme alloc] initWithAttributess:self.attrs];
+}
+
 @end

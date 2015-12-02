@@ -25,13 +25,24 @@ NSString* const kSyntaxKeywordGlobalFunc = @"keyword.global.func";
 
 - (instancetype)init
 {
+    return [self initWithItems:nil];
+}
+
+- (nonnull instancetype)initWithItems:(nullable NSDictionary<NSString*, RMSourceCodeSyntaxItem*>*)items
+{
     self = [super init];
     if (self)
     {
-        _items = [NSMutableDictionary dictionary];
+        if (items)
+        {
+            _items = [items mutableCopy];
+        } else {
+            _items = [NSMutableDictionary dictionary];
+        }
     }
     return self;
 }
+
 
 - (void)registerSyntaxItem:(RMSourceCodeSyntaxItem*)item
 {
@@ -41,6 +52,14 @@ NSString* const kSyntaxKeywordGlobalFunc = @"keyword.global.func";
 - (RMSourceCodeSyntaxItem*)itemForSyntaxKeyword:(NSString*)keyword
 {
     return self.items[keyword];
+}
+
+
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(nullable NSZone *)zone
+{
+   return [[RMSourceCodeSyntax alloc] initWithItems:self.items];
 }
 
 @end

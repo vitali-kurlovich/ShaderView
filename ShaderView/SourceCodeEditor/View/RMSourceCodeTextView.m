@@ -16,6 +16,7 @@ static CGFloat const kRMSourceCodeNumberDefaultWidth = 24;
 @interface RMSourceCodeTextView () <RMSourceCodeLineNumberViewDataSource>
 
 @property (nonatomic, readonly) RMSourceCodeLineNumberView* lineNumberView;
+
 @property (nonatomic, readonly) RMSourceCodeTextStorage* sourceCodeTextStorage;
 @end
 
@@ -27,35 +28,51 @@ static CGFloat const kRMSourceCodeNumberDefaultWidth = 24;
 
 @synthesize lineNumberBackgroundColor = _lineNumberBackgroundColor;
 
-- (instancetype)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame textContainer:(NSTextContainer *)textContainer
 {
-    self = [super initWithFrame:frame];
-    if (self) {
+    RMSourceCodeTextStorage* textStorage = nil;
+    if (textContainer == nil)
+    {
+        NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
         
-        _sourceCodeTextStorage = [[RMSourceCodeTextStorage alloc] init];
-        [self attachLineNumberView];
-        [self configureTextView];
+        textContainer = [[NSTextContainer alloc] initWithSize:frame.size];
+        [layoutManager addTextContainer:textContainer];
+        textStorage = [[RMSourceCodeTextStorage alloc] init];
+        [textStorage addLayoutManager:layoutManager];
     }
-    return self;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
     
+    self = [super initWithFrame:frame textContainer:textContainer];
     if (self)
     {
-        _sourceCodeTextStorage = [[RMSourceCodeTextStorage alloc] init];
+        _sourceCodeTextStorage = textStorage;
         [self attachLineNumberView];
         [self configureTextView];
     }
+    
     return self;
 }
 
-- (NSTextStorage*)textStorage
+
+- (void)setSyntax:(RMSourceCodeSyntax *)syntax
 {
-    return self.sourceCodeTextStorage;
+    self.sourceCodeTextStorage.syntax = syntax;
 }
+
+- (RMSourceCodeSyntax*)syntax
+{
+    return self.sourceCodeTextStorage.syntax;
+}
+
+- (void)setTheme:(RMSourceCodeTheme *)theme
+{
+    self.sourceCodeTextStorage.theme = theme;
+}
+
+- (RMSourceCodeTheme *)theme
+{
+    return self.sourceCodeTextStorage.theme;
+}
+
 
 - (void)attachLineNumberView
 {
@@ -120,7 +137,7 @@ static CGFloat const kRMSourceCodeNumberDefaultWidth = 24;
 - (void)setContentOffset:(CGPoint)contentOffset
 {
     super.contentOffset = contentOffset;
-        
+    
     self.lineNumberView.contentOffset = contentOffset;
     self.lineNumberView.frame = [self frameForSorceCodeLineNumberView];
 }

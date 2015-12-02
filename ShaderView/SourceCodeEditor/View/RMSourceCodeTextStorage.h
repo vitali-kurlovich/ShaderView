@@ -6,8 +6,12 @@
 //  Copyright © 2015 Vitali Kurlovich. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
+
+@class RMSourceCodeTheme;
+@class RMSourceCodeSyntax;
 
 @interface RMSourceCodeTextStorage : NSTextStorage
-
+@property (nullable, nonatomic, copy) RMSourceCodeTheme* theme;
+@property (nullable, nonatomic, copy) RMSourceCodeSyntax* syntax;
 @end

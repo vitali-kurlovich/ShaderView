@@ -28,7 +28,10 @@ NS_ASSUME_NONNULL_END
 
 @class RMSourceCodeSyntaxItem;
 
-@interface RMSourceCodeSyntax : NSObject
+@interface RMSourceCodeSyntax : NSObject<NSCopying>
+
+- (nonnull instancetype)initWithItems:(nullable NSDictionary<NSString*, RMSourceCodeSyntaxItem*>*)items NS_DESIGNATED_INITIALIZER;
+
 
 - (void)registerSyntaxItem:(nonnull RMSourceCodeSyntaxItem*)item;
 - ( nonnull RMSourceCodeSyntaxItem*)itemForSyntaxKeyword:(nonnull NSString*)keyword;

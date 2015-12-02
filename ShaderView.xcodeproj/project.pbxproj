@@ -175,7 +175,7 @@
 		5DA32CD51C08E929005ED5C5 /* RMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMButton.m; sourceTree = "<group>"; };
 		5DA781E81C0DA76A009FD4B8 /* RMSourceCodeSyntax.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSourceCodeSyntax.h; sourceTree = "<group>"; };
 		5DA781E91C0DA76A009FD4B8 /* RMSourceCodeSyntax.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSourceCodeSyntax.m; sourceTree = "<group>"; };
-		5DA781EB1C0DBDB1009FD4B8 /* glsl.syntax */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = glsl.syntax; sourceTree = "<group>"; };
+		5DA781EB1C0DBDB1009FD4B8 /* glsl.syntax */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = glsl.syntax; sourceTree = "<group>"; };
 		5DA781FD1C0DDA16009FD4B8 /* RMSourceCodeTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSourceCodeTheme.h; sourceTree = "<group>"; };
 		5DA781FE1C0DDA16009FD4B8 /* RMSourceCodeTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSourceCodeTheme.m; sourceTree = "<group>"; };
 		5DA782001C0DDB8D009FD4B8 /* RMSourceCodeTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSourceCodeTextStorage.h; sourceTree = "<group>"; };

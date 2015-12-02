@@ -29,6 +29,7 @@
 
 
 @implementation RMSourceCodeTextStorage
+
 - (instancetype)init
 {
     self = [super init];
@@ -42,6 +43,27 @@
     }
     return self;
 }
+
+- (void)setSyntax:(RMSourceCodeSyntax *)syntax
+{
+    self.themeProcessor.syntax = syntax;
+}
+
+- (RMSourceCodeSyntax*)syntax
+{
+    return self.themeProcessor.syntax;
+}
+
+- (void)setTheme:(RMSourceCodeTheme *)theme
+{
+    self.themeProcessor.theme = theme;
+}
+
+- (RMSourceCodeTheme *)theme
+{
+    return self.themeProcessor.theme;
+}
+
 
 - (NSString *)string
 {
@@ -93,7 +115,11 @@
 {
     NSString* text = [_backingStore string];
     
+    
+    
     [self.themeProcessor processAttributesForText:text searchRange:searchRange usingBlock:^(NSRange attrRange, NSDictionary<NSString *,NSObject *> *attr) {
+        
+        
         [self addAttributes:attr range:attrRange];
     }];
 }
