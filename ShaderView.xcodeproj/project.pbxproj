@@ -51,13 +51,11 @@
 		5D6617D01C0D10A600E3D4BE /* RMMatrix4x4.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC46A41C02382A0085852B /* RMMatrix4x4.m */; };
 		5D6617D11C0D10A800E3D4BE /* RMVector.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC46AA1C02384C0085852B /* RMVector.m */; };
 		5DA32CBF1C087D80005ED5C5 /* RMSwitchSourceCodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA32CBE1C087D80005ED5C5 /* RMSwitchSourceCodeController.m */; };
-		5DA32CC21C088AD0005ED5C5 /* RDKeyboardObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA32CC11C088AD0005ED5C5 /* RDKeyboardObserver.m */; };
 		5DA32CC81C089CCF005ED5C5 /* RMRenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA32CC71C089CCF005ED5C5 /* RMRenderViewController.m */; };
 		5DA32CCB1C08A5B9005ED5C5 /* RMGLRenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA32CCA1C08A5B9005ED5C5 /* RMGLRenderViewController.m */; };
 		5DA32CCE1C08A651005ED5C5 /* RMGLTestRenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA32CCD1C08A651005ED5C5 /* RMGLTestRenderViewController.m */; };
 		5DA32CD01C08BD60005ED5C5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DA32CCF1C08BD60005ED5C5 /* Images.xcassets */; };
 		5DA32CD61C08E929005ED5C5 /* RMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA32CD51C08E929005ED5C5 /* RMButton.m */; };
-		5DB80AC01C0F274E00598E64 /* UIColor+RMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB80ABF1C0F274E00598E64 /* UIColor+RMUtils.m */; };
 		5DB80AD61C0F3C9800598E64 /* RMHighlightingProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB80ACB1C0F3C9800598E64 /* RMHighlightingProcessor.m */; };
 		5DB80AD71C0F3C9800598E64 /* RMHighlightingTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB80ACD1C0F3C9800598E64 /* RMHighlightingTextStorage.m */; };
 		5DB80AD81C0F3C9800598E64 /* RMHighlightingSyntax+Plist.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB80ACF1C0F3C9800598E64 /* RMHighlightingSyntax+Plist.m */; };
@@ -66,6 +64,8 @@
 		5DB80ADB1C0F3C9800598E64 /* RMHighlightingTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB80AD51C0F3C9800598E64 /* RMHighlightingTheme.m */; };
 		5DB80ADF1C0F3CB000598E64 /* default.theme in Resources */ = {isa = PBXBuildFile; fileRef = 5DB80ADD1C0F3CB000598E64 /* default.theme */; };
 		5DB80AE01C0F3CB000598E64 /* glsl.syntax in Resources */ = {isa = PBXBuildFile; fileRef = 5DB80ADE1C0F3CB000598E64 /* glsl.syntax */; };
+		5DB80AE61C0F3D3B00598E64 /* RDKeyboardObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB80AE31C0F3D3B00598E64 /* RDKeyboardObserver.m */; };
+		5DB80AE71C0F3D3B00598E64 /* UIColor+RMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB80AE51C0F3D3B00598E64 /* UIColor+RMUtils.m */; };
 		5DFC464D1C020F280085852B /* RMMaterial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC464C1C020F280085852B /* RMMaterial.m */; };
 		5DFC468E1C02361D0085852B /* RMVBOBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC468B1C02361D0085852B /* RMVBOBuffer.m */; };
 		5DFC468F1C02361D0085852B /* RMVBOObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC468D1C02361D0085852B /* RMVBOObject.m */; };
@@ -166,8 +166,6 @@
 		5D6617C81C0C8B8A00E3D4BE /* RMMesh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMesh.m; sourceTree = "<group>"; };
 		5DA32CBD1C087D80005ED5C5 /* RMSwitchSourceCodeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSwitchSourceCodeController.h; sourceTree = "<group>"; };
 		5DA32CBE1C087D80005ED5C5 /* RMSwitchSourceCodeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSwitchSourceCodeController.m; sourceTree = "<group>"; };
-		5DA32CC01C088AD0005ED5C5 /* RDKeyboardObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDKeyboardObserver.h; sourceTree = "<group>"; };
-		5DA32CC11C088AD0005ED5C5 /* RDKeyboardObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDKeyboardObserver.m; sourceTree = "<group>"; };
 		5DA32CC61C089CCF005ED5C5 /* RMRenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRenderViewController.h; sourceTree = "<group>"; };
 		5DA32CC71C089CCF005ED5C5 /* RMRenderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRenderViewController.m; sourceTree = "<group>"; };
 		5DA32CC91C08A5B9005ED5C5 /* RMGLRenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMGLRenderViewController.h; sourceTree = "<group>"; };
@@ -177,8 +175,6 @@
 		5DA32CCF1C08BD60005ED5C5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5DA32CD41C08E929005ED5C5 /* RMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMButton.h; sourceTree = "<group>"; };
 		5DA32CD51C08E929005ED5C5 /* RMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMButton.m; sourceTree = "<group>"; };
-		5DB80ABE1C0F274E00598E64 /* UIColor+RMUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RMUtils.h"; sourceTree = "<group>"; };
-		5DB80ABF1C0F274E00598E64 /* UIColor+RMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RMUtils.m"; sourceTree = "<group>"; };
 		5DB80ACA1C0F3C9800598E64 /* RMHighlightingProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMHighlightingProcessor.h; sourceTree = "<group>"; };
 		5DB80ACB1C0F3C9800598E64 /* RMHighlightingProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMHighlightingProcessor.m; sourceTree = "<group>"; };
 		5DB80ACC1C0F3C9800598E64 /* RMHighlightingTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMHighlightingTextStorage.h; sourceTree = "<group>"; };
@@ -191,6 +187,10 @@
 		5DB80AD51C0F3C9800598E64 /* RMHighlightingTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMHighlightingTheme.m; sourceTree = "<group>"; };
 		5DB80ADD1C0F3CB000598E64 /* default.theme */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = default.theme; sourceTree = "<group>"; };
 		5DB80ADE1C0F3CB000598E64 /* glsl.syntax */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = glsl.syntax; sourceTree = "<group>"; };
+		5DB80AE21C0F3D3B00598E64 /* RDKeyboardObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDKeyboardObserver.h; sourceTree = "<group>"; };
+		5DB80AE31C0F3D3B00598E64 /* RDKeyboardObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDKeyboardObserver.m; sourceTree = "<group>"; };
+		5DB80AE41C0F3D3B00598E64 /* UIColor+RMUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RMUtils.h"; sourceTree = "<group>"; };
+		5DB80AE51C0F3D3B00598E64 /* UIColor+RMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RMUtils.m"; sourceTree = "<group>"; };
 		5DFC464B1C020F280085852B /* RMMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMaterial.h; sourceTree = "<group>"; };
 		5DFC464C1C020F280085852B /* RMMaterial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMaterial.m; sourceTree = "<group>"; };
 		5DFC468A1C02361D0085852B /* RMVBOBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMVBOBuffer.h; sourceTree = "<group>"; };
@@ -264,8 +264,7 @@
 		5D1583151BFDB7D4003A8AD7 /* ShaderView */ = {
 			isa = PBXGroup;
 			children = (
-				5DA32CC01C088AD0005ED5C5 /* RDKeyboardObserver.h */,
-				5DA32CC11C088AD0005ED5C5 /* RDKeyboardObserver.m */,
+				5DB80AE11C0F3D3B00598E64 /* Common */,
 				5D4595FD1C078F9C00C30F30 /* SourceCodeEditor */,
 				5D4595F61C078F1B00C30F30 /* ShaderView */,
 				5D1583621BFDFE2F003A8AD7 /* Math */,
@@ -287,8 +286,6 @@
 				5DA32CCF1C08BD60005ED5C5 /* Images.xcassets */,
 				5DA32CD41C08E929005ED5C5 /* RMButton.h */,
 				5DA32CD51C08E929005ED5C5 /* RMButton.m */,
-				5DB80ABE1C0F274E00598E64 /* UIColor+RMUtils.h */,
-				5DB80ABF1C0F274E00598E64 /* UIColor+RMUtils.m */,
 			);
 			path = ShaderView;
 			sourceTree = "<group>";
@@ -515,6 +512,17 @@
 			path = Theme;
 			sourceTree = "<group>";
 		};
+		5DB80AE11C0F3D3B00598E64 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5DB80AE21C0F3D3B00598E64 /* RDKeyboardObserver.h */,
+				5DB80AE31C0F3D3B00598E64 /* RDKeyboardObserver.m */,
+				5DB80AE41C0F3D3B00598E64 /* UIColor+RMUtils.h */,
+				5DB80AE51C0F3D3B00598E64 /* UIColor+RMUtils.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		5DFC46881C02361D0085852B /* Geometry */ = {
 			isa = PBXGroup;
 			children = (
@@ -684,6 +692,7 @@
 				5DFC47681C0278BA0085852B /* RMVBOObject+RMDrawable.m in Sources */,
 				5DA32CC81C089CCF005ED5C5 /* RMRenderViewController.m in Sources */,
 				5DB80AD71C0F3C9800598E64 /* RMHighlightingTextStorage.m in Sources */,
+				5DB80AE71C0F3D3B00598E64 /* UIColor+RMUtils.m in Sources */,
 				5DFC46B71C02389D0085852B /* RMProgram.m in Sources */,
 				5DFC46B91C02389D0085852B /* RMVertexShader.m in Sources */,
 				5D6617C91C0C8B8A00E3D4BE /* RMMesh.m in Sources */,
@@ -697,18 +706,17 @@
 				5DFC46B61C02389D0085852B /* RMFragmentShader.m in Sources */,
 				5D6617B31C0C741000E3D4BE /* RMSourceCodeStoryboard.m in Sources */,
 				5D6617BA1C0C79DE00E3D4BE /* RMShaderInOutController.m in Sources */,
-				5DA32CC21C088AD0005ED5C5 /* RDKeyboardObserver.m in Sources */,
 				5D1C6F351C034EBA00E19C87 /* RMCommon.m in Sources */,
 				5DFC46C21C025E9C0085852B /* RMVBOVertexAttribute.m in Sources */,
 				5DB80ADB1C0F3C9800598E64 /* RMHighlightingTheme.m in Sources */,
 				5D1C6DAE1C031D5F00E19C87 /* RMGLTexture.m in Sources */,
+				5DB80AE61C0F3D3B00598E64 /* RDKeyboardObserver.m in Sources */,
 				5D1C6DA81C031D5F00E19C87 /* RMGLVBOObject.m in Sources */,
 				5D1C6F321C034E8400E19C87 /* RMSceneObject.m in Sources */,
 				5D368C3E1BFF17AD00FE2A83 /* RMRender.m in Sources */,
 				5D4595FC1C078F1C00C30F30 /* RMRenderView.m in Sources */,
 				5DFC464D1C020F280085852B /* RMMaterial.m in Sources */,
 				5DB80ADA1C0F3C9800598E64 /* RMHighlightingTheme+Plist.m in Sources */,
-				5DB80AC01C0F274E00598E64 /* UIColor+RMUtils.m in Sources */,
 				5DFC468F1C02361D0085852B /* RMVBOObject.m in Sources */,
 				5DFC47651C0278520085852B /* RMDrawable.m in Sources */,
 				5D5EBB841C05A3CD00504CAD /* RMTestRenderScene.m in Sources */,
