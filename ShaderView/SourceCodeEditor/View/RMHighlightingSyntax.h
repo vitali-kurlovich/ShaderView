@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_END
 
 @class RMSourceCodeSyntaxItem;
 
-@interface RMSourceCodeSyntax : NSObject<NSCopying>
+@interface RMHighlightingSyntax : NSObject<NSCopying>
 
 - (nonnull instancetype)initWithItems:(nullable NSDictionary<NSString*, RMSourceCodeSyntaxItem*>*)items NS_DESIGNATED_INITIALIZER;
 
@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_END
 @end
 
 
-@interface RMSourceCodeSyntax (Plist)
+@interface RMHighlightingSyntax (Plist)
 
 + (nullable instancetype)syntaxNamed:(nonnull NSString*)name;
 

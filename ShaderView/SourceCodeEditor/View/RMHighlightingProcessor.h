@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@class RMSourceCodeTheme;
-@class RMSourceCodeSyntax;
+@class RMHighlightingTheme;
+@class RMHighlightingSyntax;
 
-@interface RMSourceCodeThemeProcessor : NSObject
+@interface RMHighlightingProcessor : NSObject
 
-@property (nullable, nonatomic, copy) RMSourceCodeTheme* theme;
-@property (nullable, nonatomic, copy) RMSourceCodeSyntax* syntax;
+@property (nullable, nonatomic, copy) RMHighlightingTheme* theme;
+@property (nullable, nonatomic, copy) RMHighlightingSyntax* syntax;
 
 
 - (void)processAttributesForText:(nullable NSString*)text

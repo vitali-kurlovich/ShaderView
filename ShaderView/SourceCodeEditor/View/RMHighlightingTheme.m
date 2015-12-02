@@ -6,17 +6,17 @@
 //  Copyright © 2015 Vitali Kurlovich. All rights reserved.
 //
 
-#import "RMSourceCodeTheme.h"
+#import "RMHighlightingTheme.h"
 
-#import "RMSourceCodeSyntax.h"
+#import "RMHighlightingSyntax.h"
 @import UIKit;
 
-@interface RMSourceCodeTheme ()
+@interface RMHighlightingTheme ()
 @property (nonatomic, readonly) NSMutableDictionary<NSString*, NSDictionary<NSString*, NSObject*>*>* attrs;
 @end
 
 
-@implementation RMSourceCodeTheme
+@implementation RMHighlightingTheme
 
 - (instancetype)init
 {
@@ -73,7 +73,7 @@
 
 - (id)copyWithZone:(nullable NSZone *)zone;
 {
-    return [[RMSourceCodeTheme alloc] initWithAttributess:self.attrs];
+    return [[RMHighlightingTheme alloc] initWithAttributess:self.attrs];
 }
 
 @end

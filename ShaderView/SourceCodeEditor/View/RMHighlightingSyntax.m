@@ -6,7 +6,7 @@
 //  Copyright © 2015 Vitali Kurlovich. All rights reserved.
 //
 
-#import "RMSourceCodeSyntax.h"
+#import "RMHighlightingSyntax.h"
 
 NSString* const kSyntaxKeywordStatement = @"keyword.statement";
 NSString* const kSyntaxKeywordType = @"keyword.type";
@@ -17,11 +17,11 @@ NSString* const kSyntaxKeywordGlobalConst = @"keyword.global.const";
 NSString* const kSyntaxKeywordGlobalFunc = @"keyword.global.func";
 
 
-@interface RMSourceCodeSyntax ()
+@interface RMHighlightingSyntax ()
 @property (nonatomic, readonly) NSMutableDictionary<NSString*, RMSourceCodeSyntaxItem*>* items;
 @end
 
-@implementation RMSourceCodeSyntax
+@implementation RMHighlightingSyntax
 
 - (instancetype)init
 {
@@ -59,7 +59,7 @@ NSString* const kSyntaxKeywordGlobalFunc = @"keyword.global.func";
 
 - (id)copyWithZone:(nullable NSZone *)zone
 {
-   return [[RMSourceCodeSyntax alloc] initWithItems:self.items];
+   return [[RMHighlightingSyntax alloc] initWithItems:self.items];
 }
 
 @end

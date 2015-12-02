@@ -8,15 +8,15 @@
 
 @import UIKit;
 
-@class RMSourceCodeTheme;
-@class RMSourceCodeSyntax;
+@class RMHighlightingTheme;
+@class RMHighlightingSyntax;
 
 IB_DESIGNABLE
 
 @interface RMSourceCodeTextView : UITextView
 
-@property (nullable, nonatomic, copy) RMSourceCodeTheme* theme;
-@property (nullable, nonatomic, copy) RMSourceCodeSyntax* syntax;
+@property (nullable, nonatomic, copy) RMHighlightingTheme* theme;
+@property (nullable, nonatomic, copy) RMHighlightingSyntax* syntax;
 
 @property (nonatomic) IBInspectable CGFloat lineNumberWidth;
 @property (nullable, nonatomic) IBInspectable UIFont* lineNumberFont;

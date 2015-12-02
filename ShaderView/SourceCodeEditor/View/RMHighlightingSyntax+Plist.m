@@ -6,7 +6,7 @@
 //  Copyright © 2015 Vitali Kurlovich. All rights reserved.
 //
 
-#import "RMSourceCodeSyntax.h"
+#import "RMHighlightingSyntax.h"
 
 static NSString* const kSourceCodeSyntaxPlistType = @"syntax";
 
@@ -14,7 +14,7 @@ static NSString* const kSourceCodeSyntaxPlistKeyKeyword  = @"keyword";
 static NSString* const kSourceCodeSyntaxPlistKeySet = @"set";
 static NSString* const kSourceCodeSyntaxPlistKeyRegExp = @"regexp";
 
-@implementation RMSourceCodeSyntax (Plist)
+@implementation RMHighlightingSyntax (Plist)
 
 + (nullable instancetype)syntaxNamed:(nonnull NSString*)name
 {
@@ -33,7 +33,7 @@ static NSString* const kSourceCodeSyntaxPlistKeyRegExp = @"regexp";
         return nil;
     }
     
-    RMSourceCodeSyntax* syntax = [[RMSourceCodeSyntax alloc] init];
+    RMHighlightingSyntax* syntax = [[RMHighlightingSyntax alloc] init];
     
     for (NSDictionary* item in arr)
     {

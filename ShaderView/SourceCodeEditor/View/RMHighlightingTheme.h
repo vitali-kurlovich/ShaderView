@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface RMSourceCodeTheme : NSObject<NSCopying>
+@interface RMHighlightingTheme : NSObject<NSCopying>
 - (nullable NSArray<NSString*>*)allKeywordTypes;
 
 - (void)registerAttributesForType:(nonnull NSString*)type attr:(nonnull NSDictionary<NSString*, NSObject*>*)attr;
@@ -20,7 +20,7 @@
 @end
 
 
-@interface RMSourceCodeTheme (Plist)
+@interface RMHighlightingTheme (Plist)
 
 + (nullable instancetype)themeNamed:(nonnull NSString*)name;
 

@@ -6,7 +6,7 @@
 //  Copyright © 2015 Vitali Kurlovich. All rights reserved.
 //
 
-#import "RMSourceCodeTheme.h"
+#import "RMHighlightingTheme.h"
 
 #import "UIColor+RMUtils.h"
 
@@ -18,7 +18,7 @@ static NSString* const kSourceCodeThemeFontColorKey = @"fontcolor";
 
 static NSDictionary* _themeItemToAttr( NSDictionary<NSString*, id>* item);
 
-@implementation RMSourceCodeTheme (Plist)
+@implementation RMHighlightingTheme (Plist)
 
 + (nullable instancetype)themeNamed:(nonnull NSString*)name
 {
@@ -39,7 +39,7 @@ static NSDictionary* _themeItemToAttr( NSDictionary<NSString*, id>* item);
         return nil;
     }
     
-    RMSourceCodeTheme* theme = [[RMSourceCodeTheme alloc] init];
+    RMHighlightingTheme* theme = [[RMHighlightingTheme alloc] init];
     
     [highlighting enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSDictionary<NSString *,id> * _Nonnull obj, BOOL * _Nonnull stop) {
         

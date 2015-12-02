@@ -6,18 +6,19 @@
 //  Copyright © 2015 Vitali Kurlovich. All rights reserved.
 //
 
-#import "RMSourceCodeThemeProcessor.h"
+#import "RMHighlightingProcessor.h"
 
-#import "RMSourceCodeTheme.h"
-#import "RMSourceCodeSyntax.h"
+#import "RMHighlightingTheme.h"
+#import "RMHighlightingSyntax.h"
 
 
-@interface RMSourceCodeThemeProcessor ()
+@interface RMHighlightingProcessor ()
 @property (nonatomic, readonly) NSArray<RMSourceCodeSyntaxItem*>* setItems;
 @end
 
 
-@implementation RMSourceCodeThemeProcessor
+@implementation RMHighlightingProcessor
+
 @synthesize setItems = _setItems;
 
 - ( NSArray<RMSourceCodeSyntaxItem*>*)setItems
@@ -43,7 +44,7 @@
 }
 
 
-- (void)setTheme:(RMSourceCodeTheme *)theme
+- (void)setTheme:(RMHighlightingTheme *)theme
 {
     if (_theme != theme)
     {
@@ -52,7 +53,7 @@
     }
 }
 
-- (void)setSyntax:(RMSourceCodeSyntax *)syntax
+- (void)setSyntax:(RMHighlightingSyntax *)syntax
 {
     if (_syntax != syntax)
     {
@@ -67,7 +68,7 @@
     if (block == nil) return;
     
     NSArray* setItems = self.setItems;
-    RMSourceCodeTheme* theme = self.theme;
+    RMHighlightingTheme* theme = self.theme;
     
     [text enumerateSubstringsInRange:searchRange options:NSStringEnumerationByWords usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
         

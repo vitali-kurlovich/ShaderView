@@ -6,62 +6,51 @@
 //  Copyright © 2015 Vitali Kurlovich. All rights reserved.
 //
 
-#import "RMSourceCodeTextStorage.h"
+#import "RMHighlightingTextStorage.h"
 
-#import "RMSourceCodeThemeProcessor.h"
+#import "RMHighlightingProcessor.h"
 
-// ------------------
 
-#import "RMSourceCodeTheme.h"
-#import "RMSourceCodeSyntax.h"
-
-#import "RMSourceCodeTheme.h"
-
-// -------------------
-
-@interface RMSourceCodeTextStorage ()
+@interface RMHighlightingTextStorage ()
 {
     NSMutableAttributedString *_backingStore;
     BOOL _dynamicTextNeedsUpdate;
 }
 
-@property (nonatomic, readonly) RMSourceCodeThemeProcessor* themeProcessor;
+@property (nonatomic, readonly) RMHighlightingProcessor* themeProcessor;
 
 @end
 
 
-@implementation RMSourceCodeTextStorage
+@implementation RMHighlightingTextStorage
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
         _backingStore = [[NSMutableAttributedString alloc] init];
-        _themeProcessor = [[RMSourceCodeThemeProcessor alloc] init];
-        
-        _themeProcessor.theme = [RMSourceCodeTheme themeNamed:@"default"];
-        _themeProcessor.syntax = [RMSourceCodeSyntax syntaxNamed:@"glsl"];
+        _themeProcessor = [[RMHighlightingProcessor alloc] init];
         
     }
     return self;
 }
 
-- (void)setSyntax:(RMSourceCodeSyntax *)syntax
+- (void)setSyntax:(RMHighlightingSyntax *)syntax
 {
     self.themeProcessor.syntax = syntax;
 }
 
-- (RMSourceCodeSyntax*)syntax
+- (RMHighlightingSyntax*)syntax
 {
     return self.themeProcessor.syntax;
 }
 
-- (void)setTheme:(RMSourceCodeTheme *)theme
+- (void)setTheme:(RMHighlightingTheme *)theme
 {
     self.themeProcessor.theme = theme;
 }
 
-- (RMSourceCodeTheme *)theme
+- (RMHighlightingTheme *)theme
 {
     return self.themeProcessor.theme;
 }

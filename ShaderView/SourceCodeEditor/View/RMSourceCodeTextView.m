@@ -9,7 +9,10 @@
 #import "RMSourceCodeTextView.h"
 
 #import "RMSourceCodeLineNumberView.h"
-#import "RMSourceCodeTextStorage.h"
+#import "RMHighlightingTextStorage.h"
+
+#import "RMHighlightingTheme.h"
+#import "RMHighlightingSyntax.h"
 
 static CGFloat const kRMSourceCodeNumberDefaultWidth = 24;
 
@@ -17,7 +20,7 @@ static CGFloat const kRMSourceCodeNumberDefaultWidth = 24;
 
 @property (nonatomic, readonly) RMSourceCodeLineNumberView* lineNumberView;
 
-@property (nonatomic, readonly) RMSourceCodeTextStorage* sourceCodeTextStorage;
+@property (nonatomic, readonly) RMHighlightingTextStorage* sourceCodeTextStorage;
 @end
 
 
@@ -30,14 +33,18 @@ static CGFloat const kRMSourceCodeNumberDefaultWidth = 24;
 
 - (instancetype)initWithFrame:(CGRect)frame textContainer:(NSTextContainer *)textContainer
 {
-    RMSourceCodeTextStorage* textStorage = nil;
+    RMHighlightingTextStorage* textStorage = nil;
     if (textContainer == nil)
     {
         NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
         
         textContainer = [[NSTextContainer alloc] initWithSize:frame.size];
         [layoutManager addTextContainer:textContainer];
-        textStorage = [[RMSourceCodeTextStorage alloc] init];
+        textStorage = [[RMHighlightingTextStorage alloc] init];
+        
+        textStorage.theme = [RMHighlightingTheme themeNamed:@"default"];
+        textStorage.syntax = [RMHighlightingSyntax syntaxNamed:@"glsl"];
+        
         [textStorage addLayoutManager:layoutManager];
     }
     
@@ -53,22 +60,22 @@ static CGFloat const kRMSourceCodeNumberDefaultWidth = 24;
 }
 
 
-- (void)setSyntax:(RMSourceCodeSyntax *)syntax
+- (void)setSyntax:(RMHighlightingSyntax *)syntax
 {
     self.sourceCodeTextStorage.syntax = syntax;
 }
 
-- (RMSourceCodeSyntax*)syntax
+- (RMHighlightingSyntax*)syntax
 {
     return self.sourceCodeTextStorage.syntax;
 }
 
-- (void)setTheme:(RMSourceCodeTheme *)theme
+- (void)setTheme:(RMHighlightingTheme *)theme
 {
     self.sourceCodeTextStorage.theme = theme;
 }
 
-- (RMSourceCodeTheme *)theme
+- (RMHighlightingTheme *)theme
 {
     return self.sourceCodeTextStorage.theme;
 }
