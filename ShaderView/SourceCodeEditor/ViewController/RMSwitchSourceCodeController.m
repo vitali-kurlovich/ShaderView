@@ -14,7 +14,7 @@
 #import "RMSourceCodeStoryboard.h"
 // ------------
 #import "RMGLTestRenderViewController.h"
-#import "RMTestRenderScene.h"
+#import "RMTestPostEffectRenderScene.h"
 // ------------
 
 
@@ -120,7 +120,7 @@
     }
     
     RMGLTestRenderViewController* vc = [[RMGLTestRenderViewController alloc] init];
-    vc.render = [[RMTestRenderScene alloc] initWithVertexShader:vs fragmentShader:fs];
+    vc.render = [[RMTestPostEffectRenderScene alloc] initWithVertexShader:vs fragmentShader:fs];
     
     [self.navigationController pushViewController:vc animated:YES];
 }

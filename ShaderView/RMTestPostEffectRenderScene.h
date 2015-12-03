@@ -6,13 +6,11 @@
 //  Copyright © 2015 Vitali Kurlovich. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 
-#import "RMRender.h"
-
+#import "RMTestRender.h"
 
 
-@interface RMTestRenderScene : NSObject<RMRenderDelegate>
+@interface RMTestPostEffectRenderScene : RMTestRender
 
 - (instancetype)initWithVertexShader:(NSString*)vs fragmentShader:(NSString*)fs;
 

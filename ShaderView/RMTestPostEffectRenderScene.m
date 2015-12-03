@@ -6,9 +6,9 @@
 //  Copyright © 2015 Vitali Kurlovich. All rights reserved.
 //
 
-#import "RMTestRenderScene.h"
-#import "RMGLSLProgram.h"
+#import "RMTestPostEffectRenderScene.h"
 
+#import "RMGLSLProgram.h"
 
 #import "RMVertexAttribute.h"
 
@@ -19,18 +19,15 @@
 
 #import "RMVBOObject+RMDrawable.h"
 
-@interface RMTestRenderScene ()
-@property (nonatomic, readonly) RMProgram* program;
+@interface RMTestPostEffectRenderScene ()
+
 @property (nonatomic, readonly) RMVBOObject* quadObject;
 @end
-
 
 typedef struct {
     float Position[2];
     float TexCoord[2];
 } Vert2D;
-
-
 
 static Vert2D quad[]  = {
     {{-1, -1}, {0,0}},
@@ -39,25 +36,26 @@ static Vert2D quad[]  = {
     {{1, 1}, {0,1}},
 };
 
-@implementation RMTestRenderScene
+@implementation RMTestPostEffectRenderScene
 
 @synthesize quadObject = _quadObject;
 
 - (instancetype)initWithVertexShader:(NSString *)vs fragmentShader:(NSString *)fs
 {
-    self = [super init];
-    if (self)
-    {
-        NSArray<RMVertexAttribute*>* attributes =
-        @[
-          [RMVertexAttribute attributeWithName:@"Position" attribute:RMVBOVertexAttributeTypePosition]
-          ];
-        _program = [[RMGLSLProgram alloc] initWithVertexShader:vs fragmentShader:fs attributes:attributes];
-    }
+    NSArray<RMVertexAttribute*>* attributes =
+    @[
+      [RMVertexAttribute attributeWithName:@"Position" attribute:RMVBOVertexAttributeTypePosition]
+      ];
     
+    self = [super initWithVertexShader:vs fragmentShader:fs attributes:attributes];
+   
     return self;
 }
 
++ (Class)programClass
+{
+    return [RMGLSLProgram class];
+}
 
 - (RMVBOObject*)quadObject
 {
@@ -67,7 +65,12 @@ static Vert2D quad[]  = {
                                                   [RMVBOVertexAttribute attributeWithType:RMVBOVertexAttributeTypePosition offset:0 size:RMVBOVertexAttributeSize_2],
                                                   ];
         
-        RMVBOVertexBuffer* vb = [RMVBOVertexBuffer buffer:quad type:RMVBODataBufferTypeDynamic count:sizeof(quad)/sizeof(Vert2D) dataSize:sizeof(quad) attributes:attrs primitive:RMVBOVertexBufferPrimitiveTriangleStrip];
+        RMVBOVertexBuffer* vb = [RMVBOVertexBuffer buffer:quad
+                                                     type:RMVBODataBufferTypeStatic
+                                                    count:sizeof(quad)/sizeof(Vert2D)
+                                                 dataSize:sizeof(quad)
+                                               attributes:attrs
+                                                primitive:RMVBOVertexBufferPrimitiveTriangleStrip];
         
         _quadObject = [RMGLVBOObject objectWithVertexData:vb indexData:nil];
         [_quadObject prepareBuffer];
@@ -87,10 +90,6 @@ static Vert2D quad[]  = {
        
 }
 
-- (void)postRender:(nullable RMRender*)render duration:(rmtime)deltaTime
-{
-    
-}
 
 - (void)render:(nullable RMRender*)render duration:(rmtime)deltaTime
 {
