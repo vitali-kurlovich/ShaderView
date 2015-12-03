@@ -79,14 +79,14 @@ static Vert2D quad[]  = {
 }
 
 
-#pragma mark - RMRenderDelegate <NSObject>
+#pragma mark - RMRenderDelegate 
 
 - (void)preRender:(nullable RMRender*)render duration:(rmtime)deltaTime
 {
     glClearColor(1, 0, 0, 1);
     
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glEnable(GL_DEPTH_TEST);
+    glClear(GL_COLOR_BUFFER_BIT );
+    glDisable(GL_DEPTH_TEST);
        
 }
 

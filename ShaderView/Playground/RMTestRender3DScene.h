@@ -9,5 +9,5 @@
 #import "RMTestRender.h"
 
 @interface RMTestRender3DScene : RMTestRender
-
+- (nonnull instancetype)initWithVertexShader:(nonnull NSString*)vs fragmentShader:(nonnull NSString*)fs;
 @end

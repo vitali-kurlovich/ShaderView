@@ -15,6 +15,7 @@
 // ------------
 #import "RMGLTestRenderViewController.h"
 #import "RMTestPostEffectRenderScene.h"
+#import "RMTestRender3DScene.h"
 // ------------
 
 
@@ -120,7 +121,7 @@
     }
     
     RMGLTestRenderViewController* vc = [[RMGLTestRenderViewController alloc] init];
-    vc.render = [[RMTestPostEffectRenderScene alloc] initWithVertexShader:vs fragmentShader:fs];
+    vc.render = [[RMTestRender3DScene alloc] initWithVertexShader:vs fragmentShader:fs];
     
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -229,7 +230,7 @@
     {
         _vertexShaderCodeViewController = [[RMSourceCodeViewController alloc] init];
         _vertexShaderCodeViewController.title = @"Vertex";
-        [_vertexShaderCodeViewController loadTextFileWithName:@"Julia" ofType:@"vert"];
+        [_vertexShaderCodeViewController loadTextFileWithName:@"simple" ofType:@"vert"];
     }
     return _vertexShaderCodeViewController;
 }
@@ -240,7 +241,7 @@
     {
         _fragmentShaderCodeViewController = [[RMSourceCodeViewController alloc] init];
         _fragmentShaderCodeViewController.title = @"Fragment";
-        [_fragmentShaderCodeViewController loadTextFileWithName:@"Julia" ofType:@"frag"];
+        [_fragmentShaderCodeViewController loadTextFileWithName:@"simple" ofType:@"frag"];
     }
     return _fragmentShaderCodeViewController;
 }

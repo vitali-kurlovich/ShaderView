@@ -34,6 +34,7 @@
 		5D24AD0B1C109BBA00CD2D7E /* RMTestRender3DScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D24AD031C109BBA00CD2D7E /* RMTestRender3DScene.m */; };
 		5D24AD0C1C109BBA00CD2D7E /* simple.frag in Resources */ = {isa = PBXBuildFile; fileRef = 5D24AD041C109BBA00CD2D7E /* simple.frag */; };
 		5D24AD0D1C109BBA00CD2D7E /* simple.vert in Resources */ = {isa = PBXBuildFile; fileRef = 5D24AD051C109BBA00CD2D7E /* simple.vert */; };
+		5D24AD111C10A20400CD2D7E /* textures.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D24AD101C10A20400CD2D7E /* textures.xcassets */; };
 		5D368C3E1BFF17AD00FE2A83 /* RMRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D368C3D1BFF17AD00FE2A83 /* RMRender.m */; };
 		5D4595FB1C078F1C00C30F30 /* RMGLRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4595F81C078F1B00C30F30 /* RMGLRenderView.m */; };
 		5D4595FC1C078F1C00C30F30 /* RMRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4595FA1C078F1B00C30F30 /* RMRenderView.m */; };
@@ -153,6 +154,7 @@
 		5D24AD031C109BBA00CD2D7E /* RMTestRender3DScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTestRender3DScene.m; sourceTree = "<group>"; };
 		5D24AD041C109BBA00CD2D7E /* simple.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = simple.frag; sourceTree = "<group>"; };
 		5D24AD051C109BBA00CD2D7E /* simple.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = simple.vert; sourceTree = "<group>"; };
+		5D24AD101C10A20400CD2D7E /* textures.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = textures.xcassets; sourceTree = "<group>"; };
 		5D368C3C1BFF17AD00FE2A83 /* RMRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRender.h; sourceTree = "<group>"; };
 		5D368C3D1BFF17AD00FE2A83 /* RMRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRender.m; sourceTree = "<group>"; };
 		5D4595F71C078F1B00C30F30 /* RMGLRenderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMGLRenderView.h; sourceTree = "<group>"; };
@@ -289,13 +291,13 @@
 		5D1583151BFDB7D4003A8AD7 /* ShaderView */ = {
 			isa = PBXGroup;
 			children = (
-				5D24ACF91C109BBA00CD2D7E /* Playground */,
 				5DB80AE11C0F3D3B00598E64 /* Common */,
 				5D4595FD1C078F9C00C30F30 /* SourceCodeEditor */,
 				5D4595F61C078F1B00C30F30 /* ShaderView */,
 				5D1583621BFDFE2F003A8AD7 /* Math */,
 				5D15833B1BFDB844003A8AD7 /* GL */,
 				5D1583401BFDB844003A8AD7 /* Model */,
+				5D24ACF91C109BBA00CD2D7E /* Playground */,
 				5D1583191BFDB7D4003A8AD7 /* AppDelegate.h */,
 				5D15831A1BFDB7D4003A8AD7 /* AppDelegate.m */,
 				5D15831F1BFDB7D4003A8AD7 /* Main.storyboard */,
@@ -423,6 +425,7 @@
 		5D24ACF91C109BBA00CD2D7E /* Playground */ = {
 			isa = PBXGroup;
 			children = (
+				5D24AD101C10A20400CD2D7E /* textures.xcassets */,
 				5D24ACFA1C109BBA00CD2D7E /* Julia.frag */,
 				5D24ACFB1C109BBA00CD2D7E /* Julia.vert */,
 				5D24ACFC1C109BBA00CD2D7E /* RMGLTestRenderViewController.h */,
@@ -717,6 +720,7 @@
 				5DA32CD01C08BD60005ED5C5 /* Images.xcassets in Resources */,
 				5D6617B71C0C795E00E3D4BE /* RMWizardStoryboard.storyboard in Resources */,
 				5D24AD071C109BBA00CD2D7E /* Julia.vert in Resources */,
+				5D24AD111C10A20400CD2D7E /* textures.xcassets in Resources */,
 				5D6617B51C0C756100E3D4BE /* RMSourceCodeStoryboard.storyboard in Resources */,
 				5DB80AE01C0F3CB000598E64 /* glsl.syntax in Resources */,
 				5D1583211BFDB7D4003A8AD7 /* Main.storyboard in Resources */,

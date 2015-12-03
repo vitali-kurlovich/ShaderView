@@ -12,7 +12,7 @@
 
 @interface RMTestPostEffectRenderScene : RMTestRender
 
-- (instancetype)initWithVertexShader:(NSString*)vs fragmentShader:(NSString*)fs;
+- (nonnull instancetype)initWithVertexShader:(nonnull NSString*)vs fragmentShader:(nonnull NSString*)fs;
 
 
 @end
