@@ -55,6 +55,11 @@
         _vbo.vertexBufferDidPrepare = 1;
     }
     
+    if (self.indexBuffer == nil)
+    {
+        return _vbo.vertexBufferDidPrepare;
+    }
+    
     if (!_vbo.indexBufferDidPrepare && self.indexBuffer) {
         glGenBuffers(1, &_vbo.indexBuffer);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _vbo.indexBuffer);
