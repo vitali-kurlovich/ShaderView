@@ -33,6 +33,8 @@ typedef NS_ENUM(NSInteger, RMVectorType) {
 + (nonnull instancetype)vectorWithX:(float)x y:(float)y;
 + (nonnull instancetype)vectorWithRMVector:(_RMVector2)vector;
 
+- (BOOL)isEqualToVector2:(nonnull RMVector2*)vec;
+
 @end
 
 
@@ -49,5 +51,7 @@ typedef NS_ENUM(NSInteger, RMVectorType) {
 + (nonnull instancetype)vectorWithX:(float)x y:(float)y;
 
 + (nonnull instancetype)vectorWithRMVector:(_RMVector3)vector;
+
+- (BOOL)isEqualToVector3:(nonnull RMVector3*)vec;
 
 @end

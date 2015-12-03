@@ -35,6 +35,12 @@
 
 @end
 
+@interface RMVector2 ()
+{
+    NSUInteger _hash;
+}
+
+@end
 
 @implementation RMVector2
 
@@ -50,6 +56,8 @@
     {
         _vector.x = x;
         _vector.y = y;
+        
+        _hash = [self _hash];
     }
     return self;
 }
@@ -64,11 +72,52 @@
     return [[[self class] alloc] initWithX:vector.x y:vector.y];
 }
 
+
+- (NSUInteger)_hash
+{
+    const NSUInteger prime = 31;
+    NSUInteger result = 1;
+    result = prime * result + self.type;
+    result = prime * result + result*_vector.x;
+    result = prime * result + result*_vector.y;
+    
+    return result;
+}
+
+- (NSUInteger)hash {
+    return _hash;
+}
+
+
+- (BOOL)isEqual:(id)object
+{
+    if (self == object)
+    {
+        return YES;
+    }
+    else if ([self class] == [object class])
+    {
+        return [self isEqualToVector2:object];
+    }
+    return NO;
+}
+
+- (BOOL)isEqualToVector2:(RMVector2*)vec
+{
+    return self == vec || ( self->_vector.x == vec->_vector.x && self->_vector.y == vec->_vector.y);
+}
+
+
+
 @end
 
 
+@interface RMVector3 ()
+{
+    NSUInteger _hash;
+}
 
-
+@end
 
 @implementation RMVector3
 
@@ -90,6 +139,8 @@
         _vector.x = x;
         _vector.y = y;
         _vector.z = z;
+        
+        _hash = [self _hash];
     }
     return self;
 }
@@ -107,6 +158,39 @@
 + (nonnull instancetype)vectorWithRMVector:(_RMVector3)vector
 {
     return [[[self class] alloc] initWithX:vector.x y:vector.y z:vector.z];
+}
+
+- (NSUInteger)_hash
+{
+    const NSUInteger prime = 31;
+    NSUInteger result = 1;
+    result = prime * result + self.type;
+    result = prime * result + result*_vector.x;
+    result = prime * result + result*_vector.y;
+    result = prime * result + result*_vector.z;
+    return result;
+}
+
+- (NSUInteger)hash {
+    return _hash;
+}
+
+- (BOOL)isEqual:(id)object
+{
+    if (self == object)
+    {
+        return YES;
+    }
+    else if ([self class] == [object class])
+    {
+        return [self isEqualToVector3:object];
+    }
+    return NO;
+}
+
+- (BOOL)isEqualToVector3:(RMVector3*)vec
+{
+    return self == vec || ( self->_vector.x == vec->_vector.x && self->_vector.y == vec->_vector.y && self->_vector.z == vec->_vector.z);
 }
 
 @end

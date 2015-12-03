@@ -67,6 +67,10 @@
 		5DB80AE61C0F3D3B00598E64 /* RDKeyboardObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB80AE31C0F3D3B00598E64 /* RDKeyboardObserver.m */; };
 		5DB80AE71C0F3D3B00598E64 /* UIColor+RMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB80AE51C0F3D3B00598E64 /* UIColor+RMUtils.m */; };
 		5DB80AEA1C0F443000598E64 /* RMMeshBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB80AE91C0F443000598E64 /* RMMeshBuilder.m */; };
+		5DE73C6D1C104C32005E1122 /* RMTriangle3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE73C6C1C104C32005E1122 /* RMTriangle3D.m */; };
+		5DE73C701C105A19005E1122 /* RMQuad3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE73C6F1C105A19005E1122 /* RMQuad3D.m */; };
+		5DE73C731C106051005E1122 /* RMCubeMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE73C721C106051005E1122 /* RMCubeMesh.m */; };
+		5DE73C761C1071D6005E1122 /* RMProceduralMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE73C751C1071D6005E1122 /* RMProceduralMesh.m */; };
 		5DFC464D1C020F280085852B /* RMMaterial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC464C1C020F280085852B /* RMMaterial.m */; };
 		5DFC468E1C02361D0085852B /* RMVBOBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC468B1C02361D0085852B /* RMVBOBuffer.m */; };
 		5DFC468F1C02361D0085852B /* RMVBOObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC468D1C02361D0085852B /* RMVBOObject.m */; };
@@ -194,6 +198,14 @@
 		5DB80AE51C0F3D3B00598E64 /* UIColor+RMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RMUtils.m"; sourceTree = "<group>"; };
 		5DB80AE81C0F443000598E64 /* RMMeshBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMeshBuilder.h; sourceTree = "<group>"; };
 		5DB80AE91C0F443000598E64 /* RMMeshBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMeshBuilder.m; sourceTree = "<group>"; };
+		5DE73C6B1C104C32005E1122 /* RMTriangle3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTriangle3D.h; sourceTree = "<group>"; };
+		5DE73C6C1C104C32005E1122 /* RMTriangle3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTriangle3D.m; sourceTree = "<group>"; };
+		5DE73C6E1C105A19005E1122 /* RMQuad3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMQuad3D.h; sourceTree = "<group>"; };
+		5DE73C6F1C105A19005E1122 /* RMQuad3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMQuad3D.m; sourceTree = "<group>"; };
+		5DE73C711C106051005E1122 /* RMCubeMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMCubeMesh.h; sourceTree = "<group>"; };
+		5DE73C721C106051005E1122 /* RMCubeMesh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMCubeMesh.m; sourceTree = "<group>"; };
+		5DE73C741C1071D6005E1122 /* RMProceduralMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMProceduralMesh.h; sourceTree = "<group>"; };
+		5DE73C751C1071D6005E1122 /* RMProceduralMesh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMProceduralMesh.m; sourceTree = "<group>"; };
 		5DFC464B1C020F280085852B /* RMMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMaterial.h; sourceTree = "<group>"; };
 		5DFC464C1C020F280085852B /* RMMaterial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMaterial.m; sourceTree = "<group>"; };
 		5DFC468A1C02361D0085852B /* RMVBOBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMVBOBuffer.h; sourceTree = "<group>"; };
@@ -534,6 +546,14 @@
 				5D6617C81C0C8B8A00E3D4BE /* RMMesh.m */,
 				5DB80AE81C0F443000598E64 /* RMMeshBuilder.h */,
 				5DB80AE91C0F443000598E64 /* RMMeshBuilder.m */,
+				5DE73C6B1C104C32005E1122 /* RMTriangle3D.h */,
+				5DE73C6C1C104C32005E1122 /* RMTriangle3D.m */,
+				5DE73C6E1C105A19005E1122 /* RMQuad3D.h */,
+				5DE73C6F1C105A19005E1122 /* RMQuad3D.m */,
+				5DE73C711C106051005E1122 /* RMCubeMesh.h */,
+				5DE73C721C106051005E1122 /* RMCubeMesh.m */,
+				5DE73C741C1071D6005E1122 /* RMProceduralMesh.h */,
+				5DE73C751C1071D6005E1122 /* RMProceduralMesh.m */,
 			);
 			path = Geometry;
 			sourceTree = "<group>";
@@ -717,9 +737,11 @@
 				5DB80ADB1C0F3C9800598E64 /* RMHighlightingTheme.m in Sources */,
 				5D1C6DAE1C031D5F00E19C87 /* RMGLTexture.m in Sources */,
 				5DB80AE61C0F3D3B00598E64 /* RDKeyboardObserver.m in Sources */,
+				5DE73C701C105A19005E1122 /* RMQuad3D.m in Sources */,
 				5D1C6DA81C031D5F00E19C87 /* RMGLVBOObject.m in Sources */,
 				5D1C6F321C034E8400E19C87 /* RMSceneObject.m in Sources */,
 				5D368C3E1BFF17AD00FE2A83 /* RMRender.m in Sources */,
+				5DE73C731C106051005E1122 /* RMCubeMesh.m in Sources */,
 				5D4595FC1C078F1C00C30F30 /* RMRenderView.m in Sources */,
 				5DFC464D1C020F280085852B /* RMMaterial.m in Sources */,
 				5DB80ADA1C0F3C9800598E64 /* RMHighlightingTheme+Plist.m in Sources */,
@@ -743,6 +765,8 @@
 				5DFC46A81C02382A0085852B /* RMMatrix4x4.m in Sources */,
 				5DA32CCB1C08A5B9005ED5C5 /* RMGLRenderViewController.m in Sources */,
 				5DA32CD61C08E929005ED5C5 /* RMButton.m in Sources */,
+				5DE73C6D1C104C32005E1122 /* RMTriangle3D.m in Sources */,
+				5DE73C761C1071D6005E1122 /* RMProceduralMesh.m in Sources */,
 				5DFC46B81C02389D0085852B /* RMShader.m in Sources */,
 				5D1583701BFE508A003A8AD7 /* RMCamera.m in Sources */,
 				5DFC46AB1C02384C0085852B /* RMVector.m in Sources */,

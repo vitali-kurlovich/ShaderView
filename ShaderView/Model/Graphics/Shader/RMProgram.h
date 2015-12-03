@@ -47,11 +47,10 @@
 
 - (void)prepareForUseVBOBuffer:(nonnull RMVBOVertexBuffer*)buffer;
 
-- (void)setParam:(nonnull NSString*)name  matrix:(nullable RMMatrix*)matrix;
+- (void)setParam:(nonnull NSString*)name matrix:(nullable RMMatrix*)matrix;
 - (void)setParam:(nonnull NSString*)name texture:(nullable RMTexture*)texture;
 - (void)setParam:(nonnull NSString*)name color:(nullable UIColor*)color;
 - (void)setParam:(nonnull NSString*)name number:(nullable NSNumber*)number;
-
 
 
 - (void)enableVertexAttribute:(nonnull RMVertexAttribute*)attr numberOfComponents:(NSInteger)numberOfComponents stride:(NSInteger)stride offset:(NSInteger)offset;

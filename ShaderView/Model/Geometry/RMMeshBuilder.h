@@ -11,13 +11,11 @@
 #import "RMMath.h"
 
 @class RMMesh;
+@class RMTriangle3D, RMQuad3D;
 
 @interface RMMeshBuilder : NSObject
 - (nonnull RMMesh*)build;
-
-
-- (void)appendVertex3d:(_RMVector3)vec;
-
-- (void)appendVertex3d:(_RMVector3)vec normal:(_RMVector3)normal uv0:(_RMVector2)uv0;
-
+- (void)reset;
+- (void)appendTriangle:(nonnull RMTriangle3D*)triangle;
+- (void)appendQuad:(nonnull RMQuad3D*)quad;
 @end
