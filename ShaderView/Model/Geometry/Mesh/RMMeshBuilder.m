@@ -10,8 +10,8 @@
 
 #import "RMVector.h"
 
-#import "RMTriangle3D.h"
-#import "RMQuad3D.h"
+#import "RMMeshTriangle3D.h"
+#import "RMMeshQuad3D.h"
 
 #import "RMVBOVertexAttribute.h"
 
@@ -20,57 +20,154 @@
 
 #import "RMMesh.h"
 
+#import "RMMeshVertex3D.h"
+
 @interface RMMeshBuilder ()
 
-@property (nonatomic,  readonly) NSMutableArray<RMTriangle3D*>* triangles;
+@property (nonatomic,  readonly) NSMutableArray<RMMeshVertex3D*>* vertexArray;
+@property (nonatomic,  readonly) NSMutableSet<RMMeshVertex3D*>* vertexSet;
+@property (nonatomic, readonly) RMVector2* zeroVector2;
+@property (nonatomic, readonly) RMVector3* zeroVector3;
+@property (nonatomic, readonly) RMVector4* zeroVector4;
+
+
+
 @end
 
 @implementation RMMeshBuilder
-
+@synthesize attributes = _attributes;
 
 - (instancetype)init
+{
+    return  [self initWithFormat:(RMVBOVertexAttributeTypePosition | RMVBOVertexAttributeTypeUV0)];
+}
+
+
+- (nonnull instancetype)initWithFormat:(RMVBOVertexAttributeType)format
 {
     self = [super init];
     if (self)
     {
-        _triangles = [NSMutableArray array];
+        _vertexArray = [NSMutableArray array];
+        _vertexSet = [NSMutableSet set];
+        
+        _format = format;
+        
+        _zeroVector2 = [RMVector2 vectorWithX:0 y:0];
+        _zeroVector3 = [RMVector3 vectorWithX:0 y:0 z:0];
+        _zeroVector4 = [RMVector4 vectorWithX:0 y:0 z:0 w:0];
+        
     }
     return self;
 }
 
+
 - (nonnull RMMesh*)build
 {
-    NSInteger trisCount = self.triangles.count;
+    NSArray<RMVBOVertexAttribute*>* attributes = self.attributes;
+    RMVBOVertexAttribute* last = [attributes lastObject];
     
-    float vertex[trisCount*3*3];
-    NSInteger index = 0;
-    for (RMTriangle3D* triangle in self.triangles)
+    NSInteger patchSize = last.offset/sizeof(float) + last.size;
+    NSInteger vertCount = self.vertexArray.count;
+    
+    float vertexBuffer[vertCount*patchSize];
+    
+    for (RMVBOVertexAttribute* attr in attributes)
     {
-        vertex[index] = triangle.a.vector.x;
-        vertex[index + 1] = triangle.a.vector.y;
-        vertex[index + 2] = triangle.a.vector.z;
-        index += 3;
+        NSInteger offset = attr.offset/sizeof(float);
         
-        vertex[index] = triangle.b.vector.x;
-        vertex[index + 1] = triangle.b.vector.y;
-        vertex[index + 2] = triangle.b.vector.z;
-        index += 3;
+        if (attr.type == RMVBOVertexAttributeTypePosition) {
+            NSInteger index = offset;
+            for (RMMeshVertex3D* vert in self.vertexArray)
+            {
+                vertexBuffer[index] = vert.position.vector.x;
+                vertexBuffer[index + 1] = vert.position.vector.y;
+                vertexBuffer[index + 2] = vert.position.vector.z;
+                
+                index += patchSize;
+            }
+            continue;
+        }
         
-        vertex[index] = triangle.c.vector.x;
-        vertex[index + 1] = triangle.c.vector.y;
-        vertex[index + 2] = triangle.c.vector.z;
-        index += 3;
+        if (attr.type == RMVBOVertexAttributeTypeNormal) {
+            NSInteger index = offset;
+            for (RMMeshVertex3D* vert in self.vertexArray)
+            {
+                vertexBuffer[index] = vert.normal.vector.x;
+                vertexBuffer[index + 1] = vert.normal.vector.y;
+                vertexBuffer[index + 2] = vert.normal.vector.z;
+                index += patchSize;
+            }
+            continue;
+        }
+
+        if (attr.type == RMVBOVertexAttributeTypeColor) {
+            NSInteger index = offset;
+            for (RMMeshVertex3D* vert in self.vertexArray)
+            {
+                vertexBuffer[index] = vert.color.vector.x;
+                vertexBuffer[index + 1] = vert.color.vector.y;
+                vertexBuffer[index + 2] = vert.color.vector.z;
+                vertexBuffer[index + 3] = vert.color.vector.w;
+                index += patchSize;
+            }
+            continue;
+        }
+        
+        if (attr.type == RMVBOVertexAttributeTypeUV0) {
+            NSInteger index = offset;
+            for (RMMeshVertex3D* vert in self.vertexArray)
+            {
+                vertexBuffer[index] = vert.uv0.vector.x;
+                vertexBuffer[index + 1] = vert.uv0.vector.y;
+                
+                index += patchSize;
+            }
+            continue;
+        }
+        
+        if (attr.type == RMVBOVertexAttributeTypeUV1) {
+            NSInteger index = offset;
+            for (RMMeshVertex3D* vert in self.vertexArray)
+            {
+                vertexBuffer[index] = vert.uv1.vector.x;
+                vertexBuffer[index + 1] = vert.uv1.vector.y;
+                
+                index += patchSize;
+            }
+            continue;
+        }
+        
+        if (attr.type == RMVBOVertexAttributeTypeUV2) {
+            NSInteger index = offset;
+            for (RMMeshVertex3D* vert in self.vertexArray)
+            {
+                vertexBuffer[index] = vert.uv2.vector.x;
+                vertexBuffer[index + 1] = vert.uv2.vector.y;
+                
+                index += patchSize;
+            }
+            continue;
+        }
+        
+        if (attr.type == RMVBOVertexAttributeTypeUV3) {
+            NSInteger index = offset;
+            for (RMMeshVertex3D* vert in self.vertexArray)
+            {
+                vertexBuffer[index] = vert.uv3.vector.x;
+                vertexBuffer[index + 1] = vert.uv3.vector.y;
+                
+                index += patchSize;
+            }
+            continue;
+        }
     }
     
-    NSArray<RMVBOVertexAttribute*> *attrs = @[
-                                              [RMVBOVertexAttribute attributeWithType:RMVBOVertexAttributeTypePosition offset:0 size:RMVBOVertexAttributeSize_3],
-                                              ];
-    
-    RMVBOVertexBuffer* vb = [RMVBOVertexBuffer buffer:vertex
+    RMVBOVertexBuffer* vb = [RMVBOVertexBuffer buffer:vertexBuffer
                                                  type:RMVBODataBufferTypeStatic
-                                                count:trisCount*3
-                                             dataSize:trisCount*3*3*sizeof(float)
-                                           attributes:attrs
+                                                count:vertCount
+                                             dataSize:vertCount*patchSize*sizeof(float)
+                                           attributes:attributes
                                             primitive:RMVBOVertexBufferPrimitiveTriangle];
     
     
@@ -79,19 +176,161 @@
 
 - (void)reset
 {
-     _triangles = [NSMutableArray array];
+    _vertexArray = [NSMutableArray array];
+    _vertexSet = [NSMutableSet set];
 }
 
-- (void)appendTriangle:(RMTriangle3D*)triangle
+- (void)appendTriangle:(RMMeshTriangle3D*)triangle
 {
-    [self.triangles addObject:triangle];
+    [self appendVertex:triangle.a];
+    [self appendVertex:triangle.b];
+    [self appendVertex:triangle.c];
 }
 
-- (void)appendQuad:(RMQuad3D*)quad
+- (void)appendVertex:(RMMeshVertex3D*)vertex
 {
-    [self appendTriangle:[RMTriangle3D triangleWithPointA:quad.a b:quad.b c:quad.c]];
-    [self appendTriangle:[RMTriangle3D triangleWithPointA:quad.c b:quad.d c:quad.a]];;
+    RMVector3* position = nil;
+    if (self.format & RMVBOVertexAttributeTypePosition)
+    {
+        position = vertex.position;
+        if (position == nil)
+        {
+            position = self.zeroVector3;
+        }
+    }
+    
+    RMVector3* normal = nil;
+    if (self.format & RMVBOVertexAttributeTypeNormal)
+    {
+        normal = vertex.normal;
+        if (normal == nil)
+        {
+            normal = self.zeroVector3;
+        }
+    }
+    
+    RMVector4* color = nil;
+    if (self.format & RMVBOVertexAttributeTypeColor)
+    {
+        color = vertex.color;
+        if (color == nil)
+        {
+            color = self.zeroVector4;
+        }
+    }
+    
+    
+    RMVector2* uv0 = nil;
+    if (self.format & RMVBOVertexAttributeTypeUV0)
+    {
+        uv0 = vertex.uv0;
+        if (uv0 == nil)
+        {
+            uv0 = self.zeroVector2;
+        }
+    }
+    
+    RMVector2* uv1 = nil;
+    if (self.format & RMVBOVertexAttributeTypeUV1)
+    {
+        uv1 = vertex.uv1;
+        if (uv1 == nil)
+        {
+            uv1 = self.zeroVector2;
+        }
+    }
+    
+    RMVector2* uv2 = nil;
+    if (self.format & RMVBOVertexAttributeTypeUV2)
+    {
+        uv2 = vertex.uv2;
+        if (uv2 == nil)
+        {
+            uv2 = self.zeroVector2;
+        }
+    }
+    
+    RMVector2* uv3 = nil;
+    if (self.format & RMVBOVertexAttributeTypeUV3)
+    {
+        uv3 = vertex.uv3;
+        if (uv3 == nil)
+        {
+            uv3 = self.zeroVector2;
+        }
+    }
+    
+    RMMeshVertex3D* vert = [RMMeshVertex3D vertexWithPosition:position normal:normal color:color uv0:uv0 uv1:uv1 uv2:uv2 uv3:uv3];
+    
+    [self.vertexArray addObject:vert];
+    [self.vertexSet addObject:vert];
 }
+
+
+- (void)appendQuad:(RMMeshQuad3D*)quad
+{
+    [self appendTriangle:[RMMeshTriangle3D triangleWithVertexA:quad.a b:quad.b c:quad.c]];
+    [self appendTriangle:[RMMeshTriangle3D triangleWithVertexA:quad.c b:quad.d c:quad.a]];;
+}
+
+
+- (NSArray<RMVBOVertexAttribute*>*)attributes
+{
+    if (_attributes)
+    {
+        return _attributes;
+    }
+    
+    NSInteger offset = 0;
+    NSMutableArray<RMVBOVertexAttribute*>* attrs = [NSMutableArray array];
+    
+    if (self.format & RMVBOVertexAttributeTypePosition)
+    {
+        [attrs addObject:[RMVBOVertexAttribute attributeWithType:RMVBOVertexAttributeTypePosition offset:offset*sizeof(float) size:RMVBOVertexAttributeSize_3]];
+        offset += 3;
+    }
+    
+    if (self.format & RMVBOVertexAttributeTypeNormal)
+    {
+        [attrs addObject:[RMVBOVertexAttribute attributeWithType:RMVBOVertexAttributeTypeNormal offset:offset*sizeof(float) size:RMVBOVertexAttributeSize_3]];
+        offset += 3;
+    }
+    
+    if (self.format & RMVBOVertexAttributeTypeColor)
+    {
+        [attrs addObject:[RMVBOVertexAttribute attributeWithType:RMVBOVertexAttributeTypeColor offset:offset*sizeof(float) size:RMVBOVertexAttributeSize_4]];
+        offset += 4;
+    }
+    
+    if (self.format & RMVBOVertexAttributeTypeUV0)
+    {
+        [attrs addObject:[RMVBOVertexAttribute attributeWithType:RMVBOVertexAttributeTypeUV0 offset:offset*sizeof(float) size:RMVBOVertexAttributeSize_2]];
+        offset += 2;
+    }
+    
+    if (self.format & RMVBOVertexAttributeTypeUV1)
+    {
+        [attrs addObject:[RMVBOVertexAttribute attributeWithType:RMVBOVertexAttributeTypeUV1 offset:offset*sizeof(float) size:RMVBOVertexAttributeSize_2]];
+        offset += 2;
+    }
+    
+    if (self.format & RMVBOVertexAttributeTypeUV2)
+    {
+        [attrs addObject:[RMVBOVertexAttribute attributeWithType:RMVBOVertexAttributeTypeUV2 offset:offset*sizeof(float) size:RMVBOVertexAttributeSize_2]];
+        offset += 2;
+    }
+    
+    if (self.format & RMVBOVertexAttributeTypeUV3)
+    {
+        [attrs addObject:[RMVBOVertexAttribute attributeWithType:RMVBOVertexAttributeTypeUV3 offset:offset*sizeof(float) size:RMVBOVertexAttributeSize_2]];
+        offset += 2;
+    }
+    
+    _attributes = [attrs copy];
+    
+    return _attributes;
+}
+
 
 
 @end

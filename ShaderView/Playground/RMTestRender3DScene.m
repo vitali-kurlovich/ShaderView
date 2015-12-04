@@ -189,7 +189,7 @@ const GLubyte Indices[] = {
     glEnable(GL_DEPTH_TEST);
    
     //glEnable(GL_CULL_FACE);
-    glCullFace(GL_BACK);
+    //glCullFace(GL_FRONT_FACE);
 }
 
 
@@ -197,7 +197,7 @@ const GLubyte Indices[] = {
 {
     NSTimeInterval time = CACurrentMediaTime();
     RMMatrix4x4* translate = [RMMatrix4x4 translateMatrixWithX:sin(time) y:0 z:-7];
-    RMMatrix4x4* rotate = [RMMatrix4x4 rotateMatrixWithAngle:0 x:0.20739 y:0.829561 z:0.518476];
+    RMMatrix4x4* rotate = [RMMatrix4x4 rotateMatrixWithAngle:time x:0.20739 y:0.829561 z:0.518476];
     RMMatrix4x4* model =  [[rotate mul:translate] mul:[self.camera matrix]];
     
     [self.cube.program setParam:@"modelview" matrix:model];

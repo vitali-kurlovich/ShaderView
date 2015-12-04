@@ -8,14 +8,22 @@
 
 @import Foundation;
 
-#import "RMMath.h"
+#import "RMVBOVertexAttribute.h"
 
 @class RMMesh;
-@class RMTriangle3D, RMQuad3D;
+@class RMMeshTriangle3D, RMMeshQuad3D;
 
 @interface RMMeshBuilder : NSObject
+
+@property (nonatomic, readonly) RMVBOVertexAttributeType format;
+@property (nonnull, nonatomic, readonly) NSArray<RMVBOVertexAttribute*>* attributes;
+
 - (nonnull RMMesh*)build;
 - (void)reset;
-- (void)appendTriangle:(nonnull RMTriangle3D*)triangle;
-- (void)appendQuad:(nonnull RMQuad3D*)quad;
+- (void)appendTriangle:(nonnull RMMeshTriangle3D*)triangle;
+- (void)appendQuad:(nonnull RMMeshQuad3D*)quad;
+
+
+- (nonnull instancetype)initWithFormat:(RMVBOVertexAttributeType)format NS_DESIGNATED_INITIALIZER;
+
 @end

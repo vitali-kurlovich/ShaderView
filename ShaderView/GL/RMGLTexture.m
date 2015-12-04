@@ -50,6 +50,11 @@
     GLubyte * texData = (GLubyte *) calloc(width*height*4, sizeof(GLubyte));
     
     CGContextRef context = CGBitmapContextCreate(texData, width, height, 8, width*4, CGImageGetColorSpace(imageRef), kCGImageAlphaPremultipliedLast);
+    
+    CGContextTranslateCTM(context, 0, height);
+    CGContextScaleCTM(context, 1.0, -1);
+    
+    
     CGContextDrawImage(context, CGRectMake(0, 0, width, height), imageRef);
     
     CGContextRelease(context);

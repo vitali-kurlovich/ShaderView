@@ -18,6 +18,20 @@
 @implementation RMProceduralMesh
 @synthesize mesh = _mesh;
 
+- (instancetype)init
+{
+    return [self initWithFormat:(RMVBOVertexAttributeTypePosition | RMVBOVertexAttributeTypeNormal | RMVBOVertexAttributeTypeUV0)];
+}
+
+- (nonnull instancetype)initWithFormat:(RMVBOVertexAttributeType)format
+{
+    self = [super init];
+    if (self)
+    {
+        _format = format;
+    }
+    return self;
+}
 
 - (RMVBOObject*)vbo
 {
@@ -28,7 +42,7 @@
 {
     if (_mesh == nil)
     {
-        RMMeshBuilder* builder = [[RMMeshBuilder alloc] init];
+        RMMeshBuilder* builder = [[RMMeshBuilder alloc] initWithFormat:self.format];
         [self build:builder];
         _mesh = [builder build];
         [_mesh.vbo prepareBuffer];

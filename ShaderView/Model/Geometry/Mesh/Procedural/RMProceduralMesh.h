@@ -8,11 +8,16 @@
 
 #import "RMMesh.h"
 
+#import "RMVBOVertexAttribute.h"
+
 @class RMMeshBuilder;
 
 @interface RMProceduralMesh : RMMesh
-
+@property (nonatomic, readonly) RMVBOVertexAttributeType format;
 - (void)build:(nonnull RMMeshBuilder*)builder;
 
 - (void)setNeedsRebuild;
+
+
+- (nonnull instancetype)initWithFormat:(RMVBOVertexAttributeType)format NS_DESIGNATED_INITIALIZER;
 @end
