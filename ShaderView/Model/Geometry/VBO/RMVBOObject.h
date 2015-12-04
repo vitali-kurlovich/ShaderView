@@ -10,22 +10,6 @@
 
 #import "RMMath.h"
 
-typedef struct {
-    _RMVector2 position;
-    _RMVector2 uv0;
-} RMVBO_Mesh_P2_UV02;
-
-typedef struct{
-    _RMVector3 position;
-    _RMVector2 uv0;
-} RMVBO_Mesh_P3_UV02;
-
-typedef struct{
-    _RMVector3 position;
-    _RMVector2 uv0;
-    _RMVector2 uv1;
-} RMVBO_Mesh_P3_UV02_UV12;
-
 
 @class RMVBOVertexBuffer, RMVBOIndexBuffer;
 

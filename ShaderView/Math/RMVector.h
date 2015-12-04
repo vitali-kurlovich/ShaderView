@@ -55,3 +55,15 @@ typedef NS_ENUM(NSInteger, RMVectorType) {
 - (BOOL)isEqualToVector3:(nonnull RMVector3*)vec;
 
 @end
+
+
+@interface RMVector4 : RMVector
+@property (nonatomic, readonly) _RMVector4 vector;
+
+- (nonnull instancetype)initWithX:(float)x y:(float)y z:(float)z w:(float)w;
+
++ (nonnull instancetype)vectorWithRMVector:(_RMVector4)vector;
+
+- (BOOL)isEqualToVector4:(nonnull RMVector4*)vec;
+
+@end

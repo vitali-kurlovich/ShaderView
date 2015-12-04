@@ -12,7 +12,7 @@
 
 - (instancetype)init
 {
-    return [self initWithType:RMVBOVertexAttributeTypePosition offset:0 size:RMVBOVertexAttributeSize_4];
+    return [self initWithType:RMVBOVertexAttributeTypeNone offset:0 size:RMVBOVertexAttributeSize_0];
 }
 
 - (instancetype)initWithType:(RMVBOVertexAttributeType)type offset:(NSInteger)offset size:(RMVBOVertexAttributeSize)numberOfComponents

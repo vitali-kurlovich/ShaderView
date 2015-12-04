@@ -8,15 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger, RMVBOVertexAttributeType) {
-    RMVBOVertexAttributeTypePosition,
-    RMVBOVertexAttributeTypeNormal,
-    RMVBOVertexAttributeTypeColor,
-    RMVBOVertexAttributeTypeUV0,
-    RMVBOVertexAttributeTypeUV1
+typedef NS_OPTIONS(NSInteger, RMVBOVertexAttributeType) {
+    RMVBOVertexAttributeTypeNone      = 0,
+    RMVBOVertexAttributeTypePosition  = 1 << 1,
+    RMVBOVertexAttributeTypeNormal    = 1 << 2,
+    RMVBOVertexAttributeTypeColor     = 1 << 3,
+    RMVBOVertexAttributeTypeUV0       = 1 << 4,
+    RMVBOVertexAttributeTypeUV1       = 1 << 5,
+    RMVBOVertexAttributeTypeUV2       = 1 << 6,
+    RMVBOVertexAttributeTypeUV3       = 1 << 7
 };
 
 typedef NS_ENUM(NSInteger, RMVBOVertexAttributeSize) {
+    RMVBOVertexAttributeSize_0 = 0,
     RMVBOVertexAttributeSize_1 = 1,
     RMVBOVertexAttributeSize_2 = 2,
     RMVBOVertexAttributeSize_3 = 3,
