@@ -9,6 +9,7 @@
 #import "RMProceduralMesh.h"
 
 #import "RMMeshBuilder.h"
+#import "RMVBOObject.h"
 
 @interface RMProceduralMesh()
 @property (nonatomic, readonly) RMMesh* mesh;
@@ -30,6 +31,7 @@
         RMMeshBuilder* builder = [[RMMeshBuilder alloc] init];
         [self build:builder];
         _mesh = [builder build];
+        [_mesh.vbo prepareBuffer];
     }
     
     return _mesh;

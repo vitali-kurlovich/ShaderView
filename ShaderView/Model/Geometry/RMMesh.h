@@ -18,6 +18,13 @@
 @property (nonnull, nonatomic, readonly) RMVBOObject* vbo;
 @property (nonnull, nonatomic) RMProgram* program;
 
++ (nonnull instancetype)mesh;
++ (nonnull instancetype)meshWithVBO:(nullable RMVBOObject*)vbo program:(nullable RMProgram*)program;
++ (nonnull instancetype)meshWithVBO:(nullable RMVBOObject*)vbo;
+
+- (nonnull instancetype)initWithVBO:(nullable RMVBOObject*)vbo program:(nullable RMProgram*)program;
+- (nonnull instancetype)initWithVBO:(nullable RMVBOObject*)vbo;
+
 @end
 
 

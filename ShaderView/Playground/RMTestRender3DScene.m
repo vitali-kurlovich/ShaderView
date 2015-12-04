@@ -28,13 +28,17 @@
 #import "RMMatrix4x4.h"
 #import "RMVertexAttribute.h"
 
+#import "RMCubeMesh.h"
+
 @import QuartzCore;
 
 @interface RMTestRender3DScene ()
 @property (nullable, readonly) RMTexture* texture;
 @property (nonatomic, readonly) RMCamera* camera;
 
-@property (nonatomic) RMVBOObject* object;
+@property (nonatomic, readonly) RMVBOObject* object;
+
+@property (nonatomic, readonly) RMMesh* cube;
 @end
 
 typedef struct {
@@ -105,7 +109,7 @@ const GLubyte Indices[] = {
 @synthesize texture = _texture;
 @synthesize object = _object;
 @synthesize camera = _camera;
-
+@synthesize cube = _cube;
 
 + (Class)programClass
 {
@@ -163,6 +167,16 @@ const GLubyte Indices[] = {
     return _object;
 }
 
+- (RMMesh*)cube
+{
+    if (_cube == nil)
+    {
+        _cube = [RMMesh meshWithVBO:self.object program:self.program];
+        _cube.program = self.program;
+    }
+    return _cube;
+}
+
 
 #pragma mark - RMRenderDelegate
 
@@ -183,15 +197,10 @@ const GLubyte Indices[] = {
     RMMatrix4x4* rotate = [RMMatrix4x4 rotateMatrixWithAngle:time x:0.20739 y:0.829561 z:0.518476];
     RMMatrix4x4* model =  [[rotate mul:translate] mul:[self.camera matrix]];
     
-    [self.program useProgramBegin];
-    [self.program prepareForUseVBOBuffer:self.object.vertexBuffer];
+    [self.cube.program setParam:@"modelview" matrix:model];
+    [self.cube.program setParam:@"texture" texture:self.texture];
     
-    [self.program setParam:@"modelview" matrix:model];
-    [self.program setParam:@"texture" texture:self.texture];
-    
-    [self.object draw];
-    
-    [self.program useProgramEnd];
+    [self.cube draw];
 }
 
 
