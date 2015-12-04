@@ -96,11 +96,11 @@ const GLubyte Indices[] = {
     12, 13, 14,
     14, 15, 12,
     // Top
-    16, 17, 18,
-    18, 19, 16,
+  //  16, 17, 18,
+  //  18, 19, 16,
     // Bottom
-    20, 21, 22,
-    22, 23, 20
+ //   20, 21, 22,
+  //  22, 23, 20
 };
 
 
@@ -171,7 +171,8 @@ const GLubyte Indices[] = {
 {
     if (_cube == nil)
     {
-        _cube = [RMMesh meshWithVBO:self.object program:self.program];
+        _cube = [RMCubeMesh mesh];
+        //_cube = [RMMesh meshWithVBO:self.object];
         _cube.program = self.program;
     }
     return _cube;
@@ -187,6 +188,8 @@ const GLubyte Indices[] = {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glEnable(GL_DEPTH_TEST);
    
+    //glEnable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
 }
 
 
@@ -194,7 +197,7 @@ const GLubyte Indices[] = {
 {
     NSTimeInterval time = CACurrentMediaTime();
     RMMatrix4x4* translate = [RMMatrix4x4 translateMatrixWithX:sin(time) y:0 z:-7];
-    RMMatrix4x4* rotate = [RMMatrix4x4 rotateMatrixWithAngle:time x:0.20739 y:0.829561 z:0.518476];
+    RMMatrix4x4* rotate = [RMMatrix4x4 rotateMatrixWithAngle:0 x:0.20739 y:0.829561 z:0.518476];
     RMMatrix4x4* model =  [[rotate mul:translate] mul:[self.camera matrix]];
     
     [self.cube.program setParam:@"modelview" matrix:model];

@@ -15,8 +15,8 @@
 @class RMProgram;
 
 @interface RMMesh : NSObject <RMDrawable>
-@property (nonnull, nonatomic, readonly) RMVBOObject* vbo;
-@property (nonnull, nonatomic) RMProgram* program;
+@property (nullable, nonatomic, readonly) RMVBOObject* vbo;
+@property (nullable, nonatomic) RMProgram* program;
 
 + (nonnull instancetype)mesh;
 + (nonnull instancetype)meshWithVBO:(nullable RMVBOObject*)vbo program:(nullable RMProgram*)program;
