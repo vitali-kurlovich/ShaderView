@@ -45,6 +45,54 @@ inline float RMDotVector3(_RMVector3 a, _RMVector3 b)
     return a.x*b.x + a.y*b.y + a.z*b.z;
 }
 
+inline _RMVector2 RMNormalizeVector2(_RMVector2 a)
+{
+    float invlength = 1.0/sqrtf(a.x*a.x + a.y*a.y);
+    _RMVector2 result = {a.x*invlength, a.y*invlength};
+    return result;
+}
+
+inline _RMVector3 RMNormalizeVector3(_RMVector3 a)
+{
+    float invlength = 1.0/sqrtf(a.x*a.x + a.y*a.y + a.z*a.z);
+    _RMVector3 result = {a.x*invlength, a.y*invlength, a.z*invlength};
+    return result;
+}
+
+inline _RMVector2 RMSumVector2(_RMVector2 a, _RMVector2 b)
+{
+    _RMVector2 result = {a.x+b.x, a.y+b.y};
+    return result;
+}
+
+inline _RMVector2 RMSubVector2(_RMVector2 a, _RMVector2 b)
+{
+    _RMVector2 result = {a.x-b.x, a.y-b.y};
+    return result;
+}
+
+inline _RMVector3 RMSumVector3(_RMVector3 a, _RMVector3 b)
+{
+    _RMVector3 result = {a.x+b.x, a.y+b.y, a.z+b.z};
+    return result;
+}
+
+inline _RMVector3 RMSubVector3(_RMVector3 a, _RMVector3 b)
+{
+    _RMVector3 result = {a.x-b.x, a.y-b.y, a.z-b.z};
+    return result;
+}
+
+inline float RMCrossVector2(_RMVector2 a, _RMVector2 b)
+{
+    return a.x*b.y - a.y*b.x;
+}
+
+inline _RMVector3 RMCrossVector3(_RMVector3 a, _RMVector3 b)
+{
+    _RMVector3 result =  {-a.z*b.y + a.y*b.z, a.z*b.x - a.x*b.z, -a.y*b.x + a.x*b.y};
+    return result;
+}
 
 
 _RMMatrix4x4 RMMulMatrix4x4(_RMMatrix4x4 const a, _RMMatrix4x4 const b);
