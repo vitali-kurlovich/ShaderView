@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "RMMath.h"
+#import "RMMathVector.h"
 
 typedef NS_ENUM(NSInteger, RMVectorType) {
     RMVectorTypeNone = 0,

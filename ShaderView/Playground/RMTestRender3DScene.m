@@ -29,6 +29,7 @@
 #import "RMVertexAttribute.h"
 
 #import "RMCubeMesh.h"
+#import "RMSphereMesh.h"
 
 @import QuartzCore;
 
@@ -171,7 +172,7 @@ const GLubyte Indices[] = {
 {
     if (_cube == nil)
     {
-        _cube = [RMCubeMesh mesh];
+        _cube = [RMSphereMesh mesh];
         //_cube = [RMMesh meshWithVBO:self.object];
         _cube.program = self.program;
     }
