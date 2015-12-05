@@ -58,6 +58,7 @@
 		5D858F331C1310C600A95C1B /* RMMathVector.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D858F321C1310C600A95C1B /* RMMathVector.m */; };
 		5D858F361C13115400A95C1B /* RMMathMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D858F351C13115400A95C1B /* RMMathMatrix.m */; };
 		5D858F3A1C1390DF00A95C1B /* RMSphereMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D858F391C1390DF00A95C1B /* RMSphereMesh.m */; };
+		5D858F411C13A51500A95C1B /* RMTorusMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D858F401C13A51500A95C1B /* RMTorusMesh.m */; };
 		5D9D01831C11B170009CE401 /* RMCubeMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9D01781C11B170009CE401 /* RMCubeMesh.m */; };
 		5D9D01841C11B170009CE401 /* RMProceduralMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9D017A1C11B170009CE401 /* RMProceduralMesh.m */; };
 		5D9D01851C11B170009CE401 /* RMMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9D017C1C11B170009CE401 /* RMMesh.m */; };
@@ -193,6 +194,8 @@
 		5D858F351C13115400A95C1B /* RMMathMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMathMatrix.m; sourceTree = "<group>"; };
 		5D858F381C1390DF00A95C1B /* RMSphereMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSphereMesh.h; sourceTree = "<group>"; };
 		5D858F391C1390DF00A95C1B /* RMSphereMesh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSphereMesh.m; sourceTree = "<group>"; };
+		5D858F3F1C13A51500A95C1B /* RMTorusMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTorusMesh.h; sourceTree = "<group>"; };
+		5D858F401C13A51500A95C1B /* RMTorusMesh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTorusMesh.m; sourceTree = "<group>"; };
 		5D9D01771C11B170009CE401 /* RMCubeMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMCubeMesh.h; sourceTree = "<group>"; };
 		5D9D01781C11B170009CE401 /* RMCubeMesh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMCubeMesh.m; sourceTree = "<group>"; };
 		5D9D01791C11B170009CE401 /* RMProceduralMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMProceduralMesh.h; sourceTree = "<group>"; };
@@ -535,6 +538,15 @@
 			path = Sphere;
 			sourceTree = "<group>";
 		};
+		5D858F3E1C13A51500A95C1B /* Torus */ = {
+			isa = PBXGroup;
+			children = (
+				5D858F3F1C13A51500A95C1B /* RMTorusMesh.h */,
+				5D858F401C13A51500A95C1B /* RMTorusMesh.m */,
+			);
+			path = Torus;
+			sourceTree = "<group>";
+		};
 		5D9D01741C11B170009CE401 /* Mesh */ = {
 			isa = PBXGroup;
 			children = (
@@ -560,6 +572,7 @@
 		5D9D01751C11B170009CE401 /* Procedural */ = {
 			isa = PBXGroup;
 			children = (
+				5D858F3E1C13A51500A95C1B /* Torus */,
 				5D858F371C1390DF00A95C1B /* Sphere */,
 				5D9D01761C11B170009CE401 /* Cube */,
 				5D9D01791C11B170009CE401 /* RMProceduralMesh.h */,
@@ -808,6 +821,7 @@
 				5D45960B1C078F9C00C30F30 /* RMSourceCodeTextView.m in Sources */,
 				5DFC47681C0278BA0085852B /* RMVBOObject+RMDrawable.m in Sources */,
 				5DA32CC81C089CCF005ED5C5 /* RMRenderViewController.m in Sources */,
+				5D858F411C13A51500A95C1B /* RMTorusMesh.m in Sources */,
 				5D9D01881C11B170009CE401 /* RMTriangle3D.m in Sources */,
 				5DB80AD71C0F3C9800598E64 /* RMHighlightingTextStorage.m in Sources */,
 				5D9D01871C11B170009CE401 /* RMQuad3D.m in Sources */,

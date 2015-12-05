@@ -33,6 +33,16 @@
     return self;
 }
 
+- (void)setSmoothNormals:(BOOL)smoothNormals
+{
+    if (_smoothNormals != smoothNormals)
+    {
+        _smoothNormals = smoothNormals;
+        [self smoothNormals];
+    }
+}
+
+
 - (RMVBOObject*)vbo
 {
     return self.mesh.vbo;

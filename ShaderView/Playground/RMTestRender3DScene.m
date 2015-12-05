@@ -30,6 +30,7 @@
 
 #import "RMCubeMesh.h"
 #import "RMSphereMesh.h"
+#import "RMTorusMesh.h"
 
 @import QuartzCore;
 
@@ -173,10 +174,13 @@ const GLubyte Indices[] = {
 {
     if (_cube == nil)
     {
-        RMSphereMesh* sphere = [RMSphereMesh mesh];
+        //RMSphereMesh* sphere = [RMSphereMesh mesh];
         
         //sphere.smoothNormals = NO;
-        _cube =sphere;
+        
+        RMTorusMesh* torus = [RMTorusMesh mesh];
+        torus.smoothNormals = YES;
+        _cube = torus;
         //_cube =  [RMCubeMesh mesh];
         //_cube = [RMMesh meshWithVBO:self.object];
         _cube.program = self.program;

@@ -15,9 +15,14 @@
 @interface RMProceduralMesh : RMMesh
 @property (nonatomic, readonly) RMVBOVertexAttributeType format;
 
+@property (nonatomic) BOOL smoothNormals;
+
 - (nonnull instancetype)initWithFormat:(RMVBOVertexAttributeType)format NS_DESIGNATED_INITIALIZER;
 
 - (void)build:(nonnull RMMeshBuilder*)builder;
 - (void)setNeedsRebuild;
+
+
+
 
 @end

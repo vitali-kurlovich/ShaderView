@@ -19,7 +19,7 @@
 
 @implementation RMSphereMesh
 
-- (nonnull instancetype)initWithFormat:(RMVBOVertexAttributeType)format
+- (instancetype)initWithFormat:(RMVBOVertexAttributeType)format
 {
     self = [super initWithFormat:format];
     if (self)
@@ -27,7 +27,6 @@
         _rings = 25;
         _segments = 32;
         _radius = 1;
-        _smoothNormals = YES;
     }
     return self;
 }
