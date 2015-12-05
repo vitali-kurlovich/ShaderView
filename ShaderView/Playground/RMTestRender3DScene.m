@@ -197,8 +197,8 @@ const GLubyte Indices[] = {
 - (void)render:(nullable RMRender*)render duration:(rmtime)deltaTime
 {
     NSTimeInterval time = CACurrentMediaTime();
-    RMMatrix4x4* translate = [RMMatrix4x4 translateMatrixWithX:sin(time) y:0 z:-7];
-    RMMatrix4x4* rotate = [RMMatrix4x4 rotateMatrixWithAngle:time x:0.20739 y:0.829561 z:0.518476];
+    RMMatrix4x4* translate = [RMMatrix4x4 translateMatrixWithX:sin(0) y:0 z:-7];
+    RMMatrix4x4* rotate = [RMMatrix4x4 rotateMatrixWithAngle:time x:1 y:0 z:0];
     RMMatrix4x4* model =  [[rotate mul:translate] mul:[self.camera matrix]];
     
     [self.cube.program setParam:@"modelview" matrix:model];
