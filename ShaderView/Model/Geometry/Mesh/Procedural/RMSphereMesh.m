@@ -24,7 +24,7 @@
     self = [super initWithFormat:format];
     if (self)
     {
-        _rings = 15;
+        _rings = 25;
         _segments = 32;
         _radius = 1;
         _smoothNormals = YES;
@@ -71,8 +71,7 @@
     normals[vertCount - 1] = p;
     
     
-    if (self.rings % 2 == 1)
-    {
+    if (self.rings % 2 == 1) {
         _RMVector3 p = {1,0,0};
         
         int midIdx= (vertCount-1)/2;
@@ -81,8 +80,7 @@
         
         float offset = M_PI/(vertCount-2+1);
         float angle = offset;
-        for (int i = (midIdx-1); i > 0; --i)
-        {
+        for (int i = (midIdx-1); i > 0; --i) {
             _RMVector3 r = RMRotateZVector3(angle, p);
             normals[i] = r;
             
@@ -91,13 +89,27 @@
             
             angle+=offset;
         }
+    } else {
+        _RMVector3 p = {1,0,0};
+        
+        int baseIdx= vertCount/2;
+        
+        normals[baseIdx] = p;
+        
+        float offset = M_PI/(vertCount-2);
+        float angle = offset/2;
+        for (int i = baseIdx; i > 0; --i) {
+            _RMVector3 r = RMRotateZVector3(angle, p);
+            normals[i] = r;
+            
+            r.y = -r.y;
+            normals[2*baseIdx - i] = r;
+            
+            angle+=offset;
+        }
     }
     
-    
-    
     NSMutableArray<RMMeshVertex3D*>* baseVertexArray = [NSMutableArray arrayWithCapacity:vertCount];
-    
-    
     
     for (int i = 0; i < vertCount; ++i)
     {
@@ -165,8 +177,6 @@
     }
     
     [builder appendTriangle:[RMMeshTriangle3D triangleWithVertexA:lastVertexArray[vertCount-2] b:secondVertexArray[vertCount-2] c:secondVertexArray[vertCount-1]]];
-    
-
 }
 
 @end

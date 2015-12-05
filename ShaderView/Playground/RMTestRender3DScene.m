@@ -122,6 +122,7 @@ const GLubyte Indices[] = {
     NSArray<RMVertexAttribute*>* attributes =
     @[
       [RMVertexAttribute attributeWithName:@"pos" attribute:RMVBOVertexAttributeTypePosition],
+      [RMVertexAttribute attributeWithName:@"normal" attribute:RMVBOVertexAttributeTypeNormal],
       [RMVertexAttribute attributeWithName:@"uv0" attribute:RMVBOVertexAttributeTypeUV0]
       ];
     
@@ -172,7 +173,11 @@ const GLubyte Indices[] = {
 {
     if (_cube == nil)
     {
-        _cube = [RMSphereMesh mesh];
+        RMSphereMesh* sphere = [RMSphereMesh mesh];
+        
+        //sphere.smoothNormals = NO;
+        _cube =sphere;
+        //_cube =  [RMCubeMesh mesh];
         //_cube = [RMMesh meshWithVBO:self.object];
         _cube.program = self.program;
     }
@@ -189,8 +194,8 @@ const GLubyte Indices[] = {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glEnable(GL_DEPTH_TEST);
    
-    //glEnable(GL_CULL_FACE);
-    //glCullFace(GL_FRONT_FACE);
+   // glEnable(GL_CULL_FACE);
+   // glCullFace(GL_BACK);
 }
 
 

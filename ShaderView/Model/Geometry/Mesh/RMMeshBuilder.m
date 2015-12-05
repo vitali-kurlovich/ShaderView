@@ -8,7 +8,7 @@
 
 #import "RMMeshBuilder.h"
 
-#import "RMVector.h"
+#import "RMMath.h"
 
 #import "RMMeshTriangle3D.h"
 #import "RMMeshQuad3D.h"
@@ -21,6 +21,7 @@
 #import "RMMesh.h"
 
 #import "RMMeshVertex3D.h"
+
 
 @interface RMMeshBuilder ()
 
@@ -182,10 +183,62 @@
 
 - (void)appendTriangle:(RMMeshTriangle3D*)triangle
 {
+    if (self.format & RMVBOVertexAttributeTypeNormal &&
+        (triangle.a.normal == nil || triangle.b.normal == nil || triangle.c.normal == nil)) {
+    
+        RMMeshVertex3D* ma = triangle.a;
+        RMMeshVertex3D* mb = triangle.b;
+        RMMeshVertex3D* mc = triangle.c;
+        
+        _RMVector3 a = ma.position.vector;
+        _RMVector3 b = mb.position.vector;
+        _RMVector3 c = mc.position.vector;
+    
+        _RMVector3 p0 = RMSubVector3(b, a);
+        _RMVector3 p1 = RMSubVector3(c, a);
+        
+        _RMVector3 normal = RMCrossVector3(p0, p1);
+        normal = RMNormalizeVector3(normal);
+        
+        RMVector3* norm = [RMVector3 vectorWithRMVector:normal];
+        
+        if (ma.normal == nil)
+        {
+            ma = [RMMeshVertex3D vertexWithPosition:ma.position normal:norm color:ma.color uv0:ma.uv0 uv1:ma.uv1 uv2:ma.uv2 uv3:ma.uv3];
+        }
+        
+        if (mb.normal == nil)
+        {
+            mb = [RMMeshVertex3D vertexWithPosition:mb.position normal:norm color:mb.color uv0:mb.uv0 uv1:mb.uv1 uv2:mb.uv2 uv3:mb.uv3];
+        }
+        
+        if (mc.normal == nil)
+        {
+            mc = [RMMeshVertex3D vertexWithPosition:mc.position normal:norm color:mc.color uv0:mc.uv0 uv1:mc.uv1 uv2:mc.uv2 uv3:mc.uv3];
+        }
+       
+        [self appendVertex:ma];
+        [self appendVertex:mb];
+        [self appendVertex:mc];
+        
+        return;
+    }
+    
     [self appendVertex:triangle.a];
     [self appendVertex:triangle.b];
     [self appendVertex:triangle.c];
+    
 }
+
+
+- (void)appendQuad:(RMMeshQuad3D*)quad
+{
+    [self appendTriangle:[RMMeshTriangle3D triangleWithVertexA:quad.a b:quad.b c:quad.c]];
+    [self appendTriangle:[RMMeshTriangle3D triangleWithVertexA:quad.c b:quad.d c:quad.a]];;
+}
+
+
+
 
 - (void)appendVertex:(RMMeshVertex3D*)vertex
 {
@@ -267,11 +320,6 @@
 }
 
 
-- (void)appendQuad:(RMMeshQuad3D*)quad
-{
-    [self appendTriangle:[RMMeshTriangle3D triangleWithVertexA:quad.a b:quad.b c:quad.c]];
-    [self appendTriangle:[RMMeshTriangle3D triangleWithVertexA:quad.c b:quad.d c:quad.a]];;
-}
 
 
 - (NSArray<RMVBOVertexAttribute*>*)attributes
