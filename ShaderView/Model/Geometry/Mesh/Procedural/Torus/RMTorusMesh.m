@@ -118,16 +118,13 @@
 
     for (int segment = 1; segment < self.segments ; segment++) {
         
-        
         for (int i = 0; i < vertCount; ++i)
         {
-            
-            _RMVector3 rotNorm = RMRotateYVector3(angleSeg*segment, normals[i]);
             _RMVector3 rotPos = RMRotateYVector3(angleSeg*segment, pos[i]);
             
             secondVertexArray[i] =
             [RMMeshVertex3D vertexWithPosition:[RMVector3 vectorWithRMVector:rotPos]
-                                        normal:self.smoothNormals ? [RMVector3 vectorWithRMVector:rotNorm] : nil
+                                        normal:self.smoothNormals ? [RMVector3 vectorWithRMVector:RMRotateYVector3(angleSeg*segment, normals[i])] : nil
                                            uv0:[RMVector2 vectorWithX:segment*(1.0/self.segments) y:i*(1.0/vertCount)]];
             
         }
@@ -145,8 +142,7 @@
     }
     
     
-    
-    for (int i = 0; i < vertCount; ++i) {
+    for (int i = 0; i < vertCount+1; ++i) {
         RMMeshVertex3D* vert3d = baseVertexArray[i];
         
         secondVertexArray[i] = [RMMeshVertex3D vertexWithPosition:vert3d.position

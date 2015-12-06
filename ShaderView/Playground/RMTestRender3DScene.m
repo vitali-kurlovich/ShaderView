@@ -147,16 +147,16 @@
     NSTimeInterval time = CACurrentMediaTime();
     
     //self.torus.minorRadius = (sin(time)*0.5 + 0.5)*0.6 + 0.1;
-    self.sphere.smoothNormals = NO;
+    self.torus.smoothNormals = NO;
     
     RMMatrix4x4* translate = [RMMatrix4x4 translateMatrixWithX:sin(0) y:0 z:-7];
-    RMMatrix4x4* rotate = [RMMatrix4x4 rotateMatrixWithAngle:time x:1 y:0 z:0];
+    RMMatrix4x4* rotate = [RMMatrix4x4 rotateMatrixWithAngle:time x:0 y:1 z:0];
     RMMatrix4x4* model =  [[rotate mul:translate] mul:[self.camera matrix]];
     
-    [self.sphere.program setParam:@"modelview" matrix:model];
-    [self.sphere.program setParam:@"texture" texture:self.texture];
+    [self.torus.program setParam:@"modelview" matrix:model];
+    [self.torus.program setParam:@"texture" texture:self.texture];
     
-    [self.sphere draw];
+    [self.torus draw];
 }
 
 
