@@ -30,8 +30,6 @@
         _b = b;
         _c = c;
         _d = d;
-        
-        _hash = [self _hash];
     }
     return self;
 }
@@ -41,20 +39,19 @@
     return [[[self class] alloc] initWithVertexA:a b:b c:c d:d];
 }
 
+
 - (NSUInteger)hash
 {
+    if (_hash == 0)
+    {
+        const NSUInteger prime = 31;
+        _hash = 1;
+        _hash = prime * _hash + [self.a hash];
+        _hash = prime * _hash + [self.b hash];
+        _hash = prime * _hash + [self.c hash];
+        _hash = prime * _hash + [self.d hash];
+    }
     return _hash;
-}
-
-- (NSUInteger)_hash
-{
-    const NSUInteger prime = 31;
-    NSUInteger result = 1;
-    result = prime * result + [self.a hash];
-    result = prime * result + [self.b hash];
-    result = prime * result + [self.c hash];
-    result = prime * result + [self.d hash];
-    return result;
 }
 
 - (BOOL)isEqual:(id)object

@@ -38,80 +38,21 @@
 @property (nullable, readonly) RMTexture* texture;
 @property (nonatomic, readonly) RMCamera* camera;
 
-@property (nonatomic, readonly) RMVBOObject* object;
-
 @property (nonatomic, readonly) RMMesh* cube;
+@property (nonatomic, readonly) RMTorusMesh* torus;
+@property (nonatomic, readonly) RMSphereMesh* sphere;
 @end
 
-typedef struct {
-    _RMVector3 pos;
-    _RMVector2 uv;
-    
-} VSStruct;
-
-#define TEX_COORD_MAX   1
-
-const VSStruct Vertices[] = {
-    // Front
-    {{1, -1, 0}, {TEX_COORD_MAX, 0}},
-    {{1, 1, 0},  {TEX_COORD_MAX, TEX_COORD_MAX}},
-    {{-1, 1, 0},  {0, TEX_COORD_MAX}},
-    {{-1, -1, 0},  {0, 0}},
-    // Back
-    {{1, 1, -2}, {TEX_COORD_MAX, 0}},
-    {{-1, 1, -2},  {TEX_COORD_MAX, TEX_COORD_MAX}},
-    {{-1, -1, -2},  {0, TEX_COORD_MAX}},
-    {{1, -1, -2},  {0, 0}},
-    // Left
-    {{-1, -1, 0},  {TEX_COORD_MAX, 0}},
-    {{-1, 1, 0},  {TEX_COORD_MAX, TEX_COORD_MAX}},
-    {{-1, 1, -2},  {0, TEX_COORD_MAX}},
-    {{-1, -1, -2},  {0, 0}},
-    // Right
-    {{1, -1, -2},  {TEX_COORD_MAX, 0}},
-    {{1, 1, -2},  {TEX_COORD_MAX, TEX_COORD_MAX}},
-    {{1, 1, 0},  {0, TEX_COORD_MAX}},
-    {{1, -1, 0},  {0, 0}},
-    // Top
-    {{1, 1, 0},  {TEX_COORD_MAX, 0}},
-    {{1, 1, -2},  {TEX_COORD_MAX, TEX_COORD_MAX}},
-    {{-1, 1, -2},  {0, TEX_COORD_MAX}},
-    {{-1, 1, 0},  {0, 0}},
-    // Bottom
-    {{1, -1, -2},  {TEX_COORD_MAX, 0}},
-    {{1, -1, 0},  {TEX_COORD_MAX, TEX_COORD_MAX}},
-    {{-1, -1, 0},  {0, TEX_COORD_MAX}},
-    {{-1, -1, -2},  {0, 0}}
-};
-
-const GLubyte Indices[] = {
-    // Front
-    0, 1, 2,
-    2, 3, 0,
-    // Back
-    4, 5, 6,
-    6, 7, 4,
-    // Left
-    8, 9, 10,
-    10, 11, 8,
-    // Right
-    12, 13, 14,
-    14, 15, 12,
-    // Top
-  //  16, 17, 18,
-  //  18, 19, 16,
-    // Bottom
- //   20, 21, 22,
-  //  22, 23, 20
-};
 
 
 @implementation RMTestRender3DScene
 
 @synthesize texture = _texture;
-@synthesize object = _object;
+
 @synthesize camera = _camera;
 @synthesize cube = _cube;
+@synthesize torus = _torus;
+@synthesize sphere = _sphere;
 
 + (Class)programClass
 {
@@ -150,44 +91,40 @@ const GLubyte Indices[] = {
     return _camera;
 }
 
-- (RMVBOObject*)object
-{
-    if (_object == nil)
-    {
-        NSArray<RMVBOVertexAttribute*> *attr = @[
-                                                 
-                                                 [RMVBOVertexAttribute attributeWithType:RMVBOVertexAttributeTypePosition offset:0 size:RMVBOVertexAttributeSize_3],
-                                                 [RMVBOVertexAttribute attributeWithType:RMVBOVertexAttributeTypeUV0 offset:sizeof(float)*(3) size:RMVBOVertexAttributeSize_2]
-                                                 ];
-        
-        RMVBOVertexBuffer* vb = [RMVBOVertexBuffer buffer:(void*)Vertices count:sizeof(Vertices)/sizeof(VSStruct) dataSize:sizeof(Vertices) attributes:attr];
-        
-        RMVBOIndexBuffer* ib = [RMVBOIndexBuffer buffer:(void*)Indices count:sizeof(Indices)/sizeof(GLubyte) dataSize:sizeof(Indices)];
-        
-        _object = [RMGLVBOObject objectWithVertexData:vb indexData:ib];
-        [_object prepareBuffer];
-    }
-    return _object;
-}
 
 - (RMMesh*)cube
 {
     if (_cube == nil)
     {
-        RMSphereMesh* sphere = [RMSphereMesh mesh];
+       
+        _cube =  [RMCubeMesh mesh];
         
-        //sphere.smoothNormals = NO;
-        
-        RMTorusMesh* torus = [RMTorusMesh mesh];
-        
-        _cube = torus;
-        //_cube =  [RMCubeMesh mesh];
-        //_cube = [RMMesh meshWithVBO:self.object];
         _cube.program = self.program;
     }
     return _cube;
 }
 
+
+- (RMTorusMesh*)torus
+{
+    if (_torus == nil)
+    {
+        _torus = [RMTorusMesh mesh];
+        _torus.program = self.program;
+    }
+    return _torus;
+}
+
+- (RMSphereMesh*)sphere
+{
+    if (_sphere == nil)
+    {
+        _sphere = [RMSphereMesh mesh];
+        _sphere.program = self.program;
+    }
+    
+    return _sphere;
+}
 
 #pragma mark - RMRenderDelegate
 
@@ -206,14 +143,20 @@ const GLubyte Indices[] = {
 - (void)render:(nullable RMRender*)render duration:(rmtime)deltaTime
 {
     NSTimeInterval time = CACurrentMediaTime();
+    
+    self.sphere.radius = (sin(time)*0.5 + 0.5)*0.6 + 0.1;
+    
+    [self.sphere vbo];
+   // return;
+    
     RMMatrix4x4* translate = [RMMatrix4x4 translateMatrixWithX:sin(0) y:0 z:-7];
     RMMatrix4x4* rotate = [RMMatrix4x4 rotateMatrixWithAngle:time x:1 y:0 z:0];
     RMMatrix4x4* model =  [[rotate mul:translate] mul:[self.camera matrix]];
     
-    [self.cube.program setParam:@"modelview" matrix:model];
-    [self.cube.program setParam:@"texture" texture:self.texture];
+    [self.sphere.program setParam:@"modelview" matrix:model];
+    [self.sphere.program setParam:@"texture" texture:self.texture];
     
-    [self.cube draw];
+    [self.sphere draw];
 }
 
 

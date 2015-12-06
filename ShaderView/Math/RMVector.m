@@ -10,30 +10,6 @@
 
 #import "RMMath.h"
 
-@implementation RMVector
-
-- (instancetype)init
-{
-    return [self initWithType:RMVectorTypeNone];
-}
-
-- (instancetype)initWithType:(RMVectorType)type
-{
-    if (RMVectorTypeNone == type)
-    {
-        return nil;
-    }
-    
-    self = [super init];
-    if (self)
-    {
-        _type = type;
-    }
-    return self;
-}
-
-
-@end
 
 @interface RMVector2 ()
 {
@@ -51,13 +27,11 @@
 
 - (instancetype)initWithX:(float)x y:(float)y
 {
-    self = [super initWithType:RMVectorType2];
+    self = [super init];
     if (self)
     {
         _vector.x = x;
         _vector.y = y;
-        
-        _hash = [self _hash];
     }
     return self;
 }
@@ -73,18 +47,16 @@
 }
 
 
-- (NSUInteger)_hash
+- (NSUInteger)hash
 {
-    const NSUInteger prime = 31;
-    NSUInteger result = 1;
-    result = prime * result + self.type;
-    result = prime * result + result*_vector.x;
-    result = prime * result + result*_vector.y;
-    
-    return result;
-}
-
-- (NSUInteger)hash {
+    if (_hash == 0)
+    {
+        const NSUInteger prime = 31;
+        _hash = 1;
+        
+        _hash = prime * _hash + _hash*_vector.x;
+        _hash = prime * _hash + _hash*_vector.y;
+    }
     return _hash;
 }
 
@@ -112,7 +84,6 @@
 }
 
 
-
 @end
 
 
@@ -137,14 +108,12 @@
 
 - (instancetype)initWithX:(float)x y:(float)y z:(float)z
 {
-    self = [super initWithType:RMVectorType3];
+    self = [super init];
     if (self)
     {
         _vector.x = x;
         _vector.y = y;
         _vector.z = z;
-        
-        _hash = [self _hash];
     }
     return self;
 }
@@ -164,18 +133,17 @@
     return [[[self class] alloc] initWithX:vector.x y:vector.y z:vector.z];
 }
 
-- (NSUInteger)_hash
+- (NSUInteger)hash
 {
-    const NSUInteger prime = 31;
-    NSUInteger result = 1;
-    result = prime * result + self.type;
-    result = prime * result + result*_vector.x;
-    result = prime * result + result*_vector.y;
-    result = prime * result + result*_vector.z;
-    return result;
-}
-
-- (NSUInteger)hash {
+    if (_hash == 0)
+    {
+        const NSUInteger prime = 31;
+        _hash = 1;
+        
+        _hash = prime * _hash + _hash*_vector.x;
+        _hash = prime * _hash + _hash*_vector.y;
+        _hash = prime * _hash + _hash*_vector.z;
+    }
     return _hash;
 }
 
@@ -204,8 +172,6 @@
 @end
 
 
-
-
 @interface RMVector4 ()
 {
     NSUInteger _hash;
@@ -222,15 +188,13 @@
 
 - (instancetype)initWithX:(float)x y:(float)y z:(float)z w:(float)w
 {
-    self = [super initWithType:RMVectorType4];
+    self = [super init];
     if (self)
     {
         _vector.x = x;
         _vector.y = y;
         _vector.z = z;
         _vector.w = w;
-        
-        _hash = [self _hash];
     }
     return self;
 }
@@ -246,19 +210,18 @@
     return [[[self class] alloc] initWithX:vector.x y:vector.y z:vector.z w:vector.w];
 }
 
-- (NSUInteger)_hash
+- (NSUInteger)hash
 {
-    const NSUInteger prime = 31;
-    NSUInteger result = 1;
-    result = prime * result + self.type;
-    result = prime * result + result*_vector.x;
-    result = prime * result + result*_vector.y;
-    result = prime * result + result*_vector.z;
-    result = prime * result + result*_vector.w;
-    return result;
-}
-
-- (NSUInteger)hash {
+    if (_hash == 0)
+    {
+        const NSUInteger prime = 31;
+        _hash = 1;
+        
+        _hash = prime * _hash + _hash*_vector.x;
+        _hash = prime * _hash + _hash*_vector.y;
+        _hash = prime * _hash + _hash*_vector.z;
+        _hash = prime * _hash + _hash*_vector.w;
+    }
     return _hash;
 }
 

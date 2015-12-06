@@ -33,6 +33,43 @@
     return self;
 }
 
+- (void)setSegments:(NSUInteger)segments
+{
+    if (_segments != segments)
+    {
+        _segments = segments;
+        [self setNeedsRebuild];
+    }
+}
+
+- (void)setRings:(NSUInteger)rings
+{
+    if (_rings != rings)
+    {
+        _rings = rings;
+        [self setNeedsRebuild];
+    }
+}
+
+- (void)setMajorRadius:(float)majorRadius
+{
+    if (_majorRadius != majorRadius)
+    {
+        _majorRadius = majorRadius;
+        [self setNeedsRebuild];
+    }
+}
+
+- (void)setMinorRadius:(float)minorRadius
+{
+    if (_minorRadius != minorRadius)
+    {
+        _minorRadius = minorRadius;
+        [self setNeedsRebuild];
+    }
+}
+
+
 - (void)build:(RMMeshBuilder*)builder
 {
     int vertCount = self.rings;
@@ -99,10 +136,7 @@
         
         for (int i = 0; i < vertCount; ++i)
         {
-            [builder appendQuad:[RMMeshQuad3D quadWithVertexA:lastVertexArray[i]
-                                                            b:secondVertexArray[i]
-                                                            c:secondVertexArray[i+1]
-                                                            d:lastVertexArray[i+1]]];
+            [builder appendQuadWithVertexA:lastVertexArray[i] b:secondVertexArray[i] c:secondVertexArray[i+1] d:lastVertexArray[i+1]];
         }
         
         id swapArray = lastVertexArray;
@@ -122,10 +156,7 @@
     
     for (int i = 0; i < vertCount; ++i)
     {
-        [builder appendQuad:[RMMeshQuad3D quadWithVertexA:lastVertexArray[i]
-                                                        b:secondVertexArray[i]
-                                                        c:secondVertexArray[i+1]
-                                                        d:lastVertexArray[i+1]]];
+        [builder appendQuadWithVertexA:lastVertexArray[i] b:secondVertexArray[i] c:secondVertexArray[i+1] d:lastVertexArray[i+1]];
     }
     
 }

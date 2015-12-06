@@ -177,68 +177,72 @@
 
 - (void)reset
 {
-    _vertexArray = [NSMutableArray array];
-    _vertexSet = [NSMutableSet set];
+    [_vertexArray removeAllObjects];
+    [_vertexSet removeAllObjects];
 }
 
 - (void)appendTriangle:(RMMeshTriangle3D*)triangle
 {
+    [self appendTriangleWithVertexA:triangle.a b:triangle.b c:triangle.c];
+}
+
+
+- (void)appendTriangleWithVertexA:(RMMeshVertex3D*)a b:(RMMeshVertex3D*)b c:(RMMeshVertex3D*)c
+{
     if (self.format & RMVBOVertexAttributeTypeNormal &&
-        (triangle.a.normal == nil || triangle.b.normal == nil || triangle.c.normal == nil)) {
-    
-        RMMeshVertex3D* ma = triangle.a;
-        RMMeshVertex3D* mb = triangle.b;
-        RMMeshVertex3D* mc = triangle.c;
+        (a.normal == nil || b.normal == nil || c.normal == nil)) {
         
-        _RMVector3 a = ma.position.vector;
-        _RMVector3 b = mb.position.vector;
-        _RMVector3 c = mc.position.vector;
-    
-        _RMVector3 p0 = RMSubVector3(b, a);
-        _RMVector3 p1 = RMSubVector3(c, a);
+        
+        _RMVector3 va = a.position.vector;
+        _RMVector3 vb = b.position.vector;
+        _RMVector3 vc = c.position.vector;
+        
+        _RMVector3 p0 = RMSubVector3(vb, va);
+        _RMVector3 p1 = RMSubVector3(vc, va);
         
         _RMVector3 normal = RMCrossVector3(p0, p1);
         normal = RMNormalizeVector3(normal);
         
         RMVector3* norm = [RMVector3 vectorWithRMVector:normal];
         
-        if (ma.normal == nil)
+        if (a.normal == nil)
         {
-            ma = [RMMeshVertex3D vertexWithPosition:ma.position normal:norm color:ma.color uv0:ma.uv0 uv1:ma.uv1 uv2:ma.uv2 uv3:ma.uv3];
+            a = [RMMeshVertex3D vertexWithPosition:a.position normal:norm color:a.color uv0:a.uv0 uv1:a.uv1 uv2:a.uv2 uv3:a.uv3];
         }
         
-        if (mb.normal == nil)
+        if (b.normal == nil)
         {
-            mb = [RMMeshVertex3D vertexWithPosition:mb.position normal:norm color:mb.color uv0:mb.uv0 uv1:mb.uv1 uv2:mb.uv2 uv3:mb.uv3];
+            b = [RMMeshVertex3D vertexWithPosition:b.position normal:norm color:b.color uv0:b.uv0 uv1:b.uv1 uv2:b.uv2 uv3:b.uv3];
         }
         
-        if (mc.normal == nil)
+        if (c.normal == nil)
         {
-            mc = [RMMeshVertex3D vertexWithPosition:mc.position normal:norm color:mc.color uv0:mc.uv0 uv1:mc.uv1 uv2:mc.uv2 uv3:mc.uv3];
+            c = [RMMeshVertex3D vertexWithPosition:c.position normal:norm color:c.color uv0:c.uv0 uv1:c.uv1 uv2:c.uv2 uv3:c.uv3];
         }
-       
-        [self appendVertex:ma];
-        [self appendVertex:mb];
-        [self appendVertex:mc];
+        
+        [self appendVertex:a];
+        [self appendVertex:b];
+        [self appendVertex:c];
         
         return;
     }
     
-    [self appendVertex:triangle.a];
-    [self appendVertex:triangle.b];
-    [self appendVertex:triangle.c];
-    
+    [self appendVertex:a];
+    [self appendVertex:b];
+    [self appendVertex:c];
 }
 
 
 - (void)appendQuad:(RMMeshQuad3D*)quad
 {
-    [self appendTriangle:[RMMeshTriangle3D triangleWithVertexA:quad.a b:quad.b c:quad.c]];
-    [self appendTriangle:[RMMeshTriangle3D triangleWithVertexA:quad.c b:quad.d c:quad.a]];;
+    [self appendQuadWithVertexA:quad.a b:quad.b c:quad.c d:quad.d];
 }
 
-
-
+- (void)appendQuadWithVertexA:(RMMeshVertex3D*)a b:(RMMeshVertex3D*)b c:(RMMeshVertex3D*)c d:(RMMeshVertex3D*)d;
+{
+    [self appendTriangleWithVertexA:a b:b c:c];
+    [self appendTriangleWithVertexA:c b:d c:a];
+}
 
 - (void)appendVertex:(RMMeshVertex3D*)vertex
 {

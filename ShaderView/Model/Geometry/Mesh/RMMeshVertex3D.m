@@ -45,8 +45,6 @@
         _uv1 = uv1;
         _uv2 = uv2;
         _uv3 = uv3;
-        
-        _hash = [self _hash];
     }
     return self;
 }
@@ -94,26 +92,23 @@
 
 
 
-- (NSUInteger)_hash
-{
-    const NSUInteger prime = 31;
-    NSUInteger result = 1;
-    result = prime * result + [self.position hash];
-    result = prime * result + [self.normal hash];
-    result = prime * result + [self.color hash];
-    result = prime * result + [self.uv0 hash];
-    result = prime * result + [self.uv1 hash];
-    result = prime * result + [self.uv2 hash];
-    result = prime * result + [self.uv3 hash];
-    return result;
-}
-
-
 - (NSUInteger)hash
 {
+    if (_hash == 0)
+    {
+        const NSUInteger prime = 31;
+        _hash = 1;
+        _hash = prime * _hash + [self.position hash];
+        _hash = prime * _hash + [self.normal hash];
+        _hash = prime * _hash + [self.color hash];
+        _hash = prime * _hash + [self.uv0 hash];
+        _hash = prime * _hash + [self.uv1 hash];
+        _hash = prime * _hash + [self.uv2 hash];
+        _hash = prime * _hash + [self.uv3 hash];
+    }
+    
     return _hash;
 }
-
 
 - (BOOL)isEqual:(id)object
 {
@@ -140,16 +135,11 @@
         return NO;
     }
     
-    if ([self hash] != [vertex hash])
-    {
-        return NO;
-    }
-    
     return (
             (self.position == vertex.position || [self.position isEqualToVector3:vertex.position])
+            && (self.uv0 == vertex.uv0 || [self.uv0 isEqualToVector2:vertex.uv0])
             && (self.normal == vertex.normal || [self.normal isEqualToVector3:vertex.normal])
             && (self.color == vertex.color || [self.color isEqualToVector4:vertex.color])
-            && (self.uv0 == vertex.uv0 || [self.uv0 isEqualToVector2:vertex.uv0])
             && (self.uv1 == vertex.uv1 || [self.uv1 isEqualToVector2:vertex.uv1])
             && (self.uv2 == vertex.uv2 || [self.uv2 isEqualToVector2:vertex.uv2])
             && (self.uv3 == vertex.uv3 || [self.uv3 isEqualToVector2:vertex.uv3])

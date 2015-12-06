@@ -63,7 +63,7 @@
 
 - (void)build:(RMMeshBuilder*)builder
 {
-    int vertCount = self.rings + 2;
+    unsigned int vertCount = self.rings + 2;
     
     _RMVector3 normals[vertCount];
     _RMVector3 p = {0,1,0};
@@ -145,13 +145,10 @@
         
         for (int i = 1; i < (vertCount-2); ++i)
         {
-            [builder appendQuad:[RMMeshQuad3D quadWithVertexA:lastVertexArray[i]
-                                                            b:secondVertexArray[i]
-                                                            c:secondVertexArray[i+1]
-                                                            d:lastVertexArray[i+1]]];
+            [builder appendQuadWithVertexA:lastVertexArray[i] b:secondVertexArray[i] c:secondVertexArray[i+1] d:lastVertexArray[i+1]];
         }
         
-         [builder appendTriangle:[RMMeshTriangle3D triangleWithVertexA:lastVertexArray[vertCount-2] b:secondVertexArray[vertCount-2] c:secondVertexArray[vertCount-1]]];
+         [builder appendTriangleWithVertexA:lastVertexArray[vertCount-2] b:secondVertexArray[vertCount-2] c:secondVertexArray[vertCount-1]];
         
         
         id swapArray = lastVertexArray;
@@ -168,18 +165,15 @@
                                        uv0:[RMVector2 vectorWithX:1 y:i*(1.0/vertCount)]];
     }
     
-    [builder appendTriangle:[RMMeshTriangle3D triangleWithVertexA:lastVertexArray[0] b:secondVertexArray[1] c:lastVertexArray[1]]];
+    [builder appendTriangleWithVertexA:lastVertexArray[0] b:secondVertexArray[1] c:lastVertexArray[1]];
     
     for (int i = 1; i < (vertCount-2); ++i)
     {
-        [builder appendQuad:[RMMeshQuad3D quadWithVertexA:lastVertexArray[i]
-                                                        b:secondVertexArray[i]
-                                                        c:secondVertexArray[i+1]
-                                                        d:lastVertexArray[i+1]]];
+        [builder appendQuadWithVertexA:lastVertexArray[i] b:secondVertexArray[i] c:secondVertexArray[i+1] d:lastVertexArray[i+1]];
         
     }
     
-    [builder appendTriangle:[RMMeshTriangle3D triangleWithVertexA:lastVertexArray[vertCount-2] b:secondVertexArray[vertCount-2] c:secondVertexArray[vertCount-1]]];
+    [builder appendTriangleWithVertexA:lastVertexArray[vertCount-2] b:secondVertexArray[vertCount-2] c:secondVertexArray[vertCount-1]];
 }
 
 @end

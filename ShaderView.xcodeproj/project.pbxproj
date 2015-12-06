@@ -63,8 +63,6 @@
 		5D9D01841C11B170009CE401 /* RMProceduralMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9D017A1C11B170009CE401 /* RMProceduralMesh.m */; };
 		5D9D01851C11B170009CE401 /* RMMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9D017C1C11B170009CE401 /* RMMesh.m */; };
 		5D9D01861C11B170009CE401 /* RMMeshBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9D017E1C11B170009CE401 /* RMMeshBuilder.m */; };
-		5D9D01871C11B170009CE401 /* RMQuad3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9D01801C11B170009CE401 /* RMQuad3D.m */; };
-		5D9D01881C11B170009CE401 /* RMTriangle3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9D01821C11B170009CE401 /* RMTriangle3D.m */; };
 		5D9D018B1C11B1E7009CE401 /* RMMeshVertex3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9D018A1C11B1E7009CE401 /* RMMeshVertex3D.m */; };
 		5D9D018E1C11BFBD009CE401 /* RMMeshTriangle3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9D018D1C11BFBD009CE401 /* RMMeshTriangle3D.m */; };
 		5D9D01911C11CA06009CE401 /* RMMeshQuad3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9D01901C11CA06009CE401 /* RMMeshQuad3D.m */; };
@@ -204,10 +202,6 @@
 		5D9D017C1C11B170009CE401 /* RMMesh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMesh.m; sourceTree = "<group>"; };
 		5D9D017D1C11B170009CE401 /* RMMeshBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMeshBuilder.h; sourceTree = "<group>"; };
 		5D9D017E1C11B170009CE401 /* RMMeshBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMeshBuilder.m; sourceTree = "<group>"; };
-		5D9D017F1C11B170009CE401 /* RMQuad3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMQuad3D.h; sourceTree = "<group>"; };
-		5D9D01801C11B170009CE401 /* RMQuad3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMQuad3D.m; sourceTree = "<group>"; };
-		5D9D01811C11B170009CE401 /* RMTriangle3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTriangle3D.h; sourceTree = "<group>"; };
-		5D9D01821C11B170009CE401 /* RMTriangle3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTriangle3D.m; sourceTree = "<group>"; };
 		5D9D01891C11B1E7009CE401 /* RMMeshVertex3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMeshVertex3D.h; sourceTree = "<group>"; };
 		5D9D018A1C11B1E7009CE401 /* RMMeshVertex3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMeshVertex3D.m; sourceTree = "<group>"; };
 		5D9D018C1C11BFBD009CE401 /* RMMeshTriangle3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMeshTriangle3D.h; sourceTree = "<group>"; };
@@ -555,10 +549,6 @@
 				5D9D017C1C11B170009CE401 /* RMMesh.m */,
 				5D9D017D1C11B170009CE401 /* RMMeshBuilder.h */,
 				5D9D017E1C11B170009CE401 /* RMMeshBuilder.m */,
-				5D9D017F1C11B170009CE401 /* RMQuad3D.h */,
-				5D9D01801C11B170009CE401 /* RMQuad3D.m */,
-				5D9D01811C11B170009CE401 /* RMTriangle3D.h */,
-				5D9D01821C11B170009CE401 /* RMTriangle3D.m */,
 				5D9D01891C11B1E7009CE401 /* RMMeshVertex3D.h */,
 				5D9D018A1C11B1E7009CE401 /* RMMeshVertex3D.m */,
 				5D9D018C1C11BFBD009CE401 /* RMMeshTriangle3D.h */,
@@ -822,9 +812,7 @@
 				5DFC47681C0278BA0085852B /* RMVBOObject+RMDrawable.m in Sources */,
 				5DA32CC81C089CCF005ED5C5 /* RMRenderViewController.m in Sources */,
 				5D858F411C13A51500A95C1B /* RMTorusMesh.m in Sources */,
-				5D9D01881C11B170009CE401 /* RMTriangle3D.m in Sources */,
 				5DB80AD71C0F3C9800598E64 /* RMHighlightingTextStorage.m in Sources */,
-				5D9D01871C11B170009CE401 /* RMQuad3D.m in Sources */,
 				5DB80AE71C0F3D3B00598E64 /* UIColor+RMUtils.m in Sources */,
 				5DFC46B71C02389D0085852B /* RMProgram.m in Sources */,
 				5DFC46B91C02389D0085852B /* RMVertexShader.m in Sources */,

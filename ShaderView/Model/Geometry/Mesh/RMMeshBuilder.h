@@ -11,7 +11,7 @@
 #import "RMVBOVertexAttribute.h"
 
 @class RMMesh;
-@class RMMeshTriangle3D, RMMeshQuad3D;
+@class RMMeshTriangle3D, RMMeshQuad3D, RMMeshVertex3D;
 
 @interface RMMeshBuilder : NSObject
 
@@ -20,9 +20,13 @@
 
 - (nonnull RMMesh*)build;
 - (void)reset;
-- (void)appendTriangle:(nonnull RMMeshTriangle3D*)triangle;
-- (void)appendQuad:(nonnull RMMeshQuad3D*)quad;
 
+- (void)appendTriangle:(nonnull RMMeshTriangle3D*)triangle;
+- (void)appendTriangleWithVertexA:(nonnull RMMeshVertex3D*)a b:(nonnull RMMeshVertex3D*)b c:(nonnull RMMeshVertex3D*)c;
+
+
+- (void)appendQuad:(nonnull RMMeshQuad3D*)quad;
+- (void)appendQuadWithVertexA:(nonnull RMMeshVertex3D*)a b:(nonnull RMMeshVertex3D*)b c:(nonnull RMMeshVertex3D*)c d:(nonnull RMMeshVertex3D*)d;
 
 - (nonnull instancetype)initWithFormat:(RMVBOVertexAttributeType)format NS_DESIGNATED_INITIALIZER;
 
