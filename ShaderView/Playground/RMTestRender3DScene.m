@@ -174,12 +174,12 @@ const GLubyte Indices[] = {
 {
     if (_cube == nil)
     {
-        //RMSphereMesh* sphere = [RMSphereMesh mesh];
+        RMSphereMesh* sphere = [RMSphereMesh mesh];
         
         //sphere.smoothNormals = NO;
         
         RMTorusMesh* torus = [RMTorusMesh mesh];
-        torus.smoothNormals = YES;
+        
         _cube = torus;
         //_cube =  [RMCubeMesh mesh];
         //_cube = [RMMesh meshWithVBO:self.object];

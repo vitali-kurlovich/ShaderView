@@ -23,10 +23,12 @@
     self = [super initWithFormat:format];
     if (self)
     {
-        _rings = 25;
+        _rings = 12;
         _segments = 32;
         _minorRadius = 0.4;
         _majorRadius = 1;
+        
+        self.smoothNormals = YES;
     }
     return self;
 }
@@ -69,6 +71,8 @@
                                      normal:self.smoothNormals ? [RMVector3 vectorWithRMVector:normals[i]] : nil
                                         uv0:[RMVector2 vectorWithX:0 y:i*(1.0/vertCount)]]];
     }
+    
+    [baseVertexArray addObject:[baseVertexArray firstObject]];
 
     NSMutableArray<RMMeshVertex3D*>* lastVertexArray = [baseVertexArray mutableCopy];
     NSMutableArray<RMMeshVertex3D*>* secondVertexArray = [baseVertexArray mutableCopy];
@@ -91,7 +95,9 @@
             
         }
         
-        for (int i = 0; i < (vertCount-1); ++i)
+        secondVertexArray[vertCount] = [secondVertexArray firstObject];
+        
+        for (int i = 0; i < vertCount; ++i)
         {
             [builder appendQuad:[RMMeshQuad3D quadWithVertexA:lastVertexArray[i]
                                                             b:secondVertexArray[i]
@@ -99,9 +105,29 @@
                                                             d:lastVertexArray[i+1]]];
         }
         
-        lastVertexArray = [secondVertexArray mutableCopy];
+        id swapArray = lastVertexArray;
+        lastVertexArray = secondVertexArray;
+        secondVertexArray = swapArray;
     }
-
+    
+    
+    
+    for (int i = 0; i < vertCount; ++i) {
+        RMMeshVertex3D* vert3d = baseVertexArray[i];
+        
+        secondVertexArray[i] = [RMMeshVertex3D vertexWithPosition:vert3d.position
+                                                           normal:vert3d.normal
+                                                              uv0:[RMVector2 vectorWithX:1 y:i*(1.0/vertCount)]];
+    }
+    
+    for (int i = 0; i < vertCount; ++i)
+    {
+        [builder appendQuad:[RMMeshQuad3D quadWithVertexA:lastVertexArray[i]
+                                                        b:secondVertexArray[i]
+                                                        c:secondVertexArray[i+1]
+                                                        d:lastVertexArray[i+1]]];
+    }
+    
 }
 
 

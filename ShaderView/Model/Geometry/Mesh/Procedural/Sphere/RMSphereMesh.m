@@ -27,6 +27,8 @@
         _rings = 25;
         _segments = 32;
         _radius = 1;
+        
+        self.smoothNormals = YES;
     }
     return self;
 }
@@ -152,7 +154,9 @@
          [builder appendTriangle:[RMMeshTriangle3D triangleWithVertexA:lastVertexArray[vertCount-2] b:secondVertexArray[vertCount-2] c:secondVertexArray[vertCount-1]]];
         
         
-        lastVertexArray = [secondVertexArray mutableCopy];
+        id swapArray = lastVertexArray;
+        lastVertexArray = secondVertexArray;
+        secondVertexArray = swapArray;
         
     }
     
