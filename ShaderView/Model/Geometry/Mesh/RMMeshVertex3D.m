@@ -91,14 +91,13 @@
 }
 
 
-
 - (NSUInteger)hash
 {
     if (_hash == 0)
     {
         const NSUInteger prime = 31;
-        _hash = 1;
-        _hash = prime * _hash + [self.position hash];
+
+        _hash = prime + [self.position hash];
         _hash = prime * _hash + [self.normal hash];
         _hash = prime * _hash + [self.color hash];
         _hash = prime * _hash + [self.uv0 hash];
@@ -131,6 +130,11 @@
     }
     
     if (vertex == nil)
+    {
+        return NO;
+    }
+    
+    if ([self hash] != [vertex hash])
     {
         return NO;
     }

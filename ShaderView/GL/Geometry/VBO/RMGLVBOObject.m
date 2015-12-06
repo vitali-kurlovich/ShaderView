@@ -158,7 +158,7 @@
     GLenum prim = [self glPrimitiveForVertexBufferPrimitive:self.vertexBuffer.primitive];
     
     if (self.indexBuffer) {
-        int bytes = self.indexBuffer.dataSize/self.indexBuffer.count;
+        NSUInteger bytes = self.indexBuffer.dataSize/self.indexBuffer.count;
         GLenum type;
         
         if (bytes == 1)
@@ -171,9 +171,9 @@
             type = GL_UNSIGNED_INT;
         }
         
-        glDrawElements(prim, self.indexBuffer.count, type, 0);
+        glDrawElements(prim, (GLsizei)self.indexBuffer.count, type, 0);
     } else {
-        glDrawArrays(prim, 0, self.vertexBuffer.count);
+        glDrawArrays(prim, 0, (GLsizei)self.vertexBuffer.count);
     }
 }
 

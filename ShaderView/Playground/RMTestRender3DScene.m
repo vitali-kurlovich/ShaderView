@@ -146,9 +146,6 @@
     
     self.sphere.radius = (sin(time)*0.5 + 0.5)*0.6 + 0.1;
     
-    [self.sphere vbo];
-   // return;
-    
     RMMatrix4x4* translate = [RMMatrix4x4 translateMatrixWithX:sin(0) y:0 z:-7];
     RMMatrix4x4* rotate = [RMMatrix4x4 rotateMatrixWithAngle:time x:1 y:0 z:0];
     RMMatrix4x4* model =  [[rotate mul:translate] mul:[self.camera matrix]];

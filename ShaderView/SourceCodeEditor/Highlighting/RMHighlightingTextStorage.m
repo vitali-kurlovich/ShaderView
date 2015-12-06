@@ -86,8 +86,7 @@
 - (void)performReplacementsForCharacterChangeInRange:(NSRange)changedRange
 {
     NSString* string = [_backingStore string];
-    NSRange extendedRange = NSUnionRange(changedRange, [string lineRangeForRange:NSMakeRange(changedRange.location, 0)]);
-    extendedRange = NSUnionRange(changedRange, [string lineRangeForRange:NSMakeRange(NSMaxRange(changedRange), 0)]);
+    NSRange extendedRange = NSUnionRange(changedRange, [string lineRangeForRange:NSMakeRange(NSMaxRange(changedRange), 0)]);
     
     [self applyTokenAttributesToRange:extendedRange];
 }

@@ -26,7 +26,7 @@
 @interface RMMeshBuilder ()
 
 @property (nonatomic,  readonly) NSMutableArray<RMMeshVertex3D*>* vertexArray;
-@property (nonatomic,  readonly) NSMutableSet<RMMeshVertex3D*>* vertexSet;
+
 @property (nonatomic, readonly) RMVector2* zeroVector2;
 @property (nonatomic, readonly) RMVector3* zeroVector3;
 @property (nonatomic, readonly) RMVector4* zeroVector4;
@@ -50,8 +50,7 @@
     if (self)
     {
         _vertexArray = [NSMutableArray array];
-        _vertexSet = [NSMutableSet set];
-        
+       
         _format = format;
         
         _zeroVector2 = [RMVector2 vectorWithX:0 y:0];
@@ -171,14 +170,12 @@
                                            attributes:attributes
                                             primitive:RMVBOVertexBufferPrimitiveTriangle];
     
-    
     return [RMMesh meshWithVBO:[RMGLVBOObject objectWithVertexData:vb indexData:nil]];
 }
 
 - (void)reset
 {
     [_vertexArray removeAllObjects];
-    [_vertexSet removeAllObjects];
 }
 
 - (void)appendTriangle:(RMMeshTriangle3D*)triangle
@@ -320,10 +317,7 @@
     RMMeshVertex3D* vert = [RMMeshVertex3D vertexWithPosition:position normal:normal color:color uv0:uv0 uv1:uv1 uv2:uv2 uv3:uv3];
     
     [self.vertexArray addObject:vert];
-    [self.vertexSet addObject:vert];
 }
-
-
 
 
 - (NSArray<RMVBOVertexAttribute*>*)attributes
@@ -375,7 +369,6 @@
     if (self.format & RMVBOVertexAttributeTypeUV3)
     {
         [attrs addObject:[RMVBOVertexAttribute attributeWithType:RMVBOVertexAttributeTypeUV3 offset:offset*sizeof(float) size:RMVBOVertexAttributeSize_2]];
-        offset += 2;
     }
     
     _attributes = [attrs copy];

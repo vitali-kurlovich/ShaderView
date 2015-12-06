@@ -85,7 +85,7 @@
     GLint attrSlot = glGetAttribLocation(_program, [attr.name UTF8String]);
     glEnableVertexAttribArray(attrSlot);
     GLchar* pointer = 0;
-    glVertexAttribPointer(attrSlot, numberOfComponents, GL_FLOAT, GL_FALSE, stride, pointer+offset);
+    glVertexAttribPointer(attrSlot, (GLint)numberOfComponents, GL_FLOAT, GL_FALSE, stride, pointer+offset);
 }
 
 - (void)disableVertexAttribute:(nonnull RMVertexAttribute*)attr

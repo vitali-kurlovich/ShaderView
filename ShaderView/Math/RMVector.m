@@ -51,15 +51,14 @@
 {
     if (_hash == 0)
     {
-        const NSUInteger prime = 31;
-        _hash = 1;
+        static const NSUInteger prime = 31;
+        static const NSUInteger bigprime = 3571;
         
-        _hash = prime * _hash + _hash*_vector.x;
-        _hash = prime * _hash + _hash*_vector.y;
+        _hash = prime + bigprime*_vector.x;
+        _hash = prime * _hash + bigprime*_vector.y;
     }
     return _hash;
 }
-
 
 - (BOOL)isEqual:(id)object
 {
@@ -137,12 +136,13 @@
 {
     if (_hash == 0)
     {
-        const NSUInteger prime = 31;
-        _hash = 1;
+        static const NSUInteger prime = 31;
+        static const NSUInteger bigprime = 3571;
         
-        _hash = prime * _hash + _hash*_vector.x;
-        _hash = prime * _hash + _hash*_vector.y;
-        _hash = prime * _hash + _hash*_vector.z;
+        _hash = prime + bigprime*_vector.x;
+        _hash = prime * _hash + bigprime*_vector.y;
+        _hash = prime * _hash + bigprime*_vector.z;
+        
     }
     return _hash;
 }
@@ -214,13 +214,14 @@
 {
     if (_hash == 0)
     {
-        const NSUInteger prime = 31;
-        _hash = 1;
+        static const NSUInteger prime = 31;
+        static const NSUInteger bigprime = 3571;
         
-        _hash = prime * _hash + _hash*_vector.x;
-        _hash = prime * _hash + _hash*_vector.y;
-        _hash = prime * _hash + _hash*_vector.z;
-        _hash = prime * _hash + _hash*_vector.w;
+        _hash = prime + bigprime*_vector.x;
+        _hash = prime * _hash + bigprime*_vector.y;
+        _hash = prime * _hash + bigprime*_vector.z;
+        _hash = prime * _hash + bigprime*_vector.w;
+
     }
     return _hash;
 }

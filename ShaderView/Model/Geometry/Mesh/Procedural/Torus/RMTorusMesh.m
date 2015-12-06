@@ -72,7 +72,7 @@
 
 - (void)build:(RMMeshBuilder*)builder
 {
-    int vertCount = self.rings;
+    NSUInteger vertCount = self.rings;
     
     _RMVector3 normals[vertCount];
     _RMVector3 pos[vertCount];
