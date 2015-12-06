@@ -128,8 +128,7 @@
     for (int segment = 1; segment < self.segments ; segment++) {
         
         
-        for (int i = 0; i < vertCount; ++i)
-        {
+        for (int i = 0; i < vertCount; ++i) {
             
             _RMVector3 rotNorm = RMRotateYVector3(angleSeg*segment, normals[i]);
             
@@ -140,21 +139,18 @@
             
         }
         
-        [builder appendTriangle:[RMMeshTriangle3D triangleWithVertexA:lastVertexArray[0] b:secondVertexArray[1] c:lastVertexArray[1]]];
-        
+        [builder appendTriangleWithVertexA:lastVertexArray[1] b:secondVertexArray[1] c:lastVertexArray[0]];
         
         for (int i = 1; i < (vertCount-2); ++i)
         {
-            [builder appendQuadWithVertexA:lastVertexArray[i] b:secondVertexArray[i] c:secondVertexArray[i+1] d:lastVertexArray[i+1]];
+            [builder appendQuadWithVertexA:lastVertexArray[i+1] b:secondVertexArray[i+1] c:secondVertexArray[i] d:lastVertexArray[i]];
         }
         
-         [builder appendTriangleWithVertexA:lastVertexArray[vertCount-2] b:secondVertexArray[vertCount-2] c:secondVertexArray[vertCount-1]];
-        
+        [builder appendTriangleWithVertexA:secondVertexArray[vertCount-1] b:secondVertexArray[vertCount-2] c:lastVertexArray[vertCount-2]];
         
         id swapArray = lastVertexArray;
         lastVertexArray = secondVertexArray;
         secondVertexArray = swapArray;
-        
     }
     
     for (int i = 0; i < (vertCount - 1); ++i) {
@@ -165,15 +161,14 @@
                                        uv0:[RMVector2 vectorWithX:1 y:i*(1.0/vertCount)]];
     }
     
-    [builder appendTriangleWithVertexA:lastVertexArray[0] b:secondVertexArray[1] c:lastVertexArray[1]];
+    [builder appendTriangleWithVertexA:lastVertexArray[1] b:secondVertexArray[1] c:lastVertexArray[0]];
     
     for (int i = 1; i < (vertCount-2); ++i)
     {
-        [builder appendQuadWithVertexA:lastVertexArray[i] b:secondVertexArray[i] c:secondVertexArray[i+1] d:lastVertexArray[i+1]];
-        
+        [builder appendQuadWithVertexA:lastVertexArray[i+1] b:secondVertexArray[i+1] c:secondVertexArray[i] d:lastVertexArray[i]];
     }
     
-    [builder appendTriangleWithVertexA:lastVertexArray[vertCount-2] b:secondVertexArray[vertCount-2] c:secondVertexArray[vertCount-1]];
+    [builder appendTriangleWithVertexA:secondVertexArray[vertCount-1] b:secondVertexArray[vertCount-2] c:lastVertexArray[vertCount-2]];
 }
 
 @end

@@ -150,7 +150,7 @@
     self.sphere.smoothNormals = NO;
     
     RMMatrix4x4* translate = [RMMatrix4x4 translateMatrixWithX:sin(0) y:0 z:-7];
-    RMMatrix4x4* rotate = [RMMatrix4x4 rotateMatrixWithAngle:time x:0 y:1 z:0];
+    RMMatrix4x4* rotate = [RMMatrix4x4 rotateMatrixWithAngle:time x:1 y:0 z:0];
     RMMatrix4x4* model =  [[rotate mul:translate] mul:[self.camera matrix]];
     
     [self.sphere.program setParam:@"modelview" matrix:model];
