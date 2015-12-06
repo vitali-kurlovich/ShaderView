@@ -135,19 +135,22 @@
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glEnable(GL_DEPTH_TEST);
    
-   // glEnable(GL_CULL_FACE);
+    glEnable(GL_CULL_FACE);
    // glCullFace(GL_BACK);
 }
 
 
 - (void)render:(nullable RMRender*)render duration:(rmtime)deltaTime
 {
+    NSLog(@"fps:%@", @(1./deltaTime));
+    
     NSTimeInterval time = CACurrentMediaTime();
     
-    self.sphere.radius = (sin(time)*0.5 + 0.5)*0.6 + 0.1;
+    //self.torus.minorRadius = (sin(time)*0.5 + 0.5)*0.6 + 0.1;
+    self.sphere.smoothNormals = NO;
     
     RMMatrix4x4* translate = [RMMatrix4x4 translateMatrixWithX:sin(0) y:0 z:-7];
-    RMMatrix4x4* rotate = [RMMatrix4x4 rotateMatrixWithAngle:time x:1 y:0 z:0];
+    RMMatrix4x4* rotate = [RMMatrix4x4 rotateMatrixWithAngle:time x:0 y:1 z:0];
     RMMatrix4x4* model =  [[rotate mul:translate] mul:[self.camera matrix]];
     
     [self.sphere.program setParam:@"modelview" matrix:model];

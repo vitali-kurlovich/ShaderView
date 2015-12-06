@@ -19,8 +19,28 @@
 
 @end
 
+
+typedef NS_ENUM(NSInteger, RMMaterialParamValueType) {
+    RMMaterialParamTypeValueFloat,
+    RMMaterialParamTypeValueInt,
+    RMMaterialParamTypeValueColor,
+    RMMaterialParamTypeTexture,
+};
+
+@interface RMMaterialParamValue : NSObject
+@property (nonatomic, readonly) RMMaterialParamValueType type;
+@end
+
+@interface RMMaterialParamRange : NSObject
+
+@property (nonnull, readonly) RMMaterialParamValue* defaultValue;
+@property (nonnull, readonly) RMMaterialParamValue* minValue;
+@property (nonnull, readonly) RMMaterialParamValue* maxValue;
+
+@end
+
 @interface RMMaterialParam : NSObject
 
-@property (nonnull, nonatomic, copy, readonly) NSString* title;
+@property (nonnull, nonatomic, copy, readonly) NSString* name;
 
 @end

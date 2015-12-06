@@ -23,10 +23,10 @@
 
 - (void)build:(RMMeshBuilder*)builder
 {
-    RMVector3* a = [RMVector3 vectorWithX:-0.5 y: 0.5 z:0.5];
-    RMVector3* b = [RMVector3 vectorWithX: 0.5 y: 0.5 z:0.5];
-    RMVector3* c = [RMVector3 vectorWithX: 0.5 y:-0.5 z:0.5];
-    RMVector3* d = [RMVector3 vectorWithX:-0.5 y:-0.5 z:0.5];
+    RMVector3* a = [RMVector3 vectorWithX:-0.5 y:-0.5 z:0.5];
+    RMVector3* b = [RMVector3 vectorWithX: 0.5 y:-0.5 z:0.5];
+    RMVector3* c = [RMVector3 vectorWithX: 0.5 y: 0.5 z:0.5];
+    RMVector3* d = [RMVector3 vectorWithX:-0.5 y: 0.5 z:0.5];
     
     RMVector2* uv00 = [RMVector2 vectorWithX:0 y:0];
     RMVector2* uv01 = [RMVector2 vectorWithX:0 y:1];
@@ -39,20 +39,20 @@
     RMMeshVertex3D* vd = [RMMeshVertex3D vertexWithPosition:d uv0:uv00];
     
     
-    [builder appendQuad:[RMMeshQuad3D quadWithVertexA:va b:vb c:vc d:vd]];
+    [builder appendQuadWithVertexA:va b:vb c:vc d:vd];
     
     
-    RMVector3* as = [RMVector3 vectorWithX: 0.5 y: 0.5 z:-0.5];
-    RMVector3* bs = [RMVector3 vectorWithX:-0.5 y: 0.5 z:-0.5];
-    RMVector3* cs = [RMVector3 vectorWithX:-0.5 y:-0.5 z:-0.5];
-    RMVector3* ds = [RMVector3 vectorWithX: 0.5 y:-0.5 z:-0.5];
+    RMVector3* as = [RMVector3 vectorWithX: 0.5 y:-0.5 z:-0.5];
+    RMVector3* bs = [RMVector3 vectorWithX:-0.5 y:-0.5 z:-0.5];
+    RMVector3* cs = [RMVector3 vectorWithX:-0.5 y: 0.5 z:-0.5];
+    RMVector3* ds = [RMVector3 vectorWithX: 0.5 y: 0.5 z:-0.5];
    
     va = [RMMeshVertex3D vertexWithPosition:b uv0:uv01];
     vb = [RMMeshVertex3D vertexWithPosition:as uv0:uv11];
     vc = [RMMeshVertex3D vertexWithPosition:ds uv0:uv10];
     vd = [RMMeshVertex3D vertexWithPosition:c uv0:uv00];
     
-    [builder appendQuad:[RMMeshQuad3D quadWithVertexA:va b:vb c:vc d:vd]];
+    [builder appendQuadWithVertexA:va b:vb c:vc d:vd];
     
     
     va = [RMMeshVertex3D vertexWithPosition:as uv0:uv01];
@@ -60,14 +60,14 @@
     vc = [RMMeshVertex3D vertexWithPosition:cs uv0:uv10];
     vd = [RMMeshVertex3D vertexWithPosition:ds uv0:uv00];
     
-    [builder appendQuad:[RMMeshQuad3D quadWithVertexA:va b:vb c:vc d:vd]];
+    [builder appendQuadWithVertexA:va b:vb c:vc d:vd];
     
     va = [RMMeshVertex3D vertexWithPosition:bs uv0:uv01];
     vb = [RMMeshVertex3D vertexWithPosition:a uv0:uv11];
     vc = [RMMeshVertex3D vertexWithPosition:d uv0:uv10];
     vd = [RMMeshVertex3D vertexWithPosition:cs uv0:uv00];
     
-    [builder appendQuad:[RMMeshQuad3D quadWithVertexA:va b:vb c:vc d:vd]];
+    [builder appendQuadWithVertexA:va b:vb c:vc d:vd];
     
     
     va = [RMMeshVertex3D vertexWithPosition:bs uv0:uv01];
@@ -75,16 +75,14 @@
     vc = [RMMeshVertex3D vertexWithPosition:b uv0:uv10];
     vd = [RMMeshVertex3D vertexWithPosition:a uv0:uv00];
     
-    [builder appendQuad:[RMMeshQuad3D quadWithVertexA:va b:vb c:vc d:vd]];
-    
-    
+    [builder appendQuadWithVertexA:va b:vb c:vc d:vd];
     
     va = [RMMeshVertex3D vertexWithPosition:ds uv0:uv01];
     vb = [RMMeshVertex3D vertexWithPosition:cs uv0:uv11];
     vc = [RMMeshVertex3D vertexWithPosition:d uv0:uv10];
     vd = [RMMeshVertex3D vertexWithPosition:c uv0:uv00];
     
-    [builder appendQuad:[RMMeshQuad3D quadWithVertexA:va b:vb c:vc d:vd]];
+    [builder appendQuadWithVertexA:va b:vb c:vc d:vd];
     
 }
 
