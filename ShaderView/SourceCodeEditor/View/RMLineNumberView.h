@@ -10,7 +10,7 @@
 
 @protocol RMSourceCodeLineNumberViewDataSource;
 
-@interface RMSourceCodeLineNumberView : UIView
+@interface RMLineNumberView : UIView
 @property (nonatomic) CGPoint contentOffset;
 @property (nonatomic) UIEdgeInsets contentInset;
 
@@ -22,7 +22,10 @@
 
 @protocol RMSourceCodeLineNumberViewDataSource <NSObject>
 
-- (NSInteger)numberOfSourceCodeLinesInLineNumberView:(RMSourceCodeLineNumberView*)numberView;
-- (CGRect)sourceCodeLineNumberView:(RMSourceCodeLineNumberView*)numberView rectAtLine:(NSInteger)linenumber;
+- (NSInteger)numberOfSourceCodeLinesInLineNumberView:(RMLineNumberView*)numberView;
+- (CGRect)sourceCodeLineNumberView:(RMLineNumberView*)numberView rectAtLine:(NSInteger)linenumber;
+
+@optional
+
 
 @end

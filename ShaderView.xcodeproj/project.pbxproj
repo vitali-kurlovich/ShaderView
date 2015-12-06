@@ -38,7 +38,7 @@
 		5D368C3E1BFF17AD00FE2A83 /* RMRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D368C3D1BFF17AD00FE2A83 /* RMRender.m */; };
 		5D4595FB1C078F1C00C30F30 /* RMGLRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4595F81C078F1B00C30F30 /* RMGLRenderView.m */; };
 		5D4595FC1C078F1C00C30F30 /* RMRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4595FA1C078F1B00C30F30 /* RMRenderView.m */; };
-		5D45960A1C078F9C00C30F30 /* RMSourceCodeLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4596001C078F9C00C30F30 /* RMSourceCodeLineNumberView.m */; };
+		5D45960A1C078F9C00C30F30 /* RMLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4596001C078F9C00C30F30 /* RMLineNumberView.m */; };
 		5D45960B1C078F9C00C30F30 /* RMSourceCodeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4596021C078F9C00C30F30 /* RMSourceCodeTextView.m */; };
 		5D45960D1C078F9C00C30F30 /* RMSourceCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4596071C078F9C00C30F30 /* RMSourceCodeViewController.m */; };
 		5D6617B31C0C741000E3D4BE /* RMSourceCodeStoryboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6617B21C0C741000E3D4BE /* RMSourceCodeStoryboard.m */; };
@@ -166,8 +166,8 @@
 		5D4595F81C078F1B00C30F30 /* RMGLRenderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMGLRenderView.m; sourceTree = "<group>"; };
 		5D4595F91C078F1B00C30F30 /* RMRenderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRenderView.h; sourceTree = "<group>"; };
 		5D4595FA1C078F1B00C30F30 /* RMRenderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRenderView.m; sourceTree = "<group>"; };
-		5D4595FF1C078F9C00C30F30 /* RMSourceCodeLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSourceCodeLineNumberView.h; sourceTree = "<group>"; };
-		5D4596001C078F9C00C30F30 /* RMSourceCodeLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSourceCodeLineNumberView.m; sourceTree = "<group>"; };
+		5D4595FF1C078F9C00C30F30 /* RMLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMLineNumberView.h; sourceTree = "<group>"; };
+		5D4596001C078F9C00C30F30 /* RMLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMLineNumberView.m; sourceTree = "<group>"; };
 		5D4596011C078F9C00C30F30 /* RMSourceCodeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSourceCodeTextView.h; sourceTree = "<group>"; };
 		5D4596021C078F9C00C30F30 /* RMSourceCodeTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSourceCodeTextView.m; sourceTree = "<group>"; };
 		5D4596061C078F9C00C30F30 /* RMSourceCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSourceCodeViewController.h; sourceTree = "<group>"; };
@@ -490,8 +490,8 @@
 		5D4595FE1C078F9C00C30F30 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5D4595FF1C078F9C00C30F30 /* RMSourceCodeLineNumberView.h */,
-				5D4596001C078F9C00C30F30 /* RMSourceCodeLineNumberView.m */,
+				5D4595FF1C078F9C00C30F30 /* RMLineNumberView.h */,
+				5D4596001C078F9C00C30F30 /* RMLineNumberView.m */,
 				5D4596011C078F9C00C30F30 /* RMSourceCodeTextView.h */,
 				5D4596021C078F9C00C30F30 /* RMSourceCodeTextView.m */,
 			);
@@ -806,7 +806,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D45960A1C078F9C00C30F30 /* RMSourceCodeLineNumberView.m in Sources */,
+				5D45960A1C078F9C00C30F30 /* RMLineNumberView.m in Sources */,
 				5D1C6DA91C031D5F00E19C87 /* RMGLFragmentShader.m in Sources */,
 				5D45960B1C078F9C00C30F30 /* RMSourceCodeTextView.m in Sources */,
 				5DFC47681C0278BA0085852B /* RMVBOObject+RMDrawable.m in Sources */,

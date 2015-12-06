@@ -8,7 +8,7 @@
 
 #import "RMSourceCodeTextView.h"
 
-#import "RMSourceCodeLineNumberView.h"
+#import "RMLineNumberView.h"
 #import "RMHighlightingTextStorage.h"
 
 #import "RMHighlightingTheme.h"
@@ -18,7 +18,7 @@ static CGFloat const kRMSourceCodeNumberDefaultWidth = 24;
 
 @interface RMSourceCodeTextView () <RMSourceCodeLineNumberViewDataSource>
 
-@property (nonatomic, readonly) RMSourceCodeLineNumberView* lineNumberView;
+@property (nonatomic, readonly) RMLineNumberView* lineNumberView;
 
 @property (nonatomic, readonly) RMHighlightingTextStorage* sourceCodeTextStorage;
 @end
@@ -54,6 +54,7 @@ static CGFloat const kRMSourceCodeNumberDefaultWidth = 24;
         _sourceCodeTextStorage = textStorage;
         [self attachLineNumberView];
         [self configureTextView];
+        self.alwaysBounceVertical = YES;
     }
     
     return self;
@@ -85,7 +86,7 @@ static CGFloat const kRMSourceCodeNumberDefaultWidth = 24;
 {
     if (_lineNumberView == nil)
     {
-        _lineNumberView = [[RMSourceCodeLineNumberView alloc] initWithFrame:[self frameForSorceCodeLineNumberView]];
+        _lineNumberView = [[RMLineNumberView alloc] initWithFrame:[self frameForSorceCodeLineNumberView]];
         _lineNumberView.backgroundColor = self.lineNumberBackgroundColor;
         _lineNumberView.dataSource = self;
         
@@ -130,12 +131,12 @@ static CGFloat const kRMSourceCodeNumberDefaultWidth = 24;
 
 #pragma mark - RMSourceCodeLineNumberViewDataSource
 
-- (NSInteger)numberOfSourceCodeLinesInLineNumberView:(RMSourceCodeLineNumberView*)numberView
+- (NSInteger)numberOfSourceCodeLinesInLineNumberView:(RMLineNumberView*)numberView
 {
     return [self numberOfLines];
 }
 
-- (CGRect)sourceCodeLineNumberView:(RMSourceCodeLineNumberView*)numberView rectAtLine:(NSInteger)linenumber
+- (CGRect)sourceCodeLineNumberView:(RMLineNumberView*)numberView rectAtLine:(NSInteger)linenumber
 {
     return [self rectForLineAtIndex:linenumber];
 }

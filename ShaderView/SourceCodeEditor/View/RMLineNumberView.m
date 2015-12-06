@@ -6,11 +6,14 @@
 //  Copyright © 2015 Vitali Kurlovich. All rights reserved.
 //
 
-#import "RMSourceCodeLineNumberView.h"
+#import "RMLineNumberView.h"
+
+@interface RMLineNumberView ()
+
+@end
 
 
-
-@implementation RMSourceCodeLineNumberView
+@implementation RMLineNumberView
 
 
 - (void)setContentOffset:(CGPoint)contentOffset
@@ -51,7 +54,6 @@
         
         [lineNumberString drawInRect:labelRect  withAttributes:nil];
     }
-    
 }
 
 @end
