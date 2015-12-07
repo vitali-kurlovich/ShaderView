@@ -18,6 +18,8 @@
 @property (nonatomic, readonly) RMVBOVertexAttributeType format;
 @property (nonnull, nonatomic, readonly) NSArray<RMVBOVertexAttribute*>* attributes;
 
+@property (nonatomic) BOOL useOptimization;
+
 - (nonnull RMMesh*)build;
 - (void)reset;
 

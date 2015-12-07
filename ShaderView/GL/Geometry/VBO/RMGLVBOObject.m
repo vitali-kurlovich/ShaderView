@@ -75,6 +75,7 @@
     if ([self isPrepared])
     {
         glBindBuffer(GL_ARRAY_BUFFER, _vbo.vertexBuffer);
+        
         if (self.indexBuffer)
         {
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _vbo.indexBuffer);
@@ -151,7 +152,6 @@
 - (void)draw
 {
     if (![self isPrepared]) return;
-    
     [self refrashBuffers];
     [self bindBuffer];
     

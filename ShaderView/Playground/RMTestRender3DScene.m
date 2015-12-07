@@ -147,7 +147,7 @@
     NSTimeInterval time = CACurrentMediaTime();
     
     //self.torus.minorRadius = (sin(time)*0.5 + 0.5)*0.6 + 0.1;
-    //self.torus.smoothNormals = NO;
+    self.torus.smoothNormals = NO;
     
     RMMatrix4x4* translate = [RMMatrix4x4 translateMatrixWithX:sin(0) y:0 z:-7];
     RMMatrix4x4* rotate = [RMMatrix4x4 rotateMatrixWithAngle:time x:sin(time*0.33) y:cos(time*0.33) z:0];

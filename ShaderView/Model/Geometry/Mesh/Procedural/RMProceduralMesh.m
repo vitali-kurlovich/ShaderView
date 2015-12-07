@@ -31,6 +31,7 @@
     if (self)
     {
         _format = format;
+        _optimizeVBO = YES;
     }
     return self;
 }
@@ -44,10 +45,21 @@
     }
 }
 
-
 - (RMVBOObject*)vbo
 {
     return self.mesh.vbo;
+}
+
+- (void)setOptimizeVBO:(BOOL)optimizeVBO
+{
+    if (_optimizeVBO != optimizeVBO)
+    {
+        _optimizeVBO = optimizeVBO;
+        if (optimizeVBO)
+        {
+            [self setNeedsRebuild];
+        }
+    }
 }
 
 
@@ -65,6 +77,9 @@
     if (_mesh == nil)
     {
         RMMeshBuilder* builder = self.meshBuilder;
+        
+        builder.useOptimization = self.optimizeVBO;
+        
         [self build:builder];
         _mesh = [builder build];
         [_mesh.vbo prepareBuffer];

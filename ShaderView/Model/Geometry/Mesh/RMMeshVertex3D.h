@@ -10,7 +10,7 @@
 
 @class RMVector4, RMVector3, RMVector2;
 
-@interface RMMeshVertex3D : NSObject
+@interface RMMeshVertex3D : NSObject<NSCopying>
 
 @property (nullable, nonatomic, readonly) RMVector3* position;
 @property (nullable, nonatomic, readonly) RMVector3* normal;

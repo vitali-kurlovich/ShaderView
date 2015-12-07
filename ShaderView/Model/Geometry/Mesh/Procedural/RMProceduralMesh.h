@@ -16,13 +16,11 @@
 @property (nonatomic, readonly) RMVBOVertexAttributeType format;
 
 @property (nonatomic) BOOL smoothNormals;
+@property (nonatomic) BOOL optimizeVBO;
 
 - (nonnull instancetype)initWithFormat:(RMVBOVertexAttributeType)format NS_DESIGNATED_INITIALIZER;
 
 - (void)build:(nonnull RMMeshBuilder*)builder;
 - (void)setNeedsRebuild;
-
-
-
 
 @end
