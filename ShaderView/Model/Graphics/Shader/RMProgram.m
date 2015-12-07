@@ -197,6 +197,23 @@
 }
 
 
+- (void)setParam:(nonnull NSString*)name floatValue:(float)value
+{
+    if (name.length > 0)
+    {
+        [self applyFloatValue:value name:name];
+    }
+}
+
+- (void)setParam:(nonnull NSString*)name intValue:(int)value
+{
+    if (name.length > 0)
+    {
+        [self applyIntValue:value name:name];
+    }
+}
+
+
 - (void)setParam:(NSString*)name color:(UIColor*)color
 {
     if (color && name.length > 0)
@@ -231,11 +248,11 @@
 
     switch (matrix.type) {
         case RMMatrixType2x2:
-           
+           [self applyMatrix2x2:(RMMatrix2x2*)matrix name:name];
             break;
             
         case RMMatrixType3x3:
-            
+            [self applyMatrix3x3:(RMMatrix3x3*)matrix name:name];
             break;
             
         case RMMatrixType4x4:
@@ -246,6 +263,43 @@
             break;
     }
 }
+
+
+- (void)setParam:(nonnull NSString*)name vector2:(nonnull RMVector2*)vector
+{
+     if (vector && name.length > 0)
+     {
+         [self applyVector2:vector name:name];
+     }
+}
+
+- (void)setParam:(nonnull NSString*)name vector3:(nonnull RMVector3*)vector
+{
+    if (vector && name.length > 0)
+    {
+        [self applyVector3:vector name:name];
+    }
+}
+
+- (void)setParam:(nonnull NSString*)name vector4:(nonnull RMVector4*)vector
+{
+    if (vector && name.length > 0)
+    {
+        [self applyVector4:vector name:name];
+    }
+}
+
+
+- (void)applyFloatValue:(float)value name:(nonnull NSString*)name
+{
+    
+}
+
+- (void)applyIntValue:(float)value name:(nonnull NSString*)name
+{
+    
+}
+
 
 - (void)applyMatrix2x2:(RMMatrix2x2*)matrix name:(NSString*)name
 {
@@ -285,7 +339,7 @@
 
 - (void)applyNumber:(nonnull NSNumber*)number name:(nonnull NSString*)name
 {
-    
+    [self applyFloatValue:[number floatValue] name:name];
 }
 
 - (void)enableVertexAttribute:(nonnull RMVertexAttribute*)attr numberOfComponents:(NSInteger)numberOfComponents stride:(NSInteger)stride offset:(NSInteger)offset

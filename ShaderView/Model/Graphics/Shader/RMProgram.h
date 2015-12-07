@@ -50,11 +50,24 @@
 - (void)setParam:(nonnull NSString*)name matrix:(nullable RMMatrix*)matrix;
 - (void)setParam:(nonnull NSString*)name texture:(nullable RMTexture*)texture;
 - (void)setParam:(nonnull NSString*)name color:(nullable UIColor*)color;
-- (void)setParam:(nonnull NSString*)name number:(nullable NSNumber*)number;
 
+
+- (void)setParam:(nonnull NSString*)name floatValue:(float)value;
+- (void)setParam:(nonnull NSString*)name intValue:(int)value;
+
+- (void)setParam:(nonnull NSString*)name vector2:(nonnull RMVector2*)vector;
+- (void)setParam:(nonnull NSString*)name vector3:(nonnull RMVector3*)vector;
+- (void)setParam:(nonnull NSString*)name vector4:(nonnull RMVector4*)vector;
+
+
+- (void)setParam:(nonnull NSString*)name number:(nullable NSNumber*)number;
 
 - (void)enableVertexAttribute:(nonnull RMVertexAttribute*)attr numberOfComponents:(NSInteger)numberOfComponents stride:(NSInteger)stride offset:(NSInteger)offset;
 - (void)disableVertexAttribute:(nonnull RMVertexAttribute*)attr;
+
+
+- (void)applyFloatValue:(float)value name:(nonnull NSString*)name;
+- (void)applyIntValue:(float)value name:(nonnull NSString*)name;
 
 - (void)applyVector2:(nonnull RMVector2*)vector name:(nonnull NSString*)name;
 - (void)applyVector3:(nonnull RMVector3*)vector name:(nonnull NSString*)name;

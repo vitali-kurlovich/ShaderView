@@ -16,6 +16,8 @@
 #import "RMTexture.h"
 
 #import "RMMatrix+_RMOpenGL_.h"
+#import "RMMatrix2x2.h"
+#import "RMMatrix3x3.h"
 #import "RMMatrix4x4.h"
 
 #import "RMVertexAttribute.h"
@@ -94,21 +96,37 @@
     glDisableVertexAttribArray(attrSlot);
 }
 
+
+- (void)applyFloatValue:(float)value name:(nonnull NSString*)name
+{
+    int uniform = glGetUniformLocation(_program, [name UTF8String]);
+    glUniform1f(uniform, value);
+}
+
+- (void)applyIntValue:(float)value name:(nonnull NSString*)name
+{
+    int uniform = glGetUniformLocation(_program, [name UTF8String]);
+    glUniform1i(uniform, value);
+}
+
+
 - (void)applyMatrix2x2:(RMMatrix2x2*)matrix name:(NSString*)name
 {
-    
+    int uniform = glGetUniformLocation(_program, [name UTF8String]);
+    glUniformMatrix2fv(uniform, 1, 0, [matrix glMatrix]);
 }
 
 - (void)applyMatrix3x3:(RMMatrix3x3*)matrix name:(NSString*)name
 {
-    
+    int uniform = glGetUniformLocation(_program, [name UTF8String]);
+    glUniformMatrix3fv(uniform, 1, 0, [matrix glMatrix]);
 }
 
 - (void)applyMatrix4x4:(RMMatrix4x4*)matrix name:(NSString*)name
 {
-    int m4x4Uniform = glGetUniformLocation(_program, [name UTF8String]);
+    int uniform = glGetUniformLocation(_program, [name UTF8String]);
     
-    glUniformMatrix4fv(m4x4Uniform, 1, 0, [matrix glMatrix]);
+    glUniformMatrix4fv(uniform, 1, 0, [matrix glMatrix]);
 }
 
 - (void)applyTexture:(RMTexture*)texture name:(NSString*)name textureUnit:(NSUInteger)unit
@@ -125,30 +143,23 @@
 
 - (void)applyVector2:(nonnull RMVector2*)vector name:(nonnull NSString*)name
 {
-    int colorUniform = glGetUniformLocation(_program, [name UTF8String]);
+    int uniform = glGetUniformLocation(_program, [name UTF8String]);
     _RMVector2 v = vector.vector;
-     glUniform2f(colorUniform, v.x, v.y);
+     glUniform2f(uniform, v.x, v.y);
 }
 
 - (void)applyVector3:(nonnull RMVector3*)vector name:(nonnull NSString*)name
 {
-    int colorUniform = glGetUniformLocation(_program, [name UTF8String]);
+    int uniform = glGetUniformLocation(_program, [name UTF8String]);
     _RMVector3 v = vector.vector;
-    glUniform3f(colorUniform, v.x, v.y, v.z);
+    glUniform3f(uniform, v.x, v.y, v.z);
 }
 
 - (void)applyVector4:(nonnull RMVector4*)vector name:(nonnull NSString*)name
 {
-    int colorUniform = glGetUniformLocation(_program, [name UTF8String]);
+    int uniform = glGetUniformLocation(_program, [name UTF8String]);
     _RMVector4 v = vector.vector;
-    glUniform4f(colorUniform, v.x, v.y, v.z, v.w);
-}
-
-
-- (void)applyNumber:(nonnull NSNumber*)number name:(nonnull NSString*)name
-{
-    int numberUniform = glGetUniformLocation(_program, [name UTF8String]);
-    glUniform1f(numberUniform, [number floatValue]);
+    glUniform4f(uniform, v.x, v.y, v.z, v.w);
 }
 
 - (BOOL)compile

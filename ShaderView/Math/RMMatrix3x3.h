@@ -8,6 +8,8 @@
 
 #import "RMMatrix.h"
 
-@interface RMMatrix3x3 : RMMatrix
+#import "RMMathMatrix.h"
 
+@interface RMMatrix3x3 : RMMatrix
+//@property (nonatomic, readonly) _RMMatrix3x3 matrix;
 @end

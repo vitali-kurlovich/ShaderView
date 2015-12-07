@@ -96,7 +96,7 @@
 {
     if (_cube == nil)
     {
-       
+        
         _cube =  [RMCubeMesh mesh];
         
         _cube.program = self.program;
@@ -134,24 +134,28 @@
     
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glEnable(GL_DEPTH_TEST);
-   
+    
     glEnable(GL_CULL_FACE);
-   // glCullFace(GL_BACK);
+    // glCullFace(GL_BACK);
 }
 
 
 - (void)render:(nullable RMRender*)render duration:(rmtime)deltaTime
 {
-    NSLog(@"fps:%@", @(1./deltaTime));
+    //NSLog(@"fps:%@", @(1./deltaTime));
     
     NSTimeInterval time = CACurrentMediaTime();
     
     //self.torus.minorRadius = (sin(time)*0.5 + 0.5)*0.6 + 0.1;
-    self.torus.smoothNormals = NO;
+    //self.torus.smoothNormals = NO;
     
     RMMatrix4x4* translate = [RMMatrix4x4 translateMatrixWithX:sin(0) y:0 z:-7];
     RMMatrix4x4* rotate = [RMMatrix4x4 rotateMatrixWithAngle:time x:sin(time*0.33) y:cos(time*0.33) z:0];
     RMMatrix4x4* model =  [rotate mul:translate];
+    
+    
+    [self.torus.program setParam:@"light" vector3:[RMVector3 vectorWithX:2 y:8 z:14]];
+    [self.torus.program setParam:@"specularPower" floatValue:(sin(time*0.15) + 1)*0.5*26+2];
     
     [self.torus.program setParam:@"projection" matrix:[self.camera matrix]];
     

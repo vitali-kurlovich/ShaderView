@@ -23,7 +23,7 @@
     self = [super initWithFormat:format];
     if (self)
     {
-        _rings = 12;
+        _rings = 16;
         _segments = 32;
         _minorRadius = 0.4;
         _majorRadius = 1;
