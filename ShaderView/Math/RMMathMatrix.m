@@ -8,6 +8,22 @@
 
 #import "RMMathMatrix.h"
 
+
+_RMMatrix2x2 const kRMIdentityMatrix2x2 =
+{
+    1, 0,
+    0, 1,
+};
+
+
+_RMMatrix3x3 const kRMIdentityMatrix3x3 =
+{
+    1, 0, 0,
+    0, 1, 0,
+    0, 0, 1,
+};
+
+
 _RMMatrix4x4 const kRMIdentityMatrix4x4 =
 {
     1, 0, 0, 0,
@@ -16,6 +32,32 @@ _RMMatrix4x4 const kRMIdentityMatrix4x4 =
     0, 0, 0, 1
 };
 
+_RMMatrix2x2 RMMulMatrix2x2(_RMMatrix2x2 const a, _RMMatrix2x2 const b)
+{
+    _RMMatrix2x2 c;
+    c.m00 = a.m00*b.m00 + a.m01*b.m10;
+    c.m01 = a.m00*b.m01 + a.m01*b.m11;
+    c.m10 = a.m10*b.m00 + a.m11*b.m10;
+    c.m11 = a.m10*b.m01 + a.m11*b.m11;
+    return c;
+}
+
+_RMMatrix3x3 RMMulMatrix3x3(_RMMatrix3x3 const a, _RMMatrix3x3 const b)
+{
+    _RMMatrix3x3 c;
+    c.m00 = a.m00*b.m00 + a.m01*b.m10 + a.m02*b.m20;
+    c.m01 = a.m00*b.m01 + a.m01*b.m11 + a.m02*b.m21;
+    c.m02 = a.m00*b.m02 + a.m01*b.m12 + a.m02*b.m22;
+    
+    c.m10 = a.m10*b.m00 + a.m11*b.m10 + a.m12*b.m20;
+    c.m11 = a.m10*b.m01 + a.m11*b.m11 + a.m12*b.m21;
+    c.m12 = a.m10*b.m02 + a.m11*b.m12 + a.m12*b.m22;
+    
+    c.m20 = a.m20*b.m00 + a.m21*b.m10 + a.m22*b.m20;
+    c.m21 = a.m20*b.m01 + a.m21*b.m11 + a.m22*b.m21;
+    c.m22 = a.m20*b.m02 + a.m21*b.m12 + a.m22*b.m22;
+    return c;
+}
 
 
 _RMMatrix4x4 RMMulMatrix4x4(_RMMatrix4x4 const a, _RMMatrix4x4 const b)
@@ -26,14 +68,17 @@ _RMMatrix4x4 RMMulMatrix4x4(_RMMatrix4x4 const a, _RMMatrix4x4 const b)
     c.m01 = a.m00*b.m01 + a.m01*b.m11 + a.m02*b.m21 + a.m03*b.m31;
     c.m02 = a.m00*b.m02 + a.m01*b.m12 + a.m02*b.m22 + a.m03*b.m32;
     c.m03 = a.m00*b.m03 + a.m01*b.m13 + a.m02*b.m23 + a.m03*b.m33;
+    
     c.m10 = a.m10*b.m00 + a.m11*b.m10 + a.m12*b.m20 + a.m13*b.m30;
     c.m11 = a.m10*b.m01 + a.m11*b.m11 + a.m12*b.m21 + a.m13*b.m31;
     c.m12 = a.m10*b.m02 + a.m11*b.m12 + a.m12*b.m22 + a.m13*b.m32;
     c.m13 = a.m10*b.m03 + a.m11*b.m13 + a.m12*b.m23 + a.m13*b.m33;
+    
     c.m20 = a.m20*b.m00 + a.m21*b.m10 + a.m22*b.m20 + a.m23*b.m30;
     c.m21 = a.m20*b.m01 + a.m21*b.m11 + a.m22*b.m21 + a.m23*b.m31;
     c.m22 = a.m20*b.m02 + a.m21*b.m12 + a.m22*b.m22 + a.m23*b.m32;
     c.m23 = a.m20*b.m03 + a.m21*b.m13 + a.m22*b.m23 + a.m23*b.m33;
+    
     c.m30 = a.m30*b.m00 + a.m31*b.m10 + a.m32*b.m20 + a.m33*b.m30;
     c.m31 = a.m30*b.m01 + a.m31*b.m11 + a.m32*b.m21 + a.m33*b.m31;
     c.m32 = a.m30*b.m02 + a.m31*b.m12 + a.m32*b.m22 + a.m33*b.m32;
