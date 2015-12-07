@@ -18,4 +18,7 @@
 
 - (nullable instancetype)initWithMatrix:(_RMMatrix4x4)matrix;
 
+- (nonnull instancetype)transpose;
+- (nullable instancetype)inverse;
+
 @end

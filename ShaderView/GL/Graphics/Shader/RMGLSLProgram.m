@@ -122,13 +122,28 @@
     [texture bindTexture];
 }
 
-- (void)applyColor:(UIColor*)color name:(NSString*)name
+
+- (void)applyVector2:(nonnull RMVector2*)vector name:(nonnull NSString*)name
 {
     int colorUniform = glGetUniformLocation(_program, [name UTF8String]);
-    CGFloat r,g,b,a;
-    [color getRed:&r green:&g blue:&b alpha:&a];
-    glUniform4f(colorUniform, r, g, b, a);
+    _RMVector2 v = vector.vector;
+     glUniform2f(colorUniform, v.x, v.y);
 }
+
+- (void)applyVector3:(nonnull RMVector3*)vector name:(nonnull NSString*)name
+{
+    int colorUniform = glGetUniformLocation(_program, [name UTF8String]);
+    _RMVector3 v = vector.vector;
+    glUniform3f(colorUniform, v.x, v.y, v.z);
+}
+
+- (void)applyVector4:(nonnull RMVector4*)vector name:(nonnull NSString*)name
+{
+    int colorUniform = glGetUniformLocation(_program, [name UTF8String]);
+    _RMVector4 v = vector.vector;
+    glUniform4f(colorUniform, v.x, v.y, v.z, v.w);
+}
+
 
 - (void)applyNumber:(nonnull NSNumber*)number name:(nonnull NSString*)name
 {

@@ -56,14 +56,21 @@
 - (void)enableVertexAttribute:(nonnull RMVertexAttribute*)attr numberOfComponents:(NSInteger)numberOfComponents stride:(NSInteger)stride offset:(NSInteger)offset;
 - (void)disableVertexAttribute:(nonnull RMVertexAttribute*)attr;
 
+- (void)applyVector2:(nonnull RMVector2*)vector name:(nonnull NSString*)name;
+- (void)applyVector3:(nonnull RMVector3*)vector name:(nonnull NSString*)name;
+- (void)applyVector4:(nonnull RMVector4*)vector name:(nonnull NSString*)name;
 
 - (void)applyMatrix2x2:(nonnull RMMatrix2x2*)matrix name:(nonnull NSString*)name;
 - (void)applyMatrix3x3:(nonnull RMMatrix3x3*)matrix name:(nonnull NSString*)name;
 - (void)applyMatrix4x4:(nonnull RMMatrix4x4*)matrix name:(nonnull NSString*)name;
 
 - (void)applyTexture:(nonnull RMTexture*)texture name:(nonnull NSString*)name textureUnit:(NSUInteger)unit;
-- (void)applyColor:(nonnull UIColor*)color name:(nonnull NSString*)name;
+
 - (void)applyNumber:(nonnull NSNumber*)number name:(nonnull NSString*)name;
 
 
+@end
+
+@interface RMProgram (UIKit)
+- (void)applyColor:(nonnull UIColor*)color name:(nonnull NSString*)name;
 @end

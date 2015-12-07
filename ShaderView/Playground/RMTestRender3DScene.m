@@ -150,10 +150,14 @@
     self.torus.smoothNormals = NO;
     
     RMMatrix4x4* translate = [RMMatrix4x4 translateMatrixWithX:sin(0) y:0 z:-7];
-    RMMatrix4x4* rotate = [RMMatrix4x4 rotateMatrixWithAngle:time x:0 y:1 z:0];
-    RMMatrix4x4* model =  [[rotate mul:translate] mul:[self.camera matrix]];
+    RMMatrix4x4* rotate = [RMMatrix4x4 rotateMatrixWithAngle:time x:sin(time*0.33) y:cos(time*0.33) z:0];
+    RMMatrix4x4* model =  [rotate mul:translate];
+    
+    [self.torus.program setParam:@"projection" matrix:[self.camera matrix]];
     
     [self.torus.program setParam:@"modelview" matrix:model];
+    [self.torus.program setParam:@"invmodelview" matrix:[[model inverse] transpose]];
+    
     [self.torus.program setParam:@"texture" texture:self.texture];
     
     [self.torus draw];

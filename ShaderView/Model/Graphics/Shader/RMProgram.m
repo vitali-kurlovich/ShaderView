@@ -8,6 +8,7 @@
 
 #import "RMProgram.h"
 
+@import UIKit;
 
 #import "RMVertexShader.h"
 #import "RMFragmentShader.h"
@@ -266,10 +267,21 @@
     
 }
 
-- (void)applyColor:(UIColor*)color name:(NSString*)name
+- (void)applyVector2:(nonnull RMVector2*)vector name:(nonnull NSString*)name
 {
     
 }
+
+- (void)applyVector3:(nonnull RMVector3*)vector name:(nonnull NSString*)name
+{
+    
+}
+
+- (void)applyVector4:(nonnull RMVector4*)vector name:(nonnull NSString*)name
+{
+    
+}
+
 
 - (void)applyNumber:(nonnull NSNumber*)number name:(nonnull NSString*)name
 {
@@ -288,3 +300,14 @@
 
 @end
 
+@implementation RMProgram (UIKit)
+
+- (void)applyColor:(UIColor*)color name:(NSString*)name
+{
+    CGFloat r,g,b,a;
+    [color getRed:&r green:&g blue:&b alpha:&a];
+    
+    _RMVector4 c = {r,g,b,a};
+    [self applyVector4:[RMVector4 vectorWithRMVector:c ] name:name];
+}
+@end

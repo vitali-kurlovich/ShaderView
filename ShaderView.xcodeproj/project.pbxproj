@@ -157,8 +157,8 @@
 		5D24AD011C109BBA00CD2D7E /* RMTestRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTestRender.m; sourceTree = "<group>"; };
 		5D24AD021C109BBA00CD2D7E /* RMTestRender3DScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTestRender3DScene.h; sourceTree = "<group>"; };
 		5D24AD031C109BBA00CD2D7E /* RMTestRender3DScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTestRender3DScene.m; sourceTree = "<group>"; };
-		5D24AD041C109BBA00CD2D7E /* simple.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = simple.frag; sourceTree = "<group>"; };
-		5D24AD051C109BBA00CD2D7E /* simple.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = simple.vert; sourceTree = "<group>"; };
+		5D24AD041C109BBA00CD2D7E /* simple.frag */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = simple.frag; sourceTree = "<group>"; };
+		5D24AD051C109BBA00CD2D7E /* simple.vert */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = simple.vert; sourceTree = "<group>"; };
 		5D24AD101C10A20400CD2D7E /* textures.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = textures.xcassets; sourceTree = "<group>"; };
 		5D368C3C1BFF17AD00FE2A83 /* RMRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRender.h; sourceTree = "<group>"; };
 		5D368C3D1BFF17AD00FE2A83 /* RMRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRender.m; sourceTree = "<group>"; };

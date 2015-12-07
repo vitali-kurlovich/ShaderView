@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class RMMatrix4x4;
+
 @interface RMTransform : NSObject
+
+@property (nonatomic, readonly) RMMatrix4x4* matrix;
 
 @property (nonatomic) float x;
 @property (nonatomic) float y;

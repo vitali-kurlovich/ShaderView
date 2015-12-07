@@ -84,4 +84,21 @@
     return [[[self class] alloc] initWithMatrix:result];
 }
 
+- (nullable instancetype)inverse
+{
+    BOOL sucess;
+     _RMMatrix4x4 result =  RMInverseMatrix4x4(_matrix, &sucess);
+    
+    if (sucess)
+    {
+        return [[[self class] alloc] initWithMatrix:result];
+    }
+    return nil;
+}
+
+- (instancetype)transpose
+{
+    return [[[self class] alloc] initWithMatrix:RMTransposeMatrix4x4(_matrix)];
+}
+
 @end
