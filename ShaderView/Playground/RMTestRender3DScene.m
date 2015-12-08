@@ -36,7 +36,7 @@
 
 @interface RMTestRender3DScene ()
 @property (nullable, readonly) RMTexture* texture;
-@property (nonatomic, readonly) RMCamera* camera;
+
 
 @property (nonatomic, readonly) RMMesh* cube;
 @property (nonatomic, readonly) RMTorusMesh* torus;
@@ -49,7 +49,7 @@
 
 @synthesize texture = _texture;
 
-@synthesize camera = _camera;
+
 @synthesize cube = _cube;
 @synthesize torus = _torus;
 @synthesize sphere = _sphere;
@@ -81,14 +81,10 @@
 }
 
 
-- (RMCamera*)camera
+- (RMCamera*)cameraWithFrame:(CGRect)frame
 {
-    if (_camera == nil)
-    {
-        float h = 4.0f ;//* self.frame.size.height / self.frame.size.width;
-        _camera = [RMCamera3D cameraWithLeft:-2 right:2 top:h/2 bottom:-h/2 near:4 far:10];
-    }
-    return _camera;
+        float h = 4.0f * frame.size.height / frame.size.width;
+        return [RMCamera3D cameraWithLeft:-2 right:2 top:h/2 bottom:-h/2 near:4 far:10];
 }
 
 
@@ -126,9 +122,9 @@
     return _sphere;
 }
 
-#pragma mark - RMRenderDelegate
+#pragma mark - RMRenderViewDelegate
 
-- (void)preRender:(RMRender*)render duration:(rmtime)deltaTime
+- (void)renderView:(nullable RMRenderView*)renderView  preRenderWithDuration:(rmtime)deltaTime
 {
     glClearColor(0.7, 0.7, 0.7, 1);
     
@@ -140,7 +136,7 @@
 }
 
 
-- (void)render:(nullable RMRender*)render duration:(rmtime)deltaTime
+- (void)renderView:(nullable RMRenderView*)renderView  renderWithDuration:(rmtime)deltaTime
 {
     //NSLog(@"fps:%@", @(1./deltaTime));
     
@@ -157,7 +153,7 @@
     [self.torus.program setParam:@"light" vector3:[RMVector3 vectorWithX:2 y:8 z:14]];
     [self.torus.program setParam:@"specularPower" floatValue:(sin(time*0.15) + 1)*0.5*26+2];
     
-    [self.torus.program setParam:@"projection" matrix:[self.camera matrix]];
+    [self.torus.program setParam:@"projection" matrix:[[self cameraWithFrame:renderView.frame] matrix]];
     
     [self.torus.program setParam:@"modelview" matrix:model];
     [self.torus.program setParam:@"invmodelview" matrix:[[model inverse] transpose]];

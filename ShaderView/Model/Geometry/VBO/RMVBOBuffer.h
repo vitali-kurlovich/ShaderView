@@ -30,9 +30,5 @@ typedef NS_ENUM(NSInteger, RMVBODataBufferType) {
 @end
 
 
-@interface RMVBOIndexBuffer : RMVBOBuffer
-
-@end
-
 
 

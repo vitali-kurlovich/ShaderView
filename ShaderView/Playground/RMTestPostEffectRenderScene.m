@@ -79,9 +79,9 @@ static Vert2D quad[]  = {
 }
 
 
-#pragma mark - RMRenderDelegate 
+#pragma mark - RMRenderViewDelegate
 
-- (void)preRender:(nullable RMRender*)render duration:(rmtime)deltaTime
+- (void)renderView:(nullable RMRenderView*)renderView  preRenderWithDuration:(rmtime)deltaTime
 {
     glClearColor(1, 0, 0, 1);
     
@@ -91,7 +91,7 @@ static Vert2D quad[]  = {
 }
 
 
-- (void)render:(nullable RMRender*)render duration:(rmtime)deltaTime
+- (void)renderView:(nullable RMRenderView*)renderView  renderWithDuration:(rmtime)deltaTime
 {
     [self.program useProgramBegin];
     [self.program prepareForUseVBOBuffer:self.quadObject.vertexBuffer];

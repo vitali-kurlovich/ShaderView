@@ -11,19 +11,19 @@
 @implementation RMGLTestRenderViewController
 
 
-- (void)renderView:(RMRenderView*)render  preRenderWithDuration:(rmtime)deltaTime
+- (void)renderView:(RMRenderView*)renderView  preRenderWithDuration:(rmtime)deltaTime
 {
-    [self.render preRender:nil duration:deltaTime];
+    [self.render renderView:renderView preRenderWithDuration:deltaTime];
 }
 
-- (void)renderView:(RMRenderView*)render  postRenderWithDuration:(rmtime)deltaTime
+- (void)renderView:(RMRenderView*)renderView  postRenderWithDuration:(rmtime)deltaTime
 {
-    [self.render postRender:nil duration:deltaTime];
+    [self.render renderView:renderView postRenderWithDuration:deltaTime];
 }
 
-- (void)renderView:(RMRenderView*)render  renderWithDuration:(rmtime)deltaTime
+- (void)renderView:(RMRenderView*)renderView  renderWithDuration:(rmtime)deltaTime
 {
-    [self.render render:nil duration:deltaTime];
+    [self.render renderView:renderView renderWithDuration:deltaTime];
 }
 
 

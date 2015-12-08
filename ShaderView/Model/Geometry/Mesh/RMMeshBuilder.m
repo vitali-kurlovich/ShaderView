@@ -16,6 +16,8 @@
 #import "RMVBOVertexAttribute.h"
 
 #import "RMVBOVertexBuffer.h"
+#import "RMVBOIndexBuffer.h"
+
 #import "RMGLVBOObject.h"
 
 #import "RMMesh.h"

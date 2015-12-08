@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import "RMRender.h"
+#import "RMRenderView.h"
 
 
 @class RMVertexAttribute;
 @class RMProgram;
 
-@interface RMTestRender : NSObject<RMRenderDelegate>
+@interface RMTestRender : NSObject<RMRenderViewDelegate>
 @property (nonnull, nonatomic, copy, readonly) NSArray<RMVertexAttribute*>* attributes;
 @property (nonnull, nonatomic, readonly) RMProgram* program;
 

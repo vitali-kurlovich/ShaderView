@@ -8,8 +8,7 @@
 
 @import UIKit;
 
-#import "RMRender.h"
-
+#import "RMCommon.h"
 
 @protocol RMRenderViewDelegate;
 @interface RMRenderView : UIView

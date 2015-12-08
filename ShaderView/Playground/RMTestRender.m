@@ -56,22 +56,21 @@
     return _program;
 }
 
-#pragma mark - RMRenderDelegate <NSObject>
+#pragma mark - RMRenderViewDelegate <NSObject>
 
-- (void)preRender:(nullable RMRender*)render duration:(rmtime)deltaTime
-{
-   
-    
-}
-
-- (void)postRender:(nullable RMRender*)render duration:(rmtime)deltaTime
+- (void)renderView:(nullable RMRenderView*)renderView  preRenderWithDuration:(rmtime)deltaTime
 {
     
 }
 
-- (void)render:(nullable RMRender*)render duration:(rmtime)deltaTime
+- (void)renderView:(nullable RMRenderView*)renderView  postRenderWithDuration:(rmtime)deltaTime
 {
+    
+}
 
+- (void)renderView:(nullable RMRenderView*)renderView  renderWithDuration:(rmtime)deltaTime
+{
+    
 }
 
 

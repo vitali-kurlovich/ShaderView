@@ -15,6 +15,14 @@
 @class RMTexture;
 @class UIColor;
 
+
+typedef NS_ENUM(NSInteger,  RMShaderProgramMatrix ) {
+    RMShaderProgramMatrixModelWord,
+    
+    //ModelViewMatrixInverseTranspose
+};
+
+
 @interface RMProgram : NSObject
 @property (nullable, nonatomic, copy) NSString* name;
 
@@ -50,7 +58,6 @@
 - (void)setParam:(nonnull NSString*)name matrix:(nullable RMMatrix*)matrix;
 - (void)setParam:(nonnull NSString*)name texture:(nullable RMTexture*)texture;
 - (void)setParam:(nonnull NSString*)name color:(nullable UIColor*)color;
-
 
 - (void)setParam:(nonnull NSString*)name floatValue:(float)value;
 - (void)setParam:(nonnull NSString*)name intValue:(int)value;

@@ -23,6 +23,7 @@
         _type = type;
         _count = count;
         _dataSize = dataSize;
+        
         if (RMVBODataBufferTypeStatic == type && buffer)
         {
             _buffer = malloc(_dataSize);
@@ -65,8 +66,6 @@
 
 
 
-@implementation RMVBOIndexBuffer
 
-@end
 
 

@@ -9,6 +9,7 @@
 #import "RMGLVBOObject.h"
 #import "RMVBOBuffer.h"
 #import "RMVBOVertexBuffer.h"
+#import "RMVBOIndexBuffer.h"
 
 #import "RMVBOObject+RMDrawable.h"
 

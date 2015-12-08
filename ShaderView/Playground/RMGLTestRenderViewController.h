@@ -8,8 +8,8 @@
 
 #import "RMGLRenderViewController.h"
 
-#import "RMRender.h"
+
 
 @interface RMGLTestRenderViewController : RMGLRenderViewController
-@property (nonatomic) id<RMRenderDelegate> render;
+@property (nonatomic) id<RMRenderViewDelegate> render;
 @end
