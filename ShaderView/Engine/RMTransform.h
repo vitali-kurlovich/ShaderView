@@ -12,7 +12,7 @@
 
 @interface RMTransform : NSObject
 
-@property (nonatomic, readonly) RMMatrix4x4* matrix;
+@property (nonnull, nonatomic, readonly) RMMatrix4x4* matrix;
 
 @property (nonatomic) float x;
 @property (nonatomic) float y;

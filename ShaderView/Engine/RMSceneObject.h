@@ -12,16 +12,17 @@
 
 
 
-@class RMTransform;
+@class RMTransform, RMRender;
 
 @interface RMSceneObject : NSObject
 
-
 @property (nonnull, nonatomic, readonly) RMTransform* transform;
-
+@property (nullable, nonatomic, readonly) RMRender* render;
 
 @property (nullable, nonatomic) RMSceneObject* parent;
 @property (nonnull, nonatomic,readonly) NSArray<RMSceneObject*>* child;
+
+
 
 - (void)update:(rmtime)deltaTime;
 
