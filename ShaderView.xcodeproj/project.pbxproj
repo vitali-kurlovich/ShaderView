@@ -93,6 +93,12 @@
 		5DC33D0C1C18985F004661A1 /* RMMeshQuad3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC33D061C18985F004661A1 /* RMMeshQuad3D.m */; };
 		5DC33D0D1C18985F004661A1 /* RMMeshTriangle3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC33D081C18985F004661A1 /* RMMeshTriangle3D.m */; };
 		5DC33D0E1C18985F004661A1 /* RMMeshVertex3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC33D0A1C18985F004661A1 /* RMMeshVertex3D.m */; };
+		5DC33D161C18A2AF004661A1 /* monkey.obj in Resources */ = {isa = PBXBuildFile; fileRef = 5DC33D151C18A2AF004661A1 /* monkey.obj */; };
+		5DC33D1B1C18B7AF004661A1 /* RMObjMeshLoaderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC33D1A1C18B7AF004661A1 /* RMObjMeshLoaderTest.m */; };
+		5DC33D261C18C58C004661A1 /* _RMObjMeshIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC33D211C18C58C004661A1 /* _RMObjMeshIndex.m */; };
+		5DC33D271C18C58C004661A1 /* RMObjMeshLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC33D231C18C58C004661A1 /* RMObjMeshLoader.m */; };
+		5DC33D281C18C58C004661A1 /* RMMeshLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC33D251C18C58C004661A1 /* RMMeshLoader.m */; };
+		5DC33D2A1C18C598004661A1 /* _RMObjMeshIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC33D211C18C58C004661A1 /* _RMObjMeshIndex.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -265,6 +271,14 @@
 		5DC33D081C18985F004661A1 /* RMMeshTriangle3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMeshTriangle3D.m; sourceTree = "<group>"; };
 		5DC33D091C18985F004661A1 /* RMMeshVertex3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMeshVertex3D.h; sourceTree = "<group>"; };
 		5DC33D0A1C18985F004661A1 /* RMMeshVertex3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMeshVertex3D.m; sourceTree = "<group>"; };
+		5DC33D151C18A2AF004661A1 /* monkey.obj */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = monkey.obj; sourceTree = "<group>"; };
+		5DC33D1A1C18B7AF004661A1 /* RMObjMeshLoaderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMObjMeshLoaderTest.m; sourceTree = "<group>"; };
+		5DC33D201C18C58C004661A1 /* _RMObjMeshIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _RMObjMeshIndex.h; sourceTree = "<group>"; };
+		5DC33D211C18C58C004661A1 /* _RMObjMeshIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _RMObjMeshIndex.m; sourceTree = "<group>"; };
+		5DC33D221C18C58C004661A1 /* RMObjMeshLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMObjMeshLoader.h; sourceTree = "<group>"; };
+		5DC33D231C18C58C004661A1 /* RMObjMeshLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMObjMeshLoader.m; sourceTree = "<group>"; };
+		5DC33D241C18C58C004661A1 /* RMMeshLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMeshLoader.h; sourceTree = "<group>"; };
+		5DC33D251C18C58C004661A1 /* RMMeshLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMeshLoader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +327,7 @@
 				5D24ACF91C109BBA00CD2D7E /* Playground */,
 				5D1583191BFDB7D4003A8AD7 /* AppDelegate.h */,
 				5D15831A1BFDB7D4003A8AD7 /* AppDelegate.m */,
+				5DC33D151C18A2AF004661A1 /* monkey.obj */,
 				5D15831F1BFDB7D4003A8AD7 /* Main.storyboard */,
 				5D1583221BFDB7D4003A8AD7 /* Assets.xcassets */,
 				5D1583241BFDB7D4003A8AD7 /* LaunchScreen.storyboard */,
@@ -338,6 +353,7 @@
 			children = (
 				5D1583321BFDB7D4003A8AD7 /* Info.plist */,
 				5D1583661BFDFF5D003A8AD7 /* RMTestMath.m */,
+				5DC33D1A1C18B7AF004661A1 /* RMObjMeshLoaderTest.m */,
 			);
 			path = ShaderViewTests;
 			sourceTree = "<group>";
@@ -519,6 +535,7 @@
 		5DC33C6B1C187067004661A1 /* Mesh */ = {
 			isa = PBXGroup;
 			children = (
+				5DC33D1E1C18C58C004661A1 /* MeshLoader */,
 				5DC33D021C18985F004661A1 /* MeshBuilder */,
 				5DC33C6C1C187067004661A1 /* Procedural */,
 				5DC33C781C187067004661A1 /* RMMesh.h */,
@@ -730,6 +747,27 @@
 			path = MeshBuilder;
 			sourceTree = "<group>";
 		};
+		5DC33D1E1C18C58C004661A1 /* MeshLoader */ = {
+			isa = PBXGroup;
+			children = (
+				5DC33D1F1C18C58C004661A1 /* ObjLoader */,
+				5DC33D241C18C58C004661A1 /* RMMeshLoader.h */,
+				5DC33D251C18C58C004661A1 /* RMMeshLoader.m */,
+			);
+			path = MeshLoader;
+			sourceTree = "<group>";
+		};
+		5DC33D1F1C18C58C004661A1 /* ObjLoader */ = {
+			isa = PBXGroup;
+			children = (
+				5DC33D201C18C58C004661A1 /* _RMObjMeshIndex.h */,
+				5DC33D211C18C58C004661A1 /* _RMObjMeshIndex.m */,
+				5DC33D221C18C58C004661A1 /* RMObjMeshLoader.h */,
+				5DC33D231C18C58C004661A1 /* RMObjMeshLoader.m */,
+			);
+			path = ObjLoader;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -818,6 +856,7 @@
 				5DB80ADF1C0F3CB000598E64 /* default.theme in Resources */,
 				5D24AD0C1C109BBA00CD2D7E /* simple.frag in Resources */,
 				5D1583231BFDB7D4003A8AD7 /* Assets.xcassets in Resources */,
+				5DC33D161C18A2AF004661A1 /* monkey.obj in Resources */,
 				5DA32CD01C08BD60005ED5C5 /* Images.xcassets in Resources */,
 				5D6617B71C0C795E00E3D4BE /* RMWizardStoryboard.storyboard in Resources */,
 				5D24AD071C109BBA00CD2D7E /* Julia.vert in Resources */,
@@ -844,7 +883,9 @@
 			files = (
 				5D45960A1C078F9C00C30F30 /* RMLineNumberView.m in Sources */,
 				5DC33CF21C1870B1004661A1 /* RMMathMatrix.m in Sources */,
+				5DC33D261C18C58C004661A1 /* _RMObjMeshIndex.m in Sources */,
 				5DC33CDA1C187067004661A1 /* RMSceneObject.m in Sources */,
+				5DC33D281C18C58C004661A1 /* RMMeshLoader.m in Sources */,
 				5DC33CC71C187067004661A1 /* RMVBOObject+Primitive.m in Sources */,
 				5DC33CFF1C18723A004661A1 /* RMMeshRender.m in Sources */,
 				5DC33CD31C187067004661A1 /* RMGLVBORender.m in Sources */,
@@ -903,6 +944,7 @@
 				5DC33CC91C187067004661A1 /* RMVBOVertexAttribute.m in Sources */,
 				5DC33CF61C1870B1004661A1 /* RMMatrix3x3.m in Sources */,
 				5DC33CD51C187067004661A1 /* RMMatrix+_RMOpenGL_.m in Sources */,
+				5DC33D271C18C58C004661A1 /* RMObjMeshLoader.m in Sources */,
 				5DC33D0D1C18985F004661A1 /* RMMeshTriangle3D.m in Sources */,
 				5D24AD081C109BBA00CD2D7E /* RMGLTestRenderViewController.m in Sources */,
 				5DA32CCB1C08A5B9005ED5C5 /* RMGLRenderViewController.m in Sources */,
@@ -921,6 +963,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DC33D2A1C18C598004661A1 /* _RMObjMeshIndex.m in Sources */,
+				5DC33D1B1C18B7AF004661A1 /* RMObjMeshLoaderTest.m in Sources */,
 				5D1583671BFDFF5D003A8AD7 /* RMTestMath.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

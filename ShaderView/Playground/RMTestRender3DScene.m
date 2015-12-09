@@ -19,8 +19,6 @@
 #import "RMVBOVertexBuffer.h"
 #import "RMVBOVertexAttribute.h"
 
-
-
 #import "RMGLTexture.h"
 
 #import "RMMath.h"
@@ -39,6 +37,8 @@
 #import "RMVBOObject+Primitive.h"
 #import "RMMeshRender.h"
 
+#import "RMObjMeshLoader.h"
+
 @import QuartzCore;
 
 @interface RMTestRender3DScene ()
@@ -51,6 +51,10 @@
 @property (nonatomic, readonly) RMTorusMesh* torusW;
 
 @property (nonatomic, readonly) RMSphereMesh* sphere;
+
+
+@property (nonatomic, readonly) RMMesh* monkey;
+
 @end
 
 
@@ -60,7 +64,7 @@
 @synthesize meshRender = _meshRender;
 
 @synthesize texture = _texture;
-
+@synthesize  monkey = _monkey;
 
 @synthesize cube = _cube;
 @synthesize torus = _torus;
@@ -94,6 +98,15 @@
         _meshRender = [RMMeshRender render];
     }
     return _meshRender;
+}
+
+- (RMMesh*)monkey
+{
+    if (_monkey == nil)
+    {
+        _monkey = [[[RMObjMeshLoader alloc] initWithFileName:@"monkey" ofType:@"obj"] mesh];
+    }
+    return _monkey;
 }
 
 - (RMTexture*)texture
@@ -174,7 +187,7 @@
     self.torus.smoothNormals = NO;
     
     self.meshRender.program = self.program;
-    self.meshRender.mesh = self.torus;
+    self.meshRender.mesh = self.monkey;
     
     RMMatrix4x4* translate = [RMMatrix4x4 translateMatrixWithX:sin(0) y:0 z:-7];
     RMMatrix4x4* rotate = [RMMatrix4x4 rotateMatrixWithAngle:time x:sin(time*0.33) y:cos(time*0.33) z:0];
