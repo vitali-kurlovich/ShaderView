@@ -6,7 +6,7 @@
 //  Copyright © 2015 Vitali Kurlovich. All rights reserved.
 //
 
-#import "RMGLRenderVBO.h"
+#import "RMGLVBORender.h"
 
 #import "RMVBOBuffer.h"
 #import "RMVBOVertexBuffer.h"
@@ -16,7 +16,7 @@
 
 @import OpenGLES;
 
-@interface RMGLRenderVBO ()
+@interface RMGLVBORender ()
 {
     struct {
         unsigned int vertexBufferDidPrepare:1;
@@ -31,7 +31,7 @@
 }
 @end
 
-@implementation RMGLRenderVBO
+@implementation RMGLVBORender
 
 - (void)setVbo:(RMVBOObject *)vbo
 {

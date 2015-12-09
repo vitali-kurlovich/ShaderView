@@ -34,7 +34,7 @@
 
 #import "RMRender.h"
 
-#import "RMRenderVBO.h"
+#import "RMVBORender.h"
 
 #import "RMVBOObject+Primitive.h"
 
@@ -43,7 +43,7 @@
 @interface RMTestRender3DScene ()
 @property (nullable, readonly) RMTexture* texture;
 
-@property (nonatomic, readonly) RMRenderVBO* vboRender;
+@property (nonatomic, readonly) RMVBORender* vboRender;
 
 @property (nonatomic, readonly) RMMesh* cube;
 @property (nonatomic, readonly) RMTorusMesh* torus;
@@ -86,11 +86,11 @@
 }
 
 
-- (RMRenderVBO*)vboRender
+- (RMVBORender*)vboRender
 {
     if (_vboRender == nil)
     {
-        _vboRender = [RMRenderVBO render];
+        _vboRender = [RMVBORender render];
     }
     return _vboRender;
 }

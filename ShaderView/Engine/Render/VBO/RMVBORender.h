@@ -1,13 +1,16 @@
 //
-//  RMGLRenderVBO.h
+//  RMRenderVBO.h
 //  ShaderView
 //
 //  Created by Vitali Kurlovich on 12/8/15.
 //  Copyright © 2015 Vitali Kurlovich. All rights reserved.
 //
 
-#import "RMRenderVBO.h"
+#import "RMRender.h"
 
-@interface RMGLRenderVBO : RMRenderVBO
+@class RMVBOObject;
+
+@interface RMVBORender : RMRender
+@property (nullable) RMVBOObject* vbo;
 
 @end
