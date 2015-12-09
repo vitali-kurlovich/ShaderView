@@ -14,12 +14,12 @@
 
 
 #import "RMVBOBuffer.h"
-#import "RMGLVBOObject.h"
+#import "RMVBOObject.h"
 
 #import "RMVBOVertexBuffer.h"
 #import "RMVBOVertexAttribute.h"
 
-#import "RMVBOObject+RMDrawable.h"
+
 
 #import "RMGLTexture.h"
 

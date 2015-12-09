@@ -10,13 +10,13 @@
 
 #import "RMCommon.h"
 
-#import "RMDrawable.h"
+
 
 @class RMTransform;
 
 @interface RMSceneObject : NSObject
 
-@property (nullable, nonatomic, readonly) id<RMDrawable> drawable;
+
 @property (nonnull, nonatomic, readonly) RMTransform* transform;
 
 

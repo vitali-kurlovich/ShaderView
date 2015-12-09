@@ -13,11 +13,11 @@
 #import "RMVertexAttribute.h"
 
 #import "RMVBOBuffer.h"
-#import "RMGLVBOObject.h"
+#import "RMVBOObject.h"
 
 #import "RMVBOVertexBuffer.h"
 
-#import "RMVBOObject+RMDrawable.h"
+
 
 @interface RMTestPostEffectRenderScene ()
 
@@ -72,7 +72,7 @@ static Vert2D quad[]  = {
                                                attributes:attrs
                                                 primitive:RMVBOVertexBufferPrimitiveTriangleStrip];
         
-        _quadObject = [RMGLVBOObject objectWithVertexData:vb indexData:nil];
+        _quadObject = [RMVBOObject objectWithVertexData:vb indexData:nil];
         [_quadObject prepareBuffer];
     }
     return _quadObject;
@@ -96,7 +96,7 @@ static Vert2D quad[]  = {
     [self.program useProgramBegin];
     [self.program prepareForUseVBOBuffer:self.quadObject.vertexBuffer];
     
-    [self.quadObject draw];
+   // [self.quadObject draw];
     
     [self.program useProgramEnd];
 }
