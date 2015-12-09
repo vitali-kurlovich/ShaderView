@@ -18,8 +18,19 @@
 
 - (void)preRender
 {
-    [super preRender];
-    [self.program prepareForUseVBOBuffer:self.vbo.vertexBuffer];
+  
+        [super preRender];
+        [self.program prepareForUseVBOBuffer:self.vbo.vertexBuffer];
+    
+}
+
+
+- (void)render
+{
+    if (self.vbo)
+    {
+        [super render];
+    }
 }
 
 

@@ -37,13 +37,14 @@
 #import "RMVBORender.h"
 
 #import "RMVBOObject+Primitive.h"
+#import "RMMeshRender.h"
 
 @import QuartzCore;
 
 @interface RMTestRender3DScene ()
 @property (nullable, readonly) RMTexture* texture;
 
-@property (nonatomic, readonly) RMVBORender* vboRender;
+@property (nonatomic, readonly) RMMeshRender* meshRender;
 
 @property (nonatomic, readonly) RMMesh* cube;
 @property (nonatomic, readonly) RMTorusMesh* torus;
@@ -56,7 +57,7 @@
 
 @implementation RMTestRender3DScene
 
-@synthesize vboRender = _vboRender;
+@synthesize meshRender = _meshRender;
 
 @synthesize texture = _texture;
 
@@ -86,13 +87,13 @@
 }
 
 
-- (RMVBORender*)vboRender
+- (RMMeshRender*)meshRender
 {
-    if (_vboRender == nil)
+    if (_meshRender == nil)
     {
-        _vboRender = [RMVBORender render];
+        _meshRender = [RMMeshRender render];
     }
-    return _vboRender;
+    return _meshRender;
 }
 
 - (RMTexture*)texture
@@ -172,10 +173,12 @@
     //self.torus.minorRadius = (sin(time)*0.5 + 0.5)*0.6 + 0.1;
     self.torus.smoothNormals = NO;
     
+    self.meshRender.program = self.program;
+    self.meshRender.mesh = self.torus;
+    
     RMMatrix4x4* translate = [RMMatrix4x4 translateMatrixWithX:sin(0) y:0 z:-7];
     RMMatrix4x4* rotate = [RMMatrix4x4 rotateMatrixWithAngle:time x:sin(time*0.33) y:cos(time*0.33) z:0];
     RMMatrix4x4* model =  [rotate mul:translate];
-    
     
     [self.program setParam:@"light" vector3:[RMVector3 vectorWithX:2 y:8 z:14]];
     [self.program setParam:@"specularPower" floatValue:(sin(time*0.15) + 1)*0.5*26+2];
@@ -187,20 +190,19 @@
     
     [self.program setParam:@"texture" texture:self.texture];
     
-    self.vboRender.program = self.program;
-    
-    self.vboRender.vbo = [self.torus.vbo cloneVBOWithPrimitiveType:RMVBOVertexBufferPrimitiveLines];
-    
-    [self.vboRender render];
-    
+    self.meshRender.mode = RMMeshRenderSolid;
+    [self.meshRender render];
     
     translate = [RMMatrix4x4 translateMatrixWithX:sin(time) y:0 z:-8];
+    rotate = [RMMatrix4x4 rotateMatrixWithAngle:time*1.2 x:sin(time*0.43) y:0 z:cos(time*0.43)];
     model =  [rotate mul:translate];
+    
+    [self.program setParam:@"invmodelview" matrix:[[model inverse] transpose]];
     [self.program setParam:@"modelview" matrix:model];
     
-    self.vboRender.vbo = self.sphere.vbo;
-    
-    [self.vboRender render];
+    self.meshRender.mode = RMMeshRenderWireframe;
+    [self.meshRender render];
+
 }
 
 
