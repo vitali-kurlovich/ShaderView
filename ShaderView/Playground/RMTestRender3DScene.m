@@ -37,7 +37,6 @@
 #import "RMVBOObject+Primitive.h"
 #import "RMMeshRender.h"
 
-#import "RMObjMeshLoader.h"
 
 @import QuartzCore;
 
@@ -104,7 +103,7 @@
 {
     if (_monkey == nil)
     {
-        _monkey = [[[RMObjMeshLoader alloc] initWithFileName:@"monkey" ofType:@"obj"] mesh];
+        _monkey = [RMMesh meshNamed:@"monkey"];
     }
     return _monkey;
 }

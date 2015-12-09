@@ -16,7 +16,7 @@
 
 @property (nullable, readonly) RMMesh* mesh;
 
-+ (NSArray<NSString*>*)supportedType;
++ (nonnull NSArray<NSString*>*)supportedType;
 
 - (nullable instancetype)initWithFileName:(nonnull NSString*)fileName ofType:(nonnull NSString*)type NS_DESIGNATED_INITIALIZER;
 

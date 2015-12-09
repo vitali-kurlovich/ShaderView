@@ -99,6 +99,7 @@
 		5DC33D271C18C58C004661A1 /* RMObjMeshLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC33D231C18C58C004661A1 /* RMObjMeshLoader.m */; };
 		5DC33D281C18C58C004661A1 /* RMMeshLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC33D251C18C58C004661A1 /* RMMeshLoader.m */; };
 		5DC33D2A1C18C598004661A1 /* _RMObjMeshIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC33D211C18C58C004661A1 /* _RMObjMeshIndex.m */; };
+		5DC33D2D1C18C7B5004661A1 /* RMMesh+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC33D2C1C18C7B5004661A1 /* RMMesh+Loading.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -279,6 +280,7 @@
 		5DC33D231C18C58C004661A1 /* RMObjMeshLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMObjMeshLoader.m; sourceTree = "<group>"; };
 		5DC33D241C18C58C004661A1 /* RMMeshLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMeshLoader.h; sourceTree = "<group>"; };
 		5DC33D251C18C58C004661A1 /* RMMeshLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMeshLoader.m; sourceTree = "<group>"; };
+		5DC33D2C1C18C7B5004661A1 /* RMMesh+Loading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RMMesh+Loading.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -540,6 +542,7 @@
 				5DC33C6C1C187067004661A1 /* Procedural */,
 				5DC33C781C187067004661A1 /* RMMesh.h */,
 				5DC33C791C187067004661A1 /* RMMesh.m */,
+				5DC33D2C1C18C7B5004661A1 /* RMMesh+Loading.m */,
 			);
 			path = Mesh;
 			sourceTree = "<group>";
@@ -945,6 +948,7 @@
 				5DC33CF61C1870B1004661A1 /* RMMatrix3x3.m in Sources */,
 				5DC33CD51C187067004661A1 /* RMMatrix+_RMOpenGL_.m in Sources */,
 				5DC33D271C18C58C004661A1 /* RMObjMeshLoader.m in Sources */,
+				5DC33D2D1C18C7B5004661A1 /* RMMesh+Loading.m in Sources */,
 				5DC33D0D1C18985F004661A1 /* RMMeshTriangle3D.m in Sources */,
 				5D24AD081C109BBA00CD2D7E /* RMGLTestRenderViewController.m in Sources */,
 				5DA32CCB1C08A5B9005ED5C5 /* RMGLRenderViewController.m in Sources */,
