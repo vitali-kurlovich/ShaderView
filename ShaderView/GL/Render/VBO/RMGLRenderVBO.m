@@ -86,6 +86,10 @@
             prim = GL_TRIANGLE_FAN;
             break;
             
+        case RMVBOVertexBufferPrimitiveLines:
+            prim = GL_LINES;
+            break;
+            
         case RMVBOVertexBufferPrimitiveTriangle:
         default:
             prim = GL_TRIANGLES;

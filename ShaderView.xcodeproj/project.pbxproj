@@ -83,6 +83,7 @@
 		5DC33C5C1C184726004661A1 /* RMRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC33C581C184726004661A1 /* RMRender.m */; };
 		5DC33C5D1C184726004661A1 /* RMRenderVBO.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC33C5B1C184726004661A1 /* RMRenderVBO.m */; };
 		5DC33C621C184753004661A1 /* RMGLRenderVBO.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC33C611C184753004661A1 /* RMGLRenderVBO.m */; };
+		5DC33C681C185062004661A1 /* RMVBOObject+Primitive.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC33C671C185062004661A1 /* RMVBOObject+Primitive.m */; };
 		5DFC464D1C020F280085852B /* RMMaterial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC464C1C020F280085852B /* RMMaterial.m */; };
 		5DFC468E1C02361D0085852B /* RMVBOBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC468B1C02361D0085852B /* RMVBOBuffer.m */; };
 		5DFC468F1C02361D0085852B /* RMVBOObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC468D1C02361D0085852B /* RMVBOObject.m */; };
@@ -237,6 +238,8 @@
 		5DC33C5B1C184726004661A1 /* RMRenderVBO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRenderVBO.m; sourceTree = "<group>"; };
 		5DC33C601C184753004661A1 /* RMGLRenderVBO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMGLRenderVBO.h; sourceTree = "<group>"; };
 		5DC33C611C184753004661A1 /* RMGLRenderVBO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMGLRenderVBO.m; sourceTree = "<group>"; };
+		5DC33C661C185062004661A1 /* RMVBOObject+Primitive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RMVBOObject+Primitive.h"; sourceTree = "<group>"; };
+		5DC33C671C185062004661A1 /* RMVBOObject+Primitive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RMVBOObject+Primitive.m"; sourceTree = "<group>"; };
 		5DFC464B1C020F280085852B /* RMMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMMaterial.h; sourceTree = "<group>"; };
 		5DFC464C1C020F280085852B /* RMMaterial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMMaterial.m; sourceTree = "<group>"; };
 		5DFC468A1C02361D0085852B /* RMVBOBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMVBOBuffer.h; sourceTree = "<group>"; };
@@ -681,6 +684,8 @@
 				5D2438111C04C08D00AB90D6 /* RMVBOVertexBuffer.m */,
 				5D892EF41C16B85F00011314 /* RMVBOIndexBuffer.h */,
 				5D892EF51C16B85F00011314 /* RMVBOIndexBuffer.m */,
+				5DC33C661C185062004661A1 /* RMVBOObject+Primitive.h */,
+				5DC33C671C185062004661A1 /* RMVBOObject+Primitive.m */,
 			);
 			path = VBO;
 			sourceTree = "<group>";
@@ -829,6 +834,7 @@
 				5D858F411C13A51500A95C1B /* RMTorusMesh.m in Sources */,
 				5DB80AD71C0F3C9800598E64 /* RMHighlightingTextStorage.m in Sources */,
 				5DB80AE71C0F3D3B00598E64 /* UIColor+RMUtils.m in Sources */,
+				5DC33C681C185062004661A1 /* RMVBOObject+Primitive.m in Sources */,
 				5DFC46B71C02389D0085852B /* RMProgram.m in Sources */,
 				5DFC46B91C02389D0085852B /* RMVertexShader.m in Sources */,
 				5DFC46BF1C0251350085852B /* RMVertexAttribute.m in Sources */,

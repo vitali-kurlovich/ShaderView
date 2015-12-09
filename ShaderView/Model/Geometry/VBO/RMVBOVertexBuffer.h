@@ -13,6 +13,9 @@ typedef NS_ENUM(NSInteger, RMVBOVertexBufferPrimitive) {
     RMVBOVertexBufferPrimitiveTriangle = 0,
     RMVBOVertexBufferPrimitiveTriangleStrip,
     RMVBOVertexBufferPrimitiveTriangleFan,
+    
+    RMVBOVertexBufferPrimitiveLines,
+    RMVBOVertexBufferPrimitivePoints
 };
 
 

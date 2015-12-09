@@ -35,6 +35,7 @@
 #import "RMRender.h"
 
 #import "RMGLRenderVBO.h"
+#import "RMVBOObject+Primitive.h"
 
 @import QuartzCore;
 
@@ -45,6 +46,8 @@
 
 @property (nonatomic, readonly) RMMesh* cube;
 @property (nonatomic, readonly) RMTorusMesh* torus;
+@property (nonatomic, readonly) RMTorusMesh* torusW;
+
 @property (nonatomic, readonly) RMSphereMesh* sphere;
 @end
 
@@ -59,6 +62,9 @@
 
 @synthesize cube = _cube;
 @synthesize torus = _torus;
+
+@synthesize torusW = _torusW;
+
 @synthesize sphere = _sphere;
 
 + (Class)programClass
@@ -128,6 +134,9 @@
     return _torus;
 }
 
+
+
+
 - (RMSphereMesh*)sphere
 {
     if (_sphere == nil)
@@ -179,7 +188,7 @@
     
     self.vboRender.program = self.program;
     
-    self.vboRender.vbo = self.torus.vbo;
+    self.vboRender.vbo = [self.torus.vbo cloneVBOWithPrimitiveType:RMVBOVertexBufferPrimitiveLines];
     
     [self.vboRender render];
     
