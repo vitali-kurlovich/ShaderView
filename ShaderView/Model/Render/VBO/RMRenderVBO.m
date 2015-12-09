@@ -11,6 +11,8 @@
 
 #import "RMProgram.h"
 
+#import "RMGLRenderVBO.h"
+
 @implementation RMRenderVBO
 
 
@@ -19,6 +21,17 @@
     [super preRender];
     [self.program prepareForUseVBOBuffer:self.vbo.vertexBuffer];
 }
+
+
++ (nullable Class)renderClassForRenderDevice:(RMRenderDevice)device
+{
+    if (device == RMRenderDeviceOpenGL)
+    {
+        return [RMGLRenderVBO class];
+    }
+    return [self class];
+}
+
 
 
 @end

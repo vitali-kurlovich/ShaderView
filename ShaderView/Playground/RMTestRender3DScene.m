@@ -34,7 +34,8 @@
 
 #import "RMRender.h"
 
-#import "RMGLRenderVBO.h"
+#import "RMRenderVBO.h"
+
 #import "RMVBOObject+Primitive.h"
 
 @import QuartzCore;
@@ -89,7 +90,7 @@
 {
     if (_vboRender == nil)
     {
-        _vboRender = [[RMGLRenderVBO alloc] init];
+        _vboRender = [RMRenderVBO render];
     }
     return _vboRender;
 }

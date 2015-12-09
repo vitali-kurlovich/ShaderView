@@ -17,7 +17,26 @@
 
 @end
 
+static RMRenderDevice renderDevice = RMRenderDeviceOpenGL;
+
 @implementation RMRender
+
+
++ (nullable Class)renderClassForRenderDevice:(RMRenderDevice)engine
+{
+    return [self class];
+}
+
+- (nullable instancetype)initWithRenderEngine:(RMRenderDevice)engine
+{
+    return [self init];
+}
+
++ (instancetype)render
+{
+    return [[[[self class] renderClassForRenderDevice:[RMRender renderDevice]] alloc] init];
+}
+
 
 - (void)draw
 {
@@ -41,6 +60,21 @@
 - (void)postRender
 {
      [self.program useProgramEnd];
+}
+
+
++ (void)setRenderDevice:(RMRenderDevice)device
+{
+ 
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        renderDevice = device;
+    });
+}
+
++ (RMRenderDevice)renderDevice
+{
+    RMRenderDevice device = renderDevice;
+    return device;
 }
 
 
