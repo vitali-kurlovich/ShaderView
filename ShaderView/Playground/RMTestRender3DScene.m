@@ -32,11 +32,16 @@
 #import "RMSphereMesh.h"
 #import "RMTorusMesh.h"
 
+#import "RMRender.h"
+
+#import "RMGLRenderVBO.h"
+
 @import QuartzCore;
 
 @interface RMTestRender3DScene ()
 @property (nullable, readonly) RMTexture* texture;
 
+@property (nonatomic, readonly) RMRenderVBO* vboRender;
 
 @property (nonatomic, readonly) RMMesh* cube;
 @property (nonatomic, readonly) RMTorusMesh* torus;
@@ -46,6 +51,8 @@
 
 
 @implementation RMTestRender3DScene
+
+@synthesize vboRender = _vboRender;
 
 @synthesize texture = _texture;
 
@@ -69,6 +76,16 @@
       ];
     
     return [self initWithVertexShader:vs fragmentShader:fs attributes:attributes];
+}
+
+
+- (RMRenderVBO*)vboRender
+{
+    if (_vboRender == nil)
+    {
+        _vboRender = [[RMGLRenderVBO alloc] init];
+    }
+    return _vboRender;
 }
 
 - (RMTexture*)texture
@@ -95,7 +112,7 @@
         
         _cube =  [RMCubeMesh mesh];
         
-        _cube.program = self.program;
+        
     }
     return _cube;
 }
@@ -106,7 +123,7 @@
     if (_torus == nil)
     {
         _torus = [RMTorusMesh mesh];
-        _torus.program = self.program;
+       
     }
     return _torus;
 }
@@ -116,7 +133,7 @@
     if (_sphere == nil)
     {
         _sphere = [RMSphereMesh mesh];
-        _sphere.program = self.program;
+       
     }
     
     return _sphere;
@@ -150,17 +167,30 @@
     RMMatrix4x4* model =  [rotate mul:translate];
     
     
-    [self.torus.program setParam:@"light" vector3:[RMVector3 vectorWithX:2 y:8 z:14]];
-    [self.torus.program setParam:@"specularPower" floatValue:(sin(time*0.15) + 1)*0.5*26+2];
+    [self.program setParam:@"light" vector3:[RMVector3 vectorWithX:2 y:8 z:14]];
+    [self.program setParam:@"specularPower" floatValue:(sin(time*0.15) + 1)*0.5*26+2];
     
-    [self.torus.program setParam:@"projection" matrix:[[self cameraWithFrame:renderView.frame] matrix]];
+    [self.program setParam:@"projection" matrix:[[self cameraWithFrame:renderView.frame] matrix]];
     
-    [self.torus.program setParam:@"modelview" matrix:model];
-    [self.torus.program setParam:@"invmodelview" matrix:[[model inverse] transpose]];
+    [self.program setParam:@"modelview" matrix:model];
+    [self.program setParam:@"invmodelview" matrix:[[model inverse] transpose]];
     
-    [self.torus.program setParam:@"texture" texture:self.texture];
+    [self.program setParam:@"texture" texture:self.texture];
     
-    [self.torus draw];
+    self.vboRender.program = self.program;
+    
+    self.vboRender.vbo = self.torus.vbo;
+    
+    [self.vboRender render];
+    
+    
+    translate = [RMMatrix4x4 translateMatrixWithX:sin(time) y:0 z:-8];
+    model =  [rotate mul:translate];
+    [self.program setParam:@"modelview" matrix:model];
+    
+    self.vboRender.vbo = self.sphere.vbo;
+    
+    [self.vboRender render];
 }
 
 

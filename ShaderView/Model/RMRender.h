@@ -8,32 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
-#import "RMCommon.h"
 
-@protocol RMRenderDelegate;
+
+
+@class RMProgram;
 
 @interface RMRender : NSObject
 
-@property (nullable, nonatomic, weak) id<RMRenderDelegate> delegate;
+@property (nullable, nonatomic) RMProgram* program;
 
-- (void)render:(rmtime)deltaTime;
-- (void)preRender:(rmtime)deltaTime;
-- (void)postRender:(rmtime)deltaTime;
+- (void)draw;
 
-@end
+- (void)render;
 
-
-
-@protocol RMRenderDelegate <NSObject>
-@optional
-- (void)preRender:(nullable RMRender*)render duration:(rmtime)deltaTime;
-- (void)postRender:(nullable RMRender*)render duration:(rmtime)deltaTime;
-
-- (void)render:(nullable RMRender*)render duration:(rmtime)deltaTime;
+- (void)preRender;
+- (void)postRender;
 
 @end
 
 
-@interface RMRenderConfig : NSObject
 
-@end

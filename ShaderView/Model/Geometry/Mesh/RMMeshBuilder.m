@@ -18,7 +18,7 @@
 #import "RMVBOVertexBuffer.h"
 #import "RMVBOIndexBuffer.h"
 
-#import "RMGLVBOObject.h"
+#import "RMVBOObject.h"
 
 #import "RMMesh.h"
 
@@ -41,8 +41,6 @@
 @property (nonatomic, readonly) RMVector2* zeroVector2;
 @property (nonatomic, readonly) RMVector3* zeroVector3;
 @property (nonatomic, readonly) RMVector4* zeroVector4;
-
-
 
 @end
 
@@ -295,7 +293,7 @@
         
     }
     
-    return [RMMesh meshWithVBO:[RMGLVBOObject objectWithVertexData:vb indexData:ib]];
+    return [RMMesh meshWithVBO:[RMVBOObject objectWithVertexData:vb indexData:ib]];
 }
 
 - (void)reset

@@ -8,65 +8,41 @@
 
 #import "RMRender.h"
 
+#import "RMProgram.h"
 
 @interface RMRender ()
 {
-    struct {
-        unsigned int delegatePreRender:1;
-        unsigned int delegatePostRender:1;
-        unsigned int delegateRender:1;
-    } _renderFlags;
+
 }
 
 @end
 
 @implementation RMRender
 
-
-- (void)setDelegate:(id<RMRenderDelegate>)delegate
-{
-    if (_delegate != delegate)
-    {
-        _delegate = delegate;
-        
-        _renderFlags.delegatePreRender = [delegate respondsToSelector:@selector(preRender:duration:)];
-        _renderFlags.delegatePostRender= [delegate respondsToSelector:@selector(postRender:duration:)];
-        _renderFlags.delegateRender = [delegate respondsToSelector:@selector(render:duration:)];
-    }
-}
-
-- (void)configureViewportWithX:(float)x y:(float)y width:(float)width height:(float)height
+- (void)draw
 {
     
 }
 
-- (void)prepareRenderBuffersWithWidth:(float)width height:(float)height
+- (void)render
 {
+    [self preRender];
     
+    [self draw];
+    
+    [self postRender];
 }
 
-- (void)preRender:(rmtime)deltaTime
+- (void)preRender
 {
-    if (_renderFlags.delegatePreRender)
-    {
-        [self.delegate preRender:self duration:deltaTime];
-    }
+    [self.program useProgramBegin];
 }
 
-- (void)postRender:(rmtime)deltaTime
+- (void)postRender
 {
-    if (_renderFlags.delegatePostRender)
-    {
-        [self.delegate postRender:self duration:deltaTime];
-    }
+     [self.program useProgramEnd];
 }
 
-- (void)render:(rmtime)deltaTime
-{
 
-    if (_renderFlags.delegateRender)
-    {
-        [self.delegate render:self duration:deltaTime];
-    }
-}
+
 @end
