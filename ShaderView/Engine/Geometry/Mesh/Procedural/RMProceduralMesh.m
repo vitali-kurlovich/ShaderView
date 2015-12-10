@@ -82,8 +82,7 @@
         
         [self build:builder];
         _mesh = [builder build];
-        [_mesh.vbo prepareBuffer];
-        
+       
         [builder reset];
     }
     

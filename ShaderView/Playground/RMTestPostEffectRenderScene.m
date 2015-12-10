@@ -73,7 +73,7 @@ static Vert2D quad[]  = {
                                                 primitive:RMVBOVertexBufferPrimitiveTriangleStrip];
         
         _quadObject = [RMVBOObject objectWithVertexData:vb indexData:nil];
-        [_quadObject prepareBuffer];
+       
     }
     return _quadObject;
 }

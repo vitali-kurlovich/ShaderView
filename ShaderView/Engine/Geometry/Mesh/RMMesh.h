@@ -18,12 +18,13 @@
 
 - (nonnull instancetype)initWithVBO:(nullable RMVBOObject*)vbo;
 
-
-
 @end
-
 
 
 @interface RMMesh (Loading)
 + (nullable instancetype)meshNamed:(nonnull NSString*)name;
+@end
+
+@interface RMMesh (Serialization)<NSCoding>
+- (BOOL)writeToFile:(nonnull NSString*)filePath;
 @end

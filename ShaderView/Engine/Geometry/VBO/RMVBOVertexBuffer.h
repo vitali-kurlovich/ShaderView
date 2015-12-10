@@ -65,3 +65,8 @@ typedef NS_ENUM(NSInteger, RMVBOVertexBufferPrimitive) {
 
 
 @end
+
+@interface RMVBOVertexBuffer (Serialization)<NSCoding>
+
+@end
+

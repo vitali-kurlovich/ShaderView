@@ -17,7 +17,7 @@
     return [self initWithVertexData:vb indexData:nil];
 }
 
-- (nonnull instancetype)initWithVertexData:(RMVBOVertexBuffer*)vertexData indexData:( RMVBOIndexBuffer*)indexData
+- (nonnull instancetype)initWithVertexData:(RMVBOVertexBuffer*)vertexData indexData:(RMVBOIndexBuffer*)indexData
 {
     self = [super init];
     if (self)
@@ -35,23 +35,28 @@
     return [[[self class] alloc] initWithVertexData:vertexData indexData:indexData];
 }
 
+@end
 
-- (BOOL)prepareBuffer
+
+static NSString * const kVertexBufferKey = @"vertexBuffer";
+static NSString * const kIndexBufferKey = @"indexBuffer";
+
+@implementation RMVBOObject (Serialization)
+
+#pragma mark - NSCoding
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    return NO;
+    [aCoder encodeObject:self.vertexBuffer forKey:kVertexBufferKey];
+    [aCoder encodeObject:self.indexBuffer forKey:kIndexBufferKey];
 }
 
-- (void)bindBuffer
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
+    RMVBOVertexBuffer* vb = [aDecoder decodeObjectForKey:kVertexBufferKey];
+    RMVBOIndexBuffer* ib = [aDecoder decodeObjectForKey:kIndexBufferKey];
     
+    return [self initWithVertexData:vb indexData:ib];
 }
-
-
-- (void)setNeedsToRefrashBuffers
-{
-    
-}
-
-
 
 @end

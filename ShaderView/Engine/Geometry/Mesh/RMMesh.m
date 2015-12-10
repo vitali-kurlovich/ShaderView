@@ -45,5 +45,28 @@
 @end
 
 
+static NSString * const kVBOBufferKey = @"vbo";
+
+@implementation RMMesh (Serialization)
+
+- (BOOL)writeToFile:(NSString*)filePath
+{
+     return [NSKeyedArchiver archiveRootObject:self toFile:filePath];
+}
+
+#pragma mark - NSCoding
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.vbo forKey:kVBOBufferKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    RMVBOObject* vbo = [aDecoder decodeObjectForKey:kVBOBufferKey];
+    return [self initWithVBO:vbo];
+}
 
 
+
+@end

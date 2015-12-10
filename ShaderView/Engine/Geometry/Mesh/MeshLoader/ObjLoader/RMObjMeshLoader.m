@@ -181,7 +181,7 @@
         }
         
     }
-    
+    builder.useOptimization = YES;
     return [builder build];
 }
 

@@ -10,12 +10,5 @@
 
 @implementation RMVBOIndexBuffer
 
-- (instancetype)initWithBuffer:(void*)buffer count:(NSInteger)count dataSize:(NSInteger)dataSize generateWireframe:(BOOL)wireframe
-{
-    if (wireframe)
-    {
-        
-    }
-    return [self initWithBuffer:buffer type:RMVBODataBufferTypeStatic count:count dataSize:dataSize];
-}
+
 @end

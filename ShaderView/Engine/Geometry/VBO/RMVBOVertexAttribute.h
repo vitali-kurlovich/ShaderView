@@ -36,3 +36,8 @@ typedef NS_ENUM(NSInteger, RMVBOVertexAttributeSize) {
 + (nonnull instancetype)attributeWithType:(RMVBOVertexAttributeType)type offset:(NSInteger)offset size:(RMVBOVertexAttributeSize)numberOfComponents;
 
 @end
+
+
+@interface RMVBOVertexAttribute  (Serialization)<NSCoding>
+
+@end

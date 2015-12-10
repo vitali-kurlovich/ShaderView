@@ -30,5 +30,7 @@ typedef NS_ENUM(NSInteger, RMVBODataBufferType) {
 @end
 
 
+@interface RMVBOBuffer (Serialization)<NSCoding>
 
+@end
 

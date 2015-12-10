@@ -73,3 +73,44 @@
 
 
 @end
+
+
+static NSString * const kTypeKey = @"type";
+static NSString * const kCountKey = @"count";
+static NSString * const kSizeKey = @"size";
+static NSString * const kBufferKey = @"buffer";
+
+static NSString * const kPrimitiveKey = @"primitive";
+static NSString * const kAttrKey = @"attr";
+
+@implementation RMVBOVertexBuffer (Serialization)
+
+#pragma mark - NSCoding
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeInteger:self.type forKey:kTypeKey];
+    [aCoder encodeInteger:self.count forKey:kCountKey];
+    [aCoder encodeInteger:self.dataSize forKey:kSizeKey];
+ 
+    [aCoder encodeInteger:self.primitive forKey:kPrimitiveKey];
+    [aCoder encodeObject:self.attributes forKey:kAttrKey];
+    
+    [aCoder encodeBytes:self.buffer length:self.dataSize];
+}
+
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    RMVBODataBufferType type = [aDecoder decodeIntegerForKey:kTypeKey];
+    NSInteger count = [aDecoder decodeIntegerForKey:kCountKey];
+    NSInteger dataSize = [aDecoder decodeIntegerForKey:kSizeKey];
+    RMVBOVertexBufferPrimitive primitive = [aDecoder decodeIntegerForKey:kPrimitiveKey];
+    NSArray<RMVBOVertexAttribute*>* attributes = [aDecoder decodeObjectForKey:kAttrKey];
+    
+    NSUInteger lenght = 0;
+    const uint8_t * buffer = [aDecoder decodeBytesForKey:kBufferKey returnedLength:&lenght];
+    
+    return [self initWithBuffer:(void*)buffer type:type count:count dataSize:dataSize attributes:attributes primitive:primitive];
+}
+
+@end

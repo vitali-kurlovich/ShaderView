@@ -33,4 +33,29 @@
 }
 
 
+
+@end
+
+static NSString * const kTypeKey = @"type";
+static NSString * const kOffsetKey = @"offset";
+static NSString * const kSizeKey = @"size";
+
+@implementation RMVBOVertexAttribute  (Serialization)
+
+#pragma mark - NSCoding
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeInteger:self.type forKey:kTypeKey];
+    [aCoder encodeInteger:self.offset forKey:kOffsetKey];
+    [aCoder encodeInteger:self.size forKey:kSizeKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    RMVBOVertexAttributeType type =[aDecoder decodeIntegerForKey:kTypeKey];
+    NSInteger offset = [aDecoder decodeIntegerForKey:kOffsetKey];
+    RMVBOVertexAttributeSize size = [aDecoder decodeIntegerForKey:kSizeKey];
+    
+    return [self initWithType:type offset:offset size:size];
+}
 @end
