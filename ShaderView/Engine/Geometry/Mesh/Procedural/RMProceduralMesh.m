@@ -223,3 +223,43 @@
 }
 
 @end
+
+static NSString * const kParamsKey = @"params";
+static NSString * const kFormatKey = @"format";
+static NSString * const kSmoothNormalsKey = @"smoothNormals";
+static NSString * const kOptimizeVBOKey = @"optimizeVBO";
+
+@implementation RMProceduralMesh (Serialization)
+
+#pragma mark - NSCoding
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeInteger:self.format forKey:kFormatKey];
+    [aCoder encodeBool:self.smoothNormals forKey:kSmoothNormalsKey];
+    [aCoder encodeBool:self.optimizeVBO forKey:kOptimizeVBOKey];
+    [aCoder encodeObject:[self params] forKey:kParamsKey];
+}
+
+- (nullable instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    RMVBOVertexAttributeType format = [aDecoder decodeIntForKey:kFormatKey];
+    BOOL smoothNormals = [aDecoder decodeBoolForKey:kSmoothNormalsKey];
+    BOOL optimizeVBO = [aDecoder decodeBoolForKey:kOptimizeVBOKey];
+    
+    NSArray<RMProceduralMeshParam*>* params =[aDecoder decodeObjectForKey:kParamsKey];
+    
+    self = [self initWithFormat:format];
+    self.smoothNormals = smoothNormals;
+    self.optimizeVBO = optimizeVBO;
+    
+    [params enumerateObjectsUsingBlock:^(RMProceduralMeshParam * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self registrateMeshParam:obj];
+    }];
+    
+    return self;
+}
+
+@end
+
+

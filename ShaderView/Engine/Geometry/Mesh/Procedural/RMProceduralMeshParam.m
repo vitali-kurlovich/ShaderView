@@ -94,9 +94,43 @@
         
     }
 }
+@end
 
+static NSString * const kNameKey = @"name";
+static NSString * const kTypeKey = @"type";
+static NSString * const kValueKey = @"value";
+static NSString * const kDefaultValueKey = @"dvalue";
+static NSString * const kMinValueKey = @"minvalue";
+static NSString * const kMaxValueKey = @"maxvalue";
 
+@implementation RMProceduralMeshParam (Serialization)
 
+#pragma mark - NSCoding
 
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.name forKey:kNameKey];
+    [aCoder encodeInteger:self.type forKey:kTypeKey];
+    
+    [aCoder encodeObject:self.value forKey:kValueKey];
+    
+    [aCoder encodeObject:self.defaultValue forKey:kDefaultValueKey];
+    [aCoder encodeObject:self.minValue forKey:kMinValueKey];
+    [aCoder encodeObject:self.maxValue forKey:kMaxValueKey];
+}
+
+- (nullable instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    NSString* name = [aDecoder decodeObjectForKey:kNameKey];
+    RMProceduralMeshParamValueType type = [aDecoder decodeIntegerForKey:kTypeKey];
+    NSNumber* value = [aDecoder decodeObjectForKey:kValueKey];
+    
+     NSNumber* defaultValue = [aDecoder decodeObjectForKey:kDefaultValueKey];
+    
+    NSNumber* minValue = [aDecoder decodeObjectForKey:kMinValueKey];
+    NSNumber* maxValue = [aDecoder decodeObjectForKey:kMaxValueKey];
+    
+    return [self initWithName:name type:type value:value defaultValue:defaultValue minValue:minValue maxValue:maxValue];
+}
 
 @end

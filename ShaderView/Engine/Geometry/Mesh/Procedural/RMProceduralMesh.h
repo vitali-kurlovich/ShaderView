@@ -43,7 +43,11 @@
                                                           type:(RMProceduralMeshParamValueType)type
                                                          value:(nullable NSNumber*)value;
 
-- (nullable RMProceduralMeshParam*)registrateMeshParam:(RMProceduralMeshParam*)param;
+- (nullable RMProceduralMeshParam*)registrateMeshParam:(nonnull RMProceduralMeshParam*)param;
+
+@end
+
+@interface RMProceduralMesh (Serialization)<NSCoding>
 
 @end
 

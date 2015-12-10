@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D0970561C1A09DE000385ED /* torus.rmpmesh in Resources */ = {isa = PBXBuildFile; fileRef = 5D0970551C1A09DE000385ED /* torus.rmpmesh */; };
+		5D09705A1C1A0A12000385ED /* RMProceduralMeshLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0970591C1A0A12000385ED /* RMProceduralMeshLoader.m */; };
 		5D1583181BFDB7D4003A8AD7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1583171BFDB7D4003A8AD7 /* main.m */; };
 		5D15831B1BFDB7D4003A8AD7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15831A1BFDB7D4003A8AD7 /* AppDelegate.m */; };
 		5D1583211BFDB7D4003A8AD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D15831F1BFDB7D4003A8AD7 /* Main.storyboard */; };
@@ -116,6 +118,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D0970551C1A09DE000385ED /* torus.rmpmesh */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = torus.rmpmesh; sourceTree = "<group>"; };
+		5D0970581C1A0A12000385ED /* RMProceduralMeshLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMProceduralMeshLoader.h; sourceTree = "<group>"; };
+		5D0970591C1A0A12000385ED /* RMProceduralMeshLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMProceduralMeshLoader.m; sourceTree = "<group>"; };
 		5D1583131BFDB7D4003A8AD7 /* ShaderView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShaderView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D1583171BFDB7D4003A8AD7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5D1583191BFDB7D4003A8AD7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -309,6 +314,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D0970571C1A0A12000385ED /* ProceduralLoader */ = {
+			isa = PBXGroup;
+			children = (
+				5D0970581C1A0A12000385ED /* RMProceduralMeshLoader.h */,
+				5D0970591C1A0A12000385ED /* RMProceduralMeshLoader.m */,
+			);
+			path = ProceduralLoader;
+			sourceTree = "<group>";
+		};
 		5D15830A1BFDB7D4003A8AD7 = {
 			isa = PBXGroup;
 			children = (
@@ -339,6 +353,7 @@
 				5D15831A1BFDB7D4003A8AD7 /* AppDelegate.m */,
 				5DC33D151C18A2AF004661A1 /* monkey.obj */,
 				5D1EFA9D1C199E7100A75B02 /* monkey.rmmesh */,
+				5D0970551C1A09DE000385ED /* torus.rmpmesh */,
 				5D15831F1BFDB7D4003A8AD7 /* Main.storyboard */,
 				5D1583221BFDB7D4003A8AD7 /* Assets.xcassets */,
 				5D1583241BFDB7D4003A8AD7 /* LaunchScreen.storyboard */,
@@ -773,6 +788,7 @@
 		5DC33D1E1C18C58C004661A1 /* MeshLoader */ = {
 			isa = PBXGroup;
 			children = (
+				5D0970571C1A0A12000385ED /* ProceduralLoader */,
 				5D1EFA9F1C199F0200A75B02 /* BinLoader */,
 				5DC33D1F1C18C58C004661A1 /* ObjLoader */,
 				5DC33D241C18C58C004661A1 /* RMMeshLoader.h */,
@@ -878,6 +894,7 @@
 				5D24AD061C109BBA00CD2D7E /* Julia.frag in Resources */,
 				5D24AD0D1C109BBA00CD2D7E /* simple.vert in Resources */,
 				5DB80ADF1C0F3CB000598E64 /* default.theme in Resources */,
+				5D0970561C1A09DE000385ED /* torus.rmpmesh in Resources */,
 				5D24AD0C1C109BBA00CD2D7E /* simple.frag in Resources */,
 				5D1583231BFDB7D4003A8AD7 /* Assets.xcassets in Resources */,
 				5DC33D161C18A2AF004661A1 /* monkey.obj in Resources */,
@@ -928,6 +945,7 @@
 				5D6617BD1C0C7A1600E3D4BE /* RMWizardStoryboard.m in Sources */,
 				5DC33CDB1C187067004661A1 /* RMTexture.m in Sources */,
 				5DC33CD91C187067004661A1 /* RMMaterial.m in Sources */,
+				5D09705A1C1A0A12000385ED /* RMProceduralMeshLoader.m in Sources */,
 				5DC33CD61C187067004661A1 /* RMRender.m in Sources */,
 				5DC33CCE1C187067004661A1 /* RMVertexAttribute.m in Sources */,
 				5D45960D1C078F9C00C30F30 /* RMSourceCodeViewController.m in Sources */,

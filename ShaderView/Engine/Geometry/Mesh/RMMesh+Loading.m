@@ -10,6 +10,7 @@
 
 #import "RMObjMeshLoader.h"
 #import "RMBinMeshLoader.h"
+#import "RMProceduralMeshLoader.h"
 
 
 @interface _RMMeshCache : NSObject
@@ -53,6 +54,24 @@
     {
         NSString* fileType = nil;
         
+        // Procedural mesh
+        for (NSString* type in [RMProceduralMeshLoader supportedType]) {
+            NSString* path = [[NSBundle mainBundle] pathForResource:name ofType:type];
+            if (path)
+            {
+                fileType = type;
+                break;
+            }
+        }
+        
+        if (fileType)
+        {
+            mesh = [[[RMProceduralMeshLoader alloc] initWithFileName:name ofType:fileType] mesh];
+           // Procedural do NOT be cached
+            return mesh;
+        }
+        
+         // VBO mesh
         for (NSString* type in [RMBinMeshLoader supportedType]) {
             NSString* path = [[NSBundle mainBundle] pathForResource:name ofType:type];
             if (path)
@@ -69,7 +88,7 @@
             return mesh;
         }
         
-        
+         // Obj mesh
         for (NSString* type in [RMObjMeshLoader supportedType]) {
             NSString* path = [[NSBundle mainBundle] pathForResource:name ofType:type];
             if (path)

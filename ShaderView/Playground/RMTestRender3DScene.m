@@ -48,10 +48,10 @@
 
 
 @property (nonatomic, readonly) RMMesh* cube;
-@property (nonatomic, readonly) RMTorusMesh* torus;
-@property (nonatomic, readonly) RMTorusMesh* torusW;
+@property (nonatomic, readonly) RMProceduralMesh* torus;
+@property (nonatomic, readonly) RMProceduralMesh* torusW;
 
-@property (nonatomic, readonly) RMSphereMesh* sphere;
+@property (nonatomic, readonly) RMProceduralMesh* sphere;
 
 
 @property (nonatomic, readonly) RMMesh* monkey;
@@ -152,12 +152,12 @@
 }
 
 
-- (RMTorusMesh*)torus
+- (RMProceduralMesh*)torus
 {
     if (_torus == nil)
     {
-        _torus = [RMTorusMesh mesh];
-       
+        _torus = [RMProceduralMesh meshNamed:@"torus"];
+        
     }
     return _torus;
 }
@@ -165,7 +165,7 @@
 
 
 
-- (RMSphereMesh*)sphere
+- (RMProceduralMesh*)sphere
 {
     if (_sphere == nil)
     {
@@ -197,14 +197,14 @@
     NSTimeInterval time = CACurrentMediaTime();
     
     //[self.torus setParamValue:@((sin(time)*0.5 + 0.5)*0.6 + 0.1) forParamName:@"minorRadius"];
-    self.torus.smoothNormals = NO;
+    //self.torus.smoothNormals = NO;
     
     //[self.sphere setParamValue:@(2) forParamName:@"radius"];
     
    // [self.sphere vbo];
     
     self.meshRender.program = self.program;
-    self.meshRender.mesh = self.monkey;
+    self.meshRender.mesh = self.torus;
     
     //self.wireframeRender.program = self.program;
     //self.wireframeRender.mesh = self.m;

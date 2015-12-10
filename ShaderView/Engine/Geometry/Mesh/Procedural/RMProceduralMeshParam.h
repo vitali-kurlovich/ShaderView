@@ -38,3 +38,7 @@ typedef NS_ENUM(NSInteger, RMProceduralMeshParamValueType) {
                                value:(nullable NSNumber*)value;
 
 @end
+
+
+@interface RMProceduralMeshParam (Serialization)<NSCoding>
+@end
