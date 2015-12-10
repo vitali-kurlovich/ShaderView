@@ -73,24 +73,30 @@ static NSString * const kBufferKey = @"buffer";
 #pragma mark - NSCoding
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeInteger:self.type forKey:kTypeKey];
     [aCoder encodeInteger:self.count forKey:kCountKey];
     [aCoder encodeInteger:self.dataSize forKey:kSizeKey];
     
-    [aCoder encodeBytes:self.buffer length:self.dataSize];
+    NSData* buffer = [NSData dataWithBytes:self.buffer length:self.dataSize];
+    
+    [aCoder encodeObject:buffer forKey:kBufferKey];
 }
 
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-    RMVBODataBufferType type = [aDecoder decodeIntegerForKey:kTypeKey];
+
     NSInteger count = [aDecoder decodeIntegerForKey:kCountKey];
     NSInteger dataSize = [aDecoder decodeIntegerForKey:kSizeKey];
     
-    NSUInteger lenght = 0;
-    const uint8_t * buffer = [aDecoder decodeBytesForKey:kBufferKey returnedLength:&lenght];
+    NSData* buffer = [aDecoder decodeObjectForKey:kBufferKey];
     
-    return [self initWithBuffer:(void*)buffer type:type count:count dataSize:dataSize];
+    void* data = malloc(dataSize);
+    [buffer getBytes:data length:dataSize];
+    
+    self = [self initWithBuffer:data type:RMVBODataBufferTypeStatic count:count dataSize:dataSize];
+    
+    free(data);
+    return self;
 }
 
 @end

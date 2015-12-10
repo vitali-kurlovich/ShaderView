@@ -103,7 +103,7 @@
 {
     if (_monkey == nil)
     {
-        _monkey = [RMMesh meshNamed:@"monkey"];
+        _monkey = [RMMesh meshNamed:@"monkey"];        
     }
     return _monkey;
 }

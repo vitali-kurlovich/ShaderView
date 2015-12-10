@@ -27,4 +27,5 @@
 
 @interface RMMesh (Serialization)<NSCoding>
 - (BOOL)writeToFile:(nonnull NSString*)filePath;
+- (nullable instancetype)initWithContentsOfFile:(nonnull NSString*)filePath;
 @end

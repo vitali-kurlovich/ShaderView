@@ -54,6 +54,12 @@ static NSString * const kVBOBufferKey = @"vbo";
      return [NSKeyedArchiver archiveRootObject:self toFile:filePath];
 }
 
+- (instancetype)initWithContentsOfFile:(NSString*)filePath
+{
+    return [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+}
+
+
 #pragma mark - NSCoding
 
 - (void)encodeWithCoder:(NSCoder *)aCoder

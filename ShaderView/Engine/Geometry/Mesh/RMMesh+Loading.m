@@ -9,6 +9,7 @@
 #import "RMMesh.h"
 
 #import "RMObjMeshLoader.h"
+#import "RMBinMeshLoader.h"
 
 
 @interface _RMMeshCache : NSObject
@@ -51,6 +52,24 @@
     if (name.length > 0)
     {
         NSString* fileType = nil;
+        
+        for (NSString* type in [RMBinMeshLoader supportedType]) {
+            NSString* path = [[NSBundle mainBundle] pathForResource:name ofType:type];
+            if (path)
+            {
+                fileType = type;
+                break;
+            }
+        }
+        
+        if (fileType)
+        {
+            mesh = [[[RMBinMeshLoader alloc] initWithFileName:name ofType:fileType] mesh];
+            [self.cache setObject:mesh forKey:name];
+            return mesh;
+        }
+        
+        
         for (NSString* type in [RMObjMeshLoader supportedType]) {
             NSString* path = [[NSBundle mainBundle] pathForResource:name ofType:type];
             if (path)

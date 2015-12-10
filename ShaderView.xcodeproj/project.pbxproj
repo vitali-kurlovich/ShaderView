@@ -13,6 +13,8 @@
 		5D1583231BFDB7D4003A8AD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D1583221BFDB7D4003A8AD7 /* Assets.xcassets */; };
 		5D1583261BFDB7D4003A8AD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D1583241BFDB7D4003A8AD7 /* LaunchScreen.storyboard */; };
 		5D1583671BFDFF5D003A8AD7 /* RMTestMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1583661BFDFF5D003A8AD7 /* RMTestMath.m */; };
+		5D1EFA9E1C199E7100A75B02 /* monkey.rmmesh in Resources */ = {isa = PBXBuildFile; fileRef = 5D1EFA9D1C199E7100A75B02 /* monkey.rmmesh */; };
+		5D1EFAA21C199F0200A75B02 /* RMBinMeshLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1EFAA11C199F0200A75B02 /* RMBinMeshLoader.m */; };
 		5D24AD061C109BBA00CD2D7E /* Julia.frag in Resources */ = {isa = PBXBuildFile; fileRef = 5D24ACFA1C109BBA00CD2D7E /* Julia.frag */; };
 		5D24AD071C109BBA00CD2D7E /* Julia.vert in Resources */ = {isa = PBXBuildFile; fileRef = 5D24ACFB1C109BBA00CD2D7E /* Julia.vert */; };
 		5D24AD081C109BBA00CD2D7E /* RMGLTestRenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D24ACFD1C109BBA00CD2D7E /* RMGLTestRenderViewController.m */; };
@@ -124,6 +126,9 @@
 		5D15832C1BFDB7D4003A8AD7 /* ShaderViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShaderViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D1583321BFDB7D4003A8AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D1583661BFDFF5D003A8AD7 /* RMTestMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTestMath.m; sourceTree = "<group>"; };
+		5D1EFA9D1C199E7100A75B02 /* monkey.rmmesh */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = monkey.rmmesh; sourceTree = "<group>"; };
+		5D1EFAA01C199F0200A75B02 /* RMBinMeshLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMBinMeshLoader.h; sourceTree = "<group>"; };
+		5D1EFAA11C199F0200A75B02 /* RMBinMeshLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMBinMeshLoader.m; sourceTree = "<group>"; };
 		5D24ACFA1C109BBA00CD2D7E /* Julia.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Julia.frag; sourceTree = "<group>"; };
 		5D24ACFB1C109BBA00CD2D7E /* Julia.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Julia.vert; sourceTree = "<group>"; };
 		5D24ACFC1C109BBA00CD2D7E /* RMGLTestRenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMGLTestRenderViewController.h; sourceTree = "<group>"; };
@@ -330,6 +335,7 @@
 				5D1583191BFDB7D4003A8AD7 /* AppDelegate.h */,
 				5D15831A1BFDB7D4003A8AD7 /* AppDelegate.m */,
 				5DC33D151C18A2AF004661A1 /* monkey.obj */,
+				5D1EFA9D1C199E7100A75B02 /* monkey.rmmesh */,
 				5D15831F1BFDB7D4003A8AD7 /* Main.storyboard */,
 				5D1583221BFDB7D4003A8AD7 /* Assets.xcassets */,
 				5D1583241BFDB7D4003A8AD7 /* LaunchScreen.storyboard */,
@@ -358,6 +364,15 @@
 				5DC33D1A1C18B7AF004661A1 /* RMObjMeshLoaderTest.m */,
 			);
 			path = ShaderViewTests;
+			sourceTree = "<group>";
+		};
+		5D1EFA9F1C199F0200A75B02 /* BinLoader */ = {
+			isa = PBXGroup;
+			children = (
+				5D1EFAA01C199F0200A75B02 /* RMBinMeshLoader.h */,
+				5D1EFAA11C199F0200A75B02 /* RMBinMeshLoader.m */,
+			);
+			path = BinLoader;
 			sourceTree = "<group>";
 		};
 		5D24ACF91C109BBA00CD2D7E /* Playground */ = {
@@ -753,6 +768,7 @@
 		5DC33D1E1C18C58C004661A1 /* MeshLoader */ = {
 			isa = PBXGroup;
 			children = (
+				5D1EFA9F1C199F0200A75B02 /* BinLoader */,
 				5DC33D1F1C18C58C004661A1 /* ObjLoader */,
 				5DC33D241C18C58C004661A1 /* RMMeshLoader.h */,
 				5DC33D251C18C58C004661A1 /* RMMeshLoader.m */,
@@ -864,6 +880,7 @@
 				5D6617B71C0C795E00E3D4BE /* RMWizardStoryboard.storyboard in Resources */,
 				5D24AD071C109BBA00CD2D7E /* Julia.vert in Resources */,
 				5D24AD111C10A20400CD2D7E /* textures.xcassets in Resources */,
+				5D1EFA9E1C199E7100A75B02 /* monkey.rmmesh in Resources */,
 				5D6617B51C0C756100E3D4BE /* RMSourceCodeStoryboard.storyboard in Resources */,
 				5DB80AE01C0F3CB000598E64 /* glsl.syntax in Resources */,
 				5D1583211BFDB7D4003A8AD7 /* Main.storyboard in Resources */,
@@ -884,6 +901,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D1EFAA21C199F0200A75B02 /* RMBinMeshLoader.m in Sources */,
 				5D45960A1C078F9C00C30F30 /* RMLineNumberView.m in Sources */,
 				5DC33CF21C1870B1004661A1 /* RMMathMatrix.m in Sources */,
 				5DC33D261C18C58C004661A1 /* _RMObjMeshIndex.m in Sources */,
