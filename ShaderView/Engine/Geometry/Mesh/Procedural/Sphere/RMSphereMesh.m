@@ -17,6 +17,12 @@
 #import "RMMeshVertex3D.h"
 
 
+@interface RMSphereMesh ()
+@property (nonatomic, readonly) NSUInteger segments;
+@property (nonatomic, readonly) NSUInteger rings;
+@property (nonatomic, readonly) float radius;
+@end
+
 @implementation RMSphereMesh
 
 - (instancetype)initWithFormat:(RMVBOVertexAttributeType)format
@@ -24,42 +30,34 @@
     self = [super initWithFormat:format];
     if (self)
     {
-        _rings = 25;
-        _segments = 32;
-        _radius = 1;
-        
         self.smoothNormals = YES;
     }
     return self;
 }
 
-- (void)setSegments:(NSUInteger)segments
+- (void)awakeProceduralMesh
 {
-    if (_segments != segments)
-    {
-        _segments = segments;
-        [self setNeedsRebuild];
-    }
+    [self registrateMeshParamWithName:@"rings" type:RMProceduralMeshParamValueTypeInt value:@(25) defaultValue:@(16) minValue:@(4) maxValue:@(64)];
+    [self registrateMeshParamWithName:@"segments" type:RMProceduralMeshParamValueTypeInt value:@(32) defaultValue:@(16) minValue:@(6) maxValue:@(96)];
+    
+    [self registrateMeshParamWithName:@"radius" type:RMProceduralMeshParamValueTypeFloat value:@(1) defaultValue:@(1) minValue:@(0) maxValue:@(100)];
+   
 }
 
-- (void)setRings:(NSUInteger)rings
+- (NSUInteger)segments
 {
-    if (_rings != rings)
-    {
-        _rings = rings;
-        [self setNeedsRebuild];
-    }
+    return [[self paramByName:@"segments"].value unsignedIntegerValue];
 }
 
-- (void)setRadius:(float)radius
+- (NSUInteger)rings
 {
-    if (_radius != radius)
-    {
-        _radius = radius;
-        [self setNeedsRebuild];
-    }
+    return [[self paramByName:@"rings"].value unsignedIntegerValue];
 }
 
+- (float)radius
+{
+    return [[self paramByName:@"radius"].value floatValue];
+}
 
 - (void)build:(RMMeshBuilder*)builder
 {

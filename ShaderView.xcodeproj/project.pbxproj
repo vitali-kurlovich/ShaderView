@@ -15,6 +15,7 @@
 		5D1583671BFDFF5D003A8AD7 /* RMTestMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1583661BFDFF5D003A8AD7 /* RMTestMath.m */; };
 		5D1EFA9E1C199E7100A75B02 /* monkey.rmmesh in Resources */ = {isa = PBXBuildFile; fileRef = 5D1EFA9D1C199E7100A75B02 /* monkey.rmmesh */; };
 		5D1EFAA21C199F0200A75B02 /* RMBinMeshLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1EFAA11C199F0200A75B02 /* RMBinMeshLoader.m */; };
+		5D1EFAA51C19A6D700A75B02 /* RMProceduralMeshParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1EFAA41C19A6D700A75B02 /* RMProceduralMeshParam.m */; };
 		5D24AD061C109BBA00CD2D7E /* Julia.frag in Resources */ = {isa = PBXBuildFile; fileRef = 5D24ACFA1C109BBA00CD2D7E /* Julia.frag */; };
 		5D24AD071C109BBA00CD2D7E /* Julia.vert in Resources */ = {isa = PBXBuildFile; fileRef = 5D24ACFB1C109BBA00CD2D7E /* Julia.vert */; };
 		5D24AD081C109BBA00CD2D7E /* RMGLTestRenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D24ACFD1C109BBA00CD2D7E /* RMGLTestRenderViewController.m */; };
@@ -129,6 +130,8 @@
 		5D1EFA9D1C199E7100A75B02 /* monkey.rmmesh */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = monkey.rmmesh; sourceTree = "<group>"; };
 		5D1EFAA01C199F0200A75B02 /* RMBinMeshLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMBinMeshLoader.h; sourceTree = "<group>"; };
 		5D1EFAA11C199F0200A75B02 /* RMBinMeshLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMBinMeshLoader.m; sourceTree = "<group>"; };
+		5D1EFAA31C19A6D700A75B02 /* RMProceduralMeshParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMProceduralMeshParam.h; sourceTree = "<group>"; };
+		5D1EFAA41C19A6D700A75B02 /* RMProceduralMeshParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMProceduralMeshParam.m; sourceTree = "<group>"; };
 		5D24ACFA1C109BBA00CD2D7E /* Julia.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Julia.frag; sourceTree = "<group>"; };
 		5D24ACFB1C109BBA00CD2D7E /* Julia.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Julia.vert; sourceTree = "<group>"; };
 		5D24ACFC1C109BBA00CD2D7E /* RMGLTestRenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMGLTestRenderViewController.h; sourceTree = "<group>"; };
@@ -565,11 +568,13 @@
 		5DC33C6C1C187067004661A1 /* Procedural */ = {
 			isa = PBXGroup;
 			children = (
+				5DC33C721C187067004661A1 /* Sphere */,
+				5DC33C751C187067004661A1 /* Torus */,
 				5DC33C6D1C187067004661A1 /* Cube */,
 				5DC33C701C187067004661A1 /* RMProceduralMesh.h */,
 				5DC33C711C187067004661A1 /* RMProceduralMesh.m */,
-				5DC33C721C187067004661A1 /* Sphere */,
-				5DC33C751C187067004661A1 /* Torus */,
+				5D1EFAA31C19A6D700A75B02 /* RMProceduralMeshParam.h */,
+				5D1EFAA41C19A6D700A75B02 /* RMProceduralMeshParam.m */,
 			);
 			path = Procedural;
 			sourceTree = "<group>";
@@ -961,6 +966,7 @@
 				5DC33CCA1C187067004661A1 /* RMVBOVertexBuffer.m in Sources */,
 				5DC33CCB1C187067004661A1 /* RMFragmentShader.m in Sources */,
 				5DC33CCC1C187067004661A1 /* RMProgram.m in Sources */,
+				5D1EFAA51C19A6D700A75B02 /* RMProceduralMeshParam.m in Sources */,
 				5DC33CBE1C187067004661A1 /* RMSphereMesh.m in Sources */,
 				5DC33CC91C187067004661A1 /* RMVBOVertexAttribute.m in Sources */,
 				5DC33CF61C1870B1004661A1 /* RMMatrix3x3.m in Sources */,

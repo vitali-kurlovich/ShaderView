@@ -17,58 +17,56 @@
 #import "RMMeshVertex3D.h"
 
 
+@interface RMTorusMesh ()
+@property (nonatomic, readonly) NSUInteger segments;
+@property (nonatomic, readonly) NSUInteger rings;
+@property (nonatomic, readonly) float minorRadius;
+@property (nonatomic, readonly) float majorRadius;
+@end
+
 @implementation RMTorusMesh
 - (instancetype)initWithFormat:(RMVBOVertexAttributeType)format
 {
     self = [super initWithFormat:format];
     if (self)
     {
-        _rings = 16;
-        _segments = 32;
-        _minorRadius = 0.4;
-        _majorRadius = 1;
+
         
         self.smoothNormals = YES;
     }
     return self;
 }
 
-- (void)setSegments:(NSUInteger)segments
+- (NSUInteger)segments
 {
-    if (_segments != segments)
-    {
-        _segments = segments;
-        [self setNeedsRebuild];
-    }
+    return [[self paramByName:@"segments"].value unsignedIntegerValue];
 }
 
-- (void)setRings:(NSUInteger)rings
+- (NSUInteger)rings
 {
-    if (_rings != rings)
-    {
-        _rings = rings;
-        [self setNeedsRebuild];
-    }
+    return [[self paramByName:@"rings"].value unsignedIntegerValue];
 }
 
-- (void)setMajorRadius:(float)majorRadius
+
+- (float)minorRadius
 {
-    if (_majorRadius != majorRadius)
-    {
-        _majorRadius = majorRadius;
-        [self setNeedsRebuild];
-    }
+    return [[self paramByName:@"minorRadius"].value floatValue];
 }
 
-- (void)setMinorRadius:(float)minorRadius
+- (float)majorRadius
 {
-    if (_minorRadius != minorRadius)
-    {
-        _minorRadius = minorRadius;
-        [self setNeedsRebuild];
-    }
+    return [[self paramByName:@"majorRadius"].value floatValue];
 }
 
+
+- (void)awakeProceduralMesh
+{
+    [self registrateMeshParamWithName:@"rings" type:RMProceduralMeshParamValueTypeInt value:@(16) defaultValue:@(16) minValue:@(4) maxValue:@(32)];
+    [self registrateMeshParamWithName:@"segments" type:RMProceduralMeshParamValueTypeInt value:@(32) defaultValue:@(16) minValue:@(6) maxValue:@(96)];
+    
+    [self registrateMeshParamWithName:@"minorRadius" type:RMProceduralMeshParamValueTypeFloat value:@(0.4) defaultValue:@(0.4) minValue:@(0) maxValue:@(100)];
+    [self registrateMeshParamWithName:@"majorRadius" type:RMProceduralMeshParamValueTypeFloat value:@(1) defaultValue:@(1) minValue:@(0) maxValue:@(100)];
+}
 
 - (void)build:(RMMeshBuilder*)builder
 {

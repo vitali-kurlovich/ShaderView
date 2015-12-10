@@ -44,6 +44,8 @@
 @property (nullable, readonly) RMTexture* texture;
 
 @property (nonatomic, readonly) RMMeshRender* meshRender;
+@property (nonatomic, readonly) RMMeshRender* wireframeRender;
+
 
 @property (nonatomic, readonly) RMMesh* cube;
 @property (nonatomic, readonly) RMTorusMesh* torus;
@@ -61,6 +63,8 @@
 @implementation RMTestRender3DScene
 
 @synthesize meshRender = _meshRender;
+@synthesize wireframeRender = _wireframeRender;
+
 
 @synthesize texture = _texture;
 @synthesize  monkey = _monkey;
@@ -97,6 +101,16 @@
         _meshRender = [RMMeshRender render];
     }
     return _meshRender;
+}
+
+- (RMMeshRender*)wireframeRender
+{
+    if (_wireframeRender == nil)
+    {
+        _wireframeRender = [RMMeshRender render];
+        //_wireframeRender.mode = RMMeshRenderWireframe;
+    }
+    return _wireframeRender;
 }
 
 - (RMMesh*)monkey
@@ -182,11 +196,18 @@
     
     NSTimeInterval time = CACurrentMediaTime();
     
-    //self.torus.minorRadius = (sin(time)*0.5 + 0.5)*0.6 + 0.1;
+    //[self.torus setParamValue:@((sin(time)*0.5 + 0.5)*0.6 + 0.1) forParamName:@"minorRadius"];
     self.torus.smoothNormals = NO;
+    
+    //[self.sphere setParamValue:@(2) forParamName:@"radius"];
+    
+   // [self.sphere vbo];
     
     self.meshRender.program = self.program;
     self.meshRender.mesh = self.monkey;
+    
+    //self.wireframeRender.program = self.program;
+    //self.wireframeRender.mesh = self.m;
     
     RMMatrix4x4* translate = [RMMatrix4x4 translateMatrixWithX:sin(0) y:0 z:-7];
     RMMatrix4x4* rotate = [RMMatrix4x4 rotateMatrixWithAngle:time x:sin(time*0.33) y:cos(time*0.33) z:0];
@@ -202,7 +223,6 @@
     
     [self.program setParam:@"texture" texture:self.texture];
     
-    self.meshRender.mode = RMMeshRenderSolid;
     [self.meshRender render];
     
     translate = [RMMatrix4x4 translateMatrixWithX:sin(time) y:0 z:-8];
@@ -212,9 +232,9 @@
     [self.program setParam:@"invmodelview" matrix:[[model inverse] transpose]];
     [self.program setParam:@"modelview" matrix:model];
     
-    self.meshRender.mode = RMMeshRenderWireframe;
-    [self.meshRender render];
+   //[self.wireframeRender render];
 
+    glFlush();
 }
 
 

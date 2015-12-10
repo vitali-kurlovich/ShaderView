@@ -19,11 +19,13 @@
 @interface RMGLVBORender ()
 {
     struct {
+        GLuint vertexBuffer;
+        GLuint indexBuffer;
+        
         unsigned int vertexBufferDidPrepare:1;
         unsigned int indexBufferDidPrepare:1;
         
-        GLuint vertexBuffer;
-        GLuint indexBuffer;
+        
     } _glVbo;
     
     BOOL _needsToRefrashBuffer;
@@ -98,8 +100,6 @@
     
     return prim;
 }
-
-
 
 
 - (BOOL)isPrepared

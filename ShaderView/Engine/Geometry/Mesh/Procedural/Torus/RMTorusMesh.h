@@ -10,10 +10,7 @@
 
 @interface RMTorusMesh : RMProceduralMesh
 
-@property (nonatomic) NSUInteger segments;
-@property (nonatomic) NSUInteger rings;
-@property (nonatomic) float minorRadius;
-@property (nonatomic) float majorRadius;
+
 
 
 

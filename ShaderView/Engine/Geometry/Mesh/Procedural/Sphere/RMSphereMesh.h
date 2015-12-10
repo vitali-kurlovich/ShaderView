@@ -9,9 +9,7 @@
 #import "RMProceduralMesh.h"
 
 @interface RMSphereMesh : RMProceduralMesh
-@property (nonatomic) NSUInteger segments;
-@property (nonatomic) NSUInteger rings;
-@property (nonatomic) float radius;
+
 
 
 
