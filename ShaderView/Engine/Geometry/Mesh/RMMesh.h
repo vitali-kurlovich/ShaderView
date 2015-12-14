@@ -10,8 +10,11 @@
 
 @class RMVBOObject;
 
+@protocol RMMeshDelegate;
+
 @interface RMMesh : NSObject
 @property (nullable, nonatomic, readonly) RMVBOObject* vbo;
+@property (nonatomic, weak) id<RMMeshDelegate> delegate;
 
 + (nonnull instancetype)mesh;
 + (nonnull instancetype)meshWithVBO:(nullable RMVBOObject*)vbo;
@@ -28,4 +31,11 @@
 @interface RMMesh (Serialization)<NSCoding>
 - (BOOL)writeToFile:(nonnull NSString*)filePath;
 - (nullable instancetype)initWithContentsOfFile:(nonnull NSString*)filePath;
+@end
+
+
+@protocol RMMeshDelegate <NSObject>
+@optional
+- (void)mesh:(nonnull RMMesh*)mesh vboDidChange:(nullable RMVBOObject*)vbo;
+
 @end

@@ -209,6 +209,8 @@
     //self.wireframeRender.program = self.program;
     //self.wireframeRender.mesh = self.m;
     
+    
+    
     RMMatrix4x4* translate = [RMMatrix4x4 translateMatrixWithX:sin(0) y:0 z:-7];
     RMMatrix4x4* rotate = [RMMatrix4x4 rotateMatrixWithAngle:time x:sin(time*0.33) y:cos(time*0.33) z:0];
     RMMatrix4x4* model =  [rotate mul:translate];
